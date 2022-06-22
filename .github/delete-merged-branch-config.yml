@@ -1,0 +1,8 @@
+# Automatically deletes a branch after it's merged
+# 
+# More Details:
+# https://probot.github.io/apps/delete-merged-branch/
+
+exclude:
+  - main
+  - develop

@@ -1,0 +1,10 @@
+# Label issues based on the title and body agains a list of labels
+# 
+# More Details:
+# https://probot.github.io/apps/issuelabeler/
+
+# Number of labels to fetch (optional). Defaults to 20
+numLabels: 20
+# These labels will not be used even if the issue contains them
+# excludeLabels:
+#   - pinned
