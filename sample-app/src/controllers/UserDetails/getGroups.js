@@ -20,7 +20,7 @@ function apiCall() {
     });
 }
 
-export default function GetGroupID(props) {
+export default function GetGroups(props) {
 
     const [error, setError] = useState([]);
 

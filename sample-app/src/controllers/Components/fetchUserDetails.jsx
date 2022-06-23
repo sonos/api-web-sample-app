@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import GetGroupID from "../UserDetails/getGroupID";
+import GetGroups from "../UserDetails/getGroups";
 import GetHousehold from "../UserDetails/getHouseholdID";
 import Player from "./playerComponent";
 
@@ -40,10 +40,10 @@ class FetchUserDetails extends Component {
             )}
         </div>
 
-        <div className="getGroupID">
+        <div className="getGroups">
           {(window.localStorage.groups === undefined || window.localStorage.groups === "") && 
           this.state.groups_flag && (
-          <GetGroupID 
+          <GetGroups 
             grp_handler={this.group_handler}
           />
           )}
