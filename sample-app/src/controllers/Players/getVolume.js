@@ -12,7 +12,7 @@ function apiCall(){
       config.api_end_points.volume_api_end_point +
       PLAYER_ID +
       "/playerVolume"
-    console.log("Endpoint is: " + end_point_);
+    // console.log("Endpoint is: " + end_point_);
 
     const headers_ = {
       "Content-Type": "application/json",

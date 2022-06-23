@@ -15,7 +15,6 @@ class Authentication extends Component{
 
     get_access_token = () =>{
         let auth_token = JSON.parse(window.localStorage.access_token).token;
-        console.log(auth_token);
         return auth_token;
     }
 

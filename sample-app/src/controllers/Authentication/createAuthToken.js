@@ -7,7 +7,6 @@ import axios from "axios";
 const authTokenapiCall = async(props) => {
     let end_point_ = config.api_end_points.create_auth_token_url;
 
-    console.log("API End point is: ", end_point_);
     const headers_ = {
         "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
         "Authorization" : "Basic " + props.b64_encoded_string
@@ -30,7 +29,6 @@ const authTokenapiCall = async(props) => {
       };
       
     const response = await axios(options);
-    console.log(response);
     return response;
 };
 
@@ -39,7 +37,6 @@ export default function CreateAuthToken(props) {
 
     authTokenapiCall(props)
     .then((res) => {
-            console.log("API response is: ", res);
             props.is_logged_in_handler(true, res.data);
         });
     

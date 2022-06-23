@@ -6,13 +6,12 @@ import axios from "axios";
 
 const apiCall = () => {
   let end_point_ = config.api_end_points.household_api_url;
-  console.log(end_point_);
   const authentication = new Authentication();
   const headers_ = {
     "Content-Type": "application/json",
     "Authorization": "Bearer " + authentication.get_access_token(),
   };
-  console.log(headers_);
+  // console.log("Endpoint is: " + end_point_);
 
   return axios({
     url: end_point_,
@@ -23,8 +22,6 @@ const apiCall = () => {
 
 export default function GetHousehold(props) {
 
-  console.log("House hold method called...")
-
   const [response, setResponse] = useState([]);
   const [error, setError] = useState([]);
 
@@ -33,7 +30,6 @@ export default function GetHousehold(props) {
     apiCall()
       .then((res) => {
         if (mounted) {
-          console.log(res.data);
           let household_id = res.data["households"][0]["id"];
           setResponse(household_id);
           setError(false);
@@ -49,7 +45,6 @@ export default function GetHousehold(props) {
   }, []);
 
   window.localStorage.setItem("household_id", response);
-  console.log("Loaded from storage : ", window.localStorage.household_id);
 
   return error === true ? (
     <div>

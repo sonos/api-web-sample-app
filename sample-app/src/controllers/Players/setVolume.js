@@ -17,7 +17,7 @@ class SetVolume extends Component {
       config.api_end_points.volume_api_end_point +
       PLAYER_ID +
       "/playerVolume"
-    console.log("Endpoint is: " + end_point_);
+    // console.log("Endpoint is: " + end_point_);
 
     const headers_ = {
       "Content-Type": "application/json",
@@ -33,7 +33,9 @@ class SetVolume extends Component {
   }
 
   setVolume(volume) {
-    this.apiCall(volume).catch(function (error) {
+    this.apiCall(volume)
+    .then((res) => {console.log("Set Volume to: ", volume)})
+    .catch(function (error) {
       if (error.response) {
         // Request made and server responded
         console.log(error.response.data);

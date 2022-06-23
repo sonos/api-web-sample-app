@@ -8,14 +8,14 @@ import Player from "./playerComponent";
 class FetchUserDetails extends Component {
   state = {
     household_id_flag: true,
-    group_id_flag: !((window.localStorage.household_id === undefined) || (window.localStorage.household_id === "")),
-    players_flag : !((window.localStorage.household_id === undefined) || (window.localStorage.household_id === ""))
+    groups_flag: !((window.localStorage.household_id === undefined) || (window.localStorage.household_id === "")),
+    players_flag : !((window.localStorage.groups === undefined) || (window.localStorage.groups === ""))
   };
 
   hh_handler = (input_flag) => {
-    console.log("Setting group ID flag to : ", input_flag);
+    console.log("Setting groups flag to : ", input_flag);
     this.setState({
-      group_id_flag: input_flag
+      groups_flag: input_flag
     });
   };
 
@@ -30,10 +30,6 @@ class FetchUserDetails extends Component {
     return (
       <div>
 
-        {console.log("Household_id is : ",window.localStorage.household_id)}
-        {console.log("Group_id is : ", window.localStorage.group_id)}
-        {console.log("players is: ", window.localStorage.players)}
-
         <div className="getHouseholdID">
           {
             ((window.localStorage.household_id === undefined || window.localStorage.household_id === "") && 
@@ -45,8 +41,8 @@ class FetchUserDetails extends Component {
         </div>
 
         <div className="getGroupID">
-          {(window.localStorage.group_id === undefined || window.localStorage.group_id === "") && 
-          this.state.group_id_flag && (
+          {(window.localStorage.groups === undefined || window.localStorage.groups === "") && 
+          this.state.groups_flag && (
           <GetGroupID 
             grp_handler={this.group_handler}
           />

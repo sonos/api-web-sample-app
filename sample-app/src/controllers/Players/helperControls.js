@@ -11,13 +11,13 @@ class HelperControls extends Component {
   }
 
   apiCall(input_action) {
-    let GROUP_ID = window.localStorage.group_id
+    let GROUP_ID = JSON.parse(window.localStorage.groups)[0].id;
     let end_point_ =
       config.api_end_points.control_api_endpoint +
       GROUP_ID +
       "/playback/" + 
       input_action;
-    console.log("Endpoint is: " + end_point_);
+    // console.log("Endpoint is: " + end_point_);
 
     const headers_ = {
       "Content-Type": "application/json",

@@ -107,7 +107,6 @@ class Player extends Component {
   onSetVolume = () => {
     console.log("Volume Slider is : ", this.volume_slider);
     const volume = this.volume_slider.current.value;
-    console.log(volume);
     this.SetVolume.setVolume(volume);
     this.setState({volume_val: volume});
   }
