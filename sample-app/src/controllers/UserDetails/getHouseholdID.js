@@ -37,7 +37,7 @@ export default function GetHousehold(props) {
           let household_id = res.data["households"][0]["id"];
           setResponse(household_id);
           setError(false);
-          props.hh_handler(true,household_id);
+          props.hh_handler(true);
         }
       })
       .catch(function (error) {
@@ -50,7 +50,6 @@ export default function GetHousehold(props) {
 
   window.localStorage.setItem("household_id", response);
   console.log("Loaded from storage : ", window.localStorage.household_id);
-  // console.log(props);
 
   return error === true ? (
     <div>

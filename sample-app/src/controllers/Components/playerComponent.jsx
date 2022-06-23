@@ -1,14 +1,15 @@
 import React from "react";
 import { Component } from "react";
+import GetVolume from "../Players/getVolume";
 import HelperControls from "../Players/helperControls";
-import GetSetVolume from "../Players/setVolume";
+import SetVolume from "../Players/setVolume";
 
 class Player extends Component {
   constructor() {
     super();
     this.ControlOptions = new HelperControls();
-    this.Volume = new GetSetVolume()
-    this.state = {isPlaying:false, volume_val: 40};
+    this.SetVolume = new SetVolume();
+    this.state = {isPlaying:false, volume_val: 40, get_start_volume_flag: true};
     // Creating references
     this.volume_slider = React.createRef();
     this.playpause_btn = React.createRef();
@@ -18,6 +19,11 @@ class Player extends Component {
     return (
     <div className="player">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
+      <div>
+        {this.state.get_start_volume_flag && <GetVolume getVolumeHandler = {this.getVolumeHandler}/>}
+      </div>
+
       <div align="center">
           <button className="fa fa-play-circle fa-5x m-3" onClick={() => this.playMusic()} >
             Play
@@ -102,8 +108,13 @@ class Player extends Component {
     console.log("Volume Slider is : ", this.volume_slider);
     const volume = this.volume_slider.current.value;
     console.log(volume);
-    this.Volume.setVolume(volume);
+    this.SetVolume.setVolume(volume);
     this.setState({volume_val: volume});
+  }
+
+  getVolumeHandler = (flag, volume_at_start) =>{
+    this.setState({get_start_volume_flag : flag, 
+                  volume_val : volume_at_start});
   }
 
 }

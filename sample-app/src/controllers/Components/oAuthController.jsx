@@ -16,8 +16,6 @@ export default class OAuth extends Component{
 
     isLoggedIn = () => {
     
-        
-    
         if (this.auth.isAccessTokenValid()){
             this.props.access_token_handler(true);
             return true;

@@ -35,10 +35,11 @@ export default function GetGroupID(props) {
           setGroupID(group_id);
           setPlayers(res.data["players"]);
           setError(false);
-          props.grp_handler(group_id,res.data["players"]);
+          props.grp_handler(true);
         }
       })
       .catch(function (error) {
+        props.grp_handler(false);
         console.log("Group ID could not be found");
         setError(true);
         return Promise.reject(error);

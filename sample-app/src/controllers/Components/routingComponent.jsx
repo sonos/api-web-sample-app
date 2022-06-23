@@ -1,6 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 
+import Authentication from '../Authentication/authentication';
 import OAuth from './oAuthController';
 import FetchUserDetails from './fetchUserDetails';
 
@@ -8,7 +9,7 @@ import FetchUserDetails from './fetchUserDetails';
 
 class RouteComponents extends Component {
     
-    state = { is_logged_in : null }
+    state = { is_logged_in : new Authentication().isAccessTokenValid() }
 
     access_token_handler=(flag) => {
         this.setState({is_logged_in : flag});

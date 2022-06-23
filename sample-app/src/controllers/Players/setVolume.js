@@ -4,7 +4,7 @@ import axios from "axios";
 
 import { Component } from "react";
 
-class GetSetVolume extends Component {
+class SetVolume extends Component {
   constructor() {
     super();
     this.authentication = new Authentication();
@@ -50,4 +50,4 @@ class GetSetVolume extends Component {
   }
 }
 
-export default GetSetVolume;
+export default SetVolume;
