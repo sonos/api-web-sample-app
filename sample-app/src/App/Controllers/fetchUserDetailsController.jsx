@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import GetGroups from "../UserDetails/getGroups";
 import GetHousehold from "../UserDetails/getHouseholdID";
-import Player from "./playerComponent";
+import Player from "../Components/playerComponent";
 
 
 class FetchUserDetails extends Component {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import GetVolume from "../Players/getVolume";
-import HelperControls from "../Players/helperControls";
+import HelperControls from "../Players/playerControls";
 import SetVolume from "../Players/setVolume";
 
 class Player extends Component {

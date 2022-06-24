@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/player_controls.css';
 
-import Navbar from './controllers/Components/navBarComponent';
-import RouteComponents from './controllers/Components/routingComponent';
+import Navbar from './App/Controllers/navBarController';
+import RouteComponents from './App/Controllers/routingController';
 
 
 

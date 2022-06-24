@@ -3,7 +3,7 @@ import { Component } from 'react';
 
 import Authentication from '../Authentication/authentication';
 import OAuth from './oAuthController';
-import FetchUserDetails from './fetchUserDetails';
+import FetchUserDetails from './fetchUserDetailsController';
 
 
 

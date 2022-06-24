@@ -14,34 +14,27 @@ export default class OAuth extends Component{
         this.code = null;
     }
 
-    isLoggedIn = () => {
-    
-        if (this.auth.isAccessTokenValid()){
-            this.props.access_token_handler(true);
+    getCode = () => {
+        // Checking whether the URL contains the param code
+        let cur_url = window.location.href;
+        const params = new URLSearchParams(cur_url);
+        const code_generated = params.get('code');
+
+        if (code_generated !== null){
+            this.code_generated_flag = true;
+            this.code = code_generated;
             return true;
         }
         else{
-
-            // Checking whether the URL contains the param code
-            let cur_url = window.location.href;
-            const params = new URLSearchParams(cur_url);
-            const code_generated = params.get('code');
-    
-            if (code_generated !== null){
-                this.code_generated_flag = true;
-                this.code = code_generated;
-                return true;
-            }
-            else{
-                this.props.access_token_handler(false);
-                return false;
-            }
+            console.log("Code not found in the URL generated after OAuth");
+            this.props.access_token_handler(false);
+            return false;
         }
     }
 
 
     is_logged_in_handler = (flag, response) =>{
-        console.log("response from Auth API", response);
+        // console.log("response from Auth API", response);
 
         const access_token_data = {
             "token": response["access_token"],
@@ -61,7 +54,7 @@ export default class OAuth extends Component{
     return (
         <div>
             <div className="login_to_sonos" align="center" >
-                {this.isLoggedIn()}
+                {this.getCode()}
                 <div>
                     <h1 className="oauthtext">Login with Sonos</h1>
                 </div>
