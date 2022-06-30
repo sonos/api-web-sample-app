@@ -15,7 +15,6 @@ class Control extends Component {
       volume_val: 40,
       get_start_volume_flag: true,
     };
-    // Creating references
     this.volume_slider = React.createRef();
     this.playpause_btn = React.createRef();
   }
@@ -45,15 +44,6 @@ class Control extends Component {
             )}
           </div>
 
-          {/* <div align="center">
-              <button className="fa fa-play-circle fa-5x m-3" onClick={() => this.playMusic()} >
-                Play
-              </button>
-              <button className="fa fa-pause-circle fa-5x" onClick={() => this.pauseMusic()} >
-                Pause
-              </button>
-          </div> */}
-
           <div className="details">
             <div className="track-art">
               <img
@@ -68,17 +58,17 @@ class Control extends Component {
           </div>
 
           <div className="buttons">
-            <div className="prev-track" onClick={() => this.skipToPrevious()}>
+            <div className="prev-track" onClick={this.skipToPrevious}>
               <i className="fa fa-step-backward fa-2x"></i>
             </div>
             <div
               ref={this.playpause_btn}
               className="playpause-track"
-              onClick={() => this.toggleMusic()}
+              onClick={this.toggleMusic}
             >
               <i className={this.playModeClass()}></i>
             </div>
-            <div className="next-track" onClick={() => this.skipToNext()}>
+            <div className="next-track" onClick={this.skipToNext}>
               <i className="fa fa-step-forward fa-2x"></i>
             </div>
           </div>
@@ -93,7 +83,7 @@ class Control extends Component {
               step="1"
               ref={this.volume_slider}
               className="volume_slider"
-              onChange={() => this.onSetVolume()}
+              onChange={this.onSetVolume}
             />
             <i className="fa fa-volume-up"></i>
           </div>
@@ -104,7 +94,14 @@ class Control extends Component {
     );
   }
 
+  playModeClass = () => {
+    const playClass = "fa fa-play-circle fa-5x";
+    const pauseClass = "fa fa-pause-circle fa-5x";
+    return this.state.isPlaying ? pauseClass : playClass;
+  };
+
   playMusic = () => {
+    console.debug("Trying to play music...");
     if (!this.state.isPlaying) {
       this.ControlOptions.helper_controls("play", this.group.id);
       this.setState({ isPlaying: true });
@@ -113,19 +110,15 @@ class Control extends Component {
     }
   };
 
-  playModeClass = () => {
-    const playClass = "fa fa-play-circle fa-5x";
-    const pauseClass = "fa fa-pause-circle fa-5x";
-    return this.state.isPlaying ? pauseClass : playClass;
-  };
-
   toggleMusic = () => {
+    console.debug("Trying to play/pause music...");
     this.setState({ isPlaying: !this.state.isPlaying });
     this.ControlOptions.helper_controls("togglePlayPause", this.group.id);
     this.playModeClass();
   };
 
   pauseMusic = () => {
+    console.debug("Trying to pause music...");
     if (this.state.isPlaying) {
       this.ControlOptions.helper_controls("pause", this.group.id);
       this.setState({ isPlaying: false });
@@ -135,11 +128,13 @@ class Control extends Component {
   };
 
   skipToPrevious = () => {
+    console.debug("Trying to skip to previous song...");
     this.ControlOptions.helper_controls("skipToPreviousTrack", this.group.id);
     this.playMusic();
   };
 
   skipToNext = () => {
+    console.debug("Trying to skip to next song...");
     this.ControlOptions.helper_controls("skipToNextTrack", this.group.id);
     this.playMusic();
   };

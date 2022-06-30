@@ -2,19 +2,19 @@ import { Component } from "react";
 
 class Authentication extends Component {
   isAccessTokenValid = () => {
-    let access_token = window.localStorage.access_token;
-    if (access_token === undefined || access_token === "") {
+    let accessToken = window.localStorage.access_token;
+    if (accessToken === undefined || accessToken === "") {
       return false;
     } else {
       let cur_time = Math.floor(Date.now() / 1000);
-      access_token = JSON.parse(access_token);
-      return !(cur_time - access_token.token_timestamp >= access_token.expiry);
+      accessToken = JSON.parse(accessToken);
+      return !(cur_time - accessToken.token_timestamp >= accessToken.expiry);
     }
   };
 
   get_access_token = () => {
-    let auth_token = JSON.parse(window.localStorage.access_token).token;
-    return auth_token;
+    let accessToken = JSON.parse(window.localStorage.access_token).token;
+    return accessToken;
   };
 }
 

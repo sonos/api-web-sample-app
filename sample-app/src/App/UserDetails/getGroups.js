@@ -7,18 +7,18 @@ import React from "react";
 
 function apiCall() {
   const HOUSEHOLD_ID = localStorage.getItem("household_id");
-  let end_point_ =
+  let end_point =
     config.api_end_points.household_api_url + "/" + HOUSEHOLD_ID + "/groups";
   const authentication = new Authentication();
-  const headers_ = {
+  const headers = {
     "Content-Type": "application/json",
     Authorization: "Bearer " + authentication.get_access_token(),
   };
 
   return axios({
-    url: end_point_,
+    url: end_point,
     method: "get",
-    headers: headers_,
+    headers: headers,
   });
 }
 

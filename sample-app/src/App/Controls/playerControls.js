@@ -11,21 +11,21 @@ class HelperControls extends Component {
   }
 
   apiCall(input_action, grp_id) {
-    let end_point_ =
+    let end_point =
       config.api_end_points.control_api_endpoint +
       grp_id +
       "/playback/" + 
       input_action;
 
-    const headers_ = {
+    const headers = {
       "Content-Type": "application/json",
       Authorization: "Bearer " + this.authentication.get_access_token(),
     };
 
     return axios({
-      url: end_point_,
+      url: end_point,
       method: "post",
-      headers: headers_,
+      headers: headers,
       data:{}
     });
   }

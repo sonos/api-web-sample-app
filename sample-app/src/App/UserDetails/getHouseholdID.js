@@ -6,17 +6,17 @@ import axios from "axios";
 import React from "react";
 
 const apiCall = () => {
-  let end_point_ = config.api_end_points.household_api_url;
+  let end_point = config.api_end_points.household_api_url;
   const authentication = new Authentication();
-  const headers_ = {
+  const headers = {
     "Content-Type": "application/json",
     Authorization: "Bearer " + authentication.get_access_token(),
   };
 
   return axios({
-    url: end_point_,
+    url: end_point,
     method: "get",
-    headers: headers_,
+    headers: headers,
   });
 };
 

@@ -2,9 +2,9 @@ import config from "../../config.json";
 import axios from "axios";
 
 const authTokenapiCall = async (props) => {
-  let end_point_ = config.api_end_points.create_auth_token_url;
+  let end_point = config.api_end_points.create_auth_token_url;
 
-  const headers_ = {
+  const headers = {
     "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
     Authorization: "Basic " + props.b64_encoded_string,
   };
@@ -20,9 +20,9 @@ const authTokenapiCall = async (props) => {
 
   const options = {
     method: "POST",
-    headers: headers_,
+    headers: headers,
     data,
-    url: end_point_,
+    url: end_point,
   };
 
   const response = await axios(options);

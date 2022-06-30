@@ -8,7 +8,6 @@ class PlayerComponent extends Component {
   constructor() {
     super();
     this.state = { volume_val: 40, get_start_volume_flag: true };
-    // Creating references
     this.volume_slider = React.createRef();
   }
 
