@@ -1,0 +1,13 @@
+body {
+    background-color: white;
+    
+    transition: background-color .5s;
+    }
+    
+    .groups {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    }
