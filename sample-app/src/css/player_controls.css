@@ -1,51 +1,47 @@
 body {
     background-color: linen;
     
-    /* Smoothly transition the background color */
     transition: background-color .5s;
     }
     
-    /* Using flex with the column direction to
-    align items in a vertical direction */
     .player {
-    height: 95vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     }
     
-    .details {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 25px;
-    }
     
-    .track-art {
-    margin: 25px;
-    height: 250px;
-    width: 250px;
-    background-image: URL(
-        "https://source.unsplash.com/Qrspubmx6kE/640x360");
-    background-size: cover;
-    background-position: center;
-    border-radius: 15%;
-    }
-    
-    /* Changing the font sizes to suitable ones */
-    .now-playing {
-    font-size: 1rem;
-    }
-    
-    .track-name {
-    font-size: 3rem;
-    }
-    
-    .track-artist {
-    font-size: 1.5rem;
-    }
+.details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 25px;
+}
+ 
+.track-art {
+  margin: 25px;
+  height: 250px;
+  width: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15%;
+}
+ 
+/* Changing the font sizes to suitable ones */
+.now-playing {
+  font-size: 1rem;
+}
+ 
+.track-name {
+  font-size: 3rem;
+}
+ 
+.track-artist {
+  font-size: 1.5rem;
+}
     
     /* Using flex with the row direction to
     align items in a horizontal direction */
@@ -144,6 +140,7 @@ body {
 
     h1.oauthtext {
         padding-top: 50px;
+        text-align: center;
       }
 
     a.oauthhref {

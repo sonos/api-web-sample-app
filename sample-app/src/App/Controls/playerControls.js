@@ -10,14 +10,12 @@ class HelperControls extends Component {
     this.authentication = new Authentication();
   }
 
-  apiCall(input_action) {
-    let GROUP_ID = JSON.parse(window.localStorage.groups)[0].id;
+  apiCall(input_action, grp_id) {
     let end_point_ =
       config.api_end_points.control_api_endpoint +
-      GROUP_ID +
+      grp_id +
       "/playback/" + 
       input_action;
-    // console.log("Endpoint is: " + end_point_);
 
     const headers_ = {
       "Content-Type": "application/json",
@@ -32,8 +30,8 @@ class HelperControls extends Component {
     });
   }
 
-  helper_controls(input_action) {
-    this.apiCall(input_action).catch(function (error) {
+  helper_controls(input_action, grp_id) {
+    this.apiCall(input_action, grp_id).catch(function (error) {
       if (error.response) {
         // Request made and server responded
         console.log(error.response.data);

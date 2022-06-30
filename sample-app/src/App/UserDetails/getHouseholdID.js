@@ -3,15 +3,15 @@ import Authentication from "../Authentication/authentication";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import React from "react";
 
 const apiCall = () => {
   let end_point_ = config.api_end_points.household_api_url;
   const authentication = new Authentication();
   const headers_ = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer " + authentication.get_access_token(),
+    Authorization: "Bearer " + authentication.get_access_token(),
   };
-  // console.log("Endpoint is: " + end_point_);
 
   return axios({
     url: end_point_,
@@ -21,7 +21,6 @@ const apiCall = () => {
 };
 
 export default function GetHousehold(props) {
-
   const [response, setResponse] = useState([]);
   const [error, setError] = useState([]);
 
@@ -37,7 +36,7 @@ export default function GetHousehold(props) {
         }
       })
       .catch(function (error) {
-        console.log("Something went wrong");
+        console.error("Something went wrong");
         setError(true);
         return Promise.reject(error);
       });
@@ -48,10 +47,10 @@ export default function GetHousehold(props) {
 
   return error === true ? (
     <div>
-      <br/>
-      <h1 align="center">No device detected...</h1>
+      <br />
+      <h1 className="oauthtext">No device detected...</h1>
     </div>
   ) : (
-    <h1></h1>
+    <h1 className="oauthtext">Household ID found</h1>
   );
 }
