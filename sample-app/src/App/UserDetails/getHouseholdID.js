@@ -1,32 +1,28 @@
 import config from "../../config.json";
-import Authentication from "../Authentication/authentication";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import Helper from "../Utility/helper";
+import { METHOD_GET } from "../Utility/constants";
 
 import React from "react";
 
-const apiCall = () => {
-  let end_point = config.api_end_points.household_api_url;
-  const authentication = new Authentication();
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: "Bearer " + authentication.get_access_token(),
-  };
-
-  return axios({
-    url: end_point,
-    method: "get",
-    headers: headers,
-  });
-};
-
 export default function GetHousehold(props) {
+  console.debug("Start GetHousehold()");
+
   const [response, setResponse] = useState([]);
   const [error, setError] = useState([]);
+  const helper = new Helper();
 
   useEffect(() => {
+    console.debug("Start GetGroups()");
     let mounted = true;
-    apiCall()
+
+    let endPoint = config.api_end_points.household_api_url;
+
+    const headers = helper.getHeaderBearer()
+
+    const data = {};
+
+    helper.apiCall(endPoint, headers, METHOD_GET, data)
       .then((res) => {
         if (mounted) {
           let household_id = res.data["households"][0]["id"];
@@ -44,7 +40,7 @@ export default function GetHousehold(props) {
   }, []);
 
   window.localStorage.setItem("household_id", response);
-
+  console.debug("End GetHousehold()");
   return error === true ? (
     <div>
       <br />
@@ -53,4 +49,5 @@ export default function GetHousehold(props) {
   ) : (
     <h1 className="oauthtext">Household ID found</h1>
   );
+
 }

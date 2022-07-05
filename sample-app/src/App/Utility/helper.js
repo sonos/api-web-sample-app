@@ -5,6 +5,7 @@
 
 import axios from "axios";
 import Authentication from "../Authentication/authentication";
+import config from "../../config.json";
 
 class Helper{
     constructor() {
@@ -18,14 +19,11 @@ class Helper{
 
       console.debug("Start Helper.apiCall " );
       console.debug("Paramaters - endpoint : " + endPoint + " headers : " + JSON.stringify(headers) + " method : " + method + " data : " + JSON.stringify(data));
-      const dataKeyValue = Object.keys(data)
-              .map((key, index) => `${key}=${encodeURIComponent(data[key])}`)
-              .join('&');
-  
+      
       const options = {
         method: method,
         headers: headers,
-        data: dataKeyValue,
+        data: data,
         url: endPoint,
       };
               
@@ -45,7 +43,7 @@ class Helper{
     logError(error) { 
 
       console.debug("Start Helper.logError " );
-      
+
       if (error.response) {
         // Request made and server responded
         console.error(error.response.data);
@@ -99,6 +97,32 @@ class Helper{
         Authorization: "Bearer " + this.authentication.get_access_token(),
       };
       return bearerHeader;
+    }
+
+    /*
+    * This method returns the oauth url from config.json
+    */
+    getOAuthUrl(){
+      return config.api_end_points.oauth_url + "client_id=" + this.getClientId() + "&response_type=code&state=testState&scope=playback-control-all&"
+      + "redirect_uri=" + this.getRedirectURL();
+    }
+
+    /*
+    * This method returns the oauth url from config.json
+    */
+    getClientId(){
+      return config.credentials.client_id;
+    }
+
+    /*
+    * This method returns the oauth url from config.json
+    */
+    getRedirectURL(){
+      return config.credentials.redirect_url;
+    }
+
+    getB64KeySecretOAuthUrl(){
+      return config.credentials.b64_encoded_key_secret;
     }
 }
 

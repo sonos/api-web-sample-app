@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import config from "../../config.json";
 import Authentication from "../Authentication/authentication";
 import CreateAuthToken from "../Authentication/createAuthToken";
+import Helper from "../Utility/helper";
 
 export default class OAuth extends Component {
   constructor() {
@@ -9,6 +9,7 @@ export default class OAuth extends Component {
     this.code_generated_flag = false;
     this.auth = new Authentication();
     this.code = null;
+    this.helper = new Helper();
   }
 
   getCode = () => {
@@ -56,7 +57,7 @@ export default class OAuth extends Component {
             <img src={require("../../images/sonos.png")} alt="Sonos"></img>
           </div>
           <div>
-            <a href={config.api_end_points.oauth_url} className="oauthhref">
+            <a href={this.helper.getOAuthUrl()} className="oauthhref">
               <br />
               <button type="button" className="btn btn-info">
                 Login
@@ -66,7 +67,7 @@ export default class OAuth extends Component {
           <div>
             {this.code_generated_flag && (
               <CreateAuthToken
-                b64_encoded_string={config.credentials.b64_encoded_key_secret}
+                b64_encoded_string={this.helper.getB64KeySecretOAuthUrl()}
                 code={this.code}
                 is_logged_in_handler={this.is_logged_in_handler}
               />

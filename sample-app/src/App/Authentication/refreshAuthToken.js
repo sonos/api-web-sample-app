@@ -24,8 +24,10 @@ class RefreshAuthToken{
                         grant_type:"refresh_token",
                         refresh_token:refreshToken
                     }
-        
-        helper.apiCall(endPoint, HEADER_BASIC, METHOD_POST, data)
+        const dataKeyValue = Object.keys(data)
+              .map((key, index) => `${key}=${encodeURIComponent(data[key])}`)
+              .join('&');
+        helper.apiCall(endPoint, HEADER_BASIC, METHOD_POST, dataKeyValue)
         .then((response) => {
             
             if (!(response === undefined || response === "") ){

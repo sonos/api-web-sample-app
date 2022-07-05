@@ -4,11 +4,10 @@
  */
 
 import config from "../../config.json";
-import Helper from "./helper";
 
 export const METHOD_POST = "POST";
 
-export const METHOD_GET = "get";
+export const METHOD_GET = "GET";
 
 export const HEADER_BASIC = {
     "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
