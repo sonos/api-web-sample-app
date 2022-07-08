@@ -6,20 +6,20 @@ import { METHOD_GET } from "../Utility/constants";
 import React from "react";
 
 export default function GetGroups(props) {
-  console.debug("Start GetGroups()");
+  console.debug("Start GetGroups");
 
   const [error, setError] = useState([]);
   
-
   const helper = new Helper();
 
   useEffect(() => {
     let mounted = true;
 
-    const HOUSEHOLD_ID = localStorage.getItem("household_id");
+    const HOUSEHOLD_ID = helper.getHouseHoldIdFromStorage();
+    //localStorage.getItem("household_id");
     
     let endPoint =
-    config.api_end_points.household_api_url + "/" + HOUSEHOLD_ID + "/groups";
+    helper.getHouseHoldURL() + "/" + HOUSEHOLD_ID + "/groups";
     
     const headers = helper.getHeaderBearer()
 

@@ -12,9 +12,9 @@ class RefreshAuthToken{
     * This method internally calls the refresh token api
     */
     refresh_access_token = () =>{
+        console.debug("Start Authentication.refresh_access_token()");
         
         const helper = new Helper();
-        console.debug("Start Authentication.refresh_access_token()");
 
         let refreshToken = helper.getAccessTokeDatafromStorage.refresh_token;
 

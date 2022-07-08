@@ -16,7 +16,7 @@ export default function GetHousehold(props) {
     console.debug("Start GetGroups()");
     let mounted = true;
 
-    let endPoint = config.api_end_points.household_api_url;
+    let endPoint = helper.getHouseHoldURL();
 
     const headers = helper.getHeaderBearer()
 

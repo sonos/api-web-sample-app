@@ -9,7 +9,7 @@ export default function SetVolume(volume, device_id, device_type) {
 
   let url =
       device_type === "GROUP" 
-      ? config.api_end_points.control_api_endpoint
+      ? helper.getGroupsURL()
       : config.api_end_points.volume_api_end_point;
   let name_space = device_type === "GROUP" ? "/groupVolume" : "/playerVolume";
 

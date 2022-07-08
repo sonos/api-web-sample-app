@@ -121,8 +121,32 @@ class Helper{
       return config.credentials.redirect_url;
     }
 
+    /*
+    * This method returns the house hold url from config.json
+    */
+    getHouseHoldURL(){
+      return config.api_end_points.household_api_url;
+    }
+    
+    /*
+    * This method returns the groups url from config.json
+    */
+    getGroupsURL(){
+      return config.api_end_points.control_api_endpoint;
+    }
+
+    /*
+    * This method returns the b64 encoded key secret from config.json
+    */
     getB64KeySecretOAuthUrl(){
       return config.credentials.b64_encoded_key_secret;
+    }
+
+    /*
+    * This method returns the group Id stored in the localStorage
+    */
+    getHouseHoldIdFromStorage(){
+      return window.localStorage.getItem("household_id");
     }
 }
 

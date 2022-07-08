@@ -4,6 +4,7 @@ import GetGroups from "../UserDetails/getGroups";
 import GetHousehold from "../UserDetails/getHouseholdID";
 import GetGroupFlag from "../UserDetails/localStorageHook";
 import Groups from "./groupsController";
+import Subscribe from "../UserDetails/subscribe";
 
 class FetchUserDetails extends Component {
   state = {
@@ -24,6 +25,12 @@ class FetchUserDetails extends Component {
     });
   };
 
+  subscribeHandler = (input_flag) => {
+    this.setState({
+      subscribeFlag: input_flag,
+    });
+  };
+
   render() {
     return (
       <div>
@@ -36,6 +43,12 @@ class FetchUserDetails extends Component {
         <div className="getGroups">
           {!GetGroupFlag("GROUP") && this.state.groups_flag && (
             <GetGroups grp_handler={this.group_handler} />
+          )}
+        </div>
+
+        <div className="subscribe">
+          {GetGroupFlag("GROUP") && (
+            <Subscribe subscribeHandler={this.subscribeHandler} />
           )}
         </div>
 

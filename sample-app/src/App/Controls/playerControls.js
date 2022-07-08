@@ -1,4 +1,3 @@
-import config from "../../config.json";
 import Authentication from "../Authentication/authentication";
 import Helper from "../Utility/helper";
 import { METHOD_POST } from "../Utility/constants";
@@ -17,7 +16,7 @@ class HelperControls extends Component {
 
     console.debug("Start playerControls.helper_controls()");
 
-    let endPoint = config.api_end_points.control_api_endpoint + 
+    let endPoint = this.helper.getGroupsURL() + 
     grp_id + "/playback/" + input_action;
     
     const headers = this.helper.getHeaderBearer()
