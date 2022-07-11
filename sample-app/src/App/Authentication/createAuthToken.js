@@ -16,7 +16,7 @@ export default function CreateAuthToken(props) {
   const data_ = {
     grant_type: "authorization_code",
     code: props.code,
-    redirect_uri: config.credentials.redirect_url
+    redirect_uri: helper.getRedirectURL()
   };
 
   const data = Object.keys(data_)

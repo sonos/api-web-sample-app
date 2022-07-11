@@ -4,7 +4,7 @@ import Helper from "../Utility/helper";
 
 
 export default function GetVolume(props) {
-  console.debug("Start GetVolume()");
+  console.debug("Start GetVolume");
 
   const helper = new Helper();
 
@@ -28,4 +28,6 @@ export default function GetVolume(props) {
   .catch(function (error) {
     helper.logError(error);
   });
+
+  console.debug("End GetVolume");
 }

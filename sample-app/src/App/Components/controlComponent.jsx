@@ -5,6 +5,8 @@ import HelperControls from "../Controls/playerControls";
 import GetVolume from "../Controls/getVolume";
 import SetVolume from "../Controls/setVolume";
 import PlayersComponent from "../Controllers/playersController";
+import GetPlayBackMetadata from "../Controls/getPlayBackMetadata";
+import ImageComponent from "./ImageComponent";
 
 class Control extends Component {
   constructor() {
@@ -14,6 +16,9 @@ class Control extends Component {
       isPlaying: false,
       volume_val: 40,
       get_start_volume_flag: true,
+      trackName: null,
+      artistName: null,
+      trackImage: null
     };
     this.volume_slider = React.createRef();
     this.playpause_btn = React.createRef();
@@ -44,17 +49,28 @@ class Control extends Component {
             )}
           </div>
 
+
+          <div>
+            {this.state.get_start_volume_flag && (
+              <GetPlayBackMetadata
+                group_id={this.group.id}
+                setPlayBackMetadataHandler={this.setPlayBackMetadataHandler}
+              />
+            )}
+          </div>
+
           <div className="details">
-            <div className="track-art">
-              <img
-                src="https://images.unsplash.com/photo-1520444451380-ebe0f7b9cfd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXVkaW8lMjB2aXN1YWx8ZW58MHx8MHx8&w=1000&q=80"
+            <div className="track-image">
+                <ImageComponent url={this.getImage()} 
                 width="300"
                 height="250"
-                alt="Song being played"
-              />
+                alt="Song being played"/>
             </div>
-            <div className="track-name">Track-Name</div>
-            <div className="track-artist">Track Artist</div>
+            <div className="track-name" >
+            {this.state.trackName}
+              </div>
+            <div className="track-artist">
+            {this.state.artistName}</div>
           </div>
 
           <div className="buttons">
@@ -148,6 +164,18 @@ class Control extends Component {
   getVolumeHandler = (flag, volume_at_start) => {
     this.setState({ get_start_volume_flag: flag, volume_val: volume_at_start });
   };
+
+  setPlayBackMetadataHandler = (trackName, artistName, trackImage) => {
+    this.setState({ trackName: trackName, artistName: artistName, trackImage : trackImage });
+  };
+
+  getImage= () => {
+    if (this.state.trackImage === undefined || this.state.trackImage  === "") {
+      return require("../../images/sonos.png");
+  }else{
+    return this.state.trackImage} 
+
+  }
 }
 
 export default Control;

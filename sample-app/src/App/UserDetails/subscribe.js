@@ -8,7 +8,7 @@
 
  export default function Subscribe(props) {
 
-    console.log("Start Subscribe");
+    console.debug("Start Subscribe");
 
     const [response, setResponse] = useState([]);
     const [error, setError] = useState([]);
@@ -75,5 +75,5 @@
     }, []);
  
 
-    console.log("End Subscribe");
+    console.debug("End Subscribe");
  }

@@ -21,7 +21,7 @@ body {
   margin-top: 25px;
 }
  
-.track-art {
+.track-image {
   margin: 25px;
   height: 250px;
   width: 250px;
@@ -32,15 +32,15 @@ body {
  
 /* Changing the font sizes to suitable ones */
 .now-playing {
-  font-size: 1rem;
+  font-size: 2rem;
 }
  
 .track-name {
-  font-size: 3rem;
+  font-size: 2rem;
 }
  
 .track-artist {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
     
     /* Using flex with the row direction to
