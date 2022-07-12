@@ -79,7 +79,7 @@ body {
     }
     
     /* Modify the appearance of the slider */
-    .seek_slider, .volume_slider {
+    .seek_slider, .volumeSlider {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -92,7 +92,7 @@ body {
     
     /* Modify the appearance of the slider thumb */
     .seek_slider::-webkit-slider-thumb,
-    .volume_slider::-webkit-slider-thumb {
+    .volumeSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -106,7 +106,7 @@ body {
     
     /* Change the opacity when mouse is hovered */
     .seek_slider:hover,
-    .volume_slider:hover {
+    .volumeSlider:hover {
     opacity: 1.0;
     }
     
@@ -114,7 +114,7 @@ body {
     width: 60%;
     }
     
-    .volume_slider {
+    .volumeSlider {
     width: 30%;
     }
     

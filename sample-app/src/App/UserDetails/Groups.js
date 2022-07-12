@@ -1,12 +1,11 @@
-import config from "../../config.json";
 import { useEffect, useState } from "react";
 import Helper from "../Utility/helper";
 import { METHOD_GET } from "../Utility/constants";
 
 import React from "react";
 
-export default function GetGroups(props) {
-  console.debug("Start GetGroups");
+export default function Groups(props) {
+  console.debug("Start Groups");
 
   const [error, setError] = useState([]);
   
@@ -16,7 +15,6 @@ export default function GetGroups(props) {
     let mounted = true;
 
     const HOUSEHOLD_ID = helper.getHouseHoldIdFromStorage();
-    //localStorage.getItem("household_id");
     
     let endPoint =
     helper.getHouseHoldURL() + "/" + HOUSEHOLD_ID + "/groups";
@@ -49,7 +47,7 @@ export default function GetGroups(props) {
     return () => (mounted = false);
   }, []);
   
-  console.debug("End GetGroups()");
+  console.debug("End Groups");
 
   return error === true ? (
     <h1 className="oauthtext">Group ID could not be found</h1>

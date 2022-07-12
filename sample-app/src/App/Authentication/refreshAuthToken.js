@@ -11,8 +11,8 @@ class RefreshAuthToken{
     /*
     * This method internally calls the refresh token api
     */
-    refresh_access_token = () =>{
-        console.debug("Start Authentication.refresh_access_token()");
+    refreshAccessToken = () =>{
+        console.debug("Start Authentication.refreshAccessToken()");
         
         const helper = new Helper();
 
@@ -40,7 +40,7 @@ class RefreshAuthToken{
         
         });
 
-        console.debug("End Authentication.refresh_access_token()");
+        console.debug("End Authentication.refreshAccessToken()");
         return refreshToken;
     }
 

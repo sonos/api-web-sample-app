@@ -9,12 +9,12 @@ export default function GetVolume(props) {
   const helper = new Helper();
 
   let url =
-      props.device_type === "GROUP"
+      props.deviceType === "GROUP"
       ? helper.getGroupsURL()
       : config.api_end_points.volume_api_end_point;
-  let name_space = props.device_type === "GROUP" ? "/groupVolume" : "/playerVolume";
+  let name_space = props.deviceType === "GROUP" ? "/groupVolume" : "/playerVolume";
 
-  const endPoint = url + props.device_id + name_space;
+  const endPoint = url + props.deviceId + name_space;
     
   const headers = helper.getHeaderBearer()
 
@@ -22,7 +22,7 @@ export default function GetVolume(props) {
 
   helper.apiCall(endPoint, headers, METHOD_GET, data)
   .then((res) => {
-    console.debug(props.device_type + " volume at start is : ", res.data);
+    console.debug(props.deviceType + " volume at start is : ", res.data);
     props.getVolumeHandler(false, res.data.volume);
   })
   .catch(function (error) {

@@ -2,7 +2,7 @@ import config from "../../config.json";
 import Helper from "../Utility/helper";
 import { METHOD_POST } from "../Utility/constants";
 
-export default function SetVolume(volume, device_id, device_type) {
+export default function SetVolume(volume, deviceId, device_type) {
   console.debug("Start SetVolume()");
 
   const helper = new Helper();
@@ -13,7 +13,7 @@ export default function SetVolume(volume, device_id, device_type) {
       : config.api_end_points.volume_api_end_point;
   let name_space = device_type === "GROUP" ? "/groupVolume" : "/playerVolume";
 
-  const endPoint = url + device_id + name_space;
+  const endPoint = url + deviceId + name_space;
     
   const headers = helper.getHeaderBearer()
 

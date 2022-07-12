@@ -12,9 +12,9 @@ class HelperControls extends Component {
     this.helper = new Helper();
   }
 
-  helper_controls(input_action, grp_id) {
+  helperControls(input_action, grp_id) {
 
-    console.debug("Start playerControls.helper_controls()");
+    console.debug("Start HelperControls.helperControls()");
 
     let endPoint = this.helper.getGroupsURL() + 
     grp_id + "/playback/" + input_action;
@@ -28,7 +28,7 @@ class HelperControls extends Component {
       this.helper.logError(error);
     });
 
-    console.debug("End playerControls.helper_controls()");
+    console.debug("End HelperControls.helperControls()");
   }
 }
 

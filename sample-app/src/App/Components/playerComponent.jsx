@@ -7,33 +7,33 @@ import SetVolume from "../Controls/setVolume";
 class PlayerComponent extends Component {
   constructor() {
     super();
-    this.state = { volume_val: 40, get_start_volume_flag: true };
-    this.volume_slider = React.createRef();
+    this.state = { volumeVal: 40, getStartVolumeFlag: true };
+    this.volumeSlider = React.createRef();
   }
 
   render() {
     return (
       <div>
         <div>
-          {this.state.get_start_volume_flag && (
+          {this.state.getStartVolumeFlag && (
             <GetVolume
-              device_id={this.props.player_id}
+              device_id={this.props.playerId}
               device_type={"PLAYER"}
               getVolumeHandler={this.getVolumeHandler}
             />
           )}
         </div>
-        <h4>Player ID : {this.props.player_id}</h4>
+        <h4>Player ID : {this.props.playerId}</h4>
         <div className="slider_container">
           <i className="fa fa-volume-down"></i>
           <input
             type="range"
             min="1"
             max="100"
-            value={this.state.volume_val}
+            value={this.state.volumeVal}
             step="1"
-            ref={this.volume_slider}
-            className="volume_slider"
+            ref={this.volumeSlider}
+            className="volumeSlider"
             onChange={() => this.onSetVolume()}
           />
           <i className="fa fa-volume-up"></i>
@@ -43,14 +43,14 @@ class PlayerComponent extends Component {
     );
   }
 
-  getVolumeHandler = (flag, volume_at_start) => {
-    this.setState({ get_start_volume_flag: flag, volume_val: volume_at_start });
+  getVolumeHandler = (flag, volumeAtStart) => {
+    this.setState({ getStartVolumeFlag: flag, volumeVal: volumeAtStart });
   };
 
   onSetVolume = () => {
-    const volume = this.volume_slider.current.value;
-    SetVolume(volume, this.props.player_id, "PLAYER");
-    this.setState({ volume_val: volume });
+    const volume = this.volumeSlider.current.value;
+    SetVolume(volume, this.props.playerId, "PLAYER");
+    this.setState({ volumeVal: volume });
   };
 }
 

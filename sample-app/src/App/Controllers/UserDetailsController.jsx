@@ -1,12 +1,12 @@
 import React from "react";
 import { Component } from "react";
-import GetGroups from "../UserDetails/getGroups";
-import GetHousehold from "../UserDetails/getHouseholdID";
+import Groups from "../UserDetails/Groups";
+import Household from "../UserDetails/HouseholdID";
 import GetGroupFlag from "../UserDetails/localStorageHook";
-import Groups from "./groupsController";
+import GroupsController from "./groupsController";
 import Subscribe from "../UserDetails/subscribe";
 
-class FetchUserDetails extends Component {
+class UserDetails extends Component {
   state = {
     household_id_flag: true,
     groups_flag: GetGroupFlag("HOUSEHOLD"),
@@ -36,13 +36,13 @@ class FetchUserDetails extends Component {
       <div>
         <div className="getHouseholdID">
           {!GetGroupFlag("HOUSEHOLD") && this.state.household_id_flag && (
-            <GetHousehold hh_handler={this.hh_handler} />
+            <Household hh_handler={this.hh_handler} />
           )}
         </div>
 
         <div className="getGroups">
           {!GetGroupFlag("GROUP") && this.state.groups_flag && (
-            <GetGroups grp_handler={this.group_handler} />
+            <Groups grp_handler={this.group_handler} />
           )}
         </div>
 
@@ -53,11 +53,11 @@ class FetchUserDetails extends Component {
         </div>
 
         <div className="loadGroups">
-          {this.state.players_flag && <Groups />}
+          {this.state.players_flag && <GroupsController />}
         </div>
       </div>
     );
   }
 }
 
-export default FetchUserDetails;
+export default UserDetails;

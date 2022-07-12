@@ -5,7 +5,7 @@ import HelperControls from "../Controls/playerControls";
 import GetVolume from "../Controls/getVolume";
 import SetVolume from "../Controls/setVolume";
 import PlayersComponent from "../Controllers/playersController";
-import GetPlayBackMetadata from "../Controls/getPlayBackMetadata";
+import PlayBackMetadata from "../Controls/PlayBackMetadata";
 import ImageComponent from "./ImageComponent";
 
 class Control extends Component {
@@ -14,14 +14,14 @@ class Control extends Component {
     this.ControlOptions = new HelperControls();
     this.state = {
       isPlaying: false,
-      volume_val: 40,
-      get_start_volume_flag: true,
+      volumeVal: 40,
+      getStartVolumeFlag: true,
       trackName: null,
       artistName: null,
       trackImage: null
     };
-    this.volume_slider = React.createRef();
-    this.playpause_btn = React.createRef();
+    this.volumeSlider = React.createRef();
+    this.playpauseBtn = React.createRef();
   }
 
   render() {
@@ -40,7 +40,7 @@ class Control extends Component {
           </div>
 
           <div>
-            {this.state.get_start_volume_flag && (
+            {this.state.getStartVolumeFlag && (
               <GetVolume
                 device_id={this.group.id}
                 device_type={"GROUP"}
@@ -51,17 +51,17 @@ class Control extends Component {
 
 
           <div>
-            {this.state.get_start_volume_flag && (
-              <GetPlayBackMetadata
+            {this.state.getStartVolumeFlag && (
+              <PlayBackMetadata
                 group_id={this.group.id}
-                setPlayBackMetadataHandler={this.setPlayBackMetadataHandler}
+                playBackMetadataHandler={this.playBackMetadataHandler}
               />
             )}
           </div>
 
           <div className="details">
             <div className="track-image">
-                <ImageComponent url={this.getImage()} 
+                <ImageComponent src={this.getImage()} 
                 width="300"
                 height="250"
                 alt="Song being played"/>
@@ -78,7 +78,7 @@ class Control extends Component {
               <i className="fa fa-step-backward fa-2x"></i>
             </div>
             <div
-              ref={this.playpause_btn}
+              ref={this.playpauseBtn}
               className="playpause-track"
               onClick={this.toggleMusic}
             >
@@ -95,10 +95,10 @@ class Control extends Component {
               type="range"
               min="1"
               max="100"
-              value={this.state.volume_val}
+              value={this.state.volumeVal}
               step="1"
-              ref={this.volume_slider}
-              className="volume_slider"
+              ref={this.volumeSlider}
+              className="volumeSlider"
               onChange={this.onSetVolume}
             />
             <i className="fa fa-volume-up"></i>
@@ -119,7 +119,7 @@ class Control extends Component {
   playMusic = () => {
     console.debug("Trying to play music...");
     if (!this.state.isPlaying) {
-      this.ControlOptions.helper_controls("play", this.group.id);
+      this.ControlOptions.helperControls("play", this.group.id);
       this.setState({ isPlaying: true });
     } else {
       console.error("Already in Play Mode");
@@ -129,14 +129,14 @@ class Control extends Component {
   toggleMusic = () => {
     console.debug("Trying to play/pause music...");
     this.setState({ isPlaying: !this.state.isPlaying });
-    this.ControlOptions.helper_controls("togglePlayPause", this.group.id);
+    this.ControlOptions.helperControls("togglePlayPause", this.group.id);
     this.playModeClass();
   };
 
   pauseMusic = () => {
     console.debug("Trying to pause music...");
     if (this.state.isPlaying) {
-      this.ControlOptions.helper_controls("pause", this.group.id);
+      this.ControlOptions.helperControls("pause", this.group.id);
       this.setState({ isPlaying: false });
     } else {
       console.error("Already in Pause Mode");
@@ -145,27 +145,27 @@ class Control extends Component {
 
   skipToPrevious = () => {
     console.debug("Trying to skip to previous song...");
-    this.ControlOptions.helper_controls("skipToPreviousTrack", this.group.id);
+    this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id);
     this.playMusic();
   };
 
   skipToNext = () => {
     console.debug("Trying to skip to next song...");
-    this.ControlOptions.helper_controls("skipToNextTrack", this.group.id);
+    this.ControlOptions.helperControls("skipToNextTrack", this.group.id);
     this.playMusic();
   };
 
   onSetVolume = () => {
-    const volume = this.volume_slider.current.value;
+    const volume = this.volumeSlider.current.value;
     SetVolume(volume, this.group.id, "GROUP");
-    this.setState({ volume_val: volume });
+    this.setState({ volumeVal: volume });
   };
 
-  getVolumeHandler = (flag, volume_at_start) => {
-    this.setState({ get_start_volume_flag: flag, volume_val: volume_at_start });
+  getVolumeHandler = (flag, volumeAtStart) => {
+    this.setState({ getStartVolumeFlag: flag, volumeVal: volumeAtStart });
   };
 
-  setPlayBackMetadataHandler = (trackName, artistName, trackImage) => {
+  playBackMetadataHandler = (trackName, artistName, trackImage) => {
     this.setState({ trackName: trackName, artistName: artistName, trackImage : trackImage });
   };
 

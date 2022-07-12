@@ -1,19 +1,18 @@
-import config from "../../config.json";
 import { useEffect, useState } from "react";
 import Helper from "../Utility/helper";
 import { METHOD_GET } from "../Utility/constants";
 
 import React from "react";
 
-export default function GetHousehold(props) {
-  console.debug("Start GetHousehold()");
+export default function Household(props) {
+  console.debug("Start Household");
 
   const [response, setResponse] = useState([]);
   const [error, setError] = useState([]);
   const helper = new Helper();
 
   useEffect(() => {
-    console.debug("Start GetGroups()");
+
     let mounted = true;
 
     let endPoint = helper.getHouseHoldURL();
@@ -40,7 +39,7 @@ export default function GetHousehold(props) {
   }, []);
 
   window.localStorage.setItem("household_id", response);
-  console.debug("End GetHousehold()");
+  console.debug("End Household");
   return error === true ? (
     <div>
       <br />

@@ -11,7 +11,7 @@ class ImageComponent extends Component {
     }
     render() {
         return (
-            <img width="100%" height="100%" src={this.props.url} alt="display image" />
+            <img width="100%" height="100%" src={this.props.src} alt={this.props.alt} />
         );
     }
 }
