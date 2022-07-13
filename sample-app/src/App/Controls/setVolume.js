@@ -1,48 +1,31 @@
 import config from "../../config.json";
-import Authentication from "../Authentication/authentication";
-import axios from "axios";
+import Helper from "../Utility/helper";
+import { METHOD_POST } from "../Utility/constants";
 
-function apiCall(volume, device_id, device_type) {
-  const authentication = new Authentication();
+import { logMessage, logError } from "../Utility/customLogger";
 
+export default function SetVolume(volume, deviceId, deviceType) {
+  
+  const helper = new Helper();
+  
   let url =
-    device_type === "GROUP"
-      ? config.api_end_points.control_api_endpoint
-      : config.api_end_points.volume_api_end_point;
-  let name_space = device_type === "GROUP" ? "/groupVolume" : "/playerVolume";
+    deviceType === "GROUP" 
+        ? helper.getGroupsURL()
+        : config.api_end_points.volume_api_end_point;
+  let nameSpace = deviceType === "GROUP" ? "/groupVolume" : "/playerVolume";
 
-  const end_point = url + device_id + name_space;
+  const endPoint = url + deviceId + nameSpace;
+    
+  const headers = helper.getHeaderBearer()
 
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: "Bearer " + authentication.get_access_token(),
-  };
+  const data = { volume: volume };
 
-  return axios({
-    url: end_point,
-    method: "post",
-    headers: headers,
-    data: { volume: volume },
+  helper.apiCall(endPoint, headers, METHOD_POST, data)
+  .then((res) => {
+    logMessage("response from the api : " + JSON.stringify(res.data));
+  })
+  .catch(function (error) {
+    logError("Error caught in set volume api : " + error);
   });
-}
 
-export default function SetVolume(volume, device_id, device_type) {
-  apiCall(volume, device_id, device_type)
-    .then((res) => {
-      console.debug("Set Volume to: ", volume);
-    })
-    .catch(function (error) {
-      if (error.response) {
-        // Request made and server responded
-        console.error(error.response.data);
-        console.error(error.response.status);
-        console.error(error.response.headers);
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.error(error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.error("Error", error.message);
-      }
-    });
 }

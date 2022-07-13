@@ -21,7 +21,7 @@ body {
   margin-top: 25px;
 }
  
-.track-art {
+.track-image {
   margin: 25px;
   height: 250px;
   width: 250px;
@@ -32,15 +32,15 @@ body {
  
 /* Changing the font sizes to suitable ones */
 .now-playing {
-  font-size: 1rem;
+  font-size: 2rem;
 }
  
 .track-name {
-  font-size: 3rem;
+  font-size: 2rem;
 }
  
 .track-artist {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
     
     /* Using flex with the row direction to
@@ -79,7 +79,7 @@ body {
     }
     
     /* Modify the appearance of the slider */
-    .seek_slider, .volume_slider {
+    .seek_slider, .volumeSlider {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -92,7 +92,7 @@ body {
     
     /* Modify the appearance of the slider thumb */
     .seek_slider::-webkit-slider-thumb,
-    .volume_slider::-webkit-slider-thumb {
+    .volumeSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -106,7 +106,7 @@ body {
     
     /* Change the opacity when mouse is hovered */
     .seek_slider:hover,
-    .volume_slider:hover {
+    .volumeSlider:hover {
     opacity: 1.0;
     }
     
@@ -114,7 +114,7 @@ body {
     width: 60%;
     }
     
-    .volume_slider {
+    .volumeSlider {
     width: 30%;
     }
     

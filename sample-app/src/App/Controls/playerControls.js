@@ -1,49 +1,29 @@
-import config from "../../config.json";
 import Authentication from "../Authentication/authentication";
-import axios from "axios";
+import Helper from "../Utility/helper";
+import { METHOD_POST } from "../Utility/constants";
 
 import { Component } from "react";
 
 class HelperControls extends Component {
+
   constructor() {
     super();
     this.authentication = new Authentication();
+    this.helper = new Helper();
   }
 
-  apiCall(input_action, grp_id) {
-    let end_point =
-      config.api_end_points.control_api_endpoint +
-      grp_id +
-      "/playback/" + 
-      input_action;
+  helperControls(input_action, grp_id) {
 
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + this.authentication.get_access_token(),
-    };
+    let endPoint = this.helper.getGroupsURL() + 
+    grp_id + "/playback/" + input_action;
+    
+    const headers = this.helper.getHeaderBearer()
 
-    return axios({
-      url: end_point,
-      method: "post",
-      headers: headers,
-      data:{}
-    });
-  }
+    const data = {};
 
-  helper_controls(input_action, grp_id) {
-    this.apiCall(input_action, grp_id).catch(function (error) {
-      if (error.response) {
-        // Request made and server responded
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.log(error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.log("Error", error.message);
-      }
+    this.helper.apiCall(endPoint, headers, METHOD_POST, data)
+    .catch(function (error) {
+      this.helper.logError(error);
     });
   }
 }

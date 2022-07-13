@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import GroupComponent from "../Components/groupComponent";
 
-class Groups extends Component {
+class GroupsController extends Component {
   state = {};
 
   render() {
@@ -21,4 +21,4 @@ class Groups extends Component {
   }
 }
 
-export default Groups;
+export default GroupsController;

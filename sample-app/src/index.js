@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.css";
-import "./css/player_controls.css";
+import "./css/playerControls.css";
 import "./css/groups.css";
 
 import Navbar from "./App/Controllers/navBarController";
