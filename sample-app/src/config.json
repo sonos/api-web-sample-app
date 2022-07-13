@@ -11,5 +11,8 @@
       "household_api_url":"https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v1/households",
       "control_api_endpoint":"https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v1/groups/",
       "volume_api_end_point":"https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v1/players/"
+  },
+  "app_config" : {
+    "log_level" : "debug"
   }
 }

@@ -28,7 +28,7 @@ export default class OAuth extends Component {
     }
   };
 
-  is_logged_in_handler = (flag, response) => {
+  isLoggedInHandler = (flag, response) => {
     const access_token_data = {
       token: response["access_token"],
       refresh_token: response["refresh_token"],
@@ -69,7 +69,7 @@ export default class OAuth extends Component {
               <CreateAuthToken
                 b64_encoded_string={this.helper.getB64KeySecretOAuthUrl()}
                 code={this.code}
-                is_logged_in_handler={this.is_logged_in_handler}
+                isLoggedInHandler={this.isLoggedInHandler}
               />
             )}
           </div>

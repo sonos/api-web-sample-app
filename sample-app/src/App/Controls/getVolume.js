@@ -2,7 +2,6 @@ import config from "../../config.json";
 import { METHOD_GET } from "../Utility/constants";
 import Helper from "../Utility/helper";
 
-
 export default function GetVolume(props) {
 
   const helper = new Helper();

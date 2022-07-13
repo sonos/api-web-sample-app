@@ -12,18 +12,18 @@ export default function CreateAuthToken(props) {
 
   const headers = HEADER_BASIC;
 
-  const data_ = {
+  const data = {
     grant_type: "authorization_code",
     code: props.code,
     redirect_uri: helper.getRedirectURL()
   };
 
-  const data = Object.keys(data_)
-    .map((key, index) => `${key}=${encodeURIComponent(data_[key])}`)
+  const dataKeyVal = Object.keys(data)
+    .map((key, index) => `${key}=${encodeURIComponent(data[key])}`)
     .join("&");
 
-  helper.apiCall(endPoint, headers, METHOD_POST, data)
+  helper.apiCall(endPoint, headers, METHOD_POST, dataKeyVal)
   .then((res) => {
-    props.is_logged_in_handler(true, res.data);
+    props.isLoggedInHandler(true, res.data);
   });
 }

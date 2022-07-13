@@ -6,6 +6,7 @@
 import axios from "axios";
 import Authentication from "../Authentication/authentication";
 import config from "../../config.json";
+import { logMessage } from "./customLogger";
 
 class Helper{
     constructor() {
@@ -17,7 +18,8 @@ class Helper{
     */
     apiCall(endPoint, headers, method, data) {
 
-      console.debug("Paramaters - endpoint : " + endPoint + " headers : " + JSON.stringify(headers) + " method : " + method + " data : " + JSON.stringify(data));
+      logMessage("api call - endpoint : " + endPoint + " headers : " + JSON.stringify(headers)
+       + " method : " + method + " data : " + JSON.stringify(data));
       
       const options = {
         method: method,
@@ -27,10 +29,6 @@ class Helper{
       };
               
       const response = axios(options);
-
-      console.debug("response from the api : ");
-      console.debug(response);
-
       return response;
       
     }
