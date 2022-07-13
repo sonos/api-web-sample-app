@@ -2,16 +2,15 @@ import config from "../../config.json";
 import Helper from "../Utility/helper";
 import { METHOD_POST } from "../Utility/constants";
 
-export default function SetVolume(volume, deviceId, device_type) {
-  console.debug("Start SetVolume()");
+export default function SetVolume(volume, deviceId, deviceType) {
 
   const helper = new Helper();
 
   let url =
-      device_type === "GROUP" 
+  deviceType === "GROUP" 
       ? helper.getGroupsURL()
       : config.api_end_points.volume_api_end_point;
-  let name_space = device_type === "GROUP" ? "/groupVolume" : "/playerVolume";
+  let name_space = deviceType === "GROUP" ? "/groupVolume" : "/playerVolume";
 
   const endPoint = url + deviceId + name_space;
     
@@ -27,5 +26,4 @@ export default function SetVolume(volume, deviceId, device_type) {
     helper.logError(error);
   });
 
-  console.debug("End SetVolume()");
 }

@@ -42,8 +42,8 @@ class Control extends Component {
           <div>
             {this.state.getStartVolumeFlag && (
               <GetVolume
-                device_id={this.group.id}
-                device_type={"GROUP"}
+                deviceId={this.group.id}
+                deviceType={"GROUP"}
                 getVolumeHandler={this.getVolumeHandler}
               />
             )}

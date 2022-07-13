@@ -17,8 +17,8 @@ class PlayerComponent extends Component {
         <div>
           {this.state.getStartVolumeFlag && (
             <GetVolume
-              device_id={this.props.playerId}
-              device_type={"PLAYER"}
+              deviceId={this.props.playerId}
+              deviceType={"PLAYER"}
               getVolumeHandler={this.getVolumeHandler}
             />
           )}

@@ -13,10 +13,10 @@ class PlayersComponent extends Component {
                 <h1>Players: </h1>
                 <div>
                     {group.playerIds.map(
-                        player_id => (
+                        playerId => (
                         <PlayerComponent
-                            key = {player_id}
-                            player_id = {player_id}
+                            key = {playerId}
+                            playerId = {playerId}
                         />
                         ))
                     }

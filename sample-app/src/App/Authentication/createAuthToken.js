@@ -4,7 +4,6 @@ import { HEADER_BASIC, METHOD_POST } from "../Utility/constants";
 
 
 export default function CreateAuthToken(props) {
-  console.debug("Start CreateAuthToken()");
   const helper = new Helper();
   
   let mounted = true;
@@ -27,6 +26,4 @@ export default function CreateAuthToken(props) {
   .then((res) => {
     props.is_logged_in_handler(true, res.data);
   });
-
-  console.debug("End CreateAuthToken()");
 }

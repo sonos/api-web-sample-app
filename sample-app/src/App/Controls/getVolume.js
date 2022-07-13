@@ -4,7 +4,6 @@ import Helper from "../Utility/helper";
 
 
 export default function GetVolume(props) {
-  console.debug("Start GetVolume");
 
   const helper = new Helper();
 
@@ -12,10 +11,9 @@ export default function GetVolume(props) {
       props.deviceType === "GROUP"
       ? helper.getGroupsURL()
       : config.api_end_points.volume_api_end_point;
-  let name_space = props.deviceType === "GROUP" ? "/groupVolume" : "/playerVolume";
-
-  const endPoint = url + props.deviceId + name_space;
-    
+  let nameSpace = props.deviceType === "GROUP" ? "/groupVolume" : "/playerVolume";
+  const endPoint = url + props.deviceId + nameSpace;
+  
   const headers = helper.getHeaderBearer()
 
   const data = {};
@@ -29,5 +27,4 @@ export default function GetVolume(props) {
     helper.logError(error);
   });
 
-  console.debug("End GetVolume");
 }

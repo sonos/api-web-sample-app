@@ -2,7 +2,6 @@ import Helper from "../Utility/helper";
 import { METHOD_GET } from "../Utility/constants";
 
 export default function PlayBackMetadata(props) {
-    ("Start PlayBackMetadata");
     const helper = new Helper();
 
     const endPoint = helper.getGroupsURL() + props.group_id + "/playbackMetadata";
@@ -19,5 +18,4 @@ export default function PlayBackMetadata(props) {
         helper.logError(error);
     });
 
-    console.debug("End PlayBackMetadata");
 }

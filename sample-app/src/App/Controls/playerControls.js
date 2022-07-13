@@ -14,8 +14,6 @@ class HelperControls extends Component {
 
   helperControls(input_action, grp_id) {
 
-    console.debug("Start HelperControls.helperControls()");
-
     let endPoint = this.helper.getGroupsURL() + 
     grp_id + "/playback/" + input_action;
     
@@ -27,8 +25,6 @@ class HelperControls extends Component {
     .catch(function (error) {
       this.helper.logError(error);
     });
-
-    console.debug("End HelperControls.helperControls()");
   }
 }
 

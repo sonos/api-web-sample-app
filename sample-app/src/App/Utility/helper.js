@@ -17,7 +17,6 @@ class Helper{
     */
     apiCall(endPoint, headers, method, data) {
 
-      console.debug("Start Helper.apiCall " );
       console.debug("Paramaters - endpoint : " + endPoint + " headers : " + JSON.stringify(headers) + " method : " + method + " data : " + JSON.stringify(data));
       
       const options = {
@@ -31,7 +30,6 @@ class Helper{
 
       console.debug("response from the api : ");
       console.debug(response);
-      console.debug("End Helper.apiCall " );
 
       return response;
       
@@ -41,8 +39,6 @@ class Helper{
     * api error logging is done in this method
     */
     logError(error) { 
-
-      console.debug("Start Helper.logError " );
 
       if (error.response) {
         // Request made and server responded
@@ -56,8 +52,6 @@ class Helper{
           // Something happened in setting up the request that triggered an Error
           console.error("Error", error.message);
       }
-
-      console.error("End Helper.logError " );
     }
 
     /*
@@ -94,7 +88,7 @@ class Helper{
     getHeaderBearer(){
       const bearerHeader = {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + this.authentication.get_access_token(),
+        Authorization: "Bearer " + this.authentication.getAccessToken(),
       };
       return bearerHeader;
     }

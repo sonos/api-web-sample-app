@@ -8,8 +8,6 @@
 
  export default function Subscribe(props) {
 
-    console.debug("Start Subscribe");
-
     const [response, setResponse] = useState([]);
     const [error, setError] = useState([]);
     const helper = new Helper();
@@ -74,6 +72,4 @@
       return () => (mounted = false);
     }, []);
  
-
-    console.debug("End Subscribe");
  }

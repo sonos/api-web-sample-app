@@ -12,7 +12,6 @@ class RefreshAuthToken{
     * This method internally calls the refresh token api
     */
     refreshAccessToken = () =>{
-        console.debug("Start Authentication.refreshAccessToken()");
         
         const helper = new Helper();
 
@@ -40,7 +39,6 @@ class RefreshAuthToken{
         
         });
 
-        console.debug("End Authentication.refreshAccessToken()");
         return refreshToken;
     }
 
@@ -48,7 +46,6 @@ class RefreshAuthToken{
     * This method updates the token object in the local storage cache
     */
     updateRefreshToken(response){
-        console.debug("Start RefreshAuthToken.updateRefreshToken ");
 
         const helper = new Helper();
 
@@ -62,8 +59,6 @@ class RefreshAuthToken{
             };
             helper.setAccessTokeDatainStorage(accessTokenData);
         }
-
-        console.debug("End RefreshAuthToken.updateRefreshToken ");
     }
 }
 

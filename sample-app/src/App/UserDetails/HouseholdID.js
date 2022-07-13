@@ -5,7 +5,6 @@ import { METHOD_GET } from "../Utility/constants";
 import React from "react";
 
 export default function Household(props) {
-  console.debug("Start Household");
 
   const [response, setResponse] = useState([]);
   const [error, setError] = useState([]);
@@ -39,7 +38,6 @@ export default function Household(props) {
   }, []);
 
   window.localStorage.setItem("household_id", response);
-  console.debug("End Household");
   return error === true ? (
     <div>
       <br />

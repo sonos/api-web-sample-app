@@ -6,9 +6,7 @@
 import React, { Component } from 'react';
 
 class ImageComponent extends Component {
-    constructor(props) {
-        super(props);
-    }
+    
     render() {
         return (
             <img width="100%" height="100%" src={this.props.src} alt={this.props.alt} />

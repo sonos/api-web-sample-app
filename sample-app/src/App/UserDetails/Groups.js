@@ -5,7 +5,7 @@ import { METHOD_GET } from "../Utility/constants";
 import React from "react";
 
 export default function Groups(props) {
-  console.debug("Start Groups");
+
 
   const [error, setError] = useState([]);
   
@@ -46,8 +46,6 @@ export default function Groups(props) {
       });
     return () => (mounted = false);
   }, []);
-  
-  console.debug("End Groups");
 
   return error === true ? (
     <h1 className="oauthtext">Group ID could not be found</h1>
