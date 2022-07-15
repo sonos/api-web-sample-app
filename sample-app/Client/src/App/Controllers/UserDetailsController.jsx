@@ -10,7 +10,8 @@ class UserDetails extends Component {
   state = {
     household_id_flag: true,
     groups_flag: GetGroupFlag("HOUSEHOLD"),
-    players_flag: GetGroupFlag("GROUP"),
+    subscribe_flag: false,
+    players_flag: GetGroupFlag("GROUP")
   };
 
   hh_handler = (input_flag) => {
@@ -21,16 +22,16 @@ class UserDetails extends Component {
 
   group_handler = (input_flag) => {
     this.setState({
-      players_flag: input_flag,
+      subscribe_flag: input_flag
     });
   };
 
-  subscribeHandler = (input_flag) => {
+  subscribe_handler = (input_flag) => {
     this.setState({
-      subscribeFlag: input_flag,
-    });
-  };
-
+      players_flag : input_flag
+    })
+  }
+ 
   render() {
     return (
       <div>
@@ -47,8 +48,8 @@ class UserDetails extends Component {
         </div>
 
         <div className="subscribe">
-          {GetGroupFlag("GROUP") && (
-            <Subscribe subscribeHandler={this.subscribeHandler} />
+          {this.state.subscribe_flag && (
+            <Subscribe subscribe_handler={this.subscribe_handler} />
           )}
         </div>
 

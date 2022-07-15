@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "concurrently": "^7.2.2",
+    "express": "^4.18.1",
+    "http": "^0.0.1-security",
+    "socket.io": "^4.5.1",
+    "websocket": "^1.0.34"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"cd ../client && npm start\"",
+    "server": "node main.mjs"
+  }
+}

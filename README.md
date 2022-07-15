@@ -16,7 +16,6 @@ More badges can be found at [shields.io](https://shields.io/).
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
-- [Release Notes](#release-notes)
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [Installation/Setup](#installationsetup)
@@ -26,34 +25,30 @@ More badges can be found at [shields.io](https://shields.io/).
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Release Notes
-
-| Version    | Description                                             |
-| :--------: | ------------------------------------------------------- |
-| 0.1.0-beta | <ul><li>Initial release!</li></ul> |
-| 0.2.0      | <ul><li>Added .gitignore</li></ul> |
-| 0.5.0      | <ul><li>Altered `README.md`</li></ul> |
-| 1.0.0      | <ul><li>1.0.0 release!</li></ul> |
-| 1.1.0      | <ul><li>Added `LICENSE` information</li></ul> |
-
 # Overview
 
-This repository is meant to be a template with which to base other repos upon. This includes both the files contained within this repo as well as the configuration of this repository itself. Some inspiration was taken from [this baserepo](https://github.com/Sonos-Inc/pdsw-ops-baserepo).
+This repo contains the source code for the Sample-App(Web based). These sample apps use muse APIs to perfom the below action items instead of LAN.
+- Fetch HouseHoldID/GroupIDs
+- Play/Pause 
+- SkipToNext/SkipToPrev
+- Volume control (Groups and Individual Players)
+- Eventing
 
-Contributions to this template are encouraged.
 
 # Requirements
 
-None
+- Nodejs
+- React
+- Ngrok
 
 # Installation/Setup
 
-How to get up and running with your repo, for example:
+Steps for setting up the React application locally:
 
-To utilize this repo:
-1. Select `Use This Template` above
-2. Enter a repo name
-3. Use your new repo
+1. Clone the Repo
+2. cd pdsw-portal-sample-app/sample-app
+3. npm install or npm i (if you face any face difficulties installing using npm try using yarn)
+4. npm start (For the React application to start)
 
 # Usage
 
@@ -66,7 +61,6 @@ These are the template files included in this repo.
 ```
 template-repo
 │   README.md
-|   README-TEMPLATE.md
 │   .gitignore  
 |   LICENSE
 |   MIT_LICENSE 
@@ -84,7 +78,6 @@ template-repo
 
 | File/Folder           | Description                                             |
 | :---------:           | ------------------------------------------------------- |
-| ./README-TEMPLATE.md  | <ul>Template README file</ul> |
 | ./.gitignore          | <ul>A good, default .gitignore file</ul> |
 | ./LICENSE/MIT_LICENSE | <ul>LICENSE file for repo. Either LICENSE or MIT_LICENSE can be used depending on your needs</ul> |
 | .github/              | <ul>Includes configuration files necessary for Integrations (i.e. automatic branch deletion)</ul> |

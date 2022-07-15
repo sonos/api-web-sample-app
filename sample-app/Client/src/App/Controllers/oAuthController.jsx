@@ -54,7 +54,7 @@ export default class OAuth extends Component {
             <h1 className="oauthtext">Login with Sonos</h1>
           </div>
           <div>
-            <img src={require("../../images/sonos.png")} alt="Sonos"></img>
+            <img src={require("../../images/sonos.png")} alt="Sonos" width="300" height="200"></img>
           </div>
           <div>
             <a href={this.helper.getOAuthUrl()} className="oauthhref">
