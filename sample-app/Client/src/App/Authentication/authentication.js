@@ -15,7 +15,8 @@ class Authentication extends Component {
         return true;
       }else{
           // if the access token has expired we will call the refresh api.
-          refreshAuthToken.refresh_access_token();
+          localStorage.clear();
+          refreshAuthToken.refreshAccessToken();
           return false;
       }
     }

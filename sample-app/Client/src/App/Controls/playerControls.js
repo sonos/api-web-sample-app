@@ -22,8 +22,12 @@ class HelperControls extends Component {
     const data = {};
 
     this.helper.apiCall(endPoint, headers, METHOD_POST, data)
+    .then((res) => {
+      return true;
+    })
     .catch(function (error) {
       this.helper.logError(error);
+      return false;
     });
   }
 }

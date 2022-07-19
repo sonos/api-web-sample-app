@@ -11,15 +11,11 @@ import RouteComponents from "./App/Controllers/routingController";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HelperGroupControl from "./App/Controls/helperGroupControl";
 import ErrorPage from "./App/ErrorHandling/errorPage";
-import SetUpClient from "./App/WebSokcet/setUpWebsocketClient";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// Setting up the Web Socket Client
-SetUpClient();
-
 root.render(
-  <React.StrictMode>
+  <div>
     <Navbar />
 
     <Router>
@@ -29,5 +25,5 @@ root.render(
         <Route path="/error-page" element={<ErrorPage />} />
       </Routes>
     </Router>
-  </React.StrictMode>
+  </div>
 );

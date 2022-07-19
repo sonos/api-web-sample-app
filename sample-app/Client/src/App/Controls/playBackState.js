@@ -16,8 +16,8 @@ export default function StateAtStart(props) {
   helper
     .apiCall(endPoint, headers, METHOD_GET, data)
     .then((res) => {
-      console.debug(
-        props.deviceType + " State at start is : ",
+      console.log(
+        " State at start is : ",
         res.data.playbackState
       );
       props.getStateHandler(
