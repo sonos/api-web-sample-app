@@ -12,6 +12,7 @@ export default function Groups(props) {
   const helper = new Helper();
 
   useEffect(() => {
+    
     let mounted = true;
 
     const HOUSEHOLD_ID = helper.getHouseHoldIdFromStorage();

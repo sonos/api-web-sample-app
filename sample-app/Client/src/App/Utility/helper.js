@@ -13,9 +13,6 @@ class Helper{
       this.authentication = new Authentication();
     }
     
-    /*
-    * api calling is done using the below mthod.
-    */
     apiCall(endPoint, headers, method, data) {
 
       logMessage("api call - endpoint : " + endPoint + " headers : " + JSON.stringify(headers)

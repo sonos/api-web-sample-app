@@ -6,7 +6,7 @@ class NavBar extends Component {
   render() {
     return (
       <div align="center" padding-top="300px">
-        <img
+        {/*<img
           src={require("../../images/spotify.png")}
           align="center"
           height="auto"
@@ -15,7 +15,7 @@ class NavBar extends Component {
           margin-right="auto"
           display="block"
           alt="spotify"
-        />
+        />*/}
       </div>
     );
   }

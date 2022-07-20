@@ -5,6 +5,8 @@ import "./css/playerControls.css";
 import "./css/groups.css";
 import "./css/error_page.css";
 
+import "./css/main.css";
+
 import Navbar from "./App/Controllers/navBarController";
 import RouteComponents from "./App/Controllers/routingController";
 
@@ -15,8 +17,8 @@ import ErrorPage from "./App/ErrorHandling/errorPage";
 import {SocketContext, socket} from './App/WebSokcet/socket';
 import SetUpClient from "./App/WebSokcet/setUpWebsocketClient";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
 
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <div>
     <Navbar />
