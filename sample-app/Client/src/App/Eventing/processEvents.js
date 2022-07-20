@@ -26,6 +26,27 @@ class ProcessRequest {
           console.log("Error in fetching the volume from the event", e);
         }
       }
+      else if (this.getMethodType(requestData) === "metadataStatus") {
+        try {
+          const trackName = requestData.data.currentItem.track.name;
+          const artistName = requestData.data.container.name;
+          const trackImage = requestData.data.container.imageUrl;
+          const res = {
+            method: "playBackMetaData",
+            data: {
+              "trackName": trackName,
+              "artistName": artistName,
+              "trackImage": trackImage
+            },
+          };
+          return JSON.stringify(res);
+        } catch (e) {
+          console.log("Error in fetching the volume from the event", e);
+        }
+      }
+      else{
+        console.error(requestData);
+      }
   }
 
   getMethodType(request) {

@@ -1,22 +1,28 @@
-import { io } from "socket.io-client";
+import  { useContext, useEffect } from "react";
+import { SocketContext } from "../WebSokcet/socket";
 import ProcessRequest from "../Eventing/processEvents";
 
 export default function SetUpClient(props) {
-  const socket = io("ws://localhost:8000");
 
-  // send a message to the server
-  socket.emit(
-    "hello from client",
-    "Test message from client received after setting up the connection..."
-  );
+  const socket = useContext(SocketContext);
+  console.log("Socket is: ",socket);
 
-  socket.on("message from server", (data) => {
-    console.log(data);
+  useEffect(() => {
 
-    if (data.headers !== undefined){
-      const processRequest = new ProcessRequest()
-      const res = processRequest.loadRequest(data);
-      props.receiveEventsHandler(res);
-    }  
+    // send a message to the server
+    socket.emit("hello from client", "Test message from client received...");
+
+    // subscribe to socket events
+    socket.on("message from server", (data) => {
+      console.log(data);
+
+      if (data.headers !== undefined) {
+        const processRequest = new ProcessRequest();
+        const res = processRequest.loadRequest(data);
+        props.receiveEventsHandler(res);
+      }
+    });
+
   });
+
 }

@@ -16,7 +16,7 @@ export default function Household(props) {
 
     let endPoint = helper.getHouseHoldURL();
 
-    const headers = helper.getHeaderBearer()
+    const headers = helper.getHeaderBearer();
 
     const data = {};
 

@@ -68,7 +68,7 @@ class PlayBackStateButton extends Component {
     return (
       <div>
         {/* Setting up the Web Socket Client */}
-        <SetUpClient receiveEventsHandler={this.receiveEventsHandler} />
+        {/* <SetUpClient receiveEventsHandler={this.receiveEventsHandler} /> */}
 
         <div>
           {this.state.getStateFlag && (

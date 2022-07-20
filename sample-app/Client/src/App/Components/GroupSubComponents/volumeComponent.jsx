@@ -39,7 +39,7 @@ class VolumeComponent extends Component {
       <div className="slider_container">
 
         {/* Setting up the Web Socket Client */}
-        <SetUpClient receiveEventsHandler={this.receiveEventsHandler} />
+        {/* <SetUpClient receiveEventsHandler={this.receiveEventsHandler} /> */}
 
         {this.state.getStartVolumeFlag && (
           <GetVolume

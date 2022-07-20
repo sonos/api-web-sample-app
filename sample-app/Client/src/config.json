@@ -14,5 +14,6 @@
   },
   "app_config" : {
     "log_level" : "debug"
-  }
+  },
+  "socketURL":"ws://localhost:8000"
 }
