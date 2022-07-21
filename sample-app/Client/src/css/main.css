@@ -112,8 +112,7 @@ body {
 
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
+    font-weight: 800;
     
     color: #000000;
 }
@@ -146,11 +145,9 @@ body {
 */
 
 .group_name {
-    height: 20%;
+    height: 10%;
     box-sizing: border-box;
     display: block;
-
-    
 }
 
 .group_box {
@@ -162,21 +159,46 @@ body {
     color: #000000;
     background-color: black;
     margin-top: 10%;
+
 }
 
 .group_box p {
-    top: 25%;
+    top: 5%;
     text-align: center;
     position: relative;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
+    font-weight: 600;
     color: white;
     
 }
 
 .track_details {
-    height: 20%;
-    background-color: aqua;
+    height: 15%;
+    
+}
+
+.track_name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+}
+
+.track_artist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+}
+.group_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+}
+  
+.group_buttons div {
+    display: flex;
+    align-items: center;
 }
