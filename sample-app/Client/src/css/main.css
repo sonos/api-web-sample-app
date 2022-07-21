@@ -79,8 +79,11 @@ body {
 
 .logo_logout {
     height: 5%;
+    width: 90%;
     display: table;
     border: 1px solid #000000;
+    margin-left: 5%;
+    margin-top: 5%;
 }
 
 
@@ -94,8 +97,11 @@ body {
 .logout {
     float: right;
     height: 80%;
-    width: 30%;
+    width: 20%;
+    margin-top: 2.5%;
 }
+
+
 
 .group_text {
     height: 20%;
