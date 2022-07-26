@@ -26,7 +26,7 @@ export default function Subscribe(props) {
         let endPointMD =
           helper.getGroupsURL() + groups[x] + "/playbackMetadata/subscription";
 
-        console.log("Subscribe being called...");
+        console.debug("Subscribe being called...");
 
         const headers = helper.getHeaderBearer();
 
@@ -35,7 +35,7 @@ export default function Subscribe(props) {
         helper
           .apiCall(endPointPB, headers, METHOD_POST, data)
           .then((res) => {
-            console.log(endPointPB, res.data);
+            console.debug(endPointPB, res.data);
             if (mounted) {
               setError(false);
             }

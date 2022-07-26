@@ -3,7 +3,8 @@ import { Component } from "react";
 import HelperControls from "../../Controls/playerControls";
 import PlayBackMetadata from "../../Controls/PlayBackMetadata";
 import ImageComponent from "./ImageComponent";
-import SetUpClient from "../../WebSokcet/setUpWebsocketClient";
+import { SocketContext, socket } from "../../WebSokcet/socket";
+import PlayBackMetaDataEvent from "../../WebSokcet/playBackMetaDataEvent";
 
 class PlayBackMetaDataComponent extends Component {
   constructor() {
@@ -36,23 +37,22 @@ class PlayBackMetaDataComponent extends Component {
   };
 
   receiveEventsHandler = (response) => {
-    response = JSON.parse(response);
     console.log(response);
-    if (response.method === "playBackMetaData") {
-      const data = response["data"];
+    if (this.state.trackName !== response["trackName"]){
       this.setState({
-        trackName: data["trackName"],
-        artistName: data["artistName"],
-        trackImage: data["trackImage"],
+        trackName: response["trackName"],
+        artistName: response["artistName"],
+        trackImage: response["trackImage"],
       });
-    }
+    };
   };
 
   render() {
     return (
       <div>
-        {/* Setting up the Web Socket Client */}
-        {/* <SetUpClient receiveEventsHandler={this.receiveEventsHandler} /> */}
+        <SocketContext.Provider value={socket}>
+          <PlayBackMetaDataEvent handler={this.receiveEventsHandler} />
+        </SocketContext.Provider>
 
         {this.state.getPlayBackMetaDataFlag && (
           <PlayBackMetadata

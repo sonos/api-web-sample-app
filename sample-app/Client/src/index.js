@@ -12,9 +12,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HelperGroupControl from "./App/Controls/helperGroupControl";
 import ErrorPage from "./App/ErrorHandling/errorPage";
 
-import {SocketContext, socket} from './App/WebSokcet/socket';
-import SetUpClient from "./App/WebSokcet/setUpWebsocketClient";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -28,10 +25,6 @@ root.render(
         <Route path="/error-page" element={<ErrorPage />} />
       </Routes>
     </Router>
-
-    <SocketContext.Provider value={socket}>
-      <SetUpClient />
-    </SocketContext.Provider>
 
   </div>
 );

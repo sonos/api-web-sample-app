@@ -16,9 +16,6 @@ class Control extends Component {
 
   render() {
     this.group = JSON.parse(this.props.group);
-    {
-      console.log("Loading Groups Component...");
-    }
 
     return (
       <div className="player">

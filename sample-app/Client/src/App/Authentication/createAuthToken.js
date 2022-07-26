@@ -10,7 +10,7 @@ export default function CreateAuthToken(props) {
 
   let endPoint = config.api_end_points.create_refresh_auth_token_url;
 
-  const headers = HEADER_BASIC;
+  const headers = helper.getHeadersBasic();
 
   const data = {
     grant_type: "authorization_code",

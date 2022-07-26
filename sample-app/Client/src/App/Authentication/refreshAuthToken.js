@@ -19,6 +19,8 @@ class RefreshAuthToken{
 
         let endPoint = config.api_end_points.create_refresh_auth_token_url;
 
+        const HEADER_BASIC = helper.getHeadersBasic();
+
         const data = {
                         grant_type:"refresh_token",
                         refresh_token:refreshToken

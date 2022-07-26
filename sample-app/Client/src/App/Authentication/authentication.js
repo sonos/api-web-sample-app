@@ -10,11 +10,11 @@ class Authentication extends Component {
       let curTime = Math.floor(Date.now() / 1000);
       accessToken = JSON.parse(accessToken);
       const refreshAuthToken = new RefreshAuthToken();
-      // if the access token is not expired we return true
+      // if the access token is not expired, we return true
       if (!((curTime - accessToken.token_timestamp) >= accessToken.expiry)){
         return true;
       }else{
-          // if the access token has expired we will call the refresh api.
+          // if the access token has expired, we will call the refresh api
           localStorage.clear();
           refreshAuthToken.refreshAccessToken();
           return false;
