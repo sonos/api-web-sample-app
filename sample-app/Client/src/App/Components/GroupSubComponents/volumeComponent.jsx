@@ -46,6 +46,7 @@ class VolumeComponent extends Component {
             deviceId={this.props.groupID}
             deviceType={"GROUP"}
             getVolumeHandler={this.getVolumeHandler}
+            configuration = {this.props.configuration}
           />
         )}
 

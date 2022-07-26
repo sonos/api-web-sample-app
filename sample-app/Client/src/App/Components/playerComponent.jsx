@@ -20,6 +20,7 @@ class PlayerComponent extends Component {
               deviceId={this.props.playerId}
               deviceType={"PLAYER"}
               getVolumeHandler={this.getVolumeHandler}
+              configuration = {this.props.configuration}
             />
           )}
         </div>

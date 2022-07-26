@@ -63,9 +63,14 @@ class Control extends Component {
             </div>
           </div>*/}
 
-          <VolumeComponent groupID={this.group.id} />
+          <VolumeComponent
+          groupID={this.group.id}
+          configuration = {this.props.configuration}
+          />
 
-          <PlayersComponent group={this.props.group} />
+          <PlayersComponent
+          group={this.props.group}
+          configuration = {this.props.configuration}/>
       </div>
       /*<div className="player">
         <div>
