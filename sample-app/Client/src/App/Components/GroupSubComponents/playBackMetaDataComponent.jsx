@@ -60,8 +60,20 @@ class PlayBackMetaDataComponent extends Component {
             playBackMetadataHandler={this.playBackMetadataHandler}
           />
         )}
-
-        <div className="details">
+        <div className="track_details">
+          <div className="track_image">
+              <ImageComponent src={this.getImage()} 
+              
+              alt="Song being played"/>
+              <div className="track_name" >
+              {this.state.trackName}
+              </div>
+              <div className="track_artist">
+              {this.state.artistName}</div>
+          </div>
+            
+        </div>
+        {/*<div className="details">
           <div className="track-image">
             <ImageComponent
               src={this.getImage()}
@@ -72,7 +84,7 @@ class PlayBackMetaDataComponent extends Component {
           </div>
           <div className="track-name">{this.state.trackName}</div>
           <div className="track-artist">{this.state.artistName}</div>
-        </div>
+        </div>*/}
       </div>
     );
   }

@@ -10,7 +10,7 @@ class PlayersComponent extends Component {
         return (
             <div>
                 <br/>
-                <h1>Players: </h1>
+                Players:
                 <div>
                     {group.playerIds.map(
                         playerId => (

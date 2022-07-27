@@ -1,0 +1,204 @@
+
+body {
+    background-color: white;
+    
+    transition: background-color .5s;
+    }
+
+    .main_page {
+        box-sizing: border-box;
+        position: absolute;
+        width: 40%;
+        height: 90%;
+        box-sizing: border-box;
+        top: 5%;
+        left: 30%;
+        border: 1px solid #000000;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        float: left;
+    }
+    .main_page  > *{
+        display :block;
+        width: 100%;
+    }
+
+/*
+*           authentication page
+*/
+    .oauth_bkg {
+        box-sizing: border-box;
+        display: block;
+        height: 70%;
+    }
+
+    .login_with_sonos_text {
+        box-sizing: border-box;
+        height: 16%;
+        text-align: center;
+
+        display: block;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        
+        color: #000000;
+
+    }
+    .login_with_sonos_text p {
+        top: 42%;
+        text-align: center;
+        position: relative;
+    }
+
+    .login_btn{
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 30%;
+        left: 35%;
+        height: 8%;
+        
+        background: #0A0909;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+
+        text-align: center;
+        color: white;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+/*
+*           group page
+*/
+
+.logo_logout {
+    height: 5%;
+    width: 90%;
+    display: table;
+    border: 1px solid #000000;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+
+.logo {
+    float: left;
+    height: 100%;
+    width: 60%;
+    
+}
+
+.logout {
+    float: right;
+    height: 80%;
+    width: 20%;
+    margin-top: 2.5%;
+}
+
+
+
+.group_text {
+    height: 20%;
+    box-sizing: border-box;
+    text-align: center;
+
+    display: block;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    
+    color: #000000;
+}
+
+.group_text p {
+    top: 42%;
+    text-align: center;
+    position: relative;
+}
+
+.group_det {
+    height: 65%;
+    display: block;
+}
+.group_ind {
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    left: 25%;
+    background: #D9D9D9;
+    mix-blend-mode: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+*           player page
+*/
+
+.group_name {
+    height: 10%;
+    box-sizing: border-box;
+    display: block;
+}
+
+.group_box {
+    height: 40%;
+    width: 60%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: block;
+    color: #000000;
+    background-color: black;
+    margin-top: 10%;
+
+}
+
+.group_box p {
+    top: 5%;
+    text-align: center;
+    position: relative;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    color: white;
+    
+}
+
+.track_details {
+    height: 15%;
+    
+}
+
+.track_name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+}
+
+.track_artist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+}
+.group_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+}
+  
+.group_buttons div {
+    display: flex;
+    align-items: center;
+}

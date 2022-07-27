@@ -23,7 +23,7 @@ class PlayerComponent extends Component {
             />
           )}
         </div>
-        <h4>Player ID : {this.props.playerId}</h4>
+        Player ID : {this.props.playerId}
         <div className="slider_container">
           <i className="fa fa-volume-down"></i>
           <input
