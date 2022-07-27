@@ -5,7 +5,6 @@ import HelperControls from "../../Controls/playerControls";
 import PlayBackStateEvent from "../../WebSokcet/playBackStateEvent";
 import { SocketContext, socket } from "../../WebSokcet/socket";
 
-
 class PlayBackStateButton extends Component {
   constructor() {
     super();

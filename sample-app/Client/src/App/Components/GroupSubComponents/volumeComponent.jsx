@@ -29,9 +29,9 @@ class VolumeComponent extends Component {
 
   receiveEventsHandler = (response) => {
     console.log(response);
-    const newVolume = response["volume"]
+    const newVolume = response["volume"];
     if (this.state.volumeVal !== newVolume)
-    this.setState({ volumeVal: newVolume });
+      this.setState({ volumeVal: newVolume });
   };
 
   render() {

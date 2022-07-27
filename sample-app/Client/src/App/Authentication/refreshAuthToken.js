@@ -3,7 +3,7 @@
  */
 
 import Helper from "../Utility/helper";
-import { HEADER_BASIC, METHOD_POST } from "../Utility/constants";
+import { METHOD_POST } from "../Utility/constants";
 import config from "../../config.json";
 
 class RefreshAuthToken{

@@ -29,7 +29,7 @@ class HelperControls extends Component {
       this.helper.logError(error);
       return false;
     });
-  }
-}
+  };
+};
 
 export default HelperControls;

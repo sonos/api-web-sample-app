@@ -7,7 +7,7 @@ import { METHOD_POST } from "../Utility/constants";
 import { useEffect, useState } from "react";
 
 export default function Subscribe(props) {
-  const [response, setResponse] = useState([]);
+  
   const [error, setError] = useState([]);
   const helper = new Helper();
 
@@ -40,7 +40,7 @@ export default function Subscribe(props) {
               setError(false);
             }
           })
-          .catch(function (error) {
+          .catch(function () {
             console.error("Something went wrong");
             setError(true);
             return Promise.reject(error);

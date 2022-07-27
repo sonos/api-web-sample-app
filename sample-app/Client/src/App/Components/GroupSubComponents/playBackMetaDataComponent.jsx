@@ -38,13 +38,13 @@ class PlayBackMetaDataComponent extends Component {
 
   receiveEventsHandler = (response) => {
     console.log(response);
-    if (this.state.trackName !== response["trackName"]){
+    if (this.state.trackName !== response["trackName"]) {
       this.setState({
         trackName: response["trackName"],
         artistName: response["artistName"],
         trackImage: response["trackImage"],
       });
-    };
+    }
   };
 
   render() {

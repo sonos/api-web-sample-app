@@ -56,7 +56,7 @@ Steps for setting up the React application locally:
 
 - Login to the Sonos Developer Portal(https://integration.sonos.com/integrations) and create a new control integration with Redirect URIs to be `http://localhost:3000`
 - Update the client_id, secret in config.json(pdsw-portal-sample-app/sample-app/Client/src)
-- Open a terminal window and run the command: `ngrok http 8000`
+- Open a terminal window and run the command: `ngrok http 8080`
 - Update the *Event Callback URL* under the Credentials tab to the https URL genrerated from the ngrok
 
 # Configuration & Best Practices
