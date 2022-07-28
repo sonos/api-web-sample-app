@@ -17,7 +17,7 @@ io.on("connection", (socket) => {
   console.log("Connected to client...", socket.id);
 
   // send a message to the client
-  // socket.emit("message from server", "Now we can receive events from server");
+  io.emit("message from server", "Now we can receive events from server");
 
   // receive a message from the client
   socket.on("hello from client", (data) => {

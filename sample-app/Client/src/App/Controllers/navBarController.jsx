@@ -1,24 +1,26 @@
 import React from "react";
-import { Component } from "react";
+import ImageComponent from "../Components/GroupSubComponents/ImageComponent";
 
-class NavBar extends Component {
-  state = {};
-  render() {
+export default function NavBar() {
+
+  const logout = () => {
+    console.debug("Logging out...");
+    window.localStorage.clear();
+    window.location.reload(true);
+  }  
+
     return (
-      <div align="center" padding-top="300px">
-        {/*<img
-          src={require("../../images/spotify.png")}
-          align="center"
-          height="auto"
-          max-width="100%"
-          margin-left="auto"
-          margin-right="auto"
-          display="block"
-          alt="spotify"
-        />*/}
+      <div className="logo_logout">
+        <div className="logo">
+          
+          <ImageComponent src={require("../../images/logo.png")} />
+          
+        </div>
+        <div className="logout">
+          <a onClick={logout}>
+          <ImageComponent src={require("../../images/logout.png")} />
+          </a>
+        </div>
       </div>
     );
-  }
-}
-
-export default NavBar;
+    }

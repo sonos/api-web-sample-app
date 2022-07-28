@@ -3,7 +3,8 @@ import { Component } from "react";
 import HelperControls from "../../Controls/playerControls";
 import PlayBackMetadata from "../../Controls/PlayBackMetadata";
 import ImageComponent from "./ImageComponent";
-import SetUpClient from "../../WebSokcet/setUpWebsocketClient";
+import { SocketContext, socket } from "../../WebSokcet/socket";
+import PlayBackMetaDataEvent from "../../WebSokcet/playBackMetaDataEvent";
 
 class PlayBackMetaDataComponent extends Component {
   constructor() {
@@ -13,16 +14,16 @@ class PlayBackMetaDataComponent extends Component {
     this.state = {
       getPlayBackMetaDataFlag: true,
       trackName: null,
-      artistName: null,
+      albumName: null,
       trackImage: null,
     };
   }
 
-  playBackMetadataHandler = (flag, trackName, artistName, trackImage) => {
+  playBackMetadataHandler = (flag, trackName, albumName, trackImage) => {
     this.setState({
       getPlayBackMetaDataFlag: flag,
       trackName: trackName,
-      artistName: artistName,
+      albumName: albumName,
       trackImage: trackImage,
     });
   };
@@ -36,14 +37,12 @@ class PlayBackMetaDataComponent extends Component {
   };
 
   receiveEventsHandler = (response) => {
-    response = JSON.parse(response);
     console.log(response);
-    if (response.method === "playBackMetaData") {
-      const data = response["data"];
+    if (this.state.trackName !== response["trackName"]) {
       this.setState({
-        trackName: data["trackName"],
-        artistName: data["artistName"],
-        trackImage: data["trackImage"],
+        trackName: response["trackName"],
+        albumName: response["albumName"],
+        trackImage: response["trackImage"],
       });
     }
   };
@@ -51,8 +50,9 @@ class PlayBackMetaDataComponent extends Component {
   render() {
     return (
       <div>
-        {/* Setting up the Web Socket Client */}
-        {/* <SetUpClient receiveEventsHandler={this.receiveEventsHandler} /> */}
+        <SocketContext.Provider value={socket}>
+          <PlayBackMetaDataEvent handler={this.receiveEventsHandler} />
+        </SocketContext.Provider>
 
         {this.state.getPlayBackMetaDataFlag && (
           <PlayBackMetadata
@@ -62,29 +62,16 @@ class PlayBackMetaDataComponent extends Component {
         )}
         <div className="track_details">
           <div className="track_image">
-              <ImageComponent src={this.getImage()} 
-              
-              alt="Song being played"/>
-              <div className="track_name" >
-              {this.state.trackName}
-              </div>
-              <div className="track_artist">
-              {this.state.artistName}</div>
-          </div>
-            
-        </div>
-        {/*<div className="details">
-          <div className="track-image">
             <ImageComponent
               src={this.getImage()}
               width="300"
               height="250"
               alt="Song being played"
             />
+            <div className="track_name">{this.state.trackName}</div>
+            <div className="album_name">{this.state.albumName}</div>
           </div>
-          <div className="track-name">{this.state.trackName}</div>
-          <div className="track-artist">{this.state.artistName}</div>
-        </div>*/}
+        </div>
       </div>
     );
   }

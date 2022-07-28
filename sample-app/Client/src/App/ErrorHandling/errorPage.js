@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Container } from "reactstrap";
+import NavBar from "../Controllers/navBarController";
 
 export default function ErrorPage() {
   let navigate = useNavigate();
@@ -11,15 +12,19 @@ export default function ErrorPage() {
   };
 
   return (
-    <div>
-      <div className="mainbox">
-        <div className="err">4</div>
-        <i className="far fa-question-circle fa-spin"></i>
-        <div className="err2">4</div>
-        <div className="msg">
-          Maybe this page Moved? Deleted? Quarantined? Never existed?
+      <div className="main_page">
+        <div>
+          <NavBar />
         </div>
-      </div>
+        <div className="mainbox">
+          <div className="err">4</div>
+          <i className="far fa-question-circle fa-spin"></i>
+          <div className="err2">4</div>
+          <div className="msg">
+            Maybe this page Moved? Deleted? Quarantined? Never existed?
+          </div>
+        </div>
+      
       <div>
         <Container align="center">
           <br />

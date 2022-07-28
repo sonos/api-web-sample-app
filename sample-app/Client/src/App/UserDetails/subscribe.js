@@ -7,7 +7,7 @@ import { METHOD_POST } from "../Utility/constants";
 import { useEffect, useState } from "react";
 
 export default function Subscribe(props) {
-  const [response, setResponse] = useState([]);
+  
   const [error, setError] = useState([]);
   const helper = new Helper();
 
@@ -26,7 +26,7 @@ export default function Subscribe(props) {
         let endPointMD =
           helper.getGroupsURL() + groups[x] + "/playbackMetadata/subscription";
 
-        console.log("Subscribe being called...");
+        console.debug("Subscribe being called...");
 
         const headers = helper.getHeaderBearer();
 
@@ -35,12 +35,12 @@ export default function Subscribe(props) {
         helper
           .apiCall(endPointPB, headers, METHOD_POST, data)
           .then((res) => {
-            console.log(endPointPB, res.data);
+            console.debug(endPointPB, res.data);
             if (mounted) {
               setError(false);
             }
           })
-          .catch(function (error) {
+          .catch(function () {
             console.error("Something went wrong");
             setError(true);
             return Promise.reject(error);

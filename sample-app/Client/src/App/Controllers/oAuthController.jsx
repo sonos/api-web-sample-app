@@ -5,7 +5,6 @@ import Helper from "../Utility/helper";
 import ImageComponent from "../Components/GroupSubComponents/ImageComponent";
 
 export default class OAuth extends Component {
-
   constructor() {
     super();
     this.code_generated_flag = false;
@@ -48,50 +47,40 @@ export default class OAuth extends Component {
   };
 
   postYourAdd = () => {
-    document.getElementById("iframeDisplay").innerHTML = "<iframe src=\"../HtmlPage1.html\" height=\"200\" width=\"300\" ></iframe>"; 
+    document.getElementById("iframeDisplay").innerHTML =
+      '<iframe src="../HtmlPage1.html" height="200" width="300" ></iframe>';
   };
   render() {
     return (
       <div className="background">
-        <div className="main_page" >
+        <div className="main_page">
           <div className="oauth_bkg">
-            <ImageComponent src={require("../../images/sonos_background.png")}/>
+            <ImageComponent
+              src={require("../../images/sonos_background.png")}
+            />
           </div>
           {this.getCode()}
           <div className="login_with_sonos_text">
             <p>Login with Sonos</p>
           </div>
 
-          <div >
-
+          <div>
             <a href={this.helper.getOAuthUrl()} className="oauthhref">
               <button type="button" className="login_btn">
                 Login
               </button>
-
-              
             </a>
             {/*<iframe style={{ borderStyle: "none" }} data-test="authModal" src="about:blank" title="test" width="100%" height="100%" loading="lazy" />*/}
           </div>
-
         </div>
         <div className="login_to_sonos" align="center">
-          
           <div>
-            {/*<h1 className="oauthtext">Login with Sonos</h1>*/}
-          </div>
-          <div>
-            <img src={require("../../images/sonos.png")} alt="Sonos" width="300" height="200"></img>
-
-            {/*img src={require("../../images/sonos.png")} alt="Sonos"></img>*/}
-          </div>
-          <div>
-            {/*<a href={this.helper.getOAuthUrl()} className="oauthhref">
-              <br />
-              <button type="button" className="btn btn-info">
-                Login
-              </button>*
-            </a>*/}
+            <img
+              src={require("../../images/sonos.png")}
+              alt="Sonos"
+              width="300"
+              height="200"
+            ></img>
           </div>
           <div>
             {this.code_generated_flag && (
@@ -107,4 +96,3 @@ export default class OAuth extends Component {
     );
   }
 }
-

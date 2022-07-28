@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import GroupComponent from "../Components/groupComponent";
-import ImageComponent from "../Components/GroupSubComponents/ImageComponent";
+import NavBar from "./navBarController";
 
 class GroupsController extends Component {
   state = {};
@@ -10,14 +10,7 @@ class GroupsController extends Component {
     return (
       <div>
         <div className="main_page">
-          <div className="logo_logout">
-            <div className="logo">
-              <ImageComponent src={require("../../images/logo.png")}/>
-            </div>
-            <div className="logout">
-              <ImageComponent src={require("../../images/logout.png")}/>
-            </div>
-          </div>
+          <NavBar />
           <div className="group_text">
             <p>List of Groups in your Household: </p>
           </div>

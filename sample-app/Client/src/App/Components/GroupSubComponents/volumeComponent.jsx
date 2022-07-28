@@ -3,7 +3,8 @@ import { Component } from "react";
 import GetVolume from "../../Controls/getVolume";
 import SetVolume from "../../Controls/setVolume";
 import HelperControls from "../../Controls/playerControls";
-import SetUpClient from "../../WebSokcet/setUpWebsocketClient";
+import { SocketContext, socket } from "../../WebSokcet/socket";
+import VolumeEvent from "../../WebSokcet/volumeEvent";
 
 class VolumeComponent extends Component {
   constructor() {
@@ -27,19 +28,18 @@ class VolumeComponent extends Component {
   };
 
   receiveEventsHandler = (response) => {
-    response = JSON.parse(response);
     console.log(response);
-    if (response.method === "volumeControl"){
-      this.setState({volumeVal : response["data"]["volume"]});
-    }
-  }
+    const newVolume = response["volume"];
+    if (this.state.volumeVal !== newVolume)
+      this.setState({ volumeVal: newVolume });
+  };
 
   render() {
     return (
       <div className="slider_container">
-
-        {/* Setting up the Web Socket Client */}
-        {/* <SetUpClient receiveEventsHandler={this.receiveEventsHandler} /> */}
+        <SocketContext.Provider value={socket}>
+          <VolumeEvent handler={this.receiveEventsHandler} />
+        </SocketContext.Provider>
 
         {this.state.getStartVolumeFlag && (
           <GetVolume

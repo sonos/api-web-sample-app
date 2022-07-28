@@ -2,7 +2,8 @@ import React from "react";
 import { Component } from "react";
 import StateAtStart from "../../Controls/playBackState";
 import HelperControls from "../../Controls/playerControls";
-import SetUpClient from "../../WebSokcet/setUpWebsocketClient";
+import PlayBackStateEvent from "../../WebSokcet/playBackStateEvent";
+import { SocketContext, socket } from "../../WebSokcet/socket";
 
 class PlayBackStateButton extends Component {
   constructor() {
@@ -43,7 +44,10 @@ class PlayBackStateButton extends Component {
 
   toggleMusic = () => {
     console.debug("Trying to play/pause music...");
-    const result = this.ControlOptions.helperControls("togglePlayPause", this.props.groupID);
+    const result = this.ControlOptions.helperControls(
+      "togglePlayPause",
+      this.props.groupID
+    );
     console.log(result);
     // if (result === true){
     //   this.setState({ isPlaying: !this.state.isPlaying });
@@ -57,18 +61,19 @@ class PlayBackStateButton extends Component {
   };
 
   receiveEventsHandler = (response) => {
-    response = JSON.parse(response);
     console.log(response);
-    if (response.method === "playBackState"){
-      this.setState({isPlaying : response["data"]["isPlayingFlag"]});
+    const newState = response["isPlayingFlag"];
+    if (this.state.isPlaying !== newState) {
+      this.setState({ isPlaying: newState });
     }
-  }
+  };
 
   render() {
     return (
       <div>
-        {/* Setting up the Web Socket Client */}
-        {/* <SetUpClient receiveEventsHandler={this.receiveEventsHandler} /> */}
+        <SocketContext.Provider value={socket}>
+          <PlayBackStateEvent handler={this.receiveEventsHandler} />
+        </SocketContext.Provider>
 
         <div>
           {this.state.getStateFlag && (

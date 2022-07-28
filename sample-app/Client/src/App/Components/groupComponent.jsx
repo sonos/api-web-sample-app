@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useNavigate } from "react-router-dom";
-import { Button, Container } from "reactstrap";
+import { Container } from "reactstrap";
 
 function GroupComponent(props) {
   let navigate = useNavigate();
@@ -15,9 +15,9 @@ function GroupComponent(props) {
   return (
     <div className="group_det">
       <Container>
-        <div className="group_ind">
-          <a onClick={routeChange} >{props.group.name}</a>
-        </div>
+        <a onClick={routeChange}>
+          <p className="group_ind">{props.group.name}</p>
+        </a>
       </Container>
     </div>
   );
