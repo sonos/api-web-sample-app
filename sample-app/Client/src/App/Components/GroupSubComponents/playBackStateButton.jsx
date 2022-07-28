@@ -24,7 +24,7 @@ class PlayBackStateButton extends Component {
   playMusic = () => {
     console.debug("Trying to play music...");
     if (!this.state.isPlaying) {
-      this.ControlOptions.helperControls("play", this.props.groupID);
+      this.ControlOptions.helperControls("play", this.props.groupID, this.props.configuration);
       this.props.playStateHandler(true);
     } else {
       console.error("Already in Play Mode");
@@ -34,7 +34,7 @@ class PlayBackStateButton extends Component {
   pauseMusic = () => {
     console.debug("Trying to pause music...");
     if (this.state.isPlaying) {
-      this.ControlOptions.helperControls("pause", this.props.groupID);
+      this.ControlOptions.helperControls("pause", this.props.groupID, );
       this.props.playStateHandler(false);
     } else {
       console.error("Already in Pause Mode");
@@ -43,8 +43,8 @@ class PlayBackStateButton extends Component {
 
   toggleMusic = () => {
     console.debug("Trying to play/pause music...");
-    const result = this.ControlOptions.helperControls("togglePlayPause", this.props.groupID);
-    console.log(result);
+    const result = this.ControlOptions.helperControls("togglePlayPause", this.props.groupID, this.props.configuration);
+    console.debug(result);
     // if (result === true){
     //   this.setState({ isPlaying: !this.state.isPlaying });
     // };
@@ -58,7 +58,7 @@ class PlayBackStateButton extends Component {
 
   receiveEventsHandler = (response) => {
     response = JSON.parse(response);
-    console.log(response);
+    console.debug(response);
     if (response.method === "playBackState"){
       this.setState({isPlaying : response["data"]["isPlayingFlag"]});
     }
@@ -75,6 +75,7 @@ class PlayBackStateButton extends Component {
             <StateAtStart
               deviceId={this.props.groupID}
               getStateHandler={this.getStateHandler}
+              configuration = {this.props.configuration}
             />
           )}
         </div>

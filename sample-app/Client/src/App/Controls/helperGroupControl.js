@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Control from "../Components/controlComponent";
 import Authentication from "../Authentication/authentication";
 import { Configuration } from "../museClient/configuration";
+import Helper from "../Utility/helper";
 
 function HelperGroupControl() {
   const navigate = useNavigate();
@@ -23,7 +24,8 @@ function HelperGroupControl() {
     const { group } = state;
     return <Control 
             group={group} 
-            configuration = {configuration}/>;
+            configuration = {configuration}
+          />;
   }
 }
 

@@ -18,7 +18,7 @@ class Control extends Component {
   render() {
     this.group = JSON.parse(this.props.group);
     {
-      console.log("Loading Groups Component...");
+      console.debug("Loading Groups Component...");
     }
 
     return (
@@ -39,29 +39,26 @@ class Control extends Component {
             </div>
           </div>
 
-          <PlayBackMetaDataComponent groupID={this.group.id} />
+          <PlayBackMetaDataComponent
+          groupID={this.group.id}
+          configuration = {this.props.configuration}
+          />
+
           <div className="group_buttons">
             <div className="group_prev" onClick={this.skipToPrevious}>
               <i className="fa fa-step-backward fa-2x"></i>
             </div>
 
-            <PlayBackStateButton groupID={this.group.id} playPauseState={false}/>
+            <PlayBackStateButton
+            groupID={this.group.id}
+            playPauseState={false}
+            configuration = {this.props.configuration}
+            />
 
             <div className="group_next" onClick={this.skipToNext}>
               <i className="fa fa-step-forward fa-2x"></i>
             </div>
           </div>
-          {/*<div className="buttons">
-            <div className="prev-track" onClick={this.skipToPrevious}>
-              <i className="fa fa-step-backward fa-2x"></i>
-            </div>
-
-            <PlayBackStateButton groupID={this.group.id} playPauseState={false}/>
-
-            <div className="next-track" onClick={this.skipToNext}>
-              <i className="fa fa-step-forward fa-2x"></i>
-            </div>
-          </div>*/}
 
           <VolumeComponent
           groupID={this.group.id}
@@ -70,42 +67,20 @@ class Control extends Component {
 
           <PlayersComponent
           group={this.props.group}
-          configuration = {this.props.configuration}/>
+          configuration = {this.props.configuration}
+          />
       </div>
-      /*<div className="player">
-        <div>
-          <h1 className="oauthtext">Group Name: {this.group.name}</h1>
-        </div>
-
-        <PlayBackMetaDataComponent groupID={this.group.id} />
-
-        <div className="buttons">
-          <div className="prev-track" onClick={this.skipToPrevious}>
-            <i className="fa fa-step-backward fa-2x"></i>
-          </div>
-
-          <PlayBackStateButton groupID={this.group.id} playPauseState={false}/>
-
-          <div className="next-track" onClick={this.skipToNext}>
-            <i className="fa fa-step-forward fa-2x"></i>
-          </div>
-        </div>
-
-        <VolumeComponent groupID={this.group.id} />
-
-        <PlayersComponent group={this.props.group} />
-      </div>*/
     );
   }
 
   skipToPrevious = () => {
     console.debug("Trying to skip to previous song...");
-    this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id);
+    this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id, this.props.configuration);
   };
 
   skipToNext = () => {
     console.debug("Trying to skip to next song...");
-    this.ControlOptions.helperControls("skipToNextTrack", this.group.id);
+    this.ControlOptions.helperControls("skipToNextTrack", this.group.id, this.props.configuration);
   };
 }
 

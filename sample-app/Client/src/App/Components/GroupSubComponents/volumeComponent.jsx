@@ -18,7 +18,7 @@ class VolumeComponent extends Component {
 
   onSetVolume = () => {
     const volume = this.volumeSlider.current.value;
-    SetVolume(volume, this.props.groupID, "GROUP");
+    SetVolume(volume, this.props.groupID, "GROUP", this.props.configuration);
     this.setState({ volumeVal: volume });
   };
 
@@ -28,7 +28,7 @@ class VolumeComponent extends Component {
 
   receiveEventsHandler = (response) => {
     response = JSON.parse(response);
-    console.log(response);
+    console.debug(response);
     if (response.method === "volumeControl"){
       this.setState({volumeVal : response["data"]["volume"]});
     }

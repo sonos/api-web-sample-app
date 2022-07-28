@@ -1,26 +1,19 @@
-import Helper from "../Utility/helper";
-import { METHOD_GET } from "../Utility/constants";
+import { PlaybackMetadataApiFactory } from "../museClient/api";
 
 export default function PlayBackMetadata(props) {
-  const helper = new Helper();
 
-  const endPoint = helper.getGroupsURL() + props.group_id + "/playbackMetadata";
+  const playBackMetadataApi = new PlaybackMetadataApiFactory(props.configuration);
 
-  const headers = helper.getHeaderBearer();
-
-  const data = {};
-
-  helper
-    .apiCall(endPoint, headers, METHOD_GET, data)
-    .then((res) => {
-      props.playBackMetadataHandler(
+  playBackMetadataApi.playbackMetadataGetMetadataStatus(props.group_id)
+  .then((res) => {
+    props.playBackMetadataHandler(
         false,
-        res.data.currentItem.track.name,
-        res.data.currentItem.track.album.name,
-        res.data.container.imageUrl
+        res.currentItem.track.name,
+        res.currentItem.track.album.name,
+        res.container.imageUrl
       );
-    })
-    .catch(function (error) {
-      helper.logError(error);
-    });
+  })
+  .catch(function (error) {
+    console.error("Error", error);
+  });
 }

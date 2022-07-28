@@ -1,9 +1,7 @@
-import Helper from "../Utility/helper";
 import { GroupVolumeApiFactory } from "../museClient/api";
 import { PlayerVolumeApiFactory } from "../museClient/api";
 
 export default function GetVolume(props) {
-  const helper = new Helper();
 
   if(props.deviceType === "GROUP"){
     
@@ -15,7 +13,7 @@ export default function GetVolume(props) {
       props.getVolumeHandler(false, res.volume);
     })
     .catch(function (error) {
-      helper.logError(error);
+      console.error("Error", error);
     });
   }else{
     const playerVolumeApi = new PlayerVolumeApiFactory(props.configuration);
@@ -25,7 +23,7 @@ export default function GetVolume(props) {
       props.getVolumeHandler(false, res.volume);
     })
     .catch(function (error) {
-      helper.logError(error);
+      console.error("Error", error);
     });
   }
 }

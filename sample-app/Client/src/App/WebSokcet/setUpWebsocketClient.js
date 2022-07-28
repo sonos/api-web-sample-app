@@ -5,7 +5,7 @@ import ProcessRequest from "../Eventing/processEvents";
 export default function SetUpClient(props) {
 
   const socket = useContext(SocketContext);
-  console.log("Socket is: ",socket);
+  console.debug("Socket is: ",socket);
 
   useEffect(() => {
 
@@ -14,7 +14,7 @@ export default function SetUpClient(props) {
 
     // subscribe to socket events
     socket.on("message from server", (data) => {
-      console.log(data);
+      console.debug(data);
 
       if (data.headers !== undefined) {
         const processRequest = new ProcessRequest();

@@ -34,12 +34,10 @@ class Helper{
     * api error logging is done in this method
     */
     logError(error) { 
-
       if (error.response) {
         // Request made and server responded
-        console.error(error.response.data);
-        console.error(error.response.status);
-        console.error(error.response.headers);
+        console.error(error);
+
       } else if (error.request) {
           // The request was made but no response was received
           console.error(error.request);

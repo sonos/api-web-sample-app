@@ -11,7 +11,7 @@ class ProcessRequest {
         };
         return JSON.stringify(res);
       } catch (e) {
-        console.log("Error in fetching the playback state from the event", e);
+        console.debug("Error in fetching the playback state from the event", e);
       }
     }
     else if (this.getMethodType(requestData) === "groupVolume") {
@@ -23,7 +23,7 @@ class ProcessRequest {
           };
           return JSON.stringify(res);
         } catch (e) {
-          console.log("Error in fetching the volume from the event", e);
+          console.debug("Error in fetching the volume from the event", e);
         }
       }
       else if (this.getMethodType(requestData) === "metadataStatus") {
@@ -41,7 +41,7 @@ class ProcessRequest {
           };
           return JSON.stringify(res);
         } catch (e) {
-          console.log("Error in fetching the volume from the event", e);
+          console.debug("Error in fetching the volume from the event", e);
         }
       }
       else{

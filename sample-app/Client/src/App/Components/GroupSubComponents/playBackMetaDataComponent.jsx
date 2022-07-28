@@ -37,7 +37,6 @@ class PlayBackMetaDataComponent extends Component {
 
   receiveEventsHandler = (response) => {
     response = JSON.parse(response);
-    console.log(response);
     if (response.method === "playBackMetaData") {
       const data = response["data"];
       this.setState({
@@ -58,6 +57,7 @@ class PlayBackMetaDataComponent extends Component {
           <PlayBackMetadata
             group_id={this.props.groupID}
             playBackMetadataHandler={this.playBackMetadataHandler}
+            configuration = {this.props.configuration}
           />
         )}
         <div className="track_details">
@@ -73,18 +73,6 @@ class PlayBackMetaDataComponent extends Component {
           </div>
             
         </div>
-        {/*<div className="details">
-          <div className="track-image">
-            <ImageComponent
-              src={this.getImage()}
-              width="300"
-              height="250"
-              alt="Song being played"
-            />
-          </div>
-          <div className="track-name">{this.state.trackName}</div>
-          <div className="track-artist">{this.state.artistName}</div>
-        </div>*/}
       </div>
     );
   }
