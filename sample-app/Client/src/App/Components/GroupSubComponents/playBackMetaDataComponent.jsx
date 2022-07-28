@@ -63,15 +63,16 @@ class PlayBackMetaDataComponent extends Component {
         )}
         <div className="track_details">
           <div className="track_image">
-            <ImageComponent
-              src={this.getImage()}
-              width="300"
-              height="250"
-              alt="Song being played"
-            />
-            <div className="track_name">{this.state.trackName}</div>
-            <div className="album_name">{this.state.albumName}</div>
+              <ImageComponent src={this.getImage()} 
+              
+              alt="Song being played"/>
+              <div className="track_name" >
+              {this.state.trackName}
+              </div>
+              <div className="track_artist">
+              {this.state.artistName}</div>
           </div>
+            
         </div>
       </div>
     );

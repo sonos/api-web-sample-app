@@ -19,7 +19,6 @@ class Control extends Component {
     this.group = JSON.parse(this.props.group);
 
     return (
-      <div>
       <div className="main_page">
         <NavBar />
 
@@ -60,6 +59,7 @@ class Control extends Component {
         museClientConfig = {this.props.museClientConfig}
       />
       </div>
+
       </div>
     );
   }
@@ -72,6 +72,7 @@ class Control extends Component {
   skipToNext = () => {
     console.debug("Trying to skip to next song...");
     this.ControlOptions.helperControls("skipToNextTrack", this.group.id, this.props.museClientConfig);
+
   };
 }
 

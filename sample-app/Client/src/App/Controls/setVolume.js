@@ -3,7 +3,7 @@ import { GroupVolumeApiFactory } from "../museClient/api";
 import { PlayerVolumeApiFactory } from "../museClient/api";
 
 export default function SetVolume(volume, deviceId, deviceType, museClientConfig) {
-  
+
   const data = { volume: volume };
   if(deviceType === "GROUP"){
     
@@ -26,4 +26,5 @@ export default function SetVolume(volume, deviceId, deviceType, museClientConfig
       console.error("Error", error);
     });
   }
+
 }

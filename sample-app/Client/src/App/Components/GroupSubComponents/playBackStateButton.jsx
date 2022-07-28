@@ -26,6 +26,7 @@ class PlayBackStateButton extends Component {
     console.debug("Trying to play music...");
     if (!this.state.isPlaying) {
       this.ControlOptions.helperControls("play", this.props.groupID, this.props.museClientConfig);
+
       this.props.playStateHandler(true);
     } else {
       console.error("Already in Play Mode");
@@ -36,6 +37,7 @@ class PlayBackStateButton extends Component {
     console.debug("Trying to pause music...");
     if (this.state.isPlaying) {
       this.ControlOptions.helperControls("pause", this.props.groupID, this.props.museClientConfig);
+
       this.props.playStateHandler(false);
     } else {
       console.error("Already in Pause Mode");
@@ -50,6 +52,7 @@ class PlayBackStateButton extends Component {
       this.props.museClientConfig
     );
     console.log(result);
+
     // if (result === true){
     //   this.setState({ isPlaying: !this.state.isPlaying });
     // };

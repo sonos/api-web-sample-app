@@ -19,7 +19,8 @@ More badges can be found at [shields.io](https://shields.io/).
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [Installation/Setup](#installationsetup)
-- [Things to Update](#things-to-update)
+- [Usage](#usage)
+- [Contents](#contents)
 - [Configuration & Best Practices](#configuration--best-practices)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -31,7 +32,7 @@ This repo contains the source code for the Sample-App(Web based). These sample a
 - Play/Pause 
 - SkipToNext/SkipToPrev
 - Volume control (Groups and Individual Players)
-- Eventing (Update the state changes in the WebApp using the events received from the Muse Backend after subscription)
+- Eventing
 
 
 # Requirements
@@ -45,19 +46,42 @@ This repo contains the source code for the Sample-App(Web based). These sample a
 Steps for setting up the React application locally:
 
 1. Clone the Repo
-2. cd pdsw-portal-sample-app/sample-app/Client
+2. cd pdsw-portal-sample-app/sample-app
 3. npm install or npm i (if you face any face difficulties installing using npm try using yarn)
-4. cd ../Server
-5. npm install or npm i (if you face any face difficulties installing using npm try using yarn)
-6. npm start (For both React and nodejs application to start at once concurrently)
+4. npm start (For the React application to start)
 
+# Usage
 
-# Things to Update
+Once cloned, a .gitignore file can be selected from `gitignorefiles` or the default `.gitignore` can be used. From there, your application or service can be added.
 
-- Login to the Sonos Developer Portal(https://integration.sonos.com/integrations) and create a new control integration with Redirect URIs to be `http://localhost:3000`
-- Update the client_id, secret in config.json(pdsw-portal-sample-app/sample-app/Client/src)
-- Open a terminal window and run the command: `ngrok http 8080`
-- Update the *Event Callback URL* under the Credentials tab to the https URL genrerated from the ngrok
+# Contents
+
+These are the template files included in this repo.
+
+```
+template-repo
+│   README.md
+│   .gitignore  
+|   LICENSE
+|   MIT_LICENSE 
+└───.github
+│   │   CODEOWNERS
+│   │   delete-merged-branch-config.yml
+│   │   labeler.yml
+│   │   release-drafter.yml
+└───gitignorefiles
+|   |   README.md
+│   │   gradle.ignore
+│   │   java.ignore
+|   |   ...
+```
+
+| File/Folder           | Description                                             |
+| :---------:           | ------------------------------------------------------- |
+| ./.gitignore          | <ul>A good, default .gitignore file</ul> |
+| ./LICENSE/MIT_LICENSE | <ul>LICENSE file for repo. Either LICENSE or MIT_LICENSE can be used depending on your needs</ul> |
+| .github/              | <ul>Includes configuration files necessary for Integrations (i.e. automatic branch deletion)</ul> |
+| gitignorefiles/       | <ul>.ignore files for different languages and setups. Use these to create your own .gitignore that applies to your project</ul> |
 
 # Configuration & Best Practices
 

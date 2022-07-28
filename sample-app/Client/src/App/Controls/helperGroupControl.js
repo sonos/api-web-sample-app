@@ -7,7 +7,9 @@ import { Configuration } from "../museClient/configuration";
 function HelperGroupControl() {
   const navigate = useNavigate();
   const { state } = useLocation();
+
   const museClientConfig = new Configuration({accessToken : JSON.parse(window.localStorage.access_token).token});
+
 
   useEffect(() => {
     if (state === null || state === undefined) {
@@ -24,6 +26,7 @@ function HelperGroupControl() {
     const { group } = state;
     
     return <Control group={group} museClientConfig = {museClientConfig}/>;
+
   }
 }
 

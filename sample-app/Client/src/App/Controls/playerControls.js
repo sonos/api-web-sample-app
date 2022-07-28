@@ -13,7 +13,6 @@ class HelperControls extends Component {
   }
 
   helperControls(input_action, grp_id, museClientConfig) {
-
     /*
     const playBackApi = new PlaybackApi(configuration);
     if(input_action === "skipToNextTrack"){
@@ -26,6 +25,7 @@ class HelperControls extends Component {
         console.error("Error", error);
         return false;
       });
+
     }else if ( input_action === "togglePlayPause"){
       console.log("togglePlayPause");
       playBackApi.playbackTogglePlayPause(grp_id)
@@ -59,6 +59,7 @@ class HelperControls extends Component {
       });
     }*/
 
+    
     let endPoint = this.helper.getGroupsURL() + 
     grp_id + "/playback/" + input_action;
     
@@ -71,7 +72,7 @@ class HelperControls extends Component {
       return true;
     })
     .catch(function (error) {
-      this.helper.logError(error);
+      console.error(error);
       return false;
     });
   };
