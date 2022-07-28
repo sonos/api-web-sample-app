@@ -19,7 +19,7 @@ class VolumeComponent extends Component {
 
   onSetVolume = () => {
     const volume = this.volumeSlider.current.value;
-    SetVolume(volume, this.props.groupID, "GROUP", this.props.configuration);
+    SetVolume(volume, this.props.groupID, "GROUP", this.props.museClientConfig);
     this.setState({ volumeVal: volume });
   };
 
@@ -46,7 +46,7 @@ class VolumeComponent extends Component {
             deviceId={this.props.groupID}
             deviceType={"GROUP"}
             getVolumeHandler={this.getVolumeHandler}
-            configuration = {this.props.configuration}
+            museClientConfig = {this.props.museClientConfig}
           />
         )}
 

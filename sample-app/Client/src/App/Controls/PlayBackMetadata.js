@@ -2,7 +2,7 @@ import { PlaybackMetadataApiFactory } from "../museClient/api";
 
 export default function PlayBackMetadata(props) {
 
-  const playBackMetadataApi = new PlaybackMetadataApiFactory(props.configuration);
+  const playBackMetadataApi = new PlaybackMetadataApiFactory(props.museClientConfig);
 
   playBackMetadataApi.playbackMetadataGetMetadataStatus(props.group_id)
   .then((res) => {

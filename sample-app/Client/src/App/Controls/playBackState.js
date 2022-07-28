@@ -1,8 +1,7 @@
 import { PlaybackApi } from "../museClient/api";
 
 export default function StateAtStart(props) {
-
-  const playBackApi = new PlaybackApi(props.configuration);
+  const playBackApi = new PlaybackApi(props.museClientConfig);
 
   playBackApi.playbackGetPlaybackStatus(props.deviceId)
   .then((res) => {

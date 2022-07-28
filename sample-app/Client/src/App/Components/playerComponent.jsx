@@ -20,7 +20,7 @@ class PlayerComponent extends Component {
               deviceId={this.props.playerId}
               deviceType={"PLAYER"}
               getVolumeHandler={this.getVolumeHandler}
-              configuration = {this.props.configuration}
+              museClientConfig = {this.props.museClientConfig}
             />
           )}
         </div>
@@ -50,7 +50,7 @@ class PlayerComponent extends Component {
 
   onSetVolume = () => {
     const volume = this.volumeSlider.current.value;
-    SetVolume(volume, this.props.playerId, "PLAYER", this.props.configuration);
+    SetVolume(volume, this.props.playerId, "PLAYER", this.props.museClientConfig);
     this.setState({ volumeVal: volume });
   };
 }

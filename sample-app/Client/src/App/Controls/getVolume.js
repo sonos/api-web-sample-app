@@ -1,29 +1,35 @@
+
+import config from "../../config.json";
+import { METHOD_GET } from "../Utility/constants";
+import Helper from "../Utility/helper";
+
 import { GroupVolumeApiFactory } from "../museClient/api";
 import { PlayerVolumeApiFactory } from "../museClient/api";
 
 export default function GetVolume(props) {
 
   if(props.deviceType === "GROUP"){
-    
-    const groupVolumeApi = new GroupVolumeApiFactory(props.configuration);
+    const groupVoumeApi = new GroupVolumeApiFactory(props.museClientConfig);
+    groupVoumeApi.groupVolumeGetVolume(props.deviceId)
 
-    groupVolumeApi.groupVolumeGetVolume(props.deviceId)
+
     .then((res) => {
       console.debug(props.deviceType + " volume at start is : ", res);
       props.getVolumeHandler(false, res.volume);
     })
     .catch(function (error) {
-      console.error("Error", error);
+      console.error("Error", error.message);
     });
   }else{
-    const playerVolumeApi = new PlayerVolumeApiFactory(props.configuration);
-    playerVolumeApi.playerVolumeGetVolume(props.deviceId)
+    const playerVoumeApi = new PlayerVolumeApiFactory(props.museClientConfig);
+    playerVoumeApi.playerVolumeGetVolume(props.deviceId)
     .then((res) => {
       console.debug(props.deviceType + " volume at start is : ", res);
       props.getVolumeHandler(false, res.volume);
     })
     .catch(function (error) {
       console.error("Error", error);
+
     });
   }
 }

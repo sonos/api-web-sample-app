@@ -58,7 +58,7 @@ class PlayBackMetaDataComponent extends Component {
           <PlayBackMetadata
             group_id={this.props.groupID}
             playBackMetadataHandler={this.playBackMetadataHandler}
-            configuration = {this.props.configuration}
+            museClientConfig = {this.props.museClientConfig}
           />
         )}
         <div className="track_details">
