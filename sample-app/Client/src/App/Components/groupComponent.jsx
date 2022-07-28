@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useNavigate } from "react-router-dom";
-import { Button, Container } from "reactstrap";
+import { Container } from "reactstrap";
 
 function GroupComponent(props) {
   let navigate = useNavigate();
