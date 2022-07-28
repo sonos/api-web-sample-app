@@ -1,0 +1,24 @@
+/*
+*           navBar page
+*/
+
+.logo_logout {
+    height: 5%;
+    width: 100%;
+    display: table;
+    border: 1px solid #000000;
+  }
+  
+  .logo {
+    float: left;
+    height: 100%;
+    width: 60%;
+  }
+  
+  .logout {
+    float: right;
+    height: 80%;
+    width: 20%;
+    margin-top: 2.5%;
+    margin-right: 2.5%;
+  }

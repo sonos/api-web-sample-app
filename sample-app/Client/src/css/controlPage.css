@@ -1,0 +1,145 @@
+/*
+*           player page
+*/
+
+.group_name {
+    height: 10%;
+    box-sizing: border-box;
+    display: block;
+  }
+  
+  .group_box {
+    height: 40%;
+    width: 60%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: block;
+    color: #000000;
+    background-color: black;
+    margin-top: 10%;
+  }
+  
+  .group_box p {
+    top: 5%;
+    text-align: center;
+    position: relative;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .player {
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .track_details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  .track_name {
+    font-size: 2rem;
+    width: 400px;
+  }
+  
+  .album_name {
+    font-size: 1rem;
+    width: 400px;
+  }
+  
+  .track_image {
+    margin: 25px;
+    height: 250px;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15%;
+  }
+  
+  .group_buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 80px;
+  }
+  
+  .playpause_track,
+  .group_prev,
+  .group_next {
+    padding: 15px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  
+  .playpause_track:hover,
+  .group_prev:hover,
+  .group_next:hover {
+    opacity: 1;
+  }
+  
+  i.fa-play-circle,
+  i.fa-pause-circle,
+  i.fa-step-forward,
+  i.fa-step-backward {
+    cursor: pointer;
+  }
+  
+  i.fa-volume-down,
+  i.fa-volume-up {
+    padding: 10px;
+  }
+  
+  .slider_container {
+    width: 75%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .seek_slider,
+  .volumeSlider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 5px;
+    background: black;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+  }
+  
+  .seek_slider::-webkit-slider-thumb,
+  .volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: black;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .seek_slider:hover,
+  .volumeSlider:hover {
+    opacity: 1;
+  }
+  
+  .seek_slider {
+    width: 60%;
+  }
+  
+  .volumeSlider {
+    width: 30%;
+  }
+  
