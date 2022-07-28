@@ -7,6 +7,7 @@ import PlayBackMetaDataComponent from "./GroupSubComponents/playBackMetaDataComp
 import PlayBackStateButton from "./GroupSubComponents/playBackStateButton";
 import VolumeComponent from "./GroupSubComponents/volumeComponent";
 import PlayersComponent from "../Controllers/playersController";
+import NavBar from "../Controllers/navBarController";
 
 class Control extends Component {
   constructor() {
@@ -18,28 +19,39 @@ class Control extends Component {
     this.group = JSON.parse(this.props.group);
 
     return (
-      <div className="player">
-        <div>
-          <h1 className="oauthtext">Group Name: {this.group.name}</h1>
-        </div>
+      <div>
+      <div className="main_page">
+        <NavBar />
 
-        <PlayBackMetaDataComponent groupID={this.group.id} />
-
-        <div className="buttons">
-          <div className="prev-track" onClick={this.skipToPrevious}>
-            <i className="fa fa-step-backward fa-2x"></i>
-          </div>
-
-          <PlayBackStateButton groupID={this.group.id} playPauseState={false}/>
-
-          <div className="next-track" onClick={this.skipToNext}>
-            <i className="fa fa-step-forward fa-2x"></i>
+        <div className="group_name">
+          <div className="group_box">
+            <p>{this.group.name} </p>
           </div>
         </div>
 
-        <VolumeComponent groupID={this.group.id} />
+        <div className="player">
+          <PlayBackMetaDataComponent groupID={this.group.id} />
+          <div className="group_buttons">
+            <div className="group_prev" onClick={this.skipToPrevious}>
+              <i className="fa fa-step-backward fa-2x"></i>
+            </div>
 
+            <PlayBackStateButton
+              groupID={this.group.id}
+              playPauseState={false}
+            />
+
+            <div className="group_next" onClick={this.skipToNext}>
+              <i className="fa fa-step-forward fa-2x"></i>
+            </div>
+          </div>
+
+          <VolumeComponent groupID={this.group.id} />
+        </div>
+      </div>
+      <div className="players_page">
         <PlayersComponent group={this.props.group} />
+      </div>
       </div>
     );
   }

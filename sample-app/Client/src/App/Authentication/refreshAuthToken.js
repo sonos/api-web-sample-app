@@ -14,9 +14,8 @@ class RefreshAuthToken{
     refreshAccessToken = () =>{
         
         const helper = new Helper();
-
-        let refreshToken = helper.getAccessTokeDatafromStorage.refresh_token;
-
+        
+        let refreshToken = JSON.parse(window.localStorage.access_token).refresh_token;
         let endPoint = config.api_end_points.create_refresh_auth_token_url;
 
         const HEADER_BASIC = helper.getHeadersBasic();

@@ -84,11 +84,7 @@ class PlayBackStateButton extends Component {
           )}
         </div>
 
-        <div
-          ref={this.playpauseBtn}
-          className="playpause-track"
-          onClick={this.toggleMusic}
-        >
+        <div ref={this.playpauseBtn} className="playpause_track" onClick={this.toggleMusic}>
           <i className={this.playModeClass()}></i>
         </div>
       </div>

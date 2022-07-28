@@ -1,21 +1,18 @@
 import React from "react";
 import { Component } from "react";
+import ImageComponent from "../Components/GroupSubComponents/ImageComponent";
 
 class NavBar extends Component {
   state = {};
   render() {
     return (
-      <div align="center" padding-top="300px">
-        <img
-          src={require("../../images/spotify.png")}
-          align="center"
-          height="auto"
-          max-width="100%"
-          margin-left="auto"
-          margin-right="auto"
-          display="block"
-          alt="spotify"
-        />
+      <div className="logo_logout">
+        <div className="logo">
+          <ImageComponent src={require("../../images/logo.png")} />
+        </div>
+        <div className="logout">
+          <ImageComponent src={require("../../images/logout.png")} />
+        </div>
       </div>
     );
   }

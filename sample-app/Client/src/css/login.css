@@ -1,0 +1,49 @@
+/*
+*           authentication page
+*/
+.oauth_bkg {
+    box-sizing: border-box;
+    display: block;
+    height: 70%;
+  }
+  
+  .login_with_sonos_text {
+    box-sizing: border-box;
+    height: 16%;
+    text-align: center;
+  
+    display: block;
+  
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+  
+    color: #000000;
+  }
+  .login_with_sonos_text p {
+    top: 42%;
+    text-align: center;
+    position: relative;
+  }
+  
+  .login_btn {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 30%;
+    left: 35%;
+    height: 8%;
+  
+    background: #0a0909;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  
+    text-align: center;
+    color: white;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+  }

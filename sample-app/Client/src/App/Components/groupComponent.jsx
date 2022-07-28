@@ -13,13 +13,11 @@ function GroupComponent(props) {
   };
 
   return (
-    <div className="app flex-row align-items-center">
+    <div className="group_det">
       <Container>
-        <h4>Group ID. {props.group.id}</h4>
-        <h4>Group Name : {props.group.name}</h4>
-        <Button color="primary" className="px-4" onClick={routeChange}>
-          Redirect
-        </Button>
+        <a onClick={routeChange}>
+          <p className="group_ind">{props.group.name}</p>
+        </a>
       </Container>
     </div>
   );
