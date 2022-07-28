@@ -1,6 +1,6 @@
 import config from "../../config.json";
 import Helper from "../Utility/helper";
-import { HEADER_BASIC, METHOD_POST } from "../Utility/constants";
+import { METHOD_POST } from "../Utility/constants";
 
 
 export default function CreateAuthToken(props) {
@@ -10,7 +10,7 @@ export default function CreateAuthToken(props) {
 
   let endPoint = config.api_end_points.create_refresh_auth_token_url;
 
-  const headers = HEADER_BASIC;
+  const headers = helper.getHeadersBasic();
 
   const data = {
     grant_type: "authorization_code",
