@@ -3,6 +3,7 @@ import Helper from "../Utility/helper";
 import { METHOD_GET } from "../Utility/constants";
 
 import React from "react";
+import { CircularProgress } from '@mui/material';
 
 export default function Household(props) {
 
@@ -44,7 +45,7 @@ export default function Household(props) {
       <h1 className="oauthtext">No device detected...</h1>
     </div>
   ) : (
-    <h1 className="oauthtext">Household ID found</h1>
+    <CircularProgress color="inherit" />
   );
 
 }

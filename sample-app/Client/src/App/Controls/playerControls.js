@@ -76,8 +76,7 @@ class HelperControls extends Component {
       console.error(error);
       return false;
     });
-  }
-  
-}
+  };
+};
 
 export default HelperControls;

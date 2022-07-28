@@ -7,7 +7,7 @@ import PlayBackMetaDataComponent from "./GroupSubComponents/playBackMetaDataComp
 import PlayBackStateButton from "./GroupSubComponents/playBackStateButton";
 import VolumeComponent from "./GroupSubComponents/volumeComponent";
 import PlayersComponent from "../Controllers/playersController";
-import ImageComponent from "./GroupSubComponents/ImageComponent";
+import NavBar from "../Controllers/navBarController";
 
 class Control extends Component {
   constructor() {
@@ -17,27 +17,16 @@ class Control extends Component {
 
   render() {
     this.group = JSON.parse(this.props.group);
-    {
-      console.debug("Loading Groups Component...");
-    }
 
     return (
-
       <div className="main_page">
-          <div className="logo_logout">
-            <div className="logo">
-              <ImageComponent src={require("../../images/logo.png")}/>
-            </div>
-            <div className="logout">
-              <ImageComponent src={require("../../images/logout.png")}/>
-            </div>
+        <NavBar />
+
+        <div className="group_name">
+          <div className="group_box">
+            <p>{this.group.name} </p>
           </div>
-          
-          <div className="group_name">
-            <div className="group_box">
-              <p>{this.group.name} </p>
-            </div>
-          </div>
+        </div>
 
           <PlayBackMetaDataComponent
           groupID={this.group.id}

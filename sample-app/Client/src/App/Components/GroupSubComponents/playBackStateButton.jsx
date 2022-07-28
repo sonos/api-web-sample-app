@@ -2,7 +2,8 @@ import React from "react";
 import { Component } from "react";
 import StateAtStart from "../../Controls/playBackState";
 import HelperControls from "../../Controls/playerControls";
-import SetUpClient from "../../WebSokcet/setUpWebsocketClient";
+import PlayBackStateEvent from "../../WebSokcet/playBackStateEvent";
+import { SocketContext, socket } from "../../WebSokcet/socket";
 
 class PlayBackStateButton extends Component {
   constructor() {
@@ -57,18 +58,19 @@ class PlayBackStateButton extends Component {
   };
 
   receiveEventsHandler = (response) => {
-    response = JSON.parse(response);
-    console.debug(response);
-    if (response.method === "playBackState"){
-      this.setState({isPlaying : response["data"]["isPlayingFlag"]});
+    console.log(response);
+    const newState = response["isPlayingFlag"];
+    if (this.state.isPlaying !== newState) {
+      this.setState({ isPlaying: newState });
     }
-  }
+  };
 
   render() {
     return (
       <div>
-        {/* Setting up the Web Socket Client */}
-        {/* <SetUpClient receiveEventsHandler={this.receiveEventsHandler} /> */}
+        <SocketContext.Provider value={socket}>
+          <PlayBackStateEvent handler={this.receiveEventsHandler} />
+        </SocketContext.Provider>
 
         <div>
           {this.state.getStateFlag && (

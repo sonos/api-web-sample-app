@@ -3,7 +3,7 @@
  */
 
 import Helper from "../Utility/helper";
-import { HEADER_BASIC, METHOD_POST } from "../Utility/constants";
+import { METHOD_POST } from "../Utility/constants";
 import config from "../../config.json";
 
 class RefreshAuthToken{
@@ -17,6 +17,8 @@ class RefreshAuthToken{
         
         let refreshToken = JSON.parse(window.localStorage.access_token).refresh_token;
         let endPoint = config.api_end_points.create_refresh_auth_token_url;
+
+        const HEADER_BASIC = helper.getHeadersBasic();
 
         const data = {
                         grant_type:"refresh_token",

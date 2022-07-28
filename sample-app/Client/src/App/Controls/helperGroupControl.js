@@ -15,6 +15,7 @@ function HelperGroupControl() {
       navigate("/error-page");
     }
 
+    // Redirect the user to login page
     if (new Authentication().isAccessTokenValid() !== true) {
       navigate("/");
     }
