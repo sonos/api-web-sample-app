@@ -17,6 +17,7 @@ class PlayersComponent extends Component {
                         <PlayerComponent
                             key = {playerId}
                             playerId = {playerId}
+                            museClientConfig = {this.props.museClientConfig}
                         />
                         ))
                     }

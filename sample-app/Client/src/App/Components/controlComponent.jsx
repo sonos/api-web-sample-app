@@ -30,7 +30,10 @@ class Control extends Component {
         </div>
 
         <div className="player">
-          <PlayBackMetaDataComponent groupID={this.group.id} />
+          <PlayBackMetaDataComponent
+            groupID={this.group.id}
+            museClientConfig = {this.props.museClientConfig}
+          />
           <div className="group_buttons">
             <div className="group_prev" onClick={this.skipToPrevious}>
               <i className="fa fa-step-backward fa-2x"></i>
@@ -39,6 +42,7 @@ class Control extends Component {
             <PlayBackStateButton
               groupID={this.group.id}
               playPauseState={false}
+              museClientConfig = {this.props.museClientConfig}
             />
 
             <div className="group_next" onClick={this.skipToNext}>
@@ -46,11 +50,15 @@ class Control extends Component {
             </div>
           </div>
 
-          <VolumeComponent groupID={this.group.id} />
+          <VolumeComponent groupID={this.group.id} 
+            museClientConfig = {this.props.museClientConfig}
+          />
         </div>
       </div>
       <div className="players_page">
-        <PlayersComponent group={this.props.group} />
+        <PlayersComponent group={this.props.group} 
+        museClientConfig = {this.props.museClientConfig}
+      />
       </div>
       </div>
     );
@@ -58,12 +66,12 @@ class Control extends Component {
 
   skipToPrevious = () => {
     console.debug("Trying to skip to previous song...");
-    this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id);
+    this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id, this.props.museClientConfig);
   };
 
   skipToNext = () => {
     console.debug("Trying to skip to next song...");
-    this.ControlOptions.helperControls("skipToNextTrack", this.group.id);
+    this.ControlOptions.helperControls("skipToNextTrack", this.group.id, this.props.museClientConfig);
   };
 }
 
