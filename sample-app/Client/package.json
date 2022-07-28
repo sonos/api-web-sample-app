@@ -9,7 +9,6 @@
     "axios": "^0.27.2",
     "babel-plugin-transform-remove-strict-mode": "^0.0.2",
     "bootstrap": "^4.1.1",
-    "buffer": "^6.0.3",
     "concurrently": "^7.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -17,8 +16,7 @@
     "react-scripts": "5.0.1",
     "reactstrap": "^9.1.1",
     "socket.io-client": "^4.5.1",
-    "web-vitals": "^2.1.4",
-    "webpack-dev-middleware": "^5.3.3"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

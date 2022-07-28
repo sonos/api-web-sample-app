@@ -19,7 +19,6 @@ class Control extends Component {
     this.group = JSON.parse(this.props.group);
 
     return (
-      <div>
       <div className="main_page">
         <NavBar />
 
@@ -29,16 +28,20 @@ class Control extends Component {
           </div>
         </div>
 
-        <div className="player">
-          <PlayBackMetaDataComponent groupID={this.group.id} />
+          <PlayBackMetaDataComponent
+          groupID={this.group.id}
+          configuration = {this.props.configuration}
+          />
+
           <div className="group_buttons">
             <div className="group_prev" onClick={this.skipToPrevious}>
               <i className="fa fa-step-backward fa-2x"></i>
             </div>
 
             <PlayBackStateButton
-              groupID={this.group.id}
-              playPauseState={false}
+            groupID={this.group.id}
+            playPauseState={false}
+            configuration = {this.props.configuration}
             />
 
             <div className="group_next" onClick={this.skipToNext}>
@@ -46,24 +49,27 @@ class Control extends Component {
             </div>
           </div>
 
-          <VolumeComponent groupID={this.group.id} />
-        </div>
-      </div>
-      <div className="players_page">
-        <PlayersComponent group={this.props.group} />
-      </div>
+          <VolumeComponent
+          groupID={this.group.id}
+          configuration = {this.props.configuration}
+          />
+
+          <PlayersComponent
+          group={this.props.group}
+          configuration = {this.props.configuration}
+          />
       </div>
     );
   }
 
   skipToPrevious = () => {
     console.debug("Trying to skip to previous song...");
-    this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id);
+    this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id, this.props.configuration);
   };
 
   skipToNext = () => {
     console.debug("Trying to skip to next song...");
-    this.ControlOptions.helperControls("skipToNextTrack", this.group.id);
+    this.ControlOptions.helperControls("skipToNextTrack", this.group.id, this.props.configuration);
   };
 }
 
