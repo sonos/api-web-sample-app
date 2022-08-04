@@ -3,7 +3,7 @@ import RefreshAuthToken from "./RefreshAuthToken";
 
 class Authentication extends Component {
   isAccessTokenValid = () => {
-    let accessToken = window.localStorage.access_token;
+    let accessToken = window.localStorage.accessToken;
     if (accessToken === undefined || accessToken === "") {
       return false;
     } else {
@@ -23,7 +23,7 @@ class Authentication extends Component {
   };
 
   getAccessToken = () => {
-    let accessToken = JSON.parse(window.localStorage.access_token).token;
+    let accessToken = JSON.parse(window.localStorage.accessToken).token;
     return accessToken;
   };
 
