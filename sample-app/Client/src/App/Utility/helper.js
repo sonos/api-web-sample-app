@@ -72,7 +72,7 @@ class Helper {
    * This method returns the access token details stored in the localStorage
    */
   getAccessTokeDatafromStorage() {
-    return JSON.parse(window.localStorage.access_token);
+    return JSON.parse(window.localStorage.accessToken);
   }
 
   /*

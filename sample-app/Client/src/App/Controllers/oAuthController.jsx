@@ -39,7 +39,7 @@ export default class OAuthController extends Component {
     };
 
     window.localStorage.setItem(
-      "access_token",
+      "accessToken",
       JSON.stringify(access_token_data)
     );
 

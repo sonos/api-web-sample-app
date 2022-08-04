@@ -8,7 +8,7 @@ function HelperGroupControl() {
   const navigate = useNavigate();
   const { state } = useLocation();
 
-  const museClientConfig = new Configuration({accessToken : JSON.parse(window.localStorage.access_token).token});
+  const museClientConfig = new Configuration({accessToken : JSON.parse(window.localStorage.accessToken).token});
 
 
   useEffect(() => {
