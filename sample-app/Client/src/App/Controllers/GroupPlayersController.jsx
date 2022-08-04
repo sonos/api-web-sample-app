@@ -5,8 +5,8 @@ import HelperControls from "../Controls/playerControls";
 
 import PlayBackMetadataComponent from "../Components/GroupSubComponents/PlayBackMetadataComponent";
 import PlaybackToggleComponent from "../Components/GroupSubComponents/PlaybackToggleComponent";
-import VolumeComponent from "../Components/GroupSubComponents/volumeComponent";
-import PlayersComponent from "./playersController";
+import VolumeComponent from "../Components/GroupSubComponents/VolumeComponent";
+import PlayersController from "./PlayersController";
 import HeaderComponent from "../Components/HeaderComponent";
 
 class GroupPlayersController extends Component {
@@ -56,7 +56,7 @@ class GroupPlayersController extends Component {
         </div>
       </div>
       <div className="players_page">
-        <PlayersComponent group={this.props.group} 
+        <PlayersController group={this.props.group} 
         museClientConfig = {this.props.museClientConfig}
       />
       </div>
