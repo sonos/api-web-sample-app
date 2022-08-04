@@ -5,7 +5,7 @@ import HelperControls from "../../Controls/playerControls";
 import PlayBackStateEvent from "../../WebSokcet/playBackStateEvent";
 import { SocketContext, socket } from "../../WebSokcet/socket";
 
-class PlayBackStateButton extends Component {
+class PlaybackToggleComponent extends Component {
   constructor() {
     super();
     this.ControlOptions = new HelperControls();
@@ -97,4 +97,4 @@ class PlayBackStateButton extends Component {
   }
 }
 
-export default PlayBackStateButton;
+export default PlaybackToggleComponent;

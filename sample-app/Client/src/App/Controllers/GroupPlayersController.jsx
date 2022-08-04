@@ -3,13 +3,13 @@ import { Component } from "react";
 
 import HelperControls from "../Controls/playerControls";
 
-import PlayBackMetaDataComponent from "./GroupSubComponents/playBackMetaDataComponent";
-import PlayBackStateButton from "./GroupSubComponents/playBackStateButton";
-import VolumeComponent from "./GroupSubComponents/volumeComponent";
-import PlayersComponent from "../Controllers/playersController";
-import NavBar from "../Controllers/navBarController";
+import PlayBackMetadataComponent from "../Components/GroupSubComponents/PlayBackMetadataComponent";
+import PlaybackToggleComponent from "../Components/GroupSubComponents/PlaybackToggleComponent";
+import VolumeComponent from "../Components/GroupSubComponents/volumeComponent";
+import PlayersComponent from "./playersController";
+import HeaderComponent from "../Components/HeaderComponent";
 
-class Control extends Component {
+class GroupPlayersController extends Component {
   constructor() {
     super();
     this.ControlOptions = new HelperControls();
@@ -21,7 +21,7 @@ class Control extends Component {
     return (
       <div>
       <div className="main_page">
-        <NavBar />
+        <HeaderComponent />
 
         <div className="group_name">
           <div className="group_box">
@@ -30,7 +30,7 @@ class Control extends Component {
         </div>
 
         <div className="player">
-          <PlayBackMetaDataComponent
+          <PlayBackMetadataComponent
             groupID={this.group.id}
             museClientConfig = {this.props.museClientConfig}
           />
@@ -39,7 +39,7 @@ class Control extends Component {
               <i className="fa fa-step-backward fa-2x"></i>
             </div>
 
-            <PlayBackStateButton
+            <PlaybackToggleComponent
               groupID={this.group.id}
               playPauseState={false}
               museClientConfig = {this.props.museClientConfig}
@@ -77,4 +77,4 @@ class Control extends Component {
   };
 }
 
-export default Control;
+export default GroupPlayersController;
