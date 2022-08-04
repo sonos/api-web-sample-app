@@ -6,6 +6,7 @@ import "./css/login.css";
 import "./css/dashboard.css";
 import "./css/navbar.css"
 import "./css/controlPage.css";
+import "./css/players.css";
 import "./css/errorPage.css";
 
 import RouteComponents from "./App/Controllers/routingController";

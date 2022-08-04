@@ -6,7 +6,7 @@ import HelperControls from "../Controls/playerControls";
 import PlayBackMetaDataComponent from "./GroupSubComponents/playBackMetaDataComponent";
 import PlayBackStateButton from "./GroupSubComponents/playBackStateButton";
 import VolumeComponent from "./GroupSubComponents/volumeComponent";
-import PlayersComponent from "../Controllers/playersController";
+import PlayersController from "../Controllers/playersController";
 import NavBar from "../Controllers/navBarController";
 
 class Control extends Component {
@@ -19,8 +19,7 @@ class Control extends Component {
     this.group = JSON.parse(this.props.group);
 
     return (
-      <div>
-      <div className="main_page">
+      <div className="selected_group_page">
         <NavBar />
 
         <div className="group_name">
@@ -32,7 +31,7 @@ class Control extends Component {
         <div className="player">
           <PlayBackMetaDataComponent
             groupID={this.group.id}
-            museClientConfig = {this.props.museClientConfig}
+            museClientConfig={this.props.museClientConfig}
           />
           <div className="group_buttons">
             <div className="group_prev" onClick={this.skipToPrevious}>
@@ -42,7 +41,7 @@ class Control extends Component {
             <PlayBackStateButton
               groupID={this.group.id}
               playPauseState={false}
-              museClientConfig = {this.props.museClientConfig}
+              museClientConfig={this.props.museClientConfig}
             />
 
             <div className="group_next" onClick={this.skipToNext}>
@@ -50,30 +49,36 @@ class Control extends Component {
             </div>
           </div>
 
-          <VolumeComponent groupID={this.group.id} 
-            museClientConfig = {this.props.museClientConfig}
+          <p className="group_volume">Group Volume:</p>
+          <VolumeComponent
+            groupID={this.group.id}
+            museClientConfig={this.props.museClientConfig}
           />
         </div>
-      </div>
-      <div className="players_page">
-        <PlayersComponent group={this.props.group} 
-        museClientConfig = {this.props.museClientConfig}
-      />
-      </div>
 
+        <div className="players_component">
+          <div className="player_name">
+            <div className="player_box">
+              <div className="player_text">Players</div>
+            </div>
+          </div>
+          <PlayersController
+            group={this.props.group}
+            museClientConfig={this.props.museClientConfig}
+          />
+        </div>
       </div>
     );
   }
 
   skipToPrevious = () => {
     console.debug("Trying to skip to previous song...");
-    this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id, this.props.museClientConfig);
+    this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id);
   };
 
   skipToNext = () => {
     console.debug("Trying to skip to next song...");
-    this.ControlOptions.helperControls("skipToNextTrack", this.group.id, this.props.museClientConfig);
-
+    this.ControlOptions.helperControls("skipToNextTrack", this.group.id);
   };
 }
 

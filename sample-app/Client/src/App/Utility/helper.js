@@ -96,6 +96,7 @@ class Helper {
     const bearerHeader = {
       "Content-Type": "application/json",
       Authorization: "Bearer " + this.authentication.getAccessToken(),
+      "Access-Control-Allow-Origin": "*"
     };
     return bearerHeader;
   }

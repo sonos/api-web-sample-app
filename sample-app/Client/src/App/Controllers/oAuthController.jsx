@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import Authentication from "../Authentication/authentication";
 import CreateAuthToken from "../Authentication/createAuthToken";
 import Helper from "../Utility/helper";
@@ -74,15 +74,6 @@ export default class OAuth extends Component {
           </div>
         </div>
         <div className="login_to_sonos" align="center">
-          <div>
-            <img
-              src={require("../../images/sonos.png")}
-              alt="Sonos"
-              width="300"
-              height="200"
-            ></img>
-          </div>
-          <div>
             {this.code_generated_flag && (
               <CreateAuthToken
                 b64_encoded_string={this.helper.getB64KeySecretOAuthUrl()}
@@ -90,7 +81,6 @@ export default class OAuth extends Component {
                 isLoggedInHandler={this.isLoggedInHandler}
               />
             )}
-          </div>
         </div>
       </div>
     );

@@ -28,7 +28,7 @@ export default function GetVolume(props) {
       props.getVolumeHandler(false, res.volume);
     })
     .catch(function (error) {
-      console.error("Error", error);
+      console.error("Error in fetching volume at start: ", error);
 
     });
   }

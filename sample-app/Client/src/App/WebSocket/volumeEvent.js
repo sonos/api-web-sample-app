@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { SocketContext } from "../WebSokcet/socket";
+import { SocketContext } from "../WebSocket/socket";
 import ProcessRequest from "../Eventing/processEvents";
 
 export default function VolumeEvent(props) {

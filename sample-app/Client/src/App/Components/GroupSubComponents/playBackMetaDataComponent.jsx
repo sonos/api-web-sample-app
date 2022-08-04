@@ -3,8 +3,8 @@ import { Component } from "react";
 import HelperControls from "../../Controls/playerControls";
 import PlayBackMetadata from "../../Controls/PlayBackMetadata";
 import ImageComponent from "./ImageComponent";
-import { SocketContext, socket } from "../../WebSokcet/socket";
-import PlayBackMetaDataEvent from "../../WebSokcet/playBackMetaDataEvent";
+import { SocketContext, socket } from "../../WebSocket/socket";
+import PlayBackMetaDataEvent from "../../WebSocket/playBackMetaDataEvent";
 
 class PlayBackMetaDataComponent extends Component {
   constructor() {
@@ -49,7 +49,7 @@ class PlayBackMetaDataComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div className="play_back_metadata">
         <SocketContext.Provider value={socket}>
           <PlayBackMetaDataEvent handler={this.receiveEventsHandler} />
         </SocketContext.Provider>
@@ -58,21 +58,15 @@ class PlayBackMetaDataComponent extends Component {
           <PlayBackMetadata
             group_id={this.props.groupID}
             playBackMetadataHandler={this.playBackMetadataHandler}
-            museClientConfig = {this.props.museClientConfig}
+            museClientConfig={this.props.museClientConfig}
           />
         )}
         <div className="track_details">
           <div className="track_image">
-              <ImageComponent src={this.getImage()} 
-              
-              alt="Song being played"/>
-              <div className="track_name" >
-              {this.state.trackName}
-              </div>
-              <div className="track_artist">
-              {this.state.artistName}</div>
+            <ImageComponent src={this.getImage()} alt="Song being played" />
+            <div className="track_name">{this.state.trackName}</div>
+            <div className="track_artist">{this.state.albumName}</div>
           </div>
-            
         </div>
       </div>
     );

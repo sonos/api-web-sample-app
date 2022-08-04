@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Helper from "../Utility/helper";
 import { METHOD_GET } from "../Utility/constants";
 
+import { CircularProgress } from '@mui/material';
 import React from "react";
 
 export default function Groups(props) {
@@ -51,7 +52,11 @@ export default function Groups(props) {
   return error === true ? (
     <h1 className="oauthtext">Group ID could not be found</h1>
   ) : (
-    <h1 className="oauthtext">Groups Found</h1>
+    <div className="main_page">
+      <div className="render_page">
+      <CircularProgress color="inherit" />
+      </div>
+    </div>
   );
 
 }

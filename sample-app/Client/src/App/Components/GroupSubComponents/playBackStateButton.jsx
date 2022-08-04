@@ -2,8 +2,8 @@ import React from "react";
 import { Component } from "react";
 import StateAtStart from "../../Controls/playBackState";
 import HelperControls from "../../Controls/playerControls";
-import PlayBackStateEvent from "../../WebSokcet/playBackStateEvent";
-import { SocketContext, socket } from "../../WebSokcet/socket";
+import PlayBackStateEvent from "../../WebSocket/playBackStateEvent";
+import { SocketContext, socket } from "../../WebSocket/socket";
 
 class PlayBackStateButton extends Component {
   constructor() {
