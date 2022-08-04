@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import Helper from "../Utility/helper";
-import { METHOD_GET } from "../Utility/constants";
-
 import React from "react";
 import { CircularProgress } from '@mui/material';
 
@@ -21,7 +19,7 @@ export default function Household(props) {
 
     const data = {};
 
-    helper.apiCall(endPoint, headers, METHOD_GET, data)
+    helper.apiCall(endPoint, headers, "GET", data)
       .then((res) => {
         if (mounted) {
           let household_id = res.data["households"][0]["id"];

@@ -3,7 +3,6 @@
  */
 
 import Helper from "../Utility/helper";
-import { METHOD_POST } from "../Utility/constants";
 import config from "../../config.json";
 
 class RefreshAuthToken{
@@ -27,7 +26,7 @@ class RefreshAuthToken{
         const dataKeyValue = Object.keys(data)
               .map((key, index) => `${key}=${encodeURIComponent(data[key])}`)
               .join('&');
-        helper.apiCall(endPoint, HEADER_BASIC, METHOD_POST, dataKeyValue)
+        helper.apiCall(endPoint, HEADER_BASIC, "POST", dataKeyValue)
         .then((response) => {
             
             if (!(response === undefined || response === "") ){

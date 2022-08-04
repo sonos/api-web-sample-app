@@ -1,5 +1,5 @@
 import { Component } from "react";
-import RefreshAuthToken from "./refreshAuthToken";
+import RefreshAuthToken from "./RefreshAuthToken";
 
 class Authentication extends Component {
   isAccessTokenValid = () => {
