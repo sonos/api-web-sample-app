@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import Control from "../Components/controlComponent1";
+import GroupPlayersComponent from "../Components/GroupPlayersComponent";
 
 function HelperGroupControl() {
   const location = useLocation();
@@ -8,7 +8,7 @@ function HelperGroupControl() {
 
   const { group } = state;
 
-  return <Control group={group} />;
+  return <GroupPlayersComponent group={group} />;
 }
 
 export default HelperGroupControl;

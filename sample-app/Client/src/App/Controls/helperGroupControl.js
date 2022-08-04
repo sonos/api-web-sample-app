@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Control from "../Components/controlComponent";
+import GroupPlayersController from "../Controllers/GroupPlayersController";
 import Authentication from "../Authentication/authentication";
 import { Configuration } from "../museClient/configuration";
 
@@ -25,7 +25,7 @@ function HelperGroupControl() {
   if ((state !== null) & (new Authentication().isAccessTokenValid() === true)) {
     const { group } = state;
     
-    return <Control group={group} museClientConfig = {museClientConfig}/>;
+    return <GroupPlayersController group={group} museClientConfig = {museClientConfig}/>;
 
   }
 }
