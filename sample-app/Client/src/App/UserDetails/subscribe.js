@@ -5,6 +5,7 @@
 import Helper from "../Utility/helper";
 import { METHOD_POST } from "../Utility/constants";
 import { useEffect, useState } from "react";
+import { PlaybackApi, GroupVolumeApi, PlaybackMetadataApi } from "../museClient/api";
 
 export default function Subscribe(props) {
   
@@ -15,8 +16,51 @@ export default function Subscribe(props) {
     let mounted = true;
 
     var groups = JSON.parse(window.localStorage.getItem("groups"))[0];
+
     for (let x in groups) {
       if (x === "id") {
+       
+       /* const groupsApi = new PlaybackApi(props.museClientConfig);
+        groupsApi.playbackSubscribe(groups[x])
+        .then((res) => {
+          console.debug(res);
+          if (mounted) {
+            setError(false);
+          }
+        })
+        .catch(function () {
+          console.error("Error", error);
+          setError(true);
+          return Promise.reject(error);
+        });
+
+        const playbackApi = new GroupVolumeApi(props.museClientConfig);
+        playbackApi.groupVolumeSubscribe(groups[x])
+        .then((res) => {
+          if (mounted) {
+            setError(false);
+          }
+        })
+        .catch(function (error) {
+          console.error("Something went wrong");
+          setError(true);
+          return Promise.reject(error);
+        });
+
+        const playbackMetadataApi = new PlaybackMetadataApi(props.museClientConfig);
+        
+        playbackMetadataApi.playbackMetadataSubscribe(groups[x])
+        .then((res) => {
+          if (mounted) {
+            setError(false);
+          }
+        })
+        .catch(function (error) {
+          console.error("Something went wrong");
+          setError(true);
+          return Promise.reject(error);
+        });*/
+        
         let endPointPB =
           helper.getGroupsURL() + groups[x] + "/playback/subscription";
 
