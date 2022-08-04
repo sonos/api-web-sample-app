@@ -19,6 +19,7 @@ class Control extends Component {
     this.group = JSON.parse(this.props.group);
 
     return (
+      <div>
       <div className="main_page">
         <NavBar />
 
