@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import GroupPlayersController from "../Controllers/GroupPlayersController";
-import Authentication from "../Authentication/authentication";
+import Authentication from "../Authentication/Authentication";
 import { Configuration } from "../museClient/configuration";
 
 function HelperGroupControl() {

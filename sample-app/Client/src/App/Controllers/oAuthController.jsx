@@ -1,10 +1,10 @@
 import React, { Component, useState } from "react";
-import Authentication from "../Authentication/authentication";
-import CreateAuthToken from "../Authentication/createAuthToken";
+import Authentication from "../Authentication/Authentication";
+import CreateAuthToken from "../Authentication/CreateAuthToken";
 import Helper from "../Utility/helper";
 import ImageComponent from "../Components/GroupSubComponents/ImageComponent";
 
-export default class OAuth extends Component {
+export default class OAuthController extends Component {
   constructor() {
     super();
     this.code_generated_flag = false;

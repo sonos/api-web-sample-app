@@ -4,7 +4,7 @@
  */
 
 import axios from "axios";
-import Authentication from "../Authentication/authentication";
+import Authentication from "../Authentication/Authentication";
 import config from "../../config.json";
 import { Buffer } from "buffer";
 import { logMessage } from "./customLogger";

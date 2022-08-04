@@ -8,11 +8,11 @@ import "./css/navbar.css"
 import "./css/controlPage.css";
 import "./css/errorPage.css";
 
-import RouteComponents from "./App/Controllers/routingController";
+import RouteComponents from "./App/Controllers/RoutingController";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HelperGroupControl from "./App/Controls/helperGroupControl";
-import ErrorPage from "./App/ErrorHandling/errorPage";
+import ErrorPage from "./App/ErrorHandling/ErrorPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
