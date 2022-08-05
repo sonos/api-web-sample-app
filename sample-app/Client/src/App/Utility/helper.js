@@ -4,7 +4,7 @@
  */
 
 import axios from "axios";
-import Authentication from "../Authentication/authentication";
+import Authentication from "../Authentication/Authentication";
 import config from "../../config.json";
 import { Buffer } from "buffer";
 import { logMessage } from "./customLogger";
@@ -72,7 +72,7 @@ class Helper {
    * This method returns the access token details stored in the localStorage
    */
   getAccessTokeDatafromStorage() {
-    return JSON.parse(window.localStorage.access_token);
+    return JSON.parse(window.localStorage.accessToken);
   }
 
   /*
@@ -96,7 +96,6 @@ class Helper {
     const bearerHeader = {
       "Content-Type": "application/json",
       Authorization: "Bearer " + this.authentication.getAccessToken(),
-      "Access-Control-Allow-Origin": "*"
     };
     return bearerHeader;
   }
@@ -106,7 +105,7 @@ class Helper {
    */
   getOAuthUrl() {
     return (
-      config.api_end_points.oauth_url +
+      config.apiEndPoints.oauthURL +
       "client_id=" +
       this.getClientId() +
       "&response_type=code&state=testState&scope=playback-control-all&" +
@@ -119,7 +118,7 @@ class Helper {
    * This method returns the Client ID from config.json
    */
   getClientId() {
-    return config.credentials.client_id;
+    return config.credentials.clientId;
   }
 
   /*
@@ -133,28 +132,28 @@ class Helper {
    * This method returns the oauth url from config.json
    */
   getRedirectURL() {
-    return config.credentials.redirect_url;
+    return config.credentials.redirectURL;
   }
 
   /*
    * This method returns the house hold url from config.json
    */
   getHouseHoldURL() {
-    return config.api_end_points.household_api_url;
+    return config.apiEndPoints.householdApiURL;
   }
 
   /*
    * This method returns the groups url from config.json
    */
   getGroupsURL() {
-    return config.api_end_points.control_api_endpoint;
+    return config.apiEndPoints.controlApiURL;
   }
 
   /*
    * This method returns the b64 encoded key secret from config.json
    */
   getB64KeySecretOAuthUrl() {
-    return config.credentials.b64_encoded_key_secret;
+    return config.credentials.b64EncodedKeySecret;
   }
 
   /*

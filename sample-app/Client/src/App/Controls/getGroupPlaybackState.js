@@ -6,7 +6,7 @@ function apiCall(device_id) {
   const authentication = new Authentication();
 
   let end_point =
-    config.api_end_points.control_api_endpoint + device_id + "/playback";
+    config.apiEndPoints.controlApiURL + device_id + "/playback";
 
   const headers = {
     "Content-Type": "application/json",
