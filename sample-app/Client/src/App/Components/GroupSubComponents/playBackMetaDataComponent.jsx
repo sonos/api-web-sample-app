@@ -6,7 +6,7 @@ import ImageComponent from "./ImageComponent";
 import { SocketContext, socket } from "../../WebSocket/socket";
 import PlayBackMetaDataEvent from "../../WebSocket/playBackMetaDataEvent";
 
-class PlayBackMetaDataComponent extends Component {
+class PlayBackMetadataComponent extends Component {
   constructor() {
     super();
     this.ControlOptions = new HelperControls();
@@ -73,4 +73,4 @@ class PlayBackMetaDataComponent extends Component {
   }
 }
 
-export default PlayBackMetaDataComponent;
+export default PlayBackMetadataComponent;

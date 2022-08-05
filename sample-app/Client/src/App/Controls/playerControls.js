@@ -1,6 +1,5 @@
-import Authentication from "../Authentication/authentication";
+import Authentication from "../Authentication/Authentication";
 import Helper from "../Utility/helper";
-import { METHOD_POST } from "../Utility/constants";
 import { Component } from "react";
 import { PlaybackApi } from "../museClient/api";
 
@@ -67,7 +66,7 @@ class HelperControls extends Component {
 
     const data = {};
 
-    this.helper.apiCall(endPoint, headers, METHOD_POST, data)
+    this.helper.apiCall(endPoint, headers, "POST", data)
     .then((res) => {
       return true;
     })

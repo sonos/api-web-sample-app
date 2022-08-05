@@ -1,7 +1,7 @@
 import React from "react";
-import ImageComponent from "../Components/GroupSubComponents/ImageComponent";
+import ImageComponent from "./GroupSubComponents/ImageComponent";
 
-export default function NavBar() {
+export default function HeaderComponent() {
 
   const logout = () => {
     console.debug("Logging out...");
