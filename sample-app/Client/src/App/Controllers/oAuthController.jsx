@@ -35,7 +35,7 @@ export default class OAuthController extends Component {
       refresh_token: response["refresh_token"],
       token_type: response["token_type"],
       expiry: response["expires_in"],
-      token_timestamp: Math.floor(Date.now() / 1000),
+      tokenTimestamp: Math.floor(Date.now() / 1000),
     };
 
     window.localStorage.setItem(

@@ -3,10 +3,8 @@ import Helper from "../Utility/helper";
 
 export default function CreateAuthToken(props) {
   const helper = new Helper();
-  
-  let mounted = true;
 
-  let endPoint = config.api_end_points.create_refresh_auth_token_url;
+  let endPoint = config.apiEndPoints.createRefreshAuthTokenURL;
 
   const headers = helper.getHeadersBasic();
 
@@ -21,7 +19,7 @@ export default function CreateAuthToken(props) {
     .join("&");
 
   helper.apiCall(endPoint, headers, "POST", dataKeyVal)
-  .then((res) => {
-    props.isLoggedInHandler(true, res.data);
+  .then((authResponse) => {
+    props.isLoggedInHandler(true, authResponse.data);
   });
 }

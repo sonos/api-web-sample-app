@@ -31,7 +31,7 @@ class Authentication extends Component {
    * check if the Access token is expired
    */
   checkAccessTokenExpired(curTime, accessToken){
-    return ((curTime - accessToken.token_timestamp) >= accessToken.expiry);
+    return ((curTime - accessToken.tokenTimestamp) >= accessToken.expiry);
   }
 }
 

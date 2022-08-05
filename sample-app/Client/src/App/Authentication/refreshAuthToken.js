@@ -15,7 +15,7 @@ class RefreshAuthToken{
         const helper = new Helper();
         
         let refreshToken = JSON.parse(window.localStorage.accessToken).refresh_token;
-        let endPoint = config.api_end_points.create_refresh_auth_token_url;
+        let endPoint = config.apiEndPoints.createRefreshAuthTokenURL;
 
         const HEADER_BASIC = helper.getHeadersBasic();
 
@@ -27,10 +27,10 @@ class RefreshAuthToken{
               .map((key, index) => `${key}=${encodeURIComponent(data[key])}`)
               .join('&');
         helper.apiCall(endPoint, HEADER_BASIC, "POST", dataKeyValue)
-        .then((response) => {
+        .then((refreshTokenResponse) => {
             
-            if (!(response === undefined || response === "") ){
-                this.updateRefreshToken(response);
+            if (!(refreshTokenResponse === undefined || refreshTokenResponse === "") ){
+                this.updateRefreshToken(refreshTokenResponse);
             }
             
           })
@@ -51,11 +51,11 @@ class RefreshAuthToken{
 
         if (!(response.data === undefined || response.data === "") ){
             const accessTokenData = {
-            "token": response.data.accessToken,
+            "token": response.data.access_token,
             "refresh_token" : response.data.refresh_token,
             "token_type" : response.data.token_type,
             "expiry" : response.data.expiry,
-            "token_timestamp" : response.data.token_timestamp
+            "tokenTimestamp" : response.data.token_timestamp
             };
             helper.setAccessTokeDatainStorage(accessTokenData);
         }

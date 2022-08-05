@@ -1,19 +1,18 @@
 {
   "credentials": {
-    "client_id": "bbe13535-1c28-465c-ad6f-2cd7aa877c5e",
+    "clientId": "bbe13535-1c28-465c-ad6f-2cd7aa877c5e",
     "secret": "e462a6bc-9d8c-4fed-bf69-40f30cbda3ca",
-    "redirect_url": "http://localhost:3000",
-    "b64_encoded_key_secret" : "YmJlMTM1MzUtMWMyOC00NjVjLWFkNmYtMmNkN2FhODc3YzVlOmU0NjJhNmJjLTlkOGMtNGZlZC1iZjY5LTQwZjMwY2JkYTNjYQ=="
+    "redirectURL": "http://localhost:3000",
+    "b64EncodedKeySecret" : "YmJlMTM1MzUtMWMyOC00NjVjLWFkNmYtMmNkN2FhODc3YzVlOmU0NjJhNmJjLTlkOGMtNGZlZC1iZjY5LTQwZjMwY2JkYTNjYQ=="
   },
-  "api_end_points": {
-      "oauth_url":"https://api.sonos.com/login/v3/oauth?",
-      "create_refresh_auth_token_url" : "https://thingproxy.freeboard.io/fetch/https://api.sonos.com/login/v3/oauth/access",
-      "household_api_url":"https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v1/households",
-      "control_api_endpoint":"https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v1/groups/",
-      "volume_api_end_point":"https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v1/players/"
+  "apiEndPoints": {
+      "oauthURL":"https://api.sonos.com/login/v3/oauth?",
+      "createRefreshAuthTokenURL" : "https://thingproxy.freeboard.io/fetch/https://api.sonos.com/login/v3/oauth/access",
+      "householdApiURL":"https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v1/households",
+      "controlApiURL":"https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v1/groups/"
   },
-  "app_config" : {
-    "log_level" : "debug"
+  "appConfig" : {
+    "logLevel" : "debug"
   },
   "socketURL":"ws://localhost:8000"
 }
