@@ -19,8 +19,6 @@ More badges can be found at [shields.io](https://shields.io/).
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [Installation/Setup](#installationsetup)
-- [Usage](#usage)
-- [Contents](#contents)
 - [Configuration & Best Practices](#configuration--best-practices)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -46,42 +44,11 @@ This repo contains the source code for the Sample-App(Web based). These sample a
 Steps for setting up the React application locally:
 
 1. Clone the Repo
-2. cd pdsw-portal-sample-app/sample-app
+2. cd pdsw-portal-sample-app/sample-app/Client
 3. npm install or npm i (if you face any face difficulties installing using npm try using yarn)
-4. npm start (For the React application to start)
-
-# Usage
-
-Once cloned, a .gitignore file can be selected from `gitignorefiles` or the default `.gitignore` can be used. From there, your application or service can be added.
-
-# Contents
-
-These are the template files included in this repo.
-
-```
-template-repo
-│   README.md
-│   .gitignore  
-|   LICENSE
-|   MIT_LICENSE 
-└───.github
-│   │   CODEOWNERS
-│   │   delete-merged-branch-config.yml
-│   │   labeler.yml
-│   │   release-drafter.yml
-└───gitignorefiles
-|   |   README.md
-│   │   gradle.ignore
-│   │   java.ignore
-|   |   ...
-```
-
-| File/Folder           | Description                                             |
-| :---------:           | ------------------------------------------------------- |
-| ./.gitignore          | <ul>A good, default .gitignore file</ul> |
-| ./LICENSE/MIT_LICENSE | <ul>LICENSE file for repo. Either LICENSE or MIT_LICENSE can be used depending on your needs</ul> |
-| .github/              | <ul>Includes configuration files necessary for Integrations (i.e. automatic branch deletion)</ul> |
-| gitignorefiles/       | <ul>.ignore files for different languages and setups. Use these to create your own .gitignore that applies to your project</ul> |
+4. cd ../Server && npm i
+5. npm start (For the React and nodejs application to start concurrently)
+6. Open a new terminal window, *ngrok http 8080*. Then configure the url obtained on the developer portal.
 
 # Configuration & Best Practices
 

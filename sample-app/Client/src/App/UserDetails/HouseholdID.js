@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import Helper from "../Utility/helper";
+import { METHOD_GET } from "../Utility/constants";
+
 import React from "react";
 import { CircularProgress } from '@mui/material';
+import NavBar from "../Controllers/navBarController";
 
 export default function Household(props) {
 
@@ -19,7 +22,7 @@ export default function Household(props) {
 
     const data = {};
 
-    helper.apiCall(endPoint, headers, "GET", data)
+    helper.apiCall(endPoint, headers, METHOD_GET, data)
       .then((res) => {
         if (mounted) {
           let household_id = res.data["households"][0]["id"];
@@ -38,12 +41,17 @@ export default function Household(props) {
 
   window.localStorage.setItem("household_id", response);
   return error === true ? (
-    <div>
+    <div className="main_page">
+      <NavBar/>
       <br />
       <h1 className="oauthtext">No device detected...</h1>
     </div>
   ) : (
-    <CircularProgress color="inherit" />
+    <div className="main_page">
+      <div className="render_page">
+      <CircularProgress color="inherit" />
+      </div>
+    </div>
   );
 
 }

@@ -2,29 +2,26 @@ import React from "react";
 import { Component } from "react";
 import PlayerComponent from "../Components/playerComponent";
 
-class PlayersComponent extends Component {
-    state = {  } 
-    render() { 
-        const group = JSON.parse(this.props.group);
+class PlayersController extends Component {
+  state = {};
+  render() {
+    const group = JSON.parse(this.props.group);
+    const players = JSON.parse(window.localStorage.getItem("players"));
 
-        return (
-            <div>
-                <br/>
-                Players:
-                <div>
-                    {group.playerIds.map(
-                        playerId => (
-                        <PlayerComponent
-                            key = {playerId}
-                            playerId = {playerId}
-                            museClientConfig = {this.props.museClientConfig}
-                        />
-                        ))
-                    }
-                </div>
-            </div>
-        );
-    }
+    return (
+      <div>
+        <br />
+        {players.map((item) => {
+          return (<PlayerComponent
+            key={item.id}
+            playerId={item.id}
+            playerName={item.name}
+            museClientConfig={this.props.museClientConfig}
+          />)
+        })}
+      </div>
+    );
+  }
 }
- 
-export default PlayersComponent;
+
+export default PlayersController;

@@ -15,6 +15,6 @@ export default function StateAtStart(props) {
     );
   })
   .catch(function (error) {
-    console.error("Error", error);
+    console.error("Error in fetching the state at start: ", error);
   });
 }

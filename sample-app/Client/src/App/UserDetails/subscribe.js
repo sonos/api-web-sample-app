@@ -3,6 +3,7 @@
  * This class handles the subscription api calls
  */
 import Helper from "../Utility/helper";
+import { METHOD_POST } from "../Utility/constants";
 import { useEffect, useState } from "react";
 import { PlaybackApi, GroupVolumeApi, PlaybackMetadataApi } from "../museClient/api";
 
@@ -76,7 +77,7 @@ export default function Subscribe(props) {
         const data = {};
 
         helper
-          .apiCall(endPointPB, headers, "POST", data)
+          .apiCall(endPointPB, headers, METHOD_POST, data)
           .then((res) => {
             console.debug(endPointPB, res.data);
             if (mounted) {
@@ -90,7 +91,7 @@ export default function Subscribe(props) {
           });
 
         helper
-          .apiCall(endPointGV, headers, "POST", data)
+          .apiCall(endPointGV, headers, METHOD_POST, data)
           .then((res) => {
             if (mounted) {
               setError(false);
@@ -103,7 +104,7 @@ export default function Subscribe(props) {
           });
 
         helper
-          .apiCall(endPointMD, headers, "POST", data)
+          .apiCall(endPointMD, headers, METHOD_POST, data)
           .then((res) => {
             if (mounted) {
               setError(false);

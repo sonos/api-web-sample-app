@@ -1,5 +1,6 @@
 
 import config from "../../config.json";
+import { METHOD_GET } from "../Utility/constants";
 import Helper from "../Utility/helper";
 
 import { GroupVolumeApiFactory } from "../museClient/api";
@@ -27,7 +28,7 @@ export default function GetVolume(props) {
       props.getVolumeHandler(false, res.volume);
     })
     .catch(function (error) {
-      console.error("Error", error);
+      console.error("Error in fetching volume at start: ", error);
 
     });
   }
