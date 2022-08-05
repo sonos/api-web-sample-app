@@ -3,7 +3,7 @@ import { Component } from "react";
 import Groups from "../UserDetails/Groups";
 import Household from "../UserDetails/HouseholdID";
 import GetGroupFlag from "../UserDetails/localStorageHook";
-import GroupsController from "./GroupsController";
+import GroupsController from "./groupsController";
 import Subscribe from "../UserDetails/subscribe";
 
 class UserDetails extends Component {

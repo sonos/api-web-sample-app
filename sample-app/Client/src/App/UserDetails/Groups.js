@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import Helper from "../Utility/helper";
-import React from "react";
+import { METHOD_GET } from "../Utility/constants";
+
 import { CircularProgress } from '@mui/material';
+import React from "react";
 
 export default function Groups(props) {
 
@@ -23,7 +25,7 @@ export default function Groups(props) {
 
     const data = {};
 
-    helper.apiCall(endPoint, headers, "GET", data)
+    helper.apiCall(endPoint, headers, METHOD_GET, data)
       .then((res) => {
         if (mounted) {
           window.localStorage.setItem(

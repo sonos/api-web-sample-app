@@ -3,13 +3,13 @@ import { Component } from "react";
 
 import HelperControls from "../Controls/playerControls";
 
-import PlayBackMetadataComponent from "../Components/GroupSubComponents/PlaybackMetadataComponent";
-import PlaybackToggleComponent from "../Components/GroupSubComponents/PlaybackToggleComponent";
-import VolumeComponent from "../Components/GroupSubComponents/VolumeComponent";
-import PlayersController from "./PlayersController";
-import HeaderComponent from "../Components/HeaderComponent";
+import PlayBackMetaDataComponent from "./GroupSubComponents/playBackMetaDataComponent";
+import PlayBackStateButton from "./GroupSubComponents/playBackStateButton";
+import VolumeComponent from "./GroupSubComponents/volumeComponent";
+import PlayersController from "../Controllers/playersController";
+import NavBar from "../Controllers/navBarController";
 
-class GroupPlayersController extends Component {
+class Control extends Component {
   constructor() {
     super();
     this.ControlOptions = new HelperControls();
@@ -19,9 +19,8 @@ class GroupPlayersController extends Component {
     this.group = JSON.parse(this.props.group);
 
     return (
-      <div>
-      <div className="main_page">
-        <HeaderComponent />
+      <div className="selected_group_page">
+        <NavBar />
 
         <div className="group_name">
           <div className="group_box">
@@ -30,7 +29,7 @@ class GroupPlayersController extends Component {
         </div>
 
         <div className="player">
-          <PlayBackMetadataComponent
+          <PlayBackMetaDataComponent
             groupID={this.group.id}
             museClientConfig={this.props.museClientConfig}
           />
@@ -39,7 +38,7 @@ class GroupPlayersController extends Component {
               <i className="fa fa-step-backward fa-2x"></i>
             </div>
 
-            <PlaybackToggleComponent
+            <PlayBackStateButton
               groupID={this.group.id}
               playPauseState={false}
               museClientConfig={this.props.museClientConfig}
@@ -56,12 +55,6 @@ class GroupPlayersController extends Component {
             museClientConfig={this.props.museClientConfig}
           />
         </div>
-      </div>
-      <div className="players_page">
-        <PlayersController group={this.props.group} 
-        museClientConfig = {this.props.museClientConfig}
-      />
-      </div>
 
         <div className="players_component">
           <div className="player_name">
@@ -89,4 +82,4 @@ class GroupPlayersController extends Component {
   };
 }
 
-export default GroupPlayersController;
+export default Control;

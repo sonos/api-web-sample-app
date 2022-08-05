@@ -1,5 +1,7 @@
 import config from "../../config.json";
 import Helper from "../Utility/helper";
+import { METHOD_POST } from "../Utility/constants";
+
 
 export default function CreateAuthToken(props) {
   const helper = new Helper();
@@ -20,7 +22,7 @@ export default function CreateAuthToken(props) {
     .map((key, index) => `${key}=${encodeURIComponent(data[key])}`)
     .join("&");
 
-  helper.apiCall(endPoint, headers, "POST", dataKeyVal)
+  helper.apiCall(endPoint, headers, METHOD_POST, dataKeyVal)
   .then((res) => {
     props.isLoggedInHandler(true, res.data);
   });

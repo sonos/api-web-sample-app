@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "reactstrap";
 
-function GroupRoutingController(props) {
+function GroupComponent(props) {
   let navigate = useNavigate();
 
   const routeChange = () => {
@@ -23,4 +23,4 @@ function GroupRoutingController(props) {
   );
 }
 
-export default GroupRoutingController;
+export default GroupComponent;

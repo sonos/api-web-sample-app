@@ -9,11 +9,11 @@ import "./css/controlPage.css";
 import "./css/players.css";
 import "./css/errorPage.css";
 
-import RouteComponents from "./App/Controllers/RoutingController";
+import RouteComponents from "./App/Controllers/routingController";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HelperGroupControl from "./App/Controls/helperGroupControl";
-import ErrorPage from "./App/ErrorHandling/ErrorPage";
+import ErrorPage from "./App/ErrorHandling/errorPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

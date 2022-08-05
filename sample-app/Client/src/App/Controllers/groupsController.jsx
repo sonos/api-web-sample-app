@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
-import GroupRoutingController from "../Components/GroupRoutingController";
-import HeaderComponent from "../Components/HeaderComponent";
+import GroupComponent from "../Components/groupComponent";
+import NavBar from "./navBarController";
 
 class GroupsController extends Component {
   state = {};
@@ -10,12 +10,12 @@ class GroupsController extends Component {
     return (
       <div>
         <div className="main_page">
-          <HeaderComponent />
+          <NavBar />
           <div className="group_text">
             <p>List of Groups in your Household: </p>
           </div>
           {JSON.parse(window.localStorage.getItem("groups")).map((group) => (
-            <GroupRoutingController key={group.id} group={group}></GroupRoutingController>
+            <GroupComponent key={group.id} group={group}></GroupComponent>
           ))}
         </div>
       </div>
