@@ -1,10 +1,10 @@
-import React, { Component, useState } from "react";
-import Authentication from "../Authentication/Authentication";
-import CreateAuthToken from "../Authentication/CreateAuthToken";
+import React, { Component } from "react";
+import Authentication from "../Authentication/authentication";
+import CreateAuthToken from "../Authentication/createAuthToken";
 import Helper from "../Utility/helper";
 import ImageComponent from "../Components/GroupSubComponents/ImageComponent";
 
-export default class OAuthController extends Component {
+export default class OAuth extends Component {
   constructor() {
     super();
     this.code_generated_flag = false;
@@ -39,7 +39,7 @@ export default class OAuthController extends Component {
     };
 
     window.localStorage.setItem(
-      "accessToken",
+      "access_token",
       JSON.stringify(access_token_data)
     );
 
@@ -74,15 +74,6 @@ export default class OAuthController extends Component {
           </div>
         </div>
         <div className="login_to_sonos" align="center">
-          <div>
-            <img
-              src={require("../../images/sonos.png")}
-              alt="Sonos"
-              width="300"
-              height="200"
-            ></img>
-          </div>
-          <div>
             {this.code_generated_flag && (
               <CreateAuthToken
                 b64_encoded_string={this.helper.getB64KeySecretOAuthUrl()}
@@ -90,7 +81,6 @@ export default class OAuthController extends Component {
                 isLoggedInHandler={this.isLoggedInHandler}
               />
             )}
-          </div>
         </div>
       </div>
     );

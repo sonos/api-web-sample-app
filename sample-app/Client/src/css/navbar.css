@@ -3,6 +3,7 @@
 */
 
 .logo_logout {
+    border:none;
     height: 5%;
     width: 100%;
     display: table;
@@ -16,9 +17,16 @@
   }
   
   .logout {
+    cursor:pointer;
     float: right;
     height: 80%;
     width: 20%;
     margin-top: 2.5%;
     margin-right: 2.5%;
+  }
+
+  .render_page {
+    align-items: center;
+    margin-top: 400px;
+    margin-left: 350px;
   }

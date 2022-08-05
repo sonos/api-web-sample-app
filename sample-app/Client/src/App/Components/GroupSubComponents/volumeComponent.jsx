@@ -3,8 +3,8 @@ import { Component } from "react";
 import GetVolume from "../../Controls/getVolume";
 import SetVolume from "../../Controls/setVolume";
 import HelperControls from "../../Controls/playerControls";
-import { SocketContext, socket } from "../../WebSokcet/socket";
-import VolumeEvent from "../../WebSokcet/volumeEvent";
+import { SocketContext, socket } from "../../WebSocket/socket";
+import VolumeEvent from "../../WebSocket/volumeEvent";
 
 class VolumeComponent extends Component {
   constructor() {
@@ -58,7 +58,7 @@ class VolumeComponent extends Component {
           value={this.state.volumeVal}
           step="1"
           ref={this.volumeSlider}
-          className="volumeSlider"
+          className="groupVolumeSlider"
           onChange={this.onSetVolume}
         />
         <i className="fa fa-volume-up"></i>

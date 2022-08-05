@@ -4,7 +4,7 @@
  */
 
 import axios from "axios";
-import Authentication from "../Authentication/Authentication";
+import Authentication from "../Authentication/authentication";
 import config from "../../config.json";
 import { Buffer } from "buffer";
 import { logMessage } from "./customLogger";
@@ -72,7 +72,7 @@ class Helper {
    * This method returns the access token details stored in the localStorage
    */
   getAccessTokeDatafromStorage() {
-    return JSON.parse(window.localStorage.accessToken);
+    return JSON.parse(window.localStorage.access_token);
   }
 
   /*
@@ -96,6 +96,7 @@ class Helper {
     const bearerHeader = {
       "Content-Type": "application/json",
       Authorization: "Bearer " + this.authentication.getAccessToken(),
+      "Access-Control-Allow-Origin": "*"
     };
     return bearerHeader;
   }

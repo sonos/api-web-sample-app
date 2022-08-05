@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Container } from "reactstrap";
-import HeaderComponent from "../Components/HeaderComponent";
+import NavBar from "../Controllers/navBarController";
 
 export default function ErrorPage() {
   let navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function ErrorPage() {
   return (
       <div className="main_page">
         <div>
-          <HeaderComponent />
+          <NavBar />
         </div>
         <div className="mainbox">
           <div className="err">4</div>

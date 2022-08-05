@@ -1,9 +1,9 @@
 import { Component } from "react";
-import RefreshAuthToken from "./RefreshAuthToken";
+import RefreshAuthToken from "./refreshAuthToken";
 
 class Authentication extends Component {
   isAccessTokenValid = () => {
-    let accessToken = window.localStorage.accessToken;
+    let accessToken = window.localStorage.access_token;
     if (accessToken === undefined || accessToken === "") {
       return false;
     } else {
@@ -23,7 +23,7 @@ class Authentication extends Component {
   };
 
   getAccessToken = () => {
-    let accessToken = JSON.parse(window.localStorage.accessToken).token;
+    let accessToken = JSON.parse(window.localStorage.access_token).token;
     return accessToken;
   };
 

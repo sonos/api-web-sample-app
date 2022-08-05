@@ -24,8 +24,10 @@ class PlayerComponent extends Component {
             />
           )}
         </div>
-        Player ID : {this.props.playerId}
-        <div className="slider_container">
+        <div className="playerName">
+          {this.props.playerName}
+        </div>
+        <div className="player_slider_container">
           <i className="fa fa-volume-down"></i>
           <input
             type="range"
