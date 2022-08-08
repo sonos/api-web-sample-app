@@ -9,7 +9,7 @@ import VolumeComponent from "./GroupSubComponents/volumeComponent";
 import PlayersController from "../Controllers/playersController";
 import NavBar from "../Controllers/navBarController";
 
-class Control extends Component {
+class GroupPlayersComponent extends Component {
   constructor() {
     super();
     this.ControlOptions = new HelperControls();
@@ -82,4 +82,4 @@ class Control extends Component {
   };
 }
 
-export default Control;
+export default GroupPlayersComponent;
