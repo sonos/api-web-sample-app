@@ -13,7 +13,7 @@ import RouteComponents from "./App/Controllers/routingController";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HelperGroupControl from "./App/Controls/helperGroupControl";
-import ErrorPage from "./App/ErrorHandling/errorPage";
+import ErrorPage from "./App/ErrorHandling/ErrorPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
