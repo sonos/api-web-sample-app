@@ -1,6 +1,7 @@
 import config from "../../config.json";
 import Authentication from "../Authentication/authentication";
 import axios from "axios";
+import { PlaybackApiFactory } from "../museClient/api";
 
 function apiCall(device_id) {
   const authentication = new Authentication();
@@ -22,7 +23,21 @@ function apiCall(device_id) {
 }
 
 export default function GetPlayBackState(props) {
-  apiCall(props.device_id)
+
+  const playbackApi = new PlaybackApiFactory(props.museClientConfig);
+  playbackApi.playbackGetPlaybackStatus(props.deviceId)
+  .then((res) => {
+    console.debug(
+      "Group Playback state at start is : ",
+      res.playbackState
+    );
+    props.getPlaybackStateHandler(false, res.playbackState);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+
+  /*apiCall(props.device_id)
     .then((res) => {
       console.debug(
         "Group Playback state at start is : ",
@@ -32,5 +47,5 @@ export default function GetPlayBackState(props) {
     })
     .catch(function (error) {
       console.error(error);
-    });
+    });*/
 }

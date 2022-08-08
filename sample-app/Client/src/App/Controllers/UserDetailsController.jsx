@@ -5,13 +5,14 @@ import Household from "../UserDetails/HouseholdID";
 import GetGroupFlag from "../UserDetails/LocalStorageHook";
 import GroupRoutingController from "./GroupRoutingController";
 import Subscribe from "../UserDetails/Subscribe";
+import { Configuration } from "../museClient/configuration";
 
 class UserDetailsController extends Component {
   state = {
     household_id_flag: true,
     groups_flag: GetGroupFlag("HOUSEHOLD"),
     subscribe_flag: false,
-    players_flag: GetGroupFlag("GROUP")
+    players_flag: GetGroupFlag("GROUP"),
   };
 
   hh_handler = (input_flag) => {
@@ -37,19 +38,26 @@ class UserDetailsController extends Component {
       <div>
         <div className="getHouseholdID">
           {!GetGroupFlag("HOUSEHOLD") && this.state.household_id_flag && (
-            <Household hh_handler={this.hh_handler} />
+            <Household hh_handler={this.hh_handler}
+             museClientConfig={this.props.museClientConfig}
+            />
           )}
         </div>
 
         <div className="getGroups">
           {!GetGroupFlag("GROUP") && this.state.groups_flag && (
-            <Groups grp_handler={this.group_handler} />
+            <Groups grp_handler={this.group_handler}
+             museClientConfig={this.props.museClientConfig}
+            />
           )}
         </div>
 
         <div className="subscribe">
           {this.state.subscribe_flag && (
-            <Subscribe subscribe_handler={this.subscribe_handler} />
+            <Subscribe subscribe_handler={this.subscribe_handler}
+              museClientConfig={this.props.museClientConfig}
+            />
+
           )}
         </div>
 

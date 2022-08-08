@@ -3,6 +3,7 @@ import Authentication from "../Authentication/Authentication";
 import CreateAuthToken from "../Authentication/CreateAuthToken";
 import Helper from "../Utility/Helper";
 import ImageComponent from "../Components/GroupSubComponents/ImageComponent";
+import { Configuration } from "../museClient/configuration";
 
 export default class OAuthController extends Component {
   constructor() {
@@ -24,7 +25,7 @@ export default class OAuthController extends Component {
       this.code = code_generated;
       return true;
     } else {
-      this.props.access_token_handler(false);
+      this.props.access_token_handler(false, null);
       return false;
     }
   };
@@ -43,7 +44,11 @@ export default class OAuthController extends Component {
       JSON.stringify(access_token_data)
     );
 
-    this.props.access_token_handler(flag);
+    const museClientConfig = new Configuration({
+      accessToken: response["access_token"]
+    });
+
+    this.props.access_token_handler(flag, museClientConfig);
   };
 
   postYourAdd = () => {
