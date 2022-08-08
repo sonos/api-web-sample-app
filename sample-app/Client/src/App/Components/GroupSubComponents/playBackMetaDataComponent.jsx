@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import HelperControls from "../../Controls/playerControls";
+import HelperControls from "../../Controls/PlayerControls";
 import PlayBackMetadata from "../../Controls/PlayBackMetadata";
 import ImageComponent from "./ImageComponent";
 import { SocketContext, socket } from "../../WebSocket/socket";

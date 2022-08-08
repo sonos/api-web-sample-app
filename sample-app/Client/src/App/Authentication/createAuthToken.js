@@ -1,5 +1,5 @@
 import config from "../../config.json";
-import Helper from "../Utility/helper";
+import Helper from "../Utility/Helper";
 
 export default function CreateAuthToken(props) {
   const helper = new Helper();

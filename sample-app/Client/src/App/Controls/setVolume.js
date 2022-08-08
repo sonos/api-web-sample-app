@@ -1,4 +1,4 @@
-import { logMessage, logError } from "../Utility/customLogger";
+import { logMessage, logError } from "../Utility/CustomLogger";
 import { GroupVolumeApiFactory } from "../museClient/api";
 import { PlayerVolumeApiFactory } from "../museClient/api";
 

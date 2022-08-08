@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 
 import Authentication from "../Authentication/Authentication";
-import OAuthController from "./oAuthController";
+import OAuthController from "./OAuthController";
 import UserDetailsController from "./UserDetailsController";
 
 class RouteComponents extends Component {

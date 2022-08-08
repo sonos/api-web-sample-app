@@ -1,5 +1,5 @@
 import Authentication from "../Authentication/Authentication";
-import Helper from "../Utility/helper";
+import Helper from "../Utility/Helper";
 import { Component } from "react";
 import { PlaybackApi } from "../museClient/api";
 
