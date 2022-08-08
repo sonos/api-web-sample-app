@@ -7,7 +7,7 @@ import PlayBackMetaDataComponent from "./GroupSubComponents/playBackMetaDataComp
 import PlayBackStateButton from "./GroupSubComponents/playBackStateButton";
 import VolumeComponent from "./GroupSubComponents/volumeComponent";
 import PlayersController from "../Controllers/playersController";
-import NavBar from "../Controllers/navBarController";
+import HeaderComponent from "./HeaderComponent";
 
 class GroupPlayersComponent extends Component {
   constructor() {
@@ -20,7 +20,7 @@ class GroupPlayersComponent extends Component {
 
     return (
       <div className="selected_group_page">
-        <NavBar />
+        <HeaderComponent />
 
         <div className="group_name">
           <div className="group_box">

@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import GroupComponent from "../Components/groupComponent";
-import NavBar from "./navBarController";
+import HeaderComponent from "../Components/HeaderComponent";
 
 class GroupRoutingController extends Component {
   state = {};
@@ -10,7 +10,7 @@ class GroupRoutingController extends Component {
     return (
       <div>
         <div className="main_page">
-          <NavBar />
+          <HeaderComponent />
           <div className="group_text">
             <p>List of Groups in your Household: </p>
           </div>
