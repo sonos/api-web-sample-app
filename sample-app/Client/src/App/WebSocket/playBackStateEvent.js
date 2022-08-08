@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
-import { SocketContext } from "../WebSocket/socket";
-import ProcessRequest from "../Eventing/processEvents";
+import { SocketContext } from "./Socket";
+import ProcessRequest from "../Eventing/ProcessEvents";
 
 export default function PlayBackStateEvent(props) {
   const socket = useContext(SocketContext);

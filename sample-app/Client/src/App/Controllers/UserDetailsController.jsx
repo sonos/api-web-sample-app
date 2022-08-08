@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import Groups from "../UserDetails/Groups";
 import Household from "../UserDetails/HouseholdID";
-import GetGroupFlag from "../UserDetails/localStorageHook";
+import GetGroupFlag from "../UserDetails/LocalStorageHook";
 import GroupRoutingController from "./GroupRoutingController";
 import Subscribe from "../UserDetails/Subscribe";
 

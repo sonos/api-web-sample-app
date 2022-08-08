@@ -3,8 +3,8 @@ import { Component } from "react";
 import GetVolume from "../../Controls/getVolume";
 import SetVolume from "../../Controls/setVolume";
 import HelperControls from "../../Controls/PlayerControls";
-import { SocketContext, socket } from "../../WebSocket/socket";
-import VolumeEvent from "../../WebSocket/volumeEvent";
+import { SocketContext, socket } from "../../WebSocket/Socket";
+import VolumeEvent from "../../WebSocket/VolumeEvent";
 
 class VolumeComponent extends Component {
   constructor() {
