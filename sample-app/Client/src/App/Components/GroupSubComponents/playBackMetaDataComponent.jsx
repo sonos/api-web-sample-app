@@ -3,8 +3,8 @@ import { Component } from "react";
 import HelperControls from "../../Controls/PlayerControls";
 import PlayBackMetadata from "../../Controls/PlayBackMetadata";
 import ImageComponent from "./ImageComponent";
-import { SocketContext, socket } from "../../WebSocket/socket";
-import PlayBackMetaDataEvent from "../../WebSocket/playBackMetaDataEvent";
+import { SocketContext, socket } from "../../WebSocket/Socket";
+import PlayBackMetaDataEvent from "../../WebSocket/PlayBackMetaDataEvent";
 
 class PlayBackMetaDataComponent extends Component {
   constructor() {
