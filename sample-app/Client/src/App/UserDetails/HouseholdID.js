@@ -4,7 +4,7 @@ import { METHOD_GET } from "../Utility/constants";
 
 import React from "react";
 import { CircularProgress } from '@mui/material';
-import NavBar from "../Controllers/navBarController";
+import HeaderComponent from "../Components/HeaderComponent";
 
 export default function Household(props) {
 
@@ -42,7 +42,7 @@ export default function Household(props) {
   window.localStorage.setItem("household_id", response);
   return error === true ? (
     <div className="main_page">
-      <NavBar/>
+      <HeaderComponent/>
       <br />
       <h1 className="oauthtext">No device detected...</h1>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import StateAtStart from "../../Controls/playBackState";
+import PlayBackToggleComponent from "../../Controls/PlayBackToggleComponent";
 import HelperControls from "../../Controls/playerControls";
 import PlayBackStateEvent from "../../WebSocket/playBackStateEvent";
 import { SocketContext, socket } from "../../WebSocket/socket";
@@ -81,7 +81,7 @@ class PlayBackStateButton extends Component {
 
         <div>
           {this.state.getStateFlag && (
-            <StateAtStart
+            <PlayBackToggleComponent
               deviceId={this.props.groupID}
               getStateHandler={this.getStateHandler}
               museClientConfig = {this.props.museClientConfig}
