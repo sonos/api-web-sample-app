@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Control from "../Components/controlComponent";
-import Authentication from "../Authentication/authentication";
+import Authentication from "../Authentication/Authentication";
 import { Configuration } from "../museClient/configuration";
 
 function HelperGroupControl() {
