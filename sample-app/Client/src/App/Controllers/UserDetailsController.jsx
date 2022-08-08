@@ -3,10 +3,10 @@ import { Component } from "react";
 import Groups from "../UserDetails/Groups";
 import Household from "../UserDetails/HouseholdID";
 import GetGroupFlag from "../UserDetails/localStorageHook";
-import GroupsController from "./groupsController";
+import GroupRoutingController from "./GroupRoutingController";
 import Subscribe from "../UserDetails/subscribe";
 
-class UserDetails extends Component {
+class UserDetailsController extends Component {
   state = {
     household_id_flag: true,
     groups_flag: GetGroupFlag("HOUSEHOLD"),
@@ -54,11 +54,11 @@ class UserDetails extends Component {
         </div>
 
         <div className="loadGroups">
-          {this.state.players_flag && <GroupsController />}
+          {this.state.players_flag && <GroupRoutingController />}
         </div>
       </div>
     );
   }
 }
 
-export default UserDetails;
+export default UserDetailsController;

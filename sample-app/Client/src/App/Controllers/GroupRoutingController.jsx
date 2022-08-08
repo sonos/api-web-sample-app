@@ -3,7 +3,7 @@ import { Component } from "react";
 import GroupComponent from "../Components/groupComponent";
 import NavBar from "./navBarController";
 
-class GroupsController extends Component {
+class GroupRoutingController extends Component {
   state = {};
 
   render() {
@@ -23,4 +23,4 @@ class GroupsController extends Component {
   }
 }
 
-export default GroupsController;
+export default GroupRoutingController;

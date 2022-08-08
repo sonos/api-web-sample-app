@@ -3,7 +3,7 @@ import { Component } from "react";
 
 import Authentication from "../Authentication/Authentication";
 import OAuthController from "./oAuthController";
-import UserDetails from "./UserDetailsController";
+import UserDetailsController from "./UserDetailsController";
 
 class RouteComponents extends Component {
   state = { is_logged_in: new Authentication().isAccessTokenValid() };
@@ -21,7 +21,7 @@ class RouteComponents extends Component {
             is_logged_in={this.state.is_logged_in}
           />
         )}
-        {this.state.is_logged_in && <UserDetails />}
+        {this.state.is_logged_in && <UserDetailsController />}
       </div>
     );
   }
