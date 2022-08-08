@@ -3,6 +3,7 @@ import Helper from "../Utility/Helper";
 import React from "react";
 import { CircularProgress } from '@mui/material';
 import HeaderComponent from "../Components/HeaderComponent";
+import { HouseholdsApiFactory } from "../museClient/api";
 
 export default function Household(props) {
 
@@ -14,6 +15,22 @@ export default function Household(props) {
 
     let mounted = true;
 
+    const householdsApi = new HouseholdsApiFactory(props.museClientConfig);
+    householdsApi.householdsGetHouseholds()
+    .then((houseHoldsResponse) => {
+      if (mounted) {
+        let household_id = houseHoldsResponse["households"][0]["id"];
+        setResponse(household_id);
+        setError(false);
+        props.hh_handler(true);
+      }
+    })
+    .catch(function (error) {
+      console.error("Something went wrong");
+      setError(true);
+      return Promise.reject(error);
+    });
+/*
     let endPoint = helper.getHouseHoldURL();
 
     const headers = helper.getHeaderBearer();
@@ -33,7 +50,7 @@ export default function Household(props) {
         console.error("Something went wrong");
         setError(true);
         return Promise.reject(error);
-      });
+      });*/
     return () => (mounted = false);
   }, []);
 
