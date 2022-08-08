@@ -4,7 +4,7 @@ import Groups from "../UserDetails/Groups";
 import Household from "../UserDetails/HouseholdID";
 import GetGroupFlag from "../UserDetails/localStorageHook";
 import GroupRoutingController from "./GroupRoutingController";
-import Subscribe from "../UserDetails/subscribe";
+import Subscribe from "../UserDetails/Subscribe";
 
 class UserDetailsController extends Component {
   state = {

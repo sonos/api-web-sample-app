@@ -1,7 +1,7 @@
 import React, { Component, useState } from "react";
 import Authentication from "../Authentication/Authentication";
 import CreateAuthToken from "../Authentication/CreateAuthToken";
-import Helper from "../Utility/helper";
+import Helper from "../Utility/Helper";
 import ImageComponent from "../Components/GroupSubComponents/ImageComponent";
 
 export default class OAuthController extends Component {

@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import GetVolume from "../../Controls/getVolume";
 import SetVolume from "../../Controls/setVolume";
-import HelperControls from "../../Controls/playerControls";
+import HelperControls from "../../Controls/PlayerControls";
 import { SocketContext, socket } from "../../WebSocket/socket";
 import VolumeEvent from "../../WebSocket/volumeEvent";
 

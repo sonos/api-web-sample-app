@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Helper from "../Utility/helper";
+import Helper from "../Utility/Helper";
 import { CircularProgress } from '@mui/material';
 import React from "react";
 

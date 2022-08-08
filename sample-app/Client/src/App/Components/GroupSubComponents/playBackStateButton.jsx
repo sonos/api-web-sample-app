@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import PlayBackToggleComponent from "../../Controls/PlayBackToggleComponent";
-import HelperControls from "../../Controls/playerControls";
+import HelperControls from "../../Controls/PlayerControls";
 import PlayBackStateEvent from "../../WebSocket/playBackStateEvent";
 import { SocketContext, socket } from "../../WebSocket/socket";
 

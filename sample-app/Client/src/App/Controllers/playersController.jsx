@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import PlayerComponent from "../Components/playerComponent";
+import PlayerComponent from "../Components/PlayerComponent";
 
 class PlayersController extends Component {
   state = {};

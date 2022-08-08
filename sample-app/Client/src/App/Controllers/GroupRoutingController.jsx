@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import GroupComponent from "../Components/groupComponent";
+import GroupComponent from "../Components/GroupComponent";
 import HeaderComponent from "../Components/HeaderComponent";
 
 class GroupRoutingController extends Component {

@@ -2,7 +2,7 @@
  * @author Mugdha Rane <mugdha.rane@sonos.com>
  * This class handles the subscription api calls
  */
-import Helper from "../Utility/helper";
+import Helper from "../Utility/Helper";
 import { useEffect, useState } from "react";
 import { PlaybackApi, GroupVolumeApi, PlaybackMetadataApi } from "../museClient/api";
 
