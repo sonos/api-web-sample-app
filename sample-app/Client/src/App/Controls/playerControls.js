@@ -1,4 +1,4 @@
-import Authentication from "../Authentication/authentication";
+import Authentication from "../Authentication/Authentication";
 import Helper from "../Utility/helper";
 import { METHOD_POST } from "../Utility/constants";
 import { Component } from "react";
