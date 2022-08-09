@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
-import GroupComponent from "../Components/GroupComponent";
-import HeaderComponent from "../Components/HeaderComponent";
+import GroupComponent from "../Components/groupComponent";
+import HeaderComponent from "../Components/headerComponent";
 
 class GroupRoutingController extends Component {
   state = {};

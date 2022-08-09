@@ -1,10 +1,10 @@
 import React from "react";
 import { Component } from "react";
-import GetVolume from "../../Controls/getVolume";
-import SetVolume from "../../Controls/setVolume";
-import HelperControls from "../../Controls/PlayerControls";
-import { SocketContext, socket } from "../../WebSocket/Socket";
-import VolumeEvent from "../../WebSocket/VolumeEvent";
+import GetVolume from "../../ControlAPIs/getVolume";
+import SetVolume from "../../ControlAPIs/setVolume";
+import HelperControls from "../../ControlAPIs/playerControls";
+import { SocketContext, socket } from "../../WebSocket/socket";
+import VolumeEvent from "../../WebSocket/volumeEvent";
 
 class VolumeComponent extends Component {
   constructor() {

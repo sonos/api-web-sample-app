@@ -1,5 +1,5 @@
 import React from "react";
-import ImageComponent from "./GroupSubComponents/ImageComponent";
+import ImageComponent from "./GroupSubComponents/imageComponent";
 
 export default function HeaderComponent() {
 

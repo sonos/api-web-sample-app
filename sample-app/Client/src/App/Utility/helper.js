@@ -4,10 +4,10 @@
  */
 
 import axios from "axios";
-import Authentication from "../Authentication/Authentication";
+import Authentication from "../Authentication/authentication";
 import config from "../../config.json";
 import { Buffer } from "buffer";
-import { logMessage } from "./CustomLogger";
+import { logMessage } from "./customLogger";
 
 class Helper {
   constructor() {

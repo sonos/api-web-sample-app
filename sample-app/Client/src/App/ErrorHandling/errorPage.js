@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Container } from "reactstrap";
-import HeaderComponent from "../Components/HeaderComponent";
+import HeaderComponent from "../Components/headerComponent";
 
 export default function ErrorPage() {
   let navigate = useNavigate();

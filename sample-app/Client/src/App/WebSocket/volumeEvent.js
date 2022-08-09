@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
-import { SocketContext } from "./Socket";
-import ProcessRequest from "../Eventing/ProcessEvents";
+import { SocketContext } from "./socket";
+import ProcessRequest from "../Eventing/processEvents";
 
 export default function VolumeEvent(props) {
   const socket = useContext(SocketContext);

@@ -1,8 +1,8 @@
 import React from "react";
 import { Component } from "react";
 
-import GetVolume from "../Controls/getVolume";
-import SetVolume from "../Controls/setVolume";
+import GetVolume from "../ControlAPIs/getVolume";
+import SetVolume from "../ControlAPIs/setVolume";
 
 class PlayerComponent extends Component {
   constructor() {

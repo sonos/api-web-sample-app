@@ -1,13 +1,13 @@
 import React from "react";
 import { Component } from "react";
 
-import HelperControls from "../Controls/PlayerControls";
+import HelperControls from "../ControlAPIs/playerControls";
 
-import PlayBackMetaDataComponent from "./GroupSubComponents/PlayBackMetadataComponent";
-import PlayBackStateButton from "./GroupSubComponents/PlayBackStateButton";
-import VolumeComponent from "./GroupSubComponents/VolumeComponent";
-import PlayersController from "../Controllers/PlayersController";
-import HeaderComponent from "./HeaderComponent";
+import PlayBackMetaDataComponent from "./GroupSubComponents/playbackMetaDataComponent";
+import PlayBackStateButton from "./GroupSubComponents/playbackStateButton";
+import VolumeComponent from "./GroupSubComponents/volumeComponent";
+import PlayersController from "../Controllers/playersController";
+import HeaderComponent from "./headerComponent";
 
 class GroupPlayersComponent extends Component {
   constructor() {

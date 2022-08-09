@@ -2,7 +2,7 @@
  * @author Mugdha Rane <mugdha.rane@sonos.com>
  */
 
-import Helper from "../Utility/Helper";
+import Helper from "../Utility/helper";
 import config from "../../config.json";
 
 class RefreshAuthToken{

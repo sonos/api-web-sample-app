@@ -1,8 +1,8 @@
 import React, { Component, useState } from "react";
-import Authentication from "../Authentication/Authentication";
-import CreateAuthToken from "../Authentication/CreateAuthToken";
-import Helper from "../Utility/Helper";
-import ImageComponent from "../Components/GroupSubComponents/ImageComponent";
+import Authentication from "../Authentication/authentication";
+import CreateAuthToken from "../Authentication/createAuthToken";
+import Helper from "../Utility/helper";
+import ImageComponent from "../Components/GroupSubComponents/imageComponent";
 import { Configuration } from "../museClient/configuration";
 
 export default class OAuthController extends Component {

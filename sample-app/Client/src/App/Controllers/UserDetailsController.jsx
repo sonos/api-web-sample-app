@@ -1,10 +1,10 @@
 import React from "react";
 import { Component } from "react";
-import Groups from "../UserDetails/Groups";
-import Household from "../UserDetails/HouseholdID";
-import GetGroupFlag from "../UserDetails/LocalStorageHook";
-import GroupRoutingController from "./GroupRoutingController";
-import Subscribe from "../UserDetails/Subscribe";
+import Groups from "../UserDetails/fetchGroups";
+import Household from "../UserDetails/fetchHouseholdID";
+import GetGroupFlag from "../UserDetails/localStorageHook";
+import GroupRoutingController from "./groupRoutingController";
+import Subscribe from "../UserDetails/subscribe";
 import { Configuration } from "../museClient/configuration";
 
 class UserDetailsController extends Component {

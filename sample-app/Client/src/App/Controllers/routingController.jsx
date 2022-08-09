@@ -1,9 +1,9 @@
 import React from "react";
 import { Component } from "react";
 
-import Authentication from "../Authentication/Authentication";
-import OAuthController from "./OAuthController";
-import UserDetailsController from "./UserDetailsController";
+import Authentication from "../Authentication/authentication";
+import OAuthController from "./oAuthController";
+import UserDetailsController from "./userDetailsController";
 
 class RouteComponents extends Component {
   state = { is_logged_in: new Authentication().isAccessTokenValid() };

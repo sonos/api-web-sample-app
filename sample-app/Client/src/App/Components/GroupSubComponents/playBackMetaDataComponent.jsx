@@ -1,10 +1,10 @@
 import React from "react";
 import { Component } from "react";
-import HelperControls from "../../Controls/PlayerControls";
-import PlayBackMetadata from "../../Controls/PlayBackMetadata";
-import ImageComponent from "./ImageComponent";
-import { SocketContext, socket } from "../../WebSocket/Socket";
-import PlayBackMetaDataEvent from "../../WebSocket/PlayBackMetaDataEvent";
+import HelperControls from "../../ControlAPIs/playerControls";
+import PlayBackMetadata from "../../ControlAPIs/playbackMetadata";
+import ImageComponent from "./imageComponent";
+import { SocketContext, socket } from "../../WebSocket/socket";
+import PlayBackMetaDataEvent from "../../WebSocket/playbackMetaDataEvent";
 
 class PlayBackMetaDataComponent extends Component {
   constructor() {
