@@ -43,20 +43,18 @@ class Helper {
   /*
    * api error logging is done in this method
    */
-  logError(error) { 
+  logError(error) {
     if (error.response) {
       // Request made and server responded
       console.error(error);
-
     } else if (error.request) {
-        // The request was made but no response was received
-        console.error(error.request);
+      // The request was made but no response was received
+      console.error(error.request);
     } else {
-        // Something happened in setting up the request that triggered an Error
-        console.error("Error", error.message);
+      // Something happened in setting up the request that triggered an Error
+      console.error("Error", error.message);
     }
   }
-
 
   /*
    * This method updates the access token Data in the local storage
