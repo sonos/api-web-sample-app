@@ -10,7 +10,7 @@ export default function PlayBackMetadata(props) {
         false,
         res.currentItem.track.name,
         res.currentItem.track.album.name,
-        res.container.imageUrl
+        res.container.imageUrl !== undefined ? res.container.imageUrl : res.currentItem.track.imageUrl
       );
   })
   .catch(function (error) {
