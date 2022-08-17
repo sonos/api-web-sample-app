@@ -50,14 +50,19 @@ Steps for setting up the React application locally:
 4. Open a new terminal window, *ngrok http 8080*.
 5. Then configure the url obtained on the developer portal using steps mentioned in the section 'Configuration of url in developer portal'
 
-
-# Configuration of url in developer portal
+# Create Client credentials
 1. Open the website 'https://developer.sonos.com/'
 2. Create an account and login.
 3. navigate to My Accounts > Integrations.
-4. Click on New Integrations. Enter details and click on continue
+4. Click on New Integrations. Enter Display name e.g. 'Login service', Description e.g. 'Description' and click on continue.
 5. Enter key name e.g. 'test key name'
-6. You will be navigated to Client credentials page. In redirect url text box enter the ngrok url
+
+# Configuration of url in developer portal
+1. Open the website 'https://developer.sonos.com/'
+2. Login your account created in step - Create Client credentials
+3. navigate to My Accounts > Integrations.
+4. Click on edit for 'Login service'
+5. You will be navigated to Client credentials page. In redirect url text box enter the ngrok url
 
 # Configuration & Best Practices
 
