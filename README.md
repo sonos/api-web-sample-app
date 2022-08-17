@@ -50,7 +50,7 @@ Steps for setting up the React application locally:
 5. npm start (For the React and nodejs application to start concurrently)
 6. Open a new terminal window, *ngrok http 8080*. Then configure the url obtained on the developer portal.
 
-# Configuration & Best Practices
+# Configuration & Best Practices 
 
 It is best to follow a `feature -> develop -> main` workflow for branch management. Features should be on their own `feature` branch and merged into the `develop` branch. The `develop` branch should be merged once ready for release into `main`.
 
