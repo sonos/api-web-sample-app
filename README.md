@@ -66,10 +66,10 @@ Steps for setting up the React application locally:
 5. You will be navigated to Client credentials page. In redirect url text box enter the ngrok url
 
 # Open API Specification Generator
-1. Open a new terminal/command prompt window and run the command 'brew install swagger-codegen'
-2. navigate to the path where you want to generate the code. In this project we have saved the files in the path 'museClient'. e.g. cd /museClient
-3. paste the command 'swagger-codegen generate -i SonosControlApi.json -l javascript -o /tmp/api --additional-properties useEs6=true'.
-4. paste the command 'cp /tmp/api/{api.js,configuration.js} .'. This will copy the files generated from the precious command.
+The steps for open API spec ggeneration are available in the README at this location:
+
+https://github.com/Sonos-Inc/pdsw-portal-sample-app/tree/read_me/sample-app/Client/src/App/museClient
+
 
 # Configuration & Best Practices 
 
