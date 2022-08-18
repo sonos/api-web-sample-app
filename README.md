@@ -39,6 +39,7 @@ This repo contains the source code for the Sample-App(Web based). These sample a
 - React
 - Ngrok
 - docker
+- typescript
 
 # Installation/Setup
 
@@ -47,7 +48,7 @@ Steps for setting up the React application locally:
 1. Open Terminal/command prompt and Clone the repository using the command 'gh repo clone Sonos-Inc/pdsw-portal-sample-app'
 2. Navigate to the path using 'cd pdsw-portal-sample-app/sample-app'
 3. run the command 'docker-compose up -d'
-4. Open a new terminal window, *ngrok http 8080*.
+4. Open a new terminal/command prompt window, *ngrok http 8080*.
 5. Then configure the url obtained on the developer portal using steps mentioned in the section 'Configuration of url in developer portal'
 
 # Create Client credentials
@@ -63,6 +64,12 @@ Steps for setting up the React application locally:
 3. navigate to My Accounts > Integrations.
 4. Click on edit for 'Login service'
 5. You will be navigated to Client credentials page. In redirect url text box enter the ngrok url
+
+# Open API Specification Generator
+1. Open a new terminal/command prompt window and run the command 'brew install swagger-codegen'
+2. navigate to the path where you want to generate the code. In this project we have saved the files in the path 'museClient'. e.g. cd /museClient
+3. paste the command 'swagger-codegen generate -i SonosControlApi.json -l javascript -o /tmp/api --additional-properties useEs6=true'.
+4. paste the command 'cp /tmp/api/{api.js,configuration.js} .'. This will copy the files generated from the precious command.
 
 # Configuration & Best Practices 
 
