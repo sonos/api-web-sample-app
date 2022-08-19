@@ -49,7 +49,7 @@ Steps for setting up the React application locally:
 2. Navigate to the path using 'cd pdsw-portal-sample-app/sample-app'
 3. run the command 'docker-compose up -d'
 4. Open a new terminal/command prompt window, *ngrok http 8080*.
-5. Then configure the url obtained on the developer portal using steps mentioned in the section 'Configuration of url in developer portal'
+5. Then configure the forwarding url from ngrok on the developer portal using steps mentioned in the section 'Configuration of url in developer portal'
 
 # Create Client credentials
 1. Open the website 'https://developer.sonos.com/'
