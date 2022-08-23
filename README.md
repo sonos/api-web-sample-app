@@ -58,6 +58,11 @@ Steps for setting up the React application locally:
 4. Click on New Integrations. Enter Display name e.g. 'Login service', Description e.g. 'Description' and click on continue.
 5. Enter key name e.g. 'test key name'
 
+# Configure authentication
+1. Open the file config.json in the location - Client/src/
+2. copy paste the clientId, secret in config.json from Client credentials created in the above steps.
+3. generate Base64 code using {clientId:secret}from website https://www.base64encode.org/. Paste the generated code in the b64EncodedKeySecret of config.json.
+
 # Configuration of url in developer portal
 1. Open the website 'https://developer.sonos.com/'
 2. Login your account created in step - Create Client credentials
