@@ -25,7 +25,11 @@ class PlayBackStateButton extends Component {
   playMusic = () => {
     console.debug("Trying to play music...");
     if (!this.state.isPlaying) {
-      this.ControlOptions.helperControls("play", this.props.groupID, this.props.museClientConfig);
+      this.ControlOptions.helperControls(
+        "play",
+        this.props.groupID,
+        this.props.museClientConfig
+      );
 
       this.props.playStateHandler(true);
     } else {
@@ -36,7 +40,11 @@ class PlayBackStateButton extends Component {
   pauseMusic = () => {
     console.debug("Trying to pause music...");
     if (this.state.isPlaying) {
-      this.ControlOptions.helperControls("pause", this.props.groupID, this.props.museClientConfig);
+      this.ControlOptions.helperControls(
+        "pause",
+        this.props.groupID,
+        this.props.museClientConfig
+      );
 
       this.props.playStateHandler(false);
     } else {
@@ -51,8 +59,7 @@ class PlayBackStateButton extends Component {
       this.props.groupID,
       this.props.museClientConfig
     );
-    console.log(result);
-
+    // console.log(result);
     // if (result === true){
     //   this.setState({ isPlaying: !this.state.isPlaying });
     // };
@@ -84,12 +91,16 @@ class PlayBackStateButton extends Component {
             <PlayBackToggleComponent
               deviceId={this.props.groupID}
               getStateHandler={this.getStateHandler}
-              museClientConfig = {this.props.museClientConfig}
+              museClientConfig={this.props.museClientConfig}
             />
           )}
         </div>
 
-        <div ref={this.playpauseBtn} className="playpause_track" onClick={this.toggleMusic}>
+        <div
+          ref={this.playpauseBtn}
+          className="playpause_track"
+          onClick={this.toggleMusic}
+        >
           <i className={this.playModeClass()}></i>
         </div>
       </div>

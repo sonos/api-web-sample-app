@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import Authentication from "../Authentication/authentication";
 import CreateAuthToken from "../Authentication/createAuthToken";
 import Helper from "../Utility/helper";
@@ -45,16 +45,12 @@ export default class OAuthController extends Component {
     );
 
     const museClientConfig = new Configuration({
-      accessToken: response["access_token"]
+      accessToken: response["access_token"],
     });
 
     this.props.access_token_handler(flag, museClientConfig);
   };
 
-  postYourAdd = () => {
-    document.getElementById("iframeDisplay").innerHTML =
-      '<iframe src="../HtmlPage1.html" height="200" width="300" ></iframe>';
-  };
   render() {
     return (
       <div className="background">
@@ -75,7 +71,6 @@ export default class OAuthController extends Component {
                 Login
               </button>
             </a>
-            {/*<iframe style={{ borderStyle: "none" }} data-test="authModal" src="about:blank" title="test" width="100%" height="100%" loading="lazy" />*/}
           </div>
         </div>
         <div className="login_to_sonos" align="center">

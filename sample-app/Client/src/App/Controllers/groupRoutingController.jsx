@@ -1,26 +1,29 @@
 import React from "react";
-import { Component } from "react";
-import GroupComponent from "../Components/groupComponent";
-import HeaderComponent from "../Components/headerComponent";
 
-class GroupRoutingController extends Component {
-  state = {};
+import { useNavigate } from "react-router-dom";
+import { Container } from "reactstrap";
 
-  render() {
-    return (
-      <div>
-        <div className="main_page">
-          <HeaderComponent />
-          <div className="group_text">
-            <p>List of Groups in your Household: </p>
-          </div>
-          {JSON.parse(window.localStorage.getItem("groups")).map((group) => (
-            <GroupComponent key={group.id} group={group}></GroupComponent>
-          ))}
-        </div>
-      </div>
-    );
-  }
+export default function GroupRoutingController(props) {
+  let navigate = useNavigate();
+
+  const routeChange = () => {
+    let path = "../groups/" + props.group.id;
+    const data = {
+      state: {
+        group: JSON.stringify(props.group),
+        players: JSON.stringify(props.players),
+      },
+    };
+    navigate(path, data);
+  };
+
+  return (
+    <div className="group_det">
+      <Container>
+        <a onClick={routeChange}>
+          <p className="group_ind">{props.group.name}</p>
+        </a>
+      </Container>
+    </div>
+  );
 }
-
-export default GroupRoutingController;

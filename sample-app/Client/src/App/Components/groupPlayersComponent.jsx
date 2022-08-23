@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 
 import HelperControls from "../ControlAPIs/playerControls";
-
+import Subscribe from "../UserDetails/subscribe";
 import PlayBackMetaDataComponent from "./GroupSubComponents/playbackMetaDataComponent";
 import PlayBackStateButton from "./GroupSubComponents/playbackStateButton";
 import VolumeComponent from "./GroupSubComponents/volumeComponent";
@@ -20,6 +20,13 @@ class GroupPlayersComponent extends Component {
 
     return (
       <div className="selected_group_page">
+        <div className="subscribe">
+          <Subscribe
+            museClientConfig={this.props.museClientConfig}
+            groupID={this.group.id}
+          />
+        </div>
+
         <HeaderComponent />
 
         <div className="group_name">
@@ -64,6 +71,7 @@ class GroupPlayersComponent extends Component {
           </div>
           <PlayersController
             group={this.props.group}
+            players={this.props.players}
             museClientConfig={this.props.museClientConfig}
           />
         </div>

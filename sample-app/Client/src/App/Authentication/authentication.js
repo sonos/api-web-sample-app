@@ -11,13 +11,13 @@ class Authentication extends Component {
       accessToken = JSON.parse(accessToken);
       const refreshAuthToken = new RefreshAuthToken();
       // if the access token is not expired we return true
-      if (!this.checkAccessTokenExpired(curTime, accessToken)){
+      if (!this.checkAccessTokenExpired(curTime, accessToken)) {
         return true;
-      }else{
-          // if the access token has expired we will call the refresh api.
-          localStorage.clear();
-          refreshAuthToken.refreshAccessToken();
-          return false;
+      } else {
+        // if the access token has expired we will call the refresh api.
+        localStorage.clear();
+        refreshAuthToken.refreshAccessToken();
+        return false;
       }
     }
   };
@@ -30,8 +30,8 @@ class Authentication extends Component {
   /**
    * check if the Access token is expired
    */
-  checkAccessTokenExpired(curTime, accessToken){
-    return ((curTime - accessToken.tokenTimestamp) >= accessToken.expiry);
+  checkAccessTokenExpired(curTime, accessToken) {
+    return curTime - accessToken.tokenTimestamp >= accessToken.expiry;
   }
 }
 

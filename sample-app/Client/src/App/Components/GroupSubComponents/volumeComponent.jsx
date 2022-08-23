@@ -46,7 +46,7 @@ class VolumeComponent extends Component {
             deviceId={this.props.groupID}
             deviceType={"GROUP"}
             getVolumeHandler={this.getVolumeHandler}
-            museClientConfig = {this.props.museClientConfig}
+            museClientConfig={this.props.museClientConfig}
           />
         )}
 

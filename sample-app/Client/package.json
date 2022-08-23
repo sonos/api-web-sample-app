@@ -7,7 +7,6 @@
     "@emotion/styled": "^11.10.0",
     "@mui/material": "^5.10.0",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "babel-plugin-transform-remove-strict-mode": "^0.0.2",
@@ -48,7 +47,10 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^13.3.0",
     "buffer": "^6.0.3",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jest-dom": "^4.0.0",
+    "react-test-renderer": "^18.2.0"
   }
 }

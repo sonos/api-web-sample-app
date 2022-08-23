@@ -3,12 +3,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "reactstrap";
 
-function GroupComponent(props) {
+export default function HouseholdRoutingController(props) {
   let navigate = useNavigate();
 
   const routeChange = () => {
-    let path = "groups/" + props.group.id;
-    const data = { state: { group: JSON.stringify(props.group) } };
+    let path = "households/" + props.household.id;
+    const data = { state: { household_id: props.household.id } };
     navigate(path, data);
   };
 
@@ -16,11 +16,9 @@ function GroupComponent(props) {
     <div className="group_det">
       <Container>
         <a onClick={routeChange}>
-          <p className="group_ind">{props.group.name}</p>
+          <p className="group_ind">Household {props.index + 1}</p>
         </a>
       </Container>
     </div>
   );
 }
-
-export default GroupComponent;
