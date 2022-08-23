@@ -5,8 +5,8 @@ import PlayerComponent from "../Components/playerComponent";
 class PlayersController extends Component {
   state = {};
   render() {
-    const group = JSON.parse(this.props.group);
-    const players = JSON.parse(window.localStorage.getItem("players"));
+    // const group = JSON.parse(this.props.group);
+    const players = JSON.parse(this.props.players);
 
     return (
       <div>

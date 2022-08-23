@@ -12,7 +12,7 @@
  * Do not edit the file manually.
  */
 import * as url from "url";
-import * as isomorphicFetch from "isomorphic-fetch";
+import isomorphicFetch from "isomorphic-fetch";
 const BASE_PATH = "https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v2".replace(/\/+$/, "");
 /**
  *
@@ -375,15 +375,14 @@ export const AudioClipApiFp = function (configuration) {
          */
         audioClipCancelAudioClip(playerId, id, xSonosCorrId, options) {
             const localVarFetchArgs = AudioClipApiFetchParamCreator(configuration).audioClipCancelAudioClip(playerId, id, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -397,15 +396,14 @@ export const AudioClipApiFp = function (configuration) {
          */
         audioClipLoadAudioClip(playerId, body, xSonosCorrId, options) {
             const localVarFetchArgs = AudioClipApiFetchParamCreator(configuration).audioClipLoadAudioClip(playerId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -418,15 +416,14 @@ export const AudioClipApiFp = function (configuration) {
          */
         audioClipSubscribe(playerId, xSonosCorrId, options) {
             const localVarFetchArgs = AudioClipApiFetchParamCreator(configuration).audioClipSubscribe(playerId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -439,15 +436,14 @@ export const AudioClipApiFp = function (configuration) {
          */
         audioClipUnsubscribe(playerId, xSonosCorrId, options) {
             const localVarFetchArgs = AudioClipApiFetchParamCreator(configuration).audioClipUnsubscribe(playerId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
     };
@@ -752,15 +748,14 @@ export const FavoritesApiFp = function (configuration) {
          */
         favoritesGetFavorites(householdId, xSonosCorrId, options) {
             const localVarFetchArgs = FavoritesApiFetchParamCreator(configuration).favoritesGetFavorites(householdId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -774,15 +769,14 @@ export const FavoritesApiFp = function (configuration) {
          */
         favoritesLoadFavorite(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = FavoritesApiFetchParamCreator(configuration).favoritesLoadFavorite(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response;
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response;
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -795,15 +789,14 @@ export const FavoritesApiFp = function (configuration) {
          */
         favoritesSubscribe(householdId, xSonosCorrId, options) {
             const localVarFetchArgs = FavoritesApiFetchParamCreator(configuration).favoritesSubscribe(householdId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -816,15 +809,14 @@ export const FavoritesApiFp = function (configuration) {
          */
         favoritesUnsubscribe(householdId, xSonosCorrId, options) {
             const localVarFetchArgs = FavoritesApiFetchParamCreator(configuration).favoritesUnsubscribe(householdId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
     };
@@ -1215,15 +1207,14 @@ export const GroupVolumeApiFp = function (configuration) {
          */
         groupVolumeGetVolume(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = GroupVolumeApiFetchParamCreator(configuration).groupVolumeGetVolume(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -1237,15 +1228,14 @@ export const GroupVolumeApiFp = function (configuration) {
          */
         groupVolumeSetMute(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = GroupVolumeApiFetchParamCreator(configuration).groupVolumeSetMute(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -1259,15 +1249,14 @@ export const GroupVolumeApiFp = function (configuration) {
          */
         groupVolumeSetRelativeVolume(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = GroupVolumeApiFetchParamCreator(configuration).groupVolumeSetRelativeVolume(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -1281,15 +1270,14 @@ export const GroupVolumeApiFp = function (configuration) {
          */
         groupVolumeSetVolume(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = GroupVolumeApiFetchParamCreator(configuration).groupVolumeSetVolume(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -1302,15 +1290,14 @@ export const GroupVolumeApiFp = function (configuration) {
          */
         groupVolumeSubscribe(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = GroupVolumeApiFetchParamCreator(configuration).groupVolumeSubscribe(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -1323,15 +1310,14 @@ export const GroupVolumeApiFp = function (configuration) {
          */
         groupVolumeUnsubscribe(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = GroupVolumeApiFetchParamCreator(configuration).groupVolumeUnsubscribe(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
     };
@@ -1777,15 +1763,14 @@ export const GroupsApiFp = function (configuration) {
          */
         groupsCreateGroup(householdId, body, xSonosCorrId, options) {
             const localVarFetchArgs = GroupsApiFetchParamCreator(configuration).groupsCreateGroup(householdId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -1799,15 +1784,14 @@ export const GroupsApiFp = function (configuration) {
          */
         groupsGetGroups(householdId, includeDeviceInfo, xSonosCorrId, options) {
             const localVarFetchArgs = GroupsApiFetchParamCreator(configuration).groupsGetGroups(householdId, includeDeviceInfo, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -1821,15 +1805,14 @@ export const GroupsApiFp = function (configuration) {
          */
         groupsModifyGroupMembers(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = GroupsApiFetchParamCreator(configuration).groupsModifyGroupMembers(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -1843,15 +1826,14 @@ export const GroupsApiFp = function (configuration) {
          */
         groupsSetGroupMembers(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = GroupsApiFetchParamCreator(configuration).groupsSetGroupMembers(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -1864,15 +1846,14 @@ export const GroupsApiFp = function (configuration) {
          */
         groupsSubscribe(householdId, xSonosCorrId, options) {
             const localVarFetchArgs = GroupsApiFetchParamCreator(configuration).groupsSubscribe(householdId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -1885,15 +1866,14 @@ export const GroupsApiFp = function (configuration) {
          */
         groupsUnsubscribe(householdId, xSonosCorrId, options) {
             const localVarFetchArgs = GroupsApiFetchParamCreator(configuration).groupsUnsubscribe(householdId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
     };
@@ -2162,15 +2142,14 @@ export const HouseholdsApiFp = function (configuration) {
          */
         householdsGetHouseholds(connectedOnly, xSonosCorrId, options) {
             const localVarFetchArgs = HouseholdsApiFetchParamCreator(configuration).householdsGetHouseholds(connectedOnly, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -2183,15 +2162,14 @@ export const HouseholdsApiFp = function (configuration) {
          */
         householdsSetName(householdId, xSonosCorrId, options) {
             const localVarFetchArgs = HouseholdsApiFetchParamCreator(configuration).householdsSetName(householdId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
     };
@@ -2327,15 +2305,14 @@ export const MusicServiceAccountsApiFp = function (configuration) {
          */
         musicServiceAccountsMatch(householdId, body, xSonosCorrId, options) {
             const localVarFetchArgs = MusicServiceAccountsApiFetchParamCreator(configuration).musicServiceAccountsMatch(householdId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
     };
@@ -2941,15 +2918,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackGetPlaybackStatus(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackGetPlaybackStatus(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -2963,15 +2939,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackLoadLineIn(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackLoadLineIn(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -2984,15 +2959,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackPause(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackPause(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -3005,15 +2979,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackPlay(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackPlay(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -3027,15 +3000,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackSeek(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackSeek(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -3049,15 +3021,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackSeekRelative(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackSeekRelative(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -3071,15 +3042,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackSetPlayModes(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackSetPlayModes(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response;
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response;
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -3092,15 +3062,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackSkipBack(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackSkipBack(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -3113,15 +3082,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackSkipToNextTrack(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackSkipToNextTrack(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -3134,15 +3102,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackSkipToPreviousTrack(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackSkipToPreviousTrack(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -3155,15 +3122,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackSubscribe(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackSubscribe(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -3176,15 +3142,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackTogglePlayPause(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackTogglePlayPause(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -3197,15 +3162,14 @@ export const PlaybackApiFp = function (configuration) {
          */
         playbackUnsubscribe(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackApiFetchParamCreator(configuration).playbackUnsubscribe(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
     };
@@ -3677,15 +3641,14 @@ export const PlaybackMetadataApiFp = function (configuration) {
          */
         playbackMetadataGetMetadataStatus(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackMetadataApiFetchParamCreator(configuration).playbackMetadataGetMetadataStatus(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -3698,15 +3661,14 @@ export const PlaybackMetadataApiFp = function (configuration) {
          */
         playbackMetadataSubscribe(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackMetadataApiFetchParamCreator(configuration).playbackMetadataSubscribe(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response;
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response;
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -3719,15 +3681,14 @@ export const PlaybackMetadataApiFp = function (configuration) {
          */
         playbackMetadataUnsubscribe(groupId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackMetadataApiFetchParamCreator(configuration).playbackMetadataUnsubscribe(groupId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response;
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response;
+                }
+                else {
+                    throw response;
+                }
             };
         },
     };
@@ -4350,15 +4311,14 @@ export const PlaybackSessionApiFp = function (configuration) {
          */
         playbackSessionCreateSession(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackSessionApiFetchParamCreator(configuration).playbackSessionCreateSession(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -4372,15 +4332,14 @@ export const PlaybackSessionApiFp = function (configuration) {
          */
         playbackSessionJoinOrCreateSession(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackSessionApiFetchParamCreator(configuration).playbackSessionJoinOrCreateSession(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -4394,15 +4353,14 @@ export const PlaybackSessionApiFp = function (configuration) {
          */
         playbackSessionJoinSession(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackSessionApiFetchParamCreator(configuration).playbackSessionJoinSession(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -4415,15 +4373,14 @@ export const PlaybackSessionApiFp = function (configuration) {
          */
         playbackSessionLeaveSession(sessionId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackSessionApiFetchParamCreator(configuration).playbackSessionLeaveSession(sessionId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -4437,15 +4394,14 @@ export const PlaybackSessionApiFp = function (configuration) {
          */
         playbackSessionLoadCloudQueue(sessionId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackSessionApiFetchParamCreator(configuration).playbackSessionLoadCloudQueue(sessionId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -4459,15 +4415,14 @@ export const PlaybackSessionApiFp = function (configuration) {
          */
         playbackSessionLoadStreamUrl(sessionId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackSessionApiFetchParamCreator(configuration).playbackSessionLoadStreamUrl(sessionId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -4480,15 +4435,14 @@ export const PlaybackSessionApiFp = function (configuration) {
          */
         playbackSessionRefreshCloudQueue(sessionId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackSessionApiFetchParamCreator(configuration).playbackSessionRefreshCloudQueue(sessionId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -4501,15 +4455,14 @@ export const PlaybackSessionApiFp = function (configuration) {
          */
         playbackSessionRejoinSession(sessionId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackSessionApiFetchParamCreator(configuration).playbackSessionRejoinSession(sessionId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -4523,15 +4476,14 @@ export const PlaybackSessionApiFp = function (configuration) {
          */
         playbackSessionSkipToItem(sessionId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackSessionApiFetchParamCreator(configuration).playbackSessionSkipToItem(sessionId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -4544,15 +4496,14 @@ export const PlaybackSessionApiFp = function (configuration) {
          */
         playbackSessionSubscribe(sessionId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackSessionApiFetchParamCreator(configuration).playbackSessionSubscribe(sessionId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -4566,15 +4517,14 @@ export const PlaybackSessionApiFp = function (configuration) {
          */
         playbackSessionSuspend(sessionId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackSessionApiFetchParamCreator(configuration).playbackSessionSuspend(sessionId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -4587,15 +4537,14 @@ export const PlaybackSessionApiFp = function (configuration) {
          */
         playbackSessionUnsubscribe(sessionId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaybackSessionApiFetchParamCreator(configuration).playbackSessionUnsubscribe(sessionId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
     };
@@ -5267,15 +5216,14 @@ export const PlayerVolumeApiFp = function (configuration) {
          */
         playerVolumeDuck(playerId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlayerVolumeApiFetchParamCreator(configuration).playerVolumeDuck(playerId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -5288,15 +5236,14 @@ export const PlayerVolumeApiFp = function (configuration) {
          */
         playerVolumeGetVolume(playerId, xSonosCorrId, options) {
             const localVarFetchArgs = PlayerVolumeApiFetchParamCreator(configuration).playerVolumeGetVolume(playerId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -5310,15 +5257,14 @@ export const PlayerVolumeApiFp = function (configuration) {
          */
         playerVolumeSetMute(playerId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlayerVolumeApiFetchParamCreator(configuration).playerVolumeSetMute(playerId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -5332,15 +5278,14 @@ export const PlayerVolumeApiFp = function (configuration) {
          */
         playerVolumeSetRelativeVolume(playerId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlayerVolumeApiFetchParamCreator(configuration).playerVolumeSetRelativeVolume(playerId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -5354,15 +5299,14 @@ export const PlayerVolumeApiFp = function (configuration) {
          */
         playerVolumeSetVolume(playerId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlayerVolumeApiFetchParamCreator(configuration).playerVolumeSetVolume(playerId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -5375,15 +5319,14 @@ export const PlayerVolumeApiFp = function (configuration) {
          */
         playerVolumeSubscribe(playerId, xSonosCorrId, options) {
             const localVarFetchArgs = PlayerVolumeApiFetchParamCreator(configuration).playerVolumeSubscribe(playerId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -5396,15 +5339,14 @@ export const PlayerVolumeApiFp = function (configuration) {
          */
         playerVolumeUnduck(playerId, xSonosCorrId, options) {
             const localVarFetchArgs = PlayerVolumeApiFetchParamCreator(configuration).playerVolumeUnduck(playerId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -5417,15 +5359,14 @@ export const PlayerVolumeApiFp = function (configuration) {
          */
         playerVolumeUnsubscribe(playerId, xSonosCorrId, options) {
             const localVarFetchArgs = PlayerVolumeApiFetchParamCreator(configuration).playerVolumeUnsubscribe(playerId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
     };
@@ -5873,15 +5814,14 @@ export const PlaylistsApiFp = function (configuration) {
          */
         playlistsGetPlaylist(householdId, playlistId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaylistsApiFetchParamCreator(configuration).playlistsGetPlaylist(householdId, playlistId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -5894,15 +5834,14 @@ export const PlaylistsApiFp = function (configuration) {
          */
         playlistsGetPlaylists(householdId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaylistsApiFetchParamCreator(configuration).playlistsGetPlaylists(householdId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -5916,15 +5855,14 @@ export const PlaylistsApiFp = function (configuration) {
          */
         playlistsLoadPlaylist(groupId, body, xSonosCorrId, options) {
             const localVarFetchArgs = PlaylistsApiFetchParamCreator(configuration).playlistsLoadPlaylist(groupId, body, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response;
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response;
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -5937,15 +5875,14 @@ export const PlaylistsApiFp = function (configuration) {
          */
         playlistsSubscribe(householdId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaylistsApiFetchParamCreator(configuration).playlistsSubscribe(householdId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
         /**
@@ -5958,15 +5895,14 @@ export const PlaylistsApiFp = function (configuration) {
          */
         playlistsUnsubscribe(householdId, xSonosCorrId, options) {
             const localVarFetchArgs = PlaylistsApiFetchParamCreator(configuration).playlistsUnsubscribe(householdId, xSonosCorrId, options);
-            return (fetch = isomorphicFetch, basePath = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    }
-                    else {
-                        throw response;
-                    }
-                });
+            return async (fetch = isomorphicFetch, basePath = BASE_PATH) => {
+                const response = await fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options);
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                }
+                else {
+                    throw response;
+                }
             };
         },
     };

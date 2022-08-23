@@ -2,14 +2,15 @@ import React from "react";
 import { Component } from "react";
 
 import Authentication from "../Authentication/authentication";
+import FetchHouseholds from "./fetchHouseholdsController";
 import OAuthController from "./oAuthController";
-import UserDetailsController from "./userDetailsController";
+
 
 class RouteComponents extends Component {
-  state = { is_logged_in: new Authentication().isAccessTokenValid() };
+  state = { is_logged_in: new Authentication().isAccessTokenValid()};
 
   access_token_handler = (flag, museClientConfig) => {
-    this.setState({ is_logged_in: flag, museClientConfig: museClientConfig });
+    this.setState({ is_logged_in: flag});
   };
 
   render() {
@@ -21,7 +22,7 @@ class RouteComponents extends Component {
             is_logged_in={this.state.is_logged_in}
           />
         )}    
-        {this.state.is_logged_in && <UserDetailsController museClientConfig= {this.state.museClientConfig}/>}
+        {this.state.is_logged_in && <FetchHouseholds/>}
       </div>
     );
   }

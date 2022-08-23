@@ -9,7 +9,7 @@
     "websocket": "^1.0.34"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"cd ../client && npm start\"",
+    "start": "concurrently \"npm run server\" \"cd ../Client && npm start\"",
     "server": "node main.mjs"
   }
 }

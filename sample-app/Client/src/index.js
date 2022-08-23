@@ -10,9 +10,11 @@ import "./css/players.css";
 import "./css/errorPage.css";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HelperGroupControl from "./App/ControlAPIs/helperGroupControl";
-import ErrorPage from "./App/ErrorHandling/errorPage";
+
 import RouteComponents from "./App/Controllers/routingController";
+import RouteGroup from "./App/Routing/routeGroup";
+import RouteHousehold from "./App/Routing/routeHousehold";
+import ErrorPage from "./App/ErrorHandling/errorPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,7 +22,8 @@ root.render(
     <Router>
       <Routes>
         <Route path={"/*"} element={<RouteComponents />} />
-        <Route path="/groups/:id" element={<HelperGroupControl />} />
+        <Route path="/households/:id" element={<RouteHousehold />} />
+        <Route path="/groups/:id" element={<RouteGroup />} />
         <Route path="/error-page" element={<ErrorPage />} />
       </Routes>
     </Router>
