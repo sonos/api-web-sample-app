@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    image: "sample-app-server"
+    ports:
+      - "8080:8080"
+      - "8000:8000"
+  client:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    image: "sample-app-client"
+    ports:
+      - "3000:3000"

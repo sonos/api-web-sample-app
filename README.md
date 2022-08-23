@@ -38,19 +38,40 @@ This repo contains the source code for the Sample-App(Web based). These sample a
 - Nodejs
 - React
 - Ngrok
+- docker
+- typescript
 
 # Installation/Setup
 
 Steps for setting up the React application locally:
 
-1. Clone the Repo
-2. cd pdsw-portal-sample-app/sample-app/Client
-3. npm install or npm i (if you face any face difficulties installing using npm try using yarn)
-4. cd ../Server && npm i
-5. npm start (For the React and nodejs application to start concurrently)
-6. Open a new terminal window, *ngrok http 8080*. Then configure the url obtained on the developer portal.
+1. Open Terminal/command prompt and Clone the repository using the command 'gh repo clone Sonos-Inc/pdsw-portal-sample-app'
+2. Navigate to the path using 'cd pdsw-portal-sample-app/sample-app'
+3. run the command 'docker-compose up -d'
+4. Open a new terminal/command prompt window, *ngrok http 8080*.
+5. Then configure the forwarding url from ngrok on the developer portal using steps mentioned in the section 'Configuration of url in developer portal'
 
-# Configuration & Best Practices
+# Create Client credentials
+1. Open the website 'https://developer.sonos.com/'
+2. Create an account and login.
+3. navigate to My Accounts > Integrations.
+4. Click on New Integrations. Enter Display name e.g. 'Login service', Description e.g. 'Description' and click on continue.
+5. Enter key name e.g. 'test key name'
+
+# Configuration of url in developer portal
+1. Open the website 'https://developer.sonos.com/'
+2. Login your account created in step - Create Client credentials
+3. navigate to My Accounts > Integrations.
+4. Click on edit for 'Login service'
+5. You will be navigated to Client credentials page. In redirect url text box enter the ngrok url
+
+# Open API Specification Generator
+The steps for open API spec ggeneration are available in the README at this location:
+
+https://github.com/Sonos-Inc/pdsw-portal-sample-app/tree/read_me/sample-app/Client/src/App/museClient
+
+
+# Configuration & Best Practices 
 
 It is best to follow a `feature -> develop -> main` workflow for branch management. Features should be on their own `feature` branch and merged into the `develop` branch. The `develop` branch should be merged once ready for release into `main`.
 
