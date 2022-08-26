@@ -37,11 +37,11 @@ This repo contains the source code for the Sample-App(Web based). These sample a
 
 - Nodejs
 - React
-- Ngrok
+- Ngrok - https://ngrok.com/download
 - docker
 - typescript
 
-# Installation/Setup - Docker
+# Installation/Setup - with Docker
 
 Steps for setting up the React application locally:
 
@@ -54,7 +54,7 @@ Steps for setting up the React application locally:
 
 # Installation/Setup - without Docker
 1. Open Terminal/command prompt and Clone the repository using the command `gh repo clone Sonos-Inc/pdsw-portal-sample-app`
-2. Navigate to the path using `cd pdsw-portal-sample-app/sample-app'
+2. Navigate to the path using `cd pdsw-portal-sample-app/sample-app`
 3. Run the command `cd /Server`
 4. Run the command `npm start`
 5. Run the command `cd ..`
