@@ -45,21 +45,21 @@ This repo contains the source code for the Sample-App(Web based). These sample a
 
 Steps for setting up the React application locally:
 
-1. Open Terminal/command prompt and Clone the repository using the command 'gh repo clone Sonos-Inc/pdsw-portal-sample-app'
+1. Open Terminal/command prompt and Clone the repository using the command `gh repo clone Sonos-Inc/pdsw-portal-sample-app`
 2. Search Docker software in windows/mac. get docker started by opening the application.
-3. Navigate to the path using 'cd pdsw-portal-sample-app/sample-app'
-4. Run the command 'docker-compose up -d'
-5. Open a new terminal/command prompt window, *ngrok http 8080*.
+3. Navigate to the path using `cd pdsw-portal-sample-app/sample-app`
+4. Run the command `docker-compose up -d`
+5. Open a new terminal/command prompt window, `*ngrok http 8080*.`
 6. Then configure the forwarding url from ngrok on the developer portal using steps mentioned in the section 'Configuration of url in developer portal'
 
 # Installation/Setup - without Docker
-1. Open Terminal/command prompt and Clone the repository using the command 'gh repo clone Sonos-Inc/pdsw-portal-sample-app'
-2. Navigate to the path using 'cd pdsw-portal-sample-app/sample-app'
-3. Run the command 'cd /Server'.
-4. Run the command npm start
-5. Run the command 'cd ..'
-6. Run the command 'cd /Client'
-7. Run the command 'npm start'
+1. Open Terminal/command prompt and Clone the repository using the command `gh repo clone Sonos-Inc/pdsw-portal-sample-app`
+2. Navigate to the path using `cd pdsw-portal-sample-app/sample-app'
+3. Run the command `cd /Server`
+4. Run the command `npm start`
+5. Run the command `cd ..`
+6. Run the command `cd /Client`
+7. Run the command `npm start`
 
 # Create Client credentials
 1. Open the website 'https://developer.sonos.com/'
@@ -85,14 +85,3 @@ The steps for open API spec ggeneration are available in the README at this loca
 
 https://github.com/Sonos-Inc/pdsw-portal-sample-app/tree/read_me/sample-app/Client/src/App/museClient
 
-
-# Configuration & Best Practices 
-
-It is best to follow a `feature -> develop -> main` workflow for branch management. Features should be on their own `feature` branch and merged into the `develop` branch. The `develop` branch should be merged once ready for release into `main`.
-
-You will also want to configure access to your repo under `Settings -> Collaborators & Teams`.
-
-The following Integrations/Services are required for full functionality of this repo:
-- [Delete merged branch](https://probot.github.io/apps/delete-merged-branch/)
-- [issuelabeler](https://github.com/apps/issuelabeler)
-- [Release Drafter](https://github.com/apps/release-drafter)
