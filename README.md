@@ -1,37 +1,22 @@
-# pdsw-repo-template
+# Sample-App (Web Based)
 
-A template repo to base other repos on
+This repo contains the source code for the Sample-App (Web based). This sample app uses muse APIs to perform the below action items instead of LAN.
 
----
-
-# repo-template
-
-[![GitHub license](https://img.shields.io/badge/license-UNLICENSED-blue.svg?style=for-the-badge)](.//LICENSE)
-[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/Sonos-Inc/pdsw-apigee-agproxytool/graphs/commit-activity)
-![Release](https://img.shields.io/badge/release-1.1.0-orange.svg?style=for-the-badge)
-
-More badges can be found at [shields.io](https://shields.io/).
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-## Table of Contents
-
-- [Overview](#overview)
-- [Requirements](#requirements)
-- [Installation/Setup](#installationsetup)
-- [Configuration & Best Practices](#configuration--best-practices)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# Overview
-
-This repo contains the source code for the Sample-App(Web based). These sample apps use muse APIs to perfom the below action items instead of LAN.
 - Fetch HouseHoldID/GroupIDs
 - Play/Pause 
 - SkipToNext/SkipToPrev
 - Volume control (Groups and Individual Players)
 - Eventing
 
+The purpose of this Sample-App is to showcase some examples of how you can integrate your application with the Sonos Ecosystem. Feel free to use it as a reference, or even
+download it to use as a template for your own applications.
+
+
+## Table of Contents
+
+- [Requirements](#Requirements)
+- [Installation/Setup](#Installation/Setup)
+- [Configuration](#Configuration)
 
 # Requirements
 
@@ -41,47 +26,50 @@ This repo contains the source code for the Sample-App(Web based). These sample a
 - docker
 - typescript
 
-# Installation/Setup - with Docker
+# Installation/Setup
+## With Docker
 
-Steps for setting up the React application locally:
+Steps for setting up the React application locally with docker. 
+Note - you must have Docker for Desktop installed to perform these steps  - https://www.docker.com/products/docker-desktop/:
 
-1. Open Terminal/command prompt and Clone the repository using the command `gh repo clone Sonos-Inc/pdsw-portal-sample-app`
-2. Search Docker software in windows/mac. get docker started by opening the application.
-3. Navigate to the path using `cd pdsw-portal-sample-app/sample-app`
+1. Open Terminal/command prompt and Clone this repository.
+2. Ensure Docker is running.
+3. In a terminal/command prompt, navigate to this repository
 4. Run the command `docker-compose up -d`
 5. Open a new terminal/command prompt window, `*ngrok http 8080*.`
-6. Then configure the forwarding url from ngrok on the developer portal using steps mentioned in the section 'Configuration of url in developer portal'
+6. Configure the forwarding url from ngrok on the developer portal using steps mentioned in the section [Configuration of url in developer portal](#Configuration of url in developer portal)
 
-# Installation/Setup - without Docker
-1. Open Terminal/command prompt and Clone the repository using the command `gh repo clone Sonos-Inc/pdsw-portal-sample-app`
-2. Navigate to the path using `cd pdsw-portal-sample-app/sample-app`
-3. Run the command `cd /Server`
-4. Run the command `npm start`
-5. Run the command `cd ..`
-6. Run the command `cd /Client`
-7. Run the command `npm start`
+# Installation/Setup
+## Without Docker
+1. Open Terminal/command prompt and Clone this repository.
+2. In a terminal/command prompt, navigate to this repo and run the following commands:
+3. `cd sample-app/Server`
+4. `npm start`
+5. `cd ../Client`
+6. Run the command `npm start`
 
-# Create Client credentials
-1. Open the website 'https://developer.sonos.com/'
+# Configuration
+## Create client credentials
+1. Open the website https://developer.sonos.com/
 2. Create an account and login.
-3. navigate to My Accounts > Integrations.
-4. Click on New Integrations. Enter Display name e.g. 'Login service', Description e.g. 'Description' and click on continue.
-5. Enter key name e.g. 'test key name'
+3. Navigate to My Accounts > Integrations.
+4. Create a new Control Integration. 
+5. In the Control Integration, create a new API Key.
 
-# Configure authentication
-1. Open the file config.json in the location - Client/src/
-2. copy paste the clientId, secret in config.json from Client credentials created in the above steps.
-3. generate Base64 code using {clientId:secret}from website https://www.base64encode.org/. Paste the generated code in the b64EncodedKeySecret of config.json.
+Note - for more guidance on creation of key/secrets and their uses, go to https://developer.sonos.com/build/direct-control/authorize/
 
-# Configuration of url in developer portal
-1. Open the website 'https://developer.sonos.com/'
-2. Login your account created in step - Create Client credentials
-3. navigate to My Accounts > Integrations.
-4. Click on edit for 'Login service'
-5. You will be navigated to Client credentials page. In redirect url text box enter the ngrok url
+## Configure authentication
+1. Open the file config.json in the location - `sample-app/Client/src/`
+2. Put the clientId & secret from the key created in [Create client credentials](#Create client credentials) in `config.json`.
+3. Generate Base64 key & secret in the following format: `clientId:secret`.
+4. Paste the generated Base64 key & secret in `b64EncodedKeySecret` inside `config.json`.
 
-# Open API Specification Generator
-The steps for open API spec ggeneration are available in the README at this location:
+## Configuration of url in developer portal
+1. Open the website https://developer.sonos.com/
+2. Login to your account created in [Create client credentials](#Create client credentials)
+3. Navigate to My Accounts > Integrations > Credentials
+4. In the "Redirect URL" field of the key you made earlier, enter your ngrok url
 
-https://github.com/Sonos-Inc/pdsw-portal-sample-app/tree/read_me/sample-app/Client/src/App/museClient
+## Open API Specification Generator
+The steps for open API spec generation are available in the README in `sample-app/Client/src/App/museClient`
 
