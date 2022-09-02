@@ -20,11 +20,9 @@ download it to use as a template for your own applications.
 
 # Requirements
 
-- Nodejs
-- React
-- Ngrok - https://ngrok.com/download
-- docker
-- typescript
+- Nodejs: https://nodejs.org/en/download/
+- Ngrok: https://ngrok.com/download
+- typescript: https://www.typescriptlang.org/download
 
 # Installation/Setup
 ## With Docker
@@ -42,11 +40,9 @@ Note - you must have Docker for Desktop installed to perform these steps  - http
 # Installation/Setup
 ## Without Docker
 1. Open Terminal/command prompt and Clone this repository.
-2. In a terminal/command prompt, navigate to this repo and run the following commands:
-3. `cd sample-app/Server`
-4. `npm start`
-5. `cd ../Client`
-6. Run the command `npm start`
+2. In a terminal/command prompt, run `sh sample-app/run.sh`
+3. Open a new terminal/command prompt window, `*ngrok http 8080*.`
+4. Configure the forwarding url from ngrok on the developer portal using steps mentioned in the section [Configuration of url in developer portal](#Configuration of url in developer portal)
 
 # Configuration
 ## Create client credentials

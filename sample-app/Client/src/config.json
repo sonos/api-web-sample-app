@@ -1,9 +1,9 @@
 {
   "credentials": {
-    "clientId": "",
-    "secret": "",
+    "clientId": "<Insert key clientId from Developer Portal here>",
+    "secret": "<Insert key secret from Developer Portal Here",
     "redirectURL": "http://localhost:3000",
-    "b64EncodedKeySecret" : ""
+    "b64EncodedKeySecret" : "<Insert Base64 encoded clientId:secret here>"
   },
   "apiEndPoints": {
       "oauthURL":"https://api.sonos.com/login/v3/oauth?",
