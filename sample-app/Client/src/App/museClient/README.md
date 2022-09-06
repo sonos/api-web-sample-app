@@ -1,13 +1,4 @@
-# Open API Specification Generator
-
-This module generates the OAS v3 files.
-https://github.com/Sonos-Inc/pdsw-muse-api/tree/master/tools/oas
-
-https://docs-portal.sonos.com/oas/
-
-https://confluence.sonos.com/x/c9FAC
-
-## Requirements
+# Requirements
 
 You must have at least v12.x of Node.js to run the OAS generator.
 
