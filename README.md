@@ -41,7 +41,7 @@ Note - you must have Docker for Desktop installed to perform these steps  - http
 ## Without Docker
 1. Open Terminal/command prompt and Clone this repository.
 2. In a terminal/command prompt, run `sh sample-app/run.sh`
-3. Open a new terminal/command prompt window, `*ngrok http 8080*.`
+3. Open a new terminal/command prompt window, `ngrok http 8080`
 4. Configure the forwarding url from ngrok on the developer portal using steps mentioned in the section [Configuration of url in developer portal](#Configuration of url in developer portal)
 
 # Configuration
