@@ -34,7 +34,7 @@ Note - you must have Docker for Desktop installed to perform these steps  - http
 2. Ensure Docker is running.
 3. In a terminal/command prompt, navigate to this repository
 4. Run the command `docker-compose up -d`
-5. Open a new terminal/command prompt window, `*ngrok http 8080*.`
+5. Open a new terminal/command prompt window, `ngrok http 8080`
 6. Configure the forwarding url from ngrok on the developer portal using steps mentioned in the section [Configuration of url in developer portal](#Configuration of url in developer portal)
 
 # Installation/Setup
