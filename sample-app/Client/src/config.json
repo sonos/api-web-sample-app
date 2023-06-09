@@ -1,9 +1,9 @@
 {
   "credentials": {
-    "clientId": "e45bbe2a-3b1c-498e-9c5a-25a5cd823380",
-    "secret": "3a981bb0-dde7-44b5-8ce4-20a2e981bf35",
+    "clientId": "<Insert key clientId from Developer Portal here>",
+    "secret": "<Insert key secret from Developer Portal Here>",
     "redirectURL": "http://localhost:3000",
-    "b64EncodedKeySecret" : "ZTQ1YmJlMmEtM2IxYy00OThlLTljNWEtMjVhNWNkODIzMzgwOjNhOTgxYmIwLWRkZTctNDRiNS04Y2U0LTIwYTJlOTgxYmYzNQ=="
+    "b64EncodedKeySecret" : "<Insert Base64 encoded clientId:secret here>"
   },
   "apiEndPoints": {
       "oauthURL":"https://api.sonos.com/login/v3/oauth?",
