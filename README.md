@@ -31,13 +31,16 @@ download it to use as a template for your own applications.
 
 	a) **With Docker**
 
-	 i. Ensure Docker is running.
-	 ii. In a terminal/command prompt, navigate to this repository and enter the `sample-app` directory
-	 iii. Run the command `docker-compose up --build`
+	  i. Ensure Docker is running.
+
+	  ii. In a terminal/command prompt, navigate to this repository and enter the `sample-app` directory
+
+	  iii. Run the command `docker-compose up --build`
+
 
 	b) **Without Docker**
 
-	 i. In a terminal/command prompt, run `sh sample-app/run.sh`
+	  i. In a terminal/command prompt, run `sh sample-app/run.sh`
 
 
  3. Open a new terminal/command prompt window, `ngrok http 8080`
