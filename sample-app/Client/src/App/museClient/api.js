@@ -13,7 +13,7 @@
  */
 import * as url from "url";
 import isomorphicFetch from "isomorphic-fetch";
-const BASE_PATH = "https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v2".replace(/\/+$/, "");
+const BASE_PATH = "https://cors-anywhere.herokuapp.com/https://api.ws.sonos.com/control/api/v2".replace(/\/+$/, ""); 
 /**
  *
  * @export

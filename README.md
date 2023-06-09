@@ -25,24 +25,29 @@ download it to use as a template for your own applications.
 - typescript: https://www.typescriptlang.org/download
 
 # Installation/Setup
-## With Docker
 
-Steps for setting up the React application locally with docker. 
-Note - you must have Docker for Desktop installed to perform these steps  - https://www.docker.com/products/docker-desktop/:
+ 1. Open Terminal/command prompt and Clone this repository.
+ 2. Start the Application
 
-1. Open Terminal/command prompt and Clone this repository.
-2. Ensure Docker is running.
-3. In a terminal/command prompt, navigate to this repository
-4. Run the command `docker-compose up -d`
-5. Open a new terminal/command prompt window, `ngrok http 8080`
-6. Configure the forwarding url from ngrok on the developer portal using steps mentioned in the section [Configuration of url in developer portal](#Configuration of url in developer portal)
+	a) **With Docker**
 
-# Installation/Setup
-## Without Docker
-1. Open Terminal/command prompt and Clone this repository.
-2. In a terminal/command prompt, run `sh sample-app/run.sh`
-3. Open a new terminal/command prompt window, `ngrok http 8080`
-4. Configure the forwarding url from ngrok on the developer portal using steps mentioned in the section [Configuration of url in developer portal](#Configuration of url in developer portal)
+    Note - you must have Docker for Desktop installed to perform these steps  - https://www.docker.com/products/docker-desktop/:
+
+	  i. Ensure Docker is running.
+
+	  ii. In a terminal/command prompt, navigate to this repository and enter the `sample-app` directory
+
+	  iii. Run the command `docker-compose up --build`
+
+
+	b) **Without Docker**
+
+	  i. In a terminal/command prompt, run `sh sample-app/run.sh`
+
+
+ 3. Open a new terminal/command prompt window, `ngrok http 8080`
+ 4. Configure the forwarding url from ngrok on the developer portal using steps mentioned in the section [Configuration of url in developer portal](#Configuration of url in developer portal)
+ 5. Navigate to https://cors-anywhere.herokuapp.com/corsdemo and click to "Request temporary access to the demo server"
 
 # Configuration
 ## Create client credentials
