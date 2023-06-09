@@ -1,15 +1,15 @@
 {
   "credentials": {
-    "clientId": "<Insert key clientId from Developer Portal here>",
-    "secret": "<Insert key secret from Developer Portal Here",
+    "clientId": "e45bbe2a-3b1c-498e-9c5a-25a5cd823380",
+    "secret": "3a981bb0-dde7-44b5-8ce4-20a2e981bf35",
     "redirectURL": "http://localhost:3000",
-    "b64EncodedKeySecret" : "<Insert Base64 encoded clientId:secret here>"
+    "b64EncodedKeySecret" : "ZTQ1YmJlMmEtM2IxYy00OThlLTljNWEtMjVhNWNkODIzMzgwOjNhOTgxYmIwLWRkZTctNDRiNS04Y2U0LTIwYTJlOTgxYmYzNQ=="
   },
   "apiEndPoints": {
       "oauthURL":"https://api.sonos.com/login/v3/oauth?",
-      "createRefreshAuthTokenURL" : "https://thingproxy.freeboard.io/fetch/https://api.sonos.com/login/v3/oauth/access",
-      "householdApiURL":"https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v1/households",
-      "controlApiURL":"https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v1/groups/"
+      "createRefreshAuthTokenURL" : "https://cors-anywhere.herokuapp.com/https://api.sonos.com/login/v3/oauth/access",
+      "householdApiURL":"https://cors-anywhere.herokuapp.com/https://api.ws.sonos.com/control/api/v1/households",
+      "controlApiURL":"https://cors-anywhere.herokuapp.com/https://api.ws.sonos.com/control/api/v1/groups/"
   },
   "appConfig" : {
     "logLevel" : "debug"

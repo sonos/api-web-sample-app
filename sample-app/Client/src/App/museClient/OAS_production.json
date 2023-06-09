@@ -80,7 +80,7 @@
   },
   "servers": [
     {
-      "url": "https://thingproxy.freeboard.io/fetch/https://api.ws.sonos.com/control/api/v2",
+      "url": "https://cors-anywhere.herokuapp.com/https://api.ws.sonos.com/control/api/v2",
       "description": "Full api URI",
       "variables": {
         "version": {
