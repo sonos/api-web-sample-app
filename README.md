@@ -31,6 +31,8 @@ download it to use as a template for your own applications.
 
 	a) **With Docker**
 
+    Note - you must have Docker for Desktop installed to perform these steps  - https://www.docker.com/products/docker-desktop/:
+
 	  i. Ensure Docker is running.
 
 	  ii. In a terminal/command prompt, navigate to this repository and enter the `sample-app` directory
