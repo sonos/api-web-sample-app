@@ -86,22 +86,14 @@
         "version": {
           "description": "MUSE API major version",
           "default": "v2",
-          "enum": [
-            "v1",
-            "v2",
-            "v3",
-            "v4"
-          ]
+          "enum": ["v1", "v2", "v3", "v4"]
         },
         "apiTarget": {
           "description": "URL/IP of request destination",
           "default": "api.sonos.com"
         },
         "port": {
-          "enum": [
-            "1443",
-            "443"
-          ],
+          "enum": ["1443", "443"],
           "default": "1443"
         }
       }
@@ -409,15 +401,11 @@
         "operationId": "AudioClip-LoadAudioClip",
         "description": "Use the loadAudioClip command in the audioClip namespace to schedule an audio clip for playback. The command returns immediately, indicating whether the audio clip was successfully scheduled or not.\n\n The player can handle multiple audio clips and implements a simple priority system to determine playback order:\n\n A High priority audio clip can interrupt another high priority audio clip if the latter has played for more then 10 seconds.\n A high priority audio clip can interrupt a low priority audio clip at any time.\n A low priority audio clip can interrupt a low priority audio clip at any time.",
         "summary": "loadAudioClip",
-        "tags": [
-          "audioClip"
-        ],
+        "tags": ["audioClip"],
         "responses": {
           "200": {
             "description": "Returns an audioClip object, which list characteristics, including the id, of the enqueued audio clip.",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -443,9 +431,7 @@
           },
           "403": {
             "description": "Returns an audioClip object, which list characteristics, including the id, of the enqueued audio clip.",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -486,9 +472,7 @@
           },
           "500": {
             "description": "Returns an audioClip object, which list characteristics, including the id, of the enqueued audio clip.",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -500,17 +484,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.10.0",
         "requestBody": {
           "content": {
@@ -564,10 +542,7 @@
                     "x-muse-since-version": "1.10.0"
                   }
                 },
-                "required": [
-                  "name",
-                  "appId"
-                ]
+                "required": ["name", "appId"]
               }
             }
           }
@@ -603,15 +578,11 @@
         "operationId": "AudioClip-Subscribe",
         "description": "Use this command to subscribe to events in the audioClip namespace.",
         "summary": "subscribe",
-        "tags": [
-          "audioClip"
-        ],
+        "tags": ["audioClip"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -637,9 +608,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -680,9 +649,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -694,17 +661,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.10.0"
       },
       "parameters": [
@@ -735,15 +696,11 @@
         "operationId": "AudioClip-Unsubscribe",
         "description": "Use this command to unsubscribe to events in the audioClip namespace.",
         "summary": "unsubscribe",
-        "tags": [
-          "audioClip"
-        ],
+        "tags": ["audioClip"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -769,9 +726,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -812,9 +767,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -826,17 +779,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.10.0"
       }
     },
@@ -845,15 +792,11 @@
         "operationId": "AudioClip-CancelAudioClip",
         "description": "Use the cancelAudioClip command in the audioClip namespace to cancel a specific audio clip from playing. Sonos sends an error if it has already finished playing the selected audio clip.",
         "summary": "cancelAudioClip",
-        "tags": [
-          "audioClip"
-        ],
+        "tags": ["audioClip"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -879,9 +822,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -922,9 +863,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -936,17 +875,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.10.0"
       },
       "parameters": [
@@ -989,9 +922,7 @@
         "operationId": "Favorites-LoadFavorite",
         "description": "The loadFavorite command in the favorites namespace activates a favorite within the default playback session. This command interrupts any active private playback sessions. Sonos adds album, tracklist, and track favorites to the queue and activates the queue. This prevents your app from overwriting user-curated queues.",
         "summary": "loadFavorite",
-        "tags": [
-          "favorites"
-        ],
+        "tags": ["favorites"],
         "responses": {
           "400": {
             "description": "The given resource/object identifier is invalid",
@@ -1003,9 +934,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -1025,24 +954,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "load"
-        ],
+        "x-muse-permissions": ["load"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -1073,9 +994,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "favoriteId"
-                ]
+                "required": ["favoriteId"]
               }
             }
           }
@@ -1111,15 +1030,11 @@
         "operationId": "Favorites-GetFavorites",
         "description": "Use the getFavorites command in the favorites namespace to get the list of Sonos favorites for a household. Favorites do not include pinned items (any non-playable containers pinned to My Sonos) or Sonos playlists. See the Save your favorites section in the Sonos user guide and Add favorites for details. The player limits the number of Sonos favorites to 70.\n An array of objects is returned such that a developer can implement the favorites picker from the Sonos controller.",
         "summary": "getFavorites",
-        "tags": [
-          "favorites"
-        ],
+        "tags": ["favorites"],
         "responses": {
           "200": {
             "description": "Returns a favoritesList object, which is an array of favorite objects with a version number.\n\n In the event of a failure, returns a globalError.",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1145,9 +1060,7 @@
           },
           "403": {
             "description": "Returns a favoritesList object, which is an array of favorite objects with a version number.\n\n In the event of a failure, returns a globalError.",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1188,9 +1101,7 @@
           },
           "500": {
             "description": "Returns a favoritesList object, which is an array of favorite objects with a version number.\n\n In the event of a failure, returns a globalError.",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1202,17 +1113,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -1245,15 +1150,11 @@
         "operationId": "Favorites-Subscribe",
         "description": "Use this command to subscribe to events in the favorites namespace.\n\n When subscribed, Sonos sends asynchronous versionChanged events when users update their Sonos favorites. Your app can then choose to fetch the favorites as needed whenever the version changes. This is because the FavoritesList object can be large for asynchronous events.",
         "summary": "subscribe",
-        "tags": [
-          "favorites"
-        ],
+        "tags": ["favorites"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1272,9 +1173,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -1294,24 +1193,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -1342,15 +1233,11 @@
         "operationId": "Favorites-Unsubscribe",
         "description": "Use this command to unsubscribe to events in the favorites namespace.",
         "summary": "unsubscribe",
-        "tags": [
-          "favorites"
-        ],
+        "tags": ["favorites"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1369,9 +1256,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -1391,24 +1276,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       }
     },
@@ -1417,15 +1294,11 @@
         "operationId": "Groups-ModifyGroupMembers",
         "description": "Use the modifyGroupMembers command in the groups namespace to add players to and remove\n players from a group. In response to this command, Sonos first adds players to the group,\n then removes players from the group.",
         "summary": "modifyGroupMembers",
-        "tags": [
-          "groups"
-        ],
+        "tags": ["groups"],
         "responses": {
           "200": {
             "description": "Returns a groupInfo object, which currently only includes a group object. The groupInfo \n object may include additional information in the future.\n\n Muse v2 sends playerSetError which includes playerIds array since version 1.17.0",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1462,9 +1335,7 @@
           },
           "403": {
             "description": "Returns a groupInfo object, which currently only includes a group object. The groupInfo \n object may include additional information in the future.\n\n Muse v2 sends playerSetError which includes playerIds array since version 1.17.0",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1505,9 +1376,7 @@
           },
           "500": {
             "description": "Returns a groupInfo object, which currently only includes a group object. The groupInfo \n object may include additional information in the future.\n\n Muse v2 sends playerSetError which includes playerIds array since version 1.17.0",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1519,17 +1388,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -1557,10 +1420,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "playerIdsToAdd",
-                  "playerIdsToRemove"
-                ]
+                "required": ["playerIdsToAdd", "playerIdsToRemove"]
               }
             }
           }
@@ -1596,15 +1456,11 @@
         "operationId": "Groups-SetGroupMembers",
         "description": "Use the setGroupMembers command in the groups namespace to replace the players in an\n existing group with a new set.",
         "summary": "setGroupMembers",
-        "tags": [
-          "groups"
-        ],
+        "tags": ["groups"],
         "responses": {
           "200": {
             "description": "Returns a groupInfo object, which currently only includes a group object. The groupInfo \n object may include additional information in the future.\n\n Muse v2 sends playerSetError which includes playerIds array since version 1.17.0",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1641,9 +1497,7 @@
           },
           "403": {
             "description": "Returns a groupInfo object, which currently only includes a group object. The groupInfo \n object may include additional information in the future.\n\n Muse v2 sends playerSetError which includes playerIds array since version 1.17.0",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1684,9 +1538,7 @@
           },
           "500": {
             "description": "Returns a groupInfo object, which currently only includes a group object. The groupInfo \n object may include additional information in the future.\n\n Muse v2 sends playerSetError which includes playerIds array since version 1.17.0",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1698,17 +1550,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -1736,9 +1582,7 @@
                     "x-muse-since-version": "1.14.0"
                   }
                 },
-                "required": [
-                  "playerIds"
-                ]
+                "required": ["playerIds"]
               }
             }
           }
@@ -1774,15 +1618,11 @@
         "operationId": "Groups-GetGroups",
         "description": "Use the getGroups command in the groups namespace to get information about groups\n and players in a household.",
         "summary": "getGroups",
-        "tags": [
-          "groups"
-        ],
+        "tags": ["groups"],
         "responses": {
           "200": {
             "description": "The groups object in the groups namespace describes the current set of logical players \n and groups in the household. Use the getGroups command to get a groups object.",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1808,9 +1648,7 @@
           },
           "403": {
             "description": "The groups object in the groups namespace describes the current set of logical players \n and groups in the household. Use the getGroups command to get a groups object.",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1851,9 +1689,7 @@
           },
           "500": {
             "description": "The groups object in the groups namespace describes the current set of logical players \n and groups in the household. Use the getGroups command to get a groups object.",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1865,17 +1701,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -1916,15 +1746,11 @@
         "operationId": "Groups-CreateGroup",
         "description": "Use the createGroup command in the groups namespace to create a new group from a list\n of players. The player returns a group object with the group ID. This may be an existing\n group ID if an existing group is a subset of the new group. In this case, Sonos may\n build the new group by adding new players to the existing group.",
         "summary": "createGroup",
-        "tags": [
-          "groups"
-        ],
+        "tags": ["groups"],
         "responses": {
           "200": {
             "description": "Returns a groupInfo object, which currently only includes a group object. The groupInfo object \n may include additional information in the future.\n\n Muse v2 sends playerSetError which includes playerIds array since version 1.17.0",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -1961,9 +1787,7 @@
           },
           "403": {
             "description": "Returns a groupInfo object, which currently only includes a group object. The groupInfo object \n may include additional information in the future.\n\n Muse v2 sends playerSetError which includes playerIds array since version 1.17.0",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2004,9 +1828,7 @@
           },
           "500": {
             "description": "Returns a groupInfo object, which currently only includes a group object. The groupInfo object \n may include additional information in the future.\n\n Muse v2 sends playerSetError which includes playerIds array since version 1.17.0",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2018,17 +1840,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -2062,9 +1878,7 @@
                     "x-muse-since-version": "1.14.0"
                   }
                 },
-                "required": [
-                  "playerIds"
-                ]
+                "required": ["playerIds"]
               }
             }
           }
@@ -2100,15 +1914,11 @@
         "operationId": "Groups-Subscribe",
         "description": "Use this command to subscribe to events in the groups namespace.",
         "summary": "subscribe",
-        "tags": [
-          "groups"
-        ],
+        "tags": ["groups"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2127,9 +1937,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -2149,24 +1957,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -2197,15 +1997,11 @@
         "operationId": "Groups-Unsubscribe",
         "description": "Use this command to unsubscribe to events in the groups namespace.",
         "summary": "unsubscribe",
-        "tags": [
-          "groups"
-        ],
+        "tags": ["groups"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2224,9 +2020,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -2246,24 +2040,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       }
     },
@@ -2272,15 +2058,11 @@
         "operationId": "GroupVolume-SetVolume",
         "description": "Use the setVolume command in the groupVolume namespace to set group volume to a specific level and unmute the group if muted.\n\n When your app sets the group volume, the group coordinator calculates the required changes to the volume level for each player in the group so that the result is the average volume level of the group as a whole. The group coordinator then adjusts its local volume and initiates network transactions with the other players in the group to adjust their volumes accordingly. While players adjust their volumes, the group coordinator may generate one or more groupVolume events.\n\n Since this command can generate additional network transactions and events, your app should optimize how often it is invoked to maintain a good user experience without flooding the network, such as when implementing a touch screen volume slider that controls a group of five players.",
         "summary": "setVolume",
-        "tags": [
-          "groupVolume"
-        ],
+        "tags": ["groupVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2306,9 +2088,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2359,9 +2139,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2373,17 +2151,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -2403,9 +2175,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "volume"
-                ]
+                "required": ["volume"]
               }
             }
           }
@@ -2439,15 +2209,11 @@
         "operationId": "GroupVolume-GetVolume",
         "description": "Use the getVolume command in the groupVolume namespace to get the volume and mute state of a group.",
         "summary": "getVolume",
-        "tags": [
-          "groupVolume"
-        ],
+        "tags": ["groupVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2473,9 +2239,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2526,9 +2290,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2540,17 +2302,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       }
     },
@@ -2559,15 +2315,11 @@
         "operationId": "GroupVolume-SetMute",
         "description": "Use the setMute command in the groupVolume namespace to mute and unmute the group.\n\n The group’s mute state is independent of its group volume. For example a group’s mute state can be true although its group volume is still 20, and the user will not hear any audio coming from the group of players. Individual player volume values are stored by each player in the group while muted, which allows the group to retain the relative volume of players in the group. That is important information to preserve, since users may have carefully configured the individual player volumes in the group with a Sonos controller. Your app should not mute the group by calling setVolume with zero volume, otherwise the relative volume of players in the group will be lost.\n\n If some players in the group are muted and others are not, calling setMute to mute the group will mute all the players in the group. The individual player’s mute state prior to calling setMute is not preserved.\n\n To get the current group’s mute state, use the getVolume command or subscribe to the groupVolume event.",
         "summary": "setMute",
-        "tags": [
-          "groupVolume"
-        ],
+        "tags": ["groupVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2593,9 +2345,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2646,9 +2396,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2660,17 +2408,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -2685,9 +2427,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "muted"
-                ]
+                "required": ["muted"]
               }
             }
           }
@@ -2723,15 +2463,11 @@
         "operationId": "GroupVolume-SetRelativeVolume",
         "description": "Use the setRelativeVolume command in the groupVolume namespace to increase or decrease group volume, and unmute the group if muted.\n\n Your app can use setRelativeVolume instead of setVolume when the user intent is to increase or decrease the group volume, but not to set the final volume to a particular value. For example, your app should use setRelativeVolume when the user presses hard volume plus/minus buttons on a mobile device.\n\n The group will automatically limit the final volume set within the valid range, so your app does not need to worry about that.\n\n See setVolume for more details on how group volume works.",
         "summary": "setRelativeVolume",
-        "tags": [
-          "groupVolume"
-        ],
+        "tags": ["groupVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2757,9 +2493,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2810,9 +2544,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2824,17 +2556,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -2854,9 +2580,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "volumeDelta"
-                ]
+                "required": ["volumeDelta"]
               }
             }
           }
@@ -2892,15 +2616,11 @@
         "operationId": "GroupVolume-Subscribe",
         "description": "Use this command to subscribe to events in the groupVolume namespace.",
         "summary": "subscribe",
-        "tags": [
-          "groupVolume"
-        ],
+        "tags": ["groupVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -2919,9 +2639,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -2948,24 +2666,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -2996,15 +2706,11 @@
         "operationId": "GroupVolume-Unsubscribe",
         "description": "Use this command to unsubscribe to events in the groupVolume namespace.",
         "summary": "unsubscribe",
-        "tags": [
-          "groupVolume"
-        ],
+        "tags": ["groupVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3023,9 +2729,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -3052,24 +2756,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       }
     },
@@ -3078,15 +2774,11 @@
         "operationId": "Households-GetHouseholds",
         "description": "The getHouseholds command requests information on the households that can be acted upon,\n based upon the access token used when calling this API. There are no parameters for this command.\n\n If successful, Sonos responds with an array of household objects.",
         "summary": "getHouseholds",
-        "tags": [
-          "households"
-        ],
+        "tags": ["households"],
         "responses": {
           "200": {
             "description": "This command returns a list of households.",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3105,9 +2797,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -3127,24 +2817,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -3175,15 +2857,11 @@
         "operationId": "Households-SetName",
         "description": "Set the user-configured name for the muse household.",
         "summary": "setName",
-        "tags": [
-          "households"
-        ],
+        "tags": ["households"],
         "responses": {
           "200": {
             "description": "This command returns OK if successful, globalError otherwise.",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3209,9 +2887,7 @@
           },
           "403": {
             "description": "This command returns OK if successful, globalError otherwise.",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3252,9 +2928,7 @@
           },
           "500": {
             "description": "This command returns OK if successful, globalError otherwise.",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3266,17 +2940,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.27.0"
       },
       "parameters": [
@@ -3309,15 +2977,11 @@
         "operationId": "MusicServiceAccounts-Match",
         "description": "Use the match command in the musicServiceAccounts namespace to get the account ID of a music service user account from the player.\n\n All players in the household return the same accounts. Changes made to a player are automatically replicated throughout the household.",
         "summary": "match",
-        "tags": [
-          "musicServiceAccounts"
-        ],
+        "tags": ["musicServiceAccounts"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3343,9 +3007,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3386,9 +3048,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3400,17 +3060,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -3450,11 +3104,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "userIdHashCode",
-                  "nickname",
-                  "serviceId"
-                ]
+                "required": ["userIdHashCode", "nickname", "serviceId"]
               }
             }
           }
@@ -3490,15 +3140,11 @@
         "operationId": "Playback-GetPlaybackStatus",
         "description": "Use the getPlaybackStatus command in the playback namespace get the current playback status (transport state) for the group, such as PLAYBACK_STATE_IDLE, PLAYBACK_STATE_BUFFERING, or PLAYBACK_STATE_PLAYING. See the playbackStatus object for details.",
         "summary": "getPlaybackStatus",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3517,9 +3163,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -3546,24 +3190,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -3596,15 +3232,11 @@
         "operationId": "Playback-LoadLineIn",
         "description": "Use the loadLineIn command in the playback namespace to change the current group source to the line-in source of a specified player. This can be be any player in the household that supports line-in. See Using Line-In on Sonos on the Sonos Support site for more details about the line-in capabilities of our players.\n\n You can tell whether a player has line-in capabilities with the LINE_IN value in the capabilities object. See the groups object for details.\n\n The player will switch away from the line-in source when the hardware detects that the user has physically unplugged the line-in cable.",
         "summary": "loadLineIn",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3630,9 +3262,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3683,9 +3313,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3697,17 +3325,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.6.0",
         "requestBody": {
           "content": {
@@ -3763,15 +3385,11 @@
         "operationId": "Playback-Pause",
         "description": "Use the pause command in the playback namespace to pause group playback.\n\n After a successful pause command, if your app is subscribed to the playback namespace, it will receive a playbackStatus event with either PLAYBACK_STATE_PAUSED or PLAYBACK_STATE_IDLE, depending on the audio source loaded on the group.",
         "summary": "pause",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3790,9 +3408,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -3827,24 +3443,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -3877,15 +3485,11 @@
         "operationId": "Playback-Play",
         "description": "Use the play command in the playback namespace to initiate group playback.\n\n After a successful play command, if your app is subscribed to the playback namespace, it may first receive a playbackStatus event with PLAYBACK_STATE_BUFFERING before another event with PLAYBACK_STATE_PLAYING. Sonos players will buffer the audio ahead of time when possible, in order to provide the shortest time to play for the user, and to prevent any audio gaps between tracks.",
         "summary": "play",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -3904,9 +3508,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -3942,24 +3544,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -3992,15 +3586,11 @@
         "operationId": "Playback-SetPlayModes",
         "description": "Use the setPlayModes command in the playback namespace to change group play modes, such as repeat, repeat one track, shuffle, and crossfade. See Play Modes for details.\n\n Configure a play mode in the playModes array by adding a “true” or “false” value for the mode, or omit a play mode to leave it unchanged.",
         "summary": "setPlayModes",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "Request was successful.",
-            "x-muse-error-codes": [
-              "OK"
-            ]
+            "x-muse-error-codes": ["OK"]
           },
           "400": {
             "description": "The given resource/object identifier is invalid",
@@ -4012,9 +3602,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -4041,24 +3629,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -4073,9 +3653,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "playModes"
-                ]
+                "required": ["playModes"]
               }
             }
           }
@@ -4111,15 +3689,11 @@
         "operationId": "Playback-Seek",
         "description": "Use the seek command in the playback namespace to go to a specific position in the current track. Optionally add the cloud queue itemId to target a specific track.\n\n Use itemId to ensure the group seeks on the current item. If the current item’s itemId does not match the one provided, the player returns an ERROR_INVALID_OBJECT_ID error.",
         "summary": "seek",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "*Success Code*: `200 OK`\n\n *Content Examples*:\n 1. When including the optional `itemId`.\n ```javascript\n {\n \"positionMillis\" : 30000,\n \"itemId\" : \"123\"\n }\n ```\n 2. When omitting the optional `itemId`.\n ```javascript\n {\n \"positionMillis\" : 30000\n }\n ```",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -4145,9 +3719,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "*Success Code*: `200 OK`\n\n *Content Examples*:\n 1. When including the optional `itemId`.\n ```javascript\n {\n \"positionMillis\" : 30000,\n \"itemId\" : \"123\"\n }\n ```\n 2. When omitting the optional `itemId`.\n ```javascript\n {\n \"positionMillis\" : 30000\n }\n ```",
@@ -4183,24 +3755,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -4222,9 +3786,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "positionMillis"
-                ]
+                "required": ["positionMillis"]
               }
             }
           }
@@ -4260,15 +3822,11 @@
         "operationId": "Playback-SeekRelative",
         "description": "Use the seekRelative command in the playback namespace to seek to the a relative position in the current track. Optionally add the cloud queue itemId to target a specific track.\n\n Use itemId to ensure the group seeks on the current item. If the current item’s itemId does not match the one provided, the player returns ERROR_INVALID_OBJECT_ID.",
         "summary": "seekRelative",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -4294,9 +3852,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -4332,24 +3888,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -4371,9 +3919,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "deltaMillis"
-                ]
+                "required": ["deltaMillis"]
               }
             }
           }
@@ -4409,15 +3955,11 @@
         "operationId": "Playback-SkipBack",
         "description": "Use the skipBack command in the playback namespace to rewind to beginning of track if it has been playing long enough(3 seconds), otherwise skip to previous track.\n\n Not all audio sources allow multiple tracks. For example, when a group is streaming an Internet radio station, there is no previous track to skip to. If you send a skipBack command when the audio source does not support multiple tracks, your app will receive an ERROR_PLAYBACK_FAILED if it tries to skip to previous track, but audio will continue playing.",
         "summary": "skipBack",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -4443,9 +3985,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -4482,24 +4022,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.26.0"
       },
       "parameters": [
@@ -4532,15 +4064,11 @@
         "operationId": "Playback-SkipToNextTrack",
         "description": "Use the skipToNextTrack command in the playback namespace to skip to the next track.\n\n Not all audio sources allow multiple tracks. For example, when a group is streaming an Internet radio station, there is no next track to skip to. If you send a skipToNextTrack command when the audio source does not support multiple tracks, your app will receive an ERROR_PLAYBACK_FAILED, but the audio will continue playing.",
         "summary": "skipToNextTrack",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -4566,9 +4094,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -4605,24 +4131,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -4655,15 +4173,11 @@
         "operationId": "Playback-SkipToPreviousTrack",
         "description": "Use the skipToPreviousTrack command in the playback namespace to skip to the previous track.\n\n Not all audio sources allow multiple tracks. For example, when a group is streaming an Internet radio station, there is no previous track to skip to. If you send a skipToPreviousTrack command when the audio source does not support multiple tracks, your app will receive an ERROR_PLAYBACK_FAILED, but audio will continue playing.",
         "summary": "skipToPreviousTrack",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -4689,9 +4203,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -4728,24 +4240,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -4778,15 +4282,11 @@
         "operationId": "Playback-Subscribe",
         "description": "Use this command to subscribe to events in the playback namespace.",
         "summary": "subscribe",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -4805,9 +4305,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -4834,24 +4332,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -4882,15 +4372,11 @@
         "operationId": "Playback-Unsubscribe",
         "description": "Use this command to unsubscribe to events in the playback namespace.",
         "summary": "unsubscribe",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -4909,9 +4395,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -4938,24 +4422,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       }
     },
@@ -4964,15 +4440,11 @@
         "operationId": "Playback-TogglePlayPause",
         "description": "Use the togglePlayPause command in the playback namespace to toggle the playback state on the given group, if possible. Upon completion of the command, the player sends playbackStatus events to all subscribers. When toggling from pause to play, this functions similar to the play command. When transitioning from play to pause, it functions like the pause command. See those commands for more details about the functionality of those states.",
         "summary": "togglePlayPause",
-        "tags": [
-          "playback"
-        ],
+        "tags": ["playback"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -4991,9 +4463,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -5030,24 +4500,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.7.0"
       },
       "parameters": [
@@ -5080,15 +4542,11 @@
         "operationId": "PlaybackMetadata-GetMetadataStatus",
         "description": "Use this command to poll for metadata changes. This command returns a metadataStatus object for the target group.",
         "summary": "getMetadataStatus",
-        "tags": [
-          "playbackMetadata"
-        ],
+        "tags": ["playbackMetadata"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -5107,9 +4565,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -5136,24 +4592,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.10.0"
       },
       "parameters": [
@@ -5186,15 +4634,11 @@
         "operationId": "PlaybackMetadata-Subscribe",
         "description": "Use this command to subscribe to events in the playbackMetadata namespace.\n\n Returns an empty body with a success value of true if successful and sends a metadataStatus event only to the subscriber.",
         "summary": "subscribe",
-        "tags": [
-          "playbackMetadata"
-        ],
+        "tags": ["playbackMetadata"],
         "responses": {
           "200": {
             "description": "Request was successful.",
-            "x-muse-error-codes": [
-              "OK"
-            ]
+            "x-muse-error-codes": ["OK"]
           },
           "400": {
             "description": "The given resource/object identifier is invalid",
@@ -5206,9 +4650,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -5235,24 +4677,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -5283,15 +4717,11 @@
         "operationId": "PlaybackMetadata-Unsubscribe",
         "description": "Use this command to unsubscribe to events in the playbackMetadata namespace.\n\n Returns an empty body with a success value of true if successful.",
         "summary": "unsubscribe",
-        "tags": [
-          "playbackMetadata"
-        ],
+        "tags": ["playbackMetadata"],
         "responses": {
           "200": {
             "description": "Request was successful.",
-            "x-muse-error-codes": [
-              "OK"
-            ]
+            "x-muse-error-codes": ["OK"]
           },
           "400": {
             "description": "The given resource/object identifier is invalid",
@@ -5303,9 +4733,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
@@ -5332,24 +4760,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       }
     },
@@ -5358,15 +4778,11 @@
         "operationId": "PlaybackSession-CreateSession",
         "description": "Use the createSession command in the playbackSession namespace to unconditionally create a new session and clobber any existing sessions.\n\n Use appContext to determine how multiple instances of your app can share control of a session. For example, if you provide a user account identifier as appContext, then two instances of your app logged into the same user account would be able to control the same session on a group. If you choose to implement your app to always provide an appContext that is unique for all app instances, then only one app instance can control a session at any time.\n\n Use customData to save information in the session that your app finds useful. For example, your app could store a playlist identifier in customData, so that another app instance could automatically load the right playlist when joining a session.",
         "summary": "createSession",
-        "tags": [
-          "playbackSession"
-        ],
+        "tags": ["playbackSession"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -5392,9 +4808,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -5461,9 +4875,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -5475,17 +4887,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -5519,10 +4925,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "appId",
-                  "appContext"
-                ]
+                "required": ["appId", "appContext"]
               }
             }
           }
@@ -5558,15 +4961,11 @@
         "operationId": "PlaybackSession-JoinSession",
         "description": "Warning: This command, along with all other playbackSession commands used to join or leave sessions over a persistent connections with the player, has been deprecated. The client must still create a session with the createSession command, and the generated sessionId should be cached and used with subsequent commands.\n\n Use the joinSession command in the playbackSession namespace to join an existing session in the group. To successfully join the session your app will have to provide the same appId and appContext that was used when creating the session.",
         "summary": "joinSession",
-        "tags": [
-          "playbackSession"
-        ],
+        "tags": ["playbackSession"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -5592,9 +4991,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -5657,9 +5054,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -5671,17 +5066,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0",
         "deprecated": true,
         "x-muse-deprecated-version": "1.24.0",
@@ -5709,10 +5098,7 @@
                     "x-muse-deprecated-version": "1.24.0"
                   }
                 },
-                "required": [
-                  "appId",
-                  "appContext"
-                ]
+                "required": ["appId", "appContext"]
               }
             }
           }
@@ -5748,15 +5134,11 @@
         "operationId": "PlaybackSession-JoinOrCreateSession",
         "description": "Warning: This command, along with all other playbackSession commands used to join or leave sessions over a persistent connections with the player, has been deprecated. The client must still create a session with the createSession command, and the generated sessionId should be cached and used with subsequent commands.\n\n Use the joinOrCreateSession command in the playbackSession namespace to join an existing session in the group, if the appId and appContext match the existing session’s. If there is no current session and no other source is playing, joinOrCreateSession creates a new session and joins it.\n\n While this same behavior can be achieved by first calling joinSession and then conditionally calling createSession, using joinOrCreateSession guarantees that another app cannot create a session in between the two commands.\n\n Use appContext to determine how multiple instances of your app can share control of a session. For example, if you provide a user account identifier as appContext, then two instances of your app logged into the same user account would be able to control the same session on a group. If you choose to implement your app to always provide an appContext that is unique for all app instances, then only one app instance can control a session at any time.\n\n Use customData to save information in the session that your app finds useful. For example, your app could store a playlist identifier in customData, so that another app instance could automatically load the right playlist when joining a session.",
         "summary": "joinOrCreateSession",
-        "tags": [
-          "playbackSession"
-        ],
+        "tags": ["playbackSession"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -5782,9 +5164,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -5851,9 +5231,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -5865,17 +5243,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "deprecated": true,
         "x-muse-deprecated-version": "1.24.0",
@@ -5919,10 +5291,7 @@
                     "x-muse-deprecated-version": "1.24.0"
                   }
                 },
-                "required": [
-                  "appId",
-                  "appContext"
-                ]
+                "required": ["appId", "appContext"]
               }
             }
           }
@@ -5958,15 +5327,11 @@
         "operationId": "PlaybackSession-LeaveSession",
         "description": "Warning: This command, along with all other playbackSession commands used to join or leave sessions over a persistent connections with the player, has been deprecated. The client must still create a session with the createSession command, and the generated sessionId should be cached and used with subsequent commands.\n\n Leaves (disconnects from) the given playback session. The player is responsible for tracking the number of clients connected to the session. When the number of connected clients transitions from 1 to 0 due to an explicit leaveSession command, then the player stops playback and delivers sessionError(ERROR_SESSION_EVICTED) to any clients still subscribed to the session ID. In all other cases, including when the number of connected clients reaches 0 due to an implicit disconnect, then the player maintains playback and keeps the session alive until such time as the music service ends authorization for the stream.\n\n Generally, a client should call leaveSession only in response to an explicit user action to stop controlling to the Sonos group. Changing the queue does not require a new session. Simply call loadCloudQueue with new parameters.\n \n NOTE: Leaving the session does not implicitly unsubscribe a client from receiving playbackSession events. A subscribed client will continue to receive events related to the session until explicitly calling unsubscribe. \n This command is only available on the LAN.",
         "summary": "leaveSession",
-        "tags": [
-          "playbackSession"
-        ],
+        "tags": ["playbackSession"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -5992,9 +5357,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6045,9 +5408,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6059,17 +5420,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "deprecated": true,
         "x-muse-deprecated-version": "1.24.0"
@@ -6104,15 +5459,11 @@
         "operationId": "PlaybackSession-LoadCloudQueue",
         "description": "One way to play audio on Sonos is by using a cloud queue, a list of tracks that you host on a server that the player can access. See Play audio for details. Use the loadCloudQueue command in the playbackSession namespace to load, and optionally start playback of, an item in a cloud queue.\n\n This command requires that your app has an open playback session with a cloud queue, created or joined using the createSession, joinSession, or joinOrCreateSession command.\n\n If you want to immediately start playing the track, set the playOnCompletion parameter to true. This bypasses the need to send a play command after the player loads the track. You should also send playback objects with information about the track in the trackMetadata parameter. This optimization improves the user experience by starting playback for the first track before the player fetches tracks from the cloud queue server.\n\n After receiving the loadCloudQueue command, the player will fetch a window of tracks from the cloud queue server centered around the item with the itemId that your app provided. If the track was deleted, the group will play the next track in the queue. For more details, see the Cloud Queue API /itemWindow endpoint.\n\n All commands in the playback and playbackMetadata namespace also apply to the cloud queue playback. For example, you can send the play or pause command in the playback namespace to play or pause a cloud queue track on a player.",
         "summary": "loadCloudQueue",
-        "tags": [
-          "playbackSession"
-        ],
+        "tags": ["playbackSession"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6138,9 +5489,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6191,9 +5540,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6205,17 +5552,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -6270,9 +5611,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "queueBaseUrl"
-                ]
+                "required": ["queueBaseUrl"]
               }
             }
           }
@@ -6308,15 +5647,11 @@
         "operationId": "PlaybackSession-LoadStreamUrl",
         "description": "The loadStreamUrl command in the playbackSession namespace loads a streaming (live) radio station URL and optionally starts playback. Upon successful completion, the player sends a playbackStatus event to your app or hardware integration. Your app should subscribe to the playback namespace before sending the loadStreamUrl command to avoid race conditions in receiving playbackStatus or playbackError events.\n\n This command requires that your app has an open playback session with a cloud queue, created or joined using the createSession, joinSession, or joinOrCreateSession command.\n\n If you want to immediately start playing the stream, set the playOnCompletion parameter to true. This bypasses the need to send a play command after the player loads the stream.",
         "summary": "loadStreamUrl",
-        "tags": [
-          "playbackSession"
-        ],
+        "tags": ["playbackSession"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6342,9 +5677,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6395,9 +5728,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6409,17 +5740,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -6451,9 +5776,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "streamUrl"
-                ]
+                "required": ["streamUrl"]
               }
             }
           }
@@ -6489,15 +5812,11 @@
         "operationId": "PlaybackSession-RefreshCloudQueue",
         "description": "Use the refreshCloudQueue command in the playbackSession namespace to signal the player to re-fetch tracks from the cloud queue server centered around the current item. See the Cloud Queue API /itemWindow endpoint for details.\n\n This command requires your app to have either created a new session or joined an existing session, and also loaded a cloud queue on the group with loadCloudQueue.\n\n Your app should only use this command when it detects a change in the cloud queue content that should immediately be reflected in the group. For example, if a user removes the currently playing track with your app, use this command to remove the track from the group and stop it from playing. This helps provide a good user experience.",
         "summary": "refreshCloudQueue",
-        "tags": [
-          "playbackSession"
-        ],
+        "tags": ["playbackSession"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6523,9 +5842,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6578,9 +5895,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6592,17 +5907,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -6635,15 +5944,11 @@
         "operationId": "PlaybackSession-RejoinSession",
         "description": "Warning: This command, along with all other playbackSession commands used to join or leave sessions over a persistent connections with the player, has been deprecated. The client must still create a session with the createSession command, and the generated sessionId should be cached and used with subsequent commands.\n\n Rejoins an existing session. This command joins the current session if the session ID matches the current session ID.\n\n NOTE: This command can only be called by Lechmere to support managing sessions for cloud-based clients when groups move on the LAN.",
         "summary": "rejoinSession",
-        "tags": [
-          "playbackSession"
-        ],
+        "tags": ["playbackSession"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6669,9 +5974,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6733,9 +6036,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6747,17 +6048,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "deprecated": true,
         "x-muse-deprecated-version": "1.24.0"
@@ -6792,15 +6087,11 @@
         "operationId": "PlaybackSession-SkipToItem",
         "description": "Use the skipToItem command in the playbackSession namespace to skip to the track with the specified itemId in a cloud queue and optionally seek and initiate playback. This command requires your app to have either created a new session or joined an existing session, and also loaded a cloud queue on the group with loadCloudQueue.\n\n Use playOnCompletion to start playing the cloud queue item being loaded, so your app doesn’t have to send an extra play command.\n\n Most of the times your app already has access to the track metadata of the cloud queue item that is being loaded. Use the optional trackMetadata parameter to provide that information so the group can start playing the track immediately after receiving the loadCloudQueue command. This optimization improves the user experience by starting playback before the player fetches tracks from the cloud queue server.",
         "summary": "skipToItem",
-        "tags": [
-          "playbackSession"
-        ],
+        "tags": ["playbackSession"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6826,9 +6117,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6891,9 +6180,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -6905,17 +6192,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -6953,9 +6234,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "itemId"
-                ]
+                "required": ["itemId"]
               }
             }
           }
@@ -6991,15 +6270,11 @@
         "operationId": "PlaybackSession-Subscribe",
         "description": "Use this command to subscribe to events in the playbackSession namespace for a specific sessionId. Your app can only be subscribed to one session at a time.\n\n Returns an empty body with a success value of true if successful.",
         "summary": "subscribe",
-        "tags": [
-          "playbackSession"
-        ],
+        "tags": ["playbackSession"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7025,9 +6300,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7078,9 +6351,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7092,17 +6363,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -7133,15 +6398,11 @@
         "operationId": "PlaybackSession-Unsubscribe",
         "description": "Use this command to unsubscribe to events in the playbackSession namespace.\n\n Returns an empty body with a success value of true if successful.",
         "summary": "unsubscribe",
-        "tags": [
-          "playbackSession"
-        ],
+        "tags": ["playbackSession"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7167,9 +6428,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7220,9 +6479,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7234,17 +6491,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       }
     },
@@ -7253,15 +6504,11 @@
         "operationId": "PlaybackSession-Suspend",
         "description": "Use the suspend command in the playbackSession namespace to suspend a specified session. The player will clear the stored item window of tracks and send a playbackStatus event to tell clients that the current item is null.\n\n As described in a cloud queue use case in Play audio, if your app sends a play command when the cloud queue is empty, the player will attempt to resume playback of content that was playing prior to this command. For example, if the user was previously listening to a radio station or had a playlist queued, it will attempt to resume playback of that content.\n\n When a session is suspended, the player won’t revert to the previous music source in this case. Instead, the player delivers a sessionInfo event with a suspended value of true for the suspended session. The session stays suspended until one of the following occurs:\n\n The player receives a play command. If the player receives a play command, it sends a sessionInfo event with a suspended value of false.\n The player receives either a loadCloudQueue or skipToItem command for the suspended session. The player follows these commands as specified.\n The player receives a createSession command. The suspended session receives an ERROR_SESSION_EVICTED sessionError.\n The user or an action picks a new music source. This can either be from the Sonos app or through the loadFavorite command. The suspended session receives an ERROR_SESSION_EVICTED sessionError.",
         "summary": "suspend",
-        "tags": [
-          "playbackSession"
-        ],
+        "tags": ["playbackSession"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7287,9 +6534,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7340,9 +6585,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7354,17 +6597,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -7415,15 +6652,11 @@
         "operationId": "PlayerVolume-SetVolume",
         "description": "Use the setVolume command in the playerVolume namespace to set player volume and mute state.\n\n Returns an empty body with a success value of true if successful. The player generates a playerVolume event if the volume was changed.\n Additionally, if setVolume is called on a player that has a fixed player volume state that is true, the command will fail and you will receive an ERROR_COMMAND_FAILED globalError. This is because players with fixed volumes cannot be changed, for example, a CONNECT with fixed line out would respond with this error if your app tried to set the volume on it.",
         "summary": "setVolume",
-        "tags": [
-          "playerVolume"
-        ],
+        "tags": ["playerVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7449,9 +6682,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7492,9 +6723,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7506,17 +6735,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -7574,15 +6797,11 @@
         "operationId": "PlayerVolume-GetVolume",
         "description": "Use the getVolume command in the playerVolume namespace to get the volume and mute state of a player.",
         "summary": "getVolume",
-        "tags": [
-          "playerVolume"
-        ],
+        "tags": ["playerVolume"],
         "responses": {
           "200": {
             "description": "Returns a playerVolume object type with the current volume, mute state, and fixed status of the targeted player.",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7601,9 +6820,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -7623,24 +6840,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       }
     },
@@ -7649,15 +6858,11 @@
         "operationId": "PlayerVolume-Duck",
         "description": "Ducking temporarily lowers the zone's volume without affecting the observed system volume. Sending another \"duck\" command to a system that is already ducking does not affect the output level. However, it does reset the duration.",
         "summary": "duck",
-        "tags": [
-          "playerVolume"
-        ],
+        "tags": ["playerVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7676,9 +6881,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -7698,24 +6901,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -7770,15 +6965,11 @@
         "operationId": "PlayerVolume-SetMute",
         "description": "Use the setMute command in the playerVolume namespace to mute and unmute a player.\n\n Returns an empty body with a success value of true if successful. The player generates a playerVolume event if the mute state was changed.",
         "summary": "setMute",
-        "tags": [
-          "playerVolume"
-        ],
+        "tags": ["playerVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7804,9 +6995,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7847,9 +7036,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7861,17 +7048,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -7886,9 +7067,7 @@
                     "x-muse-since-version": "1.0.0"
                   }
                 },
-                "required": [
-                  "muted"
-                ]
+                "required": ["muted"]
               }
             }
           }
@@ -7924,15 +7103,11 @@
         "operationId": "PlayerVolume-SetRelativeVolume",
         "description": "Use the setRelativeVolume command in the playerVolume namespace to increase or decrease volume for a player and unmute the player if muted.\n\n Returns an empty body with a success value of true if successful. The player generates a playerVolume event if the volume was changed.",
         "summary": "setRelativeVolume",
-        "tags": [
-          "playerVolume"
-        ],
+        "tags": ["playerVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -7958,9 +7133,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8001,9 +7174,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8015,17 +7186,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0",
         "requestBody": {
           "content": {
@@ -8085,15 +7250,11 @@
         "operationId": "PlayerVolume-Subscribe",
         "description": "Use this command to subscribe to events in the playerVolume namespace.\n\n Returns an empty body with a success value of true if successful and sends a playerVolume event only for the subscriber.",
         "summary": "subscribe",
-        "tags": [
-          "playerVolume"
-        ],
+        "tags": ["playerVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8112,9 +7273,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -8134,24 +7293,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -8182,15 +7333,11 @@
         "operationId": "PlayerVolume-Unsubscribe",
         "description": "Use this command to unsubscribe to events in the playerVolume namespace.",
         "summary": "unsubscribe",
-        "tags": [
-          "playerVolume"
-        ],
+        "tags": ["playerVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8209,9 +7356,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -8231,24 +7376,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.0.0"
       }
     },
@@ -8257,15 +7394,11 @@
         "operationId": "PlayerVolume-Unduck",
         "description": "This command is the dual of duck. The volume is restored if there is a ducking operation in progress. Otherwise, the system accepts this command and does not change any internal state.",
         "summary": "unduck",
-        "tags": [
-          "playerVolume"
-        ],
+        "tags": ["playerVolume"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8284,9 +7417,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -8306,24 +7437,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "write"
-        ],
+        "x-muse-permissions": ["write"],
         "x-muse-since-version": "1.0.0"
       },
       "parameters": [
@@ -8356,9 +7479,7 @@
         "operationId": "Playlists-LoadPlaylist",
         "description": "The loadPlaylist command activates a playlist within the default playback session. This command interrupts any active private playback sessions. Sonos adds tracks from the playlist to the queue and activates the queue. This prevents your app from overwriting user-curated queues.",
         "summary": "loadPlaylist",
-        "tags": [
-          "playlists"
-        ],
+        "tags": ["playlists"],
         "responses": {
           "400": {
             "description": "The given resource/object identifier is invalid",
@@ -8370,9 +7491,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -8392,24 +7511,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "load"
-        ],
+        "x-muse-permissions": ["load"],
         "x-muse-since-version": "1.8.0",
         "requestBody": {
           "content": {
@@ -8440,9 +7551,7 @@
                     "x-muse-since-version": "1.8.0"
                   }
                 },
-                "required": [
-                  "playlistId"
-                ]
+                "required": ["playlistId"]
               }
             }
           }
@@ -8478,15 +7587,11 @@
         "operationId": "Playlists-GetPlaylists",
         "description": "Use the getPlaylists command to get the list of Sonos playlists for a household. Playlists do not include pinned items (any non-playable containers pinned to My Sonos) or Sonos favorites. See the Save your favorites section in the Sonos user guide for details about My Sonos.\n\n Returns a playlistsList object, which is an array of playlist objects with a version number.",
         "summary": "getPlaylists",
-        "tags": [
-          "playlists"
-        ],
+        "tags": ["playlists"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8512,9 +7617,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8555,9 +7658,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8569,17 +7670,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.8.0"
       },
       "parameters": [
@@ -8612,15 +7707,11 @@
         "operationId": "Playlists-Subscribe",
         "description": "Use this command to subscribe to events in the playlists namespace.\n\n When subscribed, Sonos sends asynchronous versionChanged events when users update their Sonos playlists. Your app can then choose to fetch the playlists as needed whenever the version changes. This is because the playlistsList object can be large for asynchronous events.",
         "summary": "subscribe",
-        "tags": [
-          "playlists"
-        ],
+        "tags": ["playlists"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8639,9 +7730,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -8661,24 +7750,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.8.0"
       },
       "parameters": [
@@ -8709,15 +7790,11 @@
         "operationId": "Playlists-Unsubscribe",
         "description": "Use this command to unsubscribe to events in the playlists namespace.",
         "summary": "unsubscribe",
-        "tags": [
-          "playlists"
-        ],
+        "tags": ["playlists"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8736,9 +7813,7 @@
           },
           "403": {
             "description": "A client does not have the correct permissions to perfom a command",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ]
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"]
           },
           "404": {
             "description": "A command was targeted to a group that no longer is the same group",
@@ -8758,24 +7833,16 @@
           },
           "500": {
             "description": "Sonos has experience an unexpected condition it is unable to recover from",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ]
+            "x-muse-error-codes": ["ERROR_INTERNAL"]
           }
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.8.0"
       }
     },
@@ -8784,15 +7851,11 @@
         "operationId": "Playlists-GetPlaylist",
         "description": "The getPlaylist command retrieves the track information associated with a particular playlist.\n\n This command returns a PlaylistSummary object, which contains an array of PlaylistTrack objects.",
         "summary": "getPlaylist",
-        "tags": [
-          "playlists"
-        ],
+        "tags": ["playlists"],
         "responses": {
           "200": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "OK"
-            ],
+            "x-muse-error-codes": ["OK"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8818,9 +7881,7 @@
           },
           "403": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_NO_PERMISSION"
-            ],
+            "x-muse-error-codes": ["ERROR_NO_PERMISSION"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8861,9 +7922,7 @@
           },
           "500": {
             "description": "See the x-muse-error-codes extension for a list of muse errors that generate this response",
-            "x-muse-error-codes": [
-              "ERROR_INTERNAL"
-            ],
+            "x-muse-error-codes": ["ERROR_INTERNAL"],
             "content": {
               "application/json": {
                 "schema": {
@@ -8875,17 +7934,11 @@
         },
         "security": [
           {
-            "BearerAuth": [
-              "playback-control-all"
-            ],
-            "OAuth2": [
-              "playback-control-all"
-            ]
+            "BearerAuth": ["playback-control-all"],
+            "OAuth2": ["playback-control-all"]
           }
         ],
-        "x-muse-permissions": [
-          "read"
-        ],
+        "x-muse-permissions": ["read"],
         "x-muse-since-version": "1.18.1"
       },
       "parameters": [
@@ -8949,9 +8002,7 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "errorCode"
-        ],
+        "required": ["errorCode"],
         "x-muse-since-version": "1.0.0"
       },
       "album": {
@@ -8987,9 +8038,7 @@
             "x-muse-deprecated-version": "1.21.0"
           }
         },
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "x-muse-since-version": "1.0.0"
       },
       "artist": {
@@ -9020,9 +8069,7 @@
             "x-muse-deprecated-version": "1.21.0"
           }
         },
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "x-muse-since-version": "1.0.0"
       },
       "audioClip": {
@@ -9069,13 +8116,7 @@
             "x-muse-since-version": "1.10.0"
           }
         },
-        "required": [
-          "id",
-          "name",
-          "appId",
-          "priority",
-          "status"
-        ],
+        "required": ["id", "name", "appId", "priority", "status"],
         "x-muse-since-version": "1.10.0"
       },
       "audioClipState": {
@@ -9113,11 +8154,7 @@
         "x-muse-object-type": "enum",
         "type": "string",
         "description": "This enumeration identifies the sounds that are built into the Sonos firmware. Partners are free to use these sounds with the loadAudioClip command instead of providing custom files.",
-        "enum": [
-          "CHIME",
-          "CUSTOM",
-          "VOICE_ASSISTANT"
-        ],
+        "enum": ["CHIME", "CUSTOM", "VOICE_ASSISTANT"],
         "x-muse-since-version": "1.10.0"
       },
       "book": {
@@ -9155,9 +8192,7 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "x-muse-since-version": "1.0.0"
       },
       "capability": {
@@ -9321,10 +8356,7 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "id",
-          "name"
-        ],
+        "required": ["id", "name"],
         "x-muse-since-version": "1.0.0"
       },
       "favoritesList": {
@@ -9367,9 +8399,7 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "errorCode"
-        ],
+        "required": ["errorCode"],
         "x-muse-since-version": "1.0.0"
       },
       "group": {
@@ -9419,12 +8449,7 @@
             "x-muse-since-version": "1.14.0"
           }
         },
-        "required": [
-          "id",
-          "name",
-          "coordinatorId",
-          "playerIds"
-        ],
+        "required": ["id", "name", "coordinatorId", "playerIds"],
         "x-muse-since-version": "1.0.0"
       },
       "groupCoordinatorChanged": {
@@ -9456,9 +8481,7 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "groupStatus"
-        ],
+        "required": ["groupStatus"],
         "x-muse-since-version": "1.0.0"
       },
       "groupInfo": {
@@ -9511,9 +8534,7 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "volume"
-        ],
+        "required": ["volume"],
         "x-muse-since-version": "1.0.0"
       },
       "groups": {
@@ -9559,9 +8580,7 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "x-muse-since-version": "1.0.0"
       },
       "households": {
@@ -9809,9 +8828,7 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "errorCode"
-        ],
+        "required": ["errorCode"],
         "x-muse-since-version": "1.0.0"
       },
       "playbackPolicy": {
@@ -9989,9 +9006,7 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "playbackState"
-        ],
+        "required": ["playbackState"],
         "x-muse-since-version": "1.0.0"
       },
       "player": {
@@ -10103,10 +9118,7 @@
             "x-muse-since-version": "1.17.0"
           }
         },
-        "required": [
-          "errorCode",
-          "playerIds"
-        ],
+        "required": ["errorCode", "playerIds"],
         "x-muse-since-version": "1.17.0"
       },
       "playerVolume": {
@@ -10133,9 +9145,7 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "volume"
-        ],
+        "required": ["volume"],
         "x-muse-since-version": "1.0.0"
       },
       "playlist": {
@@ -10168,10 +9178,7 @@
             "x-muse-since-version": "1.8.0"
           }
         },
-        "required": [
-          "id",
-          "name"
-        ],
+        "required": ["id", "name"],
         "x-muse-since-version": "1.8.0"
       },
       "playlistSummary": {
@@ -10207,10 +9214,7 @@
             "x-muse-since-version": "1.8.0"
           }
         },
-        "required": [
-          "id",
-          "name"
-        ],
+        "required": ["id", "name"],
         "x-muse-since-version": "1.8.0"
       },
       "playlistTrack": {
@@ -10284,9 +9288,7 @@
             "x-muse-since-version": "1.11.0"
           }
         },
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "x-muse-since-version": "1.11.0"
       },
       "positionInformation": {
@@ -10307,31 +9309,21 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "itemId"
-        ],
+        "required": ["itemId"],
         "x-muse-since-version": "1.0.0"
       },
       "priority": {
         "x-muse-object-type": "enum",
         "type": "string",
         "description": "Sonos uses this enumeration to order concurrent clips.",
-        "enum": [
-          "LOW",
-          "HIGH"
-        ],
+        "enum": ["LOW", "HIGH"],
         "x-muse-since-version": "1.10.0"
       },
       "queueAction": {
         "x-muse-object-type": "enum",
         "type": "string",
         "description": "No description available",
-        "enum": [
-          "REPLACE",
-          "APPEND",
-          "INSERT",
-          "INSERT_NEXT"
-        ],
+        "enum": ["REPLACE", "APPEND", "INSERT", "INSERT_NEXT"],
         "x-muse-since-version": "1.0.0"
       },
       "queueItem": {
@@ -10448,9 +9440,7 @@
             "x-muse-deprecated-version": "1.21.0"
           }
         },
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "x-muse-since-version": "1.0.0"
       },
       "reportOptions": {
@@ -10536,18 +9526,14 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "suspended"
-        ],
+        "required": ["suspended"],
         "x-muse-since-version": "1.0.0"
       },
       "sessionStateEnum": {
         "x-muse-object-type": "enum",
         "type": "string",
         "description": "No description available",
-        "enum": [
-          "SESSION_STATE_CONNECTED"
-        ],
+        "enum": ["SESSION_STATE_CONNECTED"],
         "x-muse-since-version": "1.0.0"
       },
       "sessionStatus": {
@@ -10584,9 +9570,7 @@
         "x-muse-object-type": "enum",
         "type": "string",
         "description": "This generic enum is used to identify information about content. It is too generic,\n as only one key has been defined in 5 years. Therefore, this enum is deprecated in\n favor of the `explicit` parameter.",
-        "enum": [
-          "TAG_EXPLICIT"
-        ],
+        "enum": ["TAG_EXPLICIT"],
         "x-muse-since-version": "1.0.0",
         "deprecated": true,
         "x-muse-deprecated-version": "1.21.0"
@@ -10780,10 +9764,7 @@
         "x-muse-object-type": "enum",
         "type": "string",
         "description": "This enum represents the options to control the TV power state. More states could be added in the future.",
-        "enum": [
-          "ON",
-          "STANDBY"
-        ],
+        "enum": ["ON", "STANDBY"],
         "x-muse-since-version": "1.5.0"
       },
       "universalMusicObjectId": {
@@ -10810,9 +9791,7 @@
             "x-muse-since-version": "1.0.0"
           }
         },
-        "required": [
-          "objectId"
-        ],
+        "required": ["objectId"],
         "x-muse-since-version": "1.0.0"
       },
       "versionChanged": {
@@ -10833,11 +9812,7 @@
         "x-muse-object-type": "enum",
         "type": "string",
         "description": "No description available",
-        "enum": [
-          "VARIABLE",
-          "FIXED",
-          "PASS_THROUGH"
-        ],
+        "enum": ["VARIABLE", "FIXED", "PASS_THROUGH"],
         "x-muse-since-version": "1.7.0"
       }
     },
