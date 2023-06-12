@@ -13,6 +13,7 @@ class PlayersController extends Component {
         <br />
         {players.map((item) => {
           return (<PlayerComponent
+          hello
             key={item.id}
             playerId={item.id}
             playerName={item.name}
