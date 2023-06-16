@@ -15,7 +15,7 @@ download it to use as a template for your own applications.
 ## Table of Contents
 
 - [Requirements](#Requirements)
-- [Installation/Setup](Setup & Configuration)
+- [Installation/Setup](#Setup & Configuration)
 
 # Requirements
 
