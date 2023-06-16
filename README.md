@@ -14,8 +14,8 @@ download it to use as a template for your own applications.
 
 ## Table of Contents
 
-- [Requirements](#Requirements)
-- [Installation/Setup](#Setup & Configuration)
+- [Requirements](#requirements)
+- [Setup and Configuration](#setup-and-configuration)
 
 # Requirements
 
@@ -25,7 +25,7 @@ download it to use as a template for your own applications.
 - typescript: https://www.typescriptlang.org/download
 - CORS Anywhere: Run `npm install cors-anywhere` in terminal/command prompt (must have installed Nodejs already)
 
-# Setup & Configuration
+# Setup and Configuration
 1. Open Terminal/command prompt and Clone this repository.
 2. In terminal/command prompt, run `ngrok http 8080`
 3. Create client credentials
