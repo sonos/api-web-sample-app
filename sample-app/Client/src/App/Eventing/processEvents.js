@@ -30,7 +30,9 @@ class ProcessRequest {
         try {
           const trackName = requestData.data.currentItem.track.name;
           const albumName = requestData.data.currentItem.track.album.name;
-          const trackImage = requestData.data.currentItem.track.imageUrl;
+          const trackImage = requestData.data.currentItem.track.imageUrl
+           ? requestData.data.currentItem.track.imageUrl
+           : requestData.data.currentItem.container.imageUrl;
           const res = {
             method: "playBackMetaData",
             data: {
