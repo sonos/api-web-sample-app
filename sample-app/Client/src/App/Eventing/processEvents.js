@@ -42,7 +42,7 @@ class ProcessRequest {
           };
           return JSON.stringify(res);
         } catch (e) {
-          console.debug("Error in fetching the volume from the event", e); 
+          console.debug("Error", e); 
         }
       }
       else{

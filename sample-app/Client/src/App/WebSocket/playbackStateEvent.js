@@ -9,7 +9,7 @@ export default function PlayBackStateEvent(props) {
   useEffect(() => {
     if (socket !== undefined) {
       // Receive the events via websocket connection established
-      socket.on("message from server", (data) => { console.log(data.headers["x-sonos-type"])
+      socket.on("message from server", (data) => {
         if (data.headers !== undefined) {
           const processRequest = new ProcessRequest();
           const res = processRequest.loadRequest(data);
