@@ -1,13 +1,14 @@
 FROM node:latest
 
 # Working dir
-WORKDIR /app
+WORKDIR /app/server
 
 # Copy files from Build
 COPY package*.json ./
 
 # Install Files
-RUN npm install --registry=https://registry.npmjs.org/ 
+RUN npm install 
+# --registry=https://registry.npmjs.org/ 
 
 # Copy SRC
 COPY . .
