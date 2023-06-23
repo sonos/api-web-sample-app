@@ -30,13 +30,8 @@ class ProcessRequest {
       else if (this.getMethodType(requestData) === "metadataStatus") {
         try {
           const trackName = requestData.data.currentItem.track.name;
-<<<<<<< Updated upstream
-          const albumName = requestData.data.currentItem.track.album.name;
-          const trackImage = requestData.data.container.imageUrl;
-=======
           const trackImage = requestData.data.currentItem.track.imageUrl;
           const artistName = requestData.data.currentItem.track.artist.name;
->>>>>>> Stashed changes
           const res = {
             method: "playBackMetaData",
             data: {
@@ -47,7 +42,7 @@ class ProcessRequest {
           };
           return JSON.stringify(res);
         } catch (e) {
-          console.debug("Error in fetching the volume from the event", e); //this has nothing to do with volume, why is it showing error for fetching volume?
+          console.debug("Error in fetching the volume from the event", e); 
         }
       }
       else{
