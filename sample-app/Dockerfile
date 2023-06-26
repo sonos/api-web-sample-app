@@ -7,7 +7,7 @@ WORKDIR /app/Client
 COPY /Client/package*.json ./
 
 # Install Files
-RUN npm install --registry=https://registry.npmjs.org/ 
+RUN npm install --registry=https://registry.npmjs.org/
 
 # Copy SRC
 COPY ./Client .
@@ -23,7 +23,7 @@ COPY /Server/package*.json ./
 COPY ./Server .
 
 # Install Files
-RUN npm install --registry=https://registry.npmjs.org/ 
+RUN npm install --registry=https://registry.npmjs.org/
 
 # Open Port
 EXPOSE 3000
