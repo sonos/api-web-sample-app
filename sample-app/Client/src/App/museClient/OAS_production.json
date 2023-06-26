@@ -80,7 +80,8 @@
   },
   "servers": [
     {
-      "url": "http:localhost:8090/https://api.ws.sonos.com/control/api/v2",
+      "url": "http://localhost:8090/https://api.ws.sonos.com/control/api/v2",
+
       "description": "Full api URI",
       "variables": {
         "version": {

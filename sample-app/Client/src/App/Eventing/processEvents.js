@@ -29,8 +29,10 @@ class ProcessRequest {
       else if (this.getMethodType(requestData) === "metadataStatus") {
         try {
           const trackName = requestData.data.currentItem.track.name;
-          const trackImage = requestData.data.currentItem.track.imageUrl;
           const artistName = requestData.data.currentItem.track.artist.name;
+          const trackImage = requestData.data.currentItem.track.imageUrl
+           ? requestData.data.currentItem.track.imageUrl
+           : requestData.data.currentItem.container.imageUrl;
           const res = {
             method: "playBackMetaData",
             data: {
