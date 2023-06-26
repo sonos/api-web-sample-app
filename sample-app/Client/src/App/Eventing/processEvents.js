@@ -1,7 +1,6 @@
 
 class ProcessRequest {
   loadRequest(requestData) {
-    // console.log(requestData.data)
     if (this.getMethodType(requestData) === "playbackStatus") {
       try {
         const playBackState =
@@ -42,7 +41,7 @@ class ProcessRequest {
           };
           return JSON.stringify(res);
         } catch (e) {
-          console.debug("Error", e); 
+          console.debug("Error in fetching the metadata state from the event", e); 
         }
       }
       else{

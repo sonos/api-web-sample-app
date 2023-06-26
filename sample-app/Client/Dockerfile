@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install Files
-RUN npm install registry=https://registry.npmjs.org/ 
+RUN npm install --registry=https://registry.npmjs.org/ 
 
 # Copy SRC
 COPY . .
