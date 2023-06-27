@@ -34,7 +34,7 @@ class ProcessRequest {
           const artistName = requestData.data.currentItem?.track?.artist?.name
             ? requestData.data.currentItem.track.artist.name
             : " ";
-          const albumName = requestData.data.container?.name 
+          const containerName = requestData.data.container?.name 
             ? requestData.data.container.name 
             : " ";
           const trackImage = requestData.data.currentItem.track.imageUrl
@@ -46,7 +46,7 @@ class ProcessRequest {
               "trackName": trackName,
               "trackImage": trackImage,
               "artistName": artistName,
-              "albumName": albumName
+              "containerName": containerName
             },
           };
           return JSON.stringify(res);

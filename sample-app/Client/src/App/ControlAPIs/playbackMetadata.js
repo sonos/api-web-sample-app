@@ -16,7 +16,6 @@ export default function PlayBackMetadata(props) {
         res.currentItem.track?.artist?.name
           ? res.currentItem.track.artist.name
           : " ", 
-        // res.currentItem?.track?.album?.name, 
         res.container?.name
           ? res.container.name
           : " ",
