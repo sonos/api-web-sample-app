@@ -4,7 +4,7 @@ class ProcessRequest {
     if (this.getMethodType(requestData) === "playbackStatus") {
       try {
         const playBackState =
-          requestData.data.playbackState === "PLAYBACK_STATE_PLAYING";
+          requestData.data.playbackState === "PLAYBACK_STATE_PLAYING" || requestData.data.playbackState === "PLAYBACK_STATE_BUFFERING";
         const res = {
           method: "playBackState",
           data: { "isPlayingFlag" : playBackState },
@@ -28,22 +28,24 @@ class ProcessRequest {
       }
       else if (this.getMethodType(requestData) === "metadataStatus") {
         try {
-          const trackName = requestData.data.currentItem.track.name;
-          const albumName = requestData.data.currentItem.track.album.name;
-          const trackImage = requestData.data.currentItem.track.imageUrl
+          const trackName = requestData.data.currentItem?.track?.name ? requestData.data.currentItem.track.name : " ";
+          const albumName = requestData.data.currentItem?.track?.album?.name ? requestData.data.currentItem.track.album.name : " ";
+          const artistName = requestData.data.currentItem?.track?.artist?.name ? requestData.data.currentItem.track.artist.name : " ";
+          const trackImage = requestData.data.currentItem.track.hasOwnProperty("imageUrl")
            ? requestData.data.currentItem.track.imageUrl
-           : requestData.data.currentItem.container.imageUrl;
+           : requestData.data.container.imageUrl;
           const res = {
             method: "playBackMetaData",
             data: {
               "trackName": trackName,
               "albumName": albumName,
-              "trackImage": trackImage
+              "trackImage": trackImage,
+              "artistName": artistName
             },
           };
           return JSON.stringify(res);
         } catch (e) {
-          console.debug("Error in fetching the volume from the event", e);
+          console.log("Error in fetching the volume from the event", e);
         }
       }
       else{
