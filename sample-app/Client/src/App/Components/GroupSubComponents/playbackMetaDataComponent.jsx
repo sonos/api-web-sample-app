@@ -14,17 +14,17 @@ class PlayBackMetaDataComponent extends Component {
     this.state = {
       getPlayBackMetaDataFlag: true,
       trackName: null,
-      albumName: null,
+      containerName: null,
       trackImage: null,
       artistName: null
     };
   }
 
-  playBackMetadataHandler = (flag, trackName, albumName, trackImage, artistName) => {
+  playBackMetadataHandler = (flag, trackName, containerName, artistName, trackImage) => {
     this.setState({
       getPlayBackMetaDataFlag: flag,
       trackName: trackName,
-      albumName: albumName,
+      containerName: containerName,
       trackImage: trackImage,
       artistName: artistName
     });
@@ -43,7 +43,7 @@ class PlayBackMetaDataComponent extends Component {
     if (this.state.trackName !== response["trackName"]) {
       this.setState({
         trackName: response["trackName"],
-        albumName: response["albumName"],
+        containerName: response["containerName"],
         trackImage: response["trackImage"],
         artistName: response["artistName"]
       });
@@ -68,7 +68,8 @@ class PlayBackMetaDataComponent extends Component {
           <div className="track_image">
             <ImageComponent src={this.getImage()} alt="Song being played" />
             <div className="track_name">{this.state.trackName}</div>
-            <div className="track_artist">{this.state.artistName} • {this.state.albumName}</div>
+            <div className="track_artist">{this.state.artistName}</div>
+            <div className="container_name">{this.state.containerName}</div>
           </div>
         </div>
       </div>

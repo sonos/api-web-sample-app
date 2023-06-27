@@ -29,7 +29,7 @@ class ProcessRequest {
       else if (this.getMethodType(requestData) === "metadataStatus") {
         try {
           const trackName = requestData.data.currentItem?.track?.name ? requestData.data.currentItem.track.name : " ";
-          const albumName = requestData.data.currentItem?.track?.album?.name ? requestData.data.currentItem.track.album.name : " ";
+          const containerName = requestData.data.container?.name ? requestData.data.container.name : " ";
           const artistName = requestData.data.currentItem?.track?.artist?.name ? requestData.data.currentItem.track.artist.name : " ";
           const trackImage = requestData.data.currentItem.track.hasOwnProperty("imageUrl")
            ? requestData.data.currentItem.track.imageUrl
@@ -38,7 +38,7 @@ class ProcessRequest {
             method: "playBackMetaData",
             data: {
               "trackName": trackName,
-              "albumName": albumName,
+              "containerName": containerName,
               "trackImage": trackImage,
               "artistName": artistName
             },

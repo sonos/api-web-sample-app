@@ -11,7 +11,7 @@ export default function PlayBackMetadata(props) {
       props.playBackMetadataHandler(
         false,
         res.currentItem.track?.name ? res.currentItem.track.name : " ",
-        res.currentItem.track?.album?.name ? res.currentItem?.track?.album?.name : " ",
+        res.container?.name ? res.container.name : " ",
         res.currentItem.track?.artist?.name ? res.currentItem.track.artist.name : " ",
         res.currentItem.track.hasOwnProperty("imageUrl")
          ? res.currentItem.track.imageUrl
