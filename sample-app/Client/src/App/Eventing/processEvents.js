@@ -28,8 +28,15 @@ class ProcessRequest {
       }
       else if (this.getMethodType(requestData) === "metadataStatus") {
         try {
-          const trackName = requestData.data.currentItem.track.name;
-          const artistName = requestData.data.currentItem.track.artist.name;
+          const trackName = requestData.data.currentItem?.track?.name
+            ? requestData.data.currentItem.track.name
+            : " ";
+          const artistName = requestData.data.currentItem?.track?.artist?.name
+            ? requestData.data.currentItem.track.artist.name
+            : " ";
+          const albumName = requestData.data.container?.name 
+            ? requestData.data.container.name 
+            : " ";
           const trackImage = requestData.data.currentItem.track.imageUrl
            ? requestData.data.currentItem.track.imageUrl
            : requestData.data.currentItem.container.imageUrl;
@@ -39,6 +46,7 @@ class ProcessRequest {
               "trackName": trackName,
               "trackImage": trackImage,
               "artistName": artistName,
+              "albumName": albumName
             },
           };
           return JSON.stringify(res);
