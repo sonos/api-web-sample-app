@@ -37,7 +37,7 @@ class ProcessRequest {
           const containerName = requestData.data.container?.name 
             ? requestData.data.container.name 
             : " ";
-          const trackImage = requestData.data.currentItem.track.imageUrl
+          const trackImage = requestData.data.currentItem?.track?.imageUrl
            ? requestData.data.currentItem.track.imageUrl
            : requestData.data.container.imageUrl;
           const res = {
