@@ -10,11 +10,18 @@ export default function PlayBackMetadata(props) {
     .then((res) => {
       props.playBackMetadataHandler(
         false,
-        res.currentItem.track.name,
-        res.currentItem.track.album.name,
+        res.currentItem.track?.name
+          ? res.currentItem.track.name
+          : " ",
+        res.currentItem.track?.artist?.name
+          ? res.currentItem.track.artist.name
+          : " ", 
+        res.container?.name
+          ? res.container.name
+          : " ",
         res.currentItem?.track?.imageUrl
-         ? res.currentItem.track.imageUrl
-         : res.container.imageUrl
+          ? res.currentItem.track.imageUrl 
+          : res.container.imageUrl,
       );
     })
     .catch(function (error) {

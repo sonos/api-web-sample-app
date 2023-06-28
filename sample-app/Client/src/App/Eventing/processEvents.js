@@ -28,8 +28,15 @@ class ProcessRequest {
       }
       else if (this.getMethodType(requestData) === "metadataStatus") {
         try {
-          const trackName = requestData.data.currentItem.track.name;
-          const albumName = requestData.data.currentItem.track.album.name;
+          const trackName = requestData.data.currentItem?.track?.name
+            ? requestData.data.currentItem.track.name
+            : " ";
+          const artistName = requestData.data.currentItem?.track?.artist?.name
+            ? requestData.data.currentItem.track.artist.name
+            : " ";
+          const containerName = requestData.data.container?.name 
+            ? requestData.data.container.name 
+            : " ";
           const trackImage = requestData.data.currentItem.track.imageUrl
            ? requestData.data.currentItem.track.imageUrl
            : requestData.data.currentItem.container.imageUrl;
@@ -37,13 +44,14 @@ class ProcessRequest {
             method: "playBackMetaData",
             data: {
               "trackName": trackName,
-              "albumName": albumName,
-              "trackImage": trackImage
+              "trackImage": trackImage,
+              "artistName": artistName,
+              "containerName": containerName
             },
           };
           return JSON.stringify(res);
         } catch (e) {
-          console.debug("Error in fetching the volume from the event", e);
+          console.debug("Error in fetching the metadata state from the event", e); 
         }
       }
       else{

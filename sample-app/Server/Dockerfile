@@ -1,7 +1,7 @@
 FROM node:latest
 
 # Working dir
-WORKDIR /app
+WORKDIR /app/server
 
 # Copy files from Build
 COPY package*.json ./
