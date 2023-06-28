@@ -13,9 +13,7 @@ export default function VolumeEvent(props) {
         if (data.headers !== undefined) {
           const processRequest = new ProcessRequest();
           const res = processRequest.loadRequest(data);
-          if(JSON.parse(res).method === "volumeControl") {
-            SetMBEResponse(res);
-          }
+          SetMBEResponse(res);
         }
       });
     }
