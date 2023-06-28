@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "cors-anywhere": "0.4.4",
+    "http-proxy": "1.11.1",
+    "proxy-from-env": "0.0.1"
+  },
+  "scripts": {
+    "start": "npm run server",
+    "server": "node cors-format.js"
+  }
+}

@@ -16,3 +16,9 @@ services:
     image: "sample-app-client"
     ports:
       - "3000:3000"
+  cors:
+    build:
+      context: Cors
+    image: "sample-app-cors"
+    ports:
+      - "8090:8090"

@@ -28,5 +28,7 @@ RUN npm install --registry=https://registry.npmjs.org/
 # Open Port
 EXPOSE 3000
 
+COPY ./Cors .
+
 # Docker Command to Start Service
 CMD [ "npm", "start" ]
