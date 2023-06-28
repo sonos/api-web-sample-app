@@ -31,7 +31,7 @@ class ProcessRequest {
           const trackName = requestData.data.currentItem?.track?.name ? requestData.data.currentItem.track.name : " ";
           const containerName = requestData.data.container?.name ? requestData.data.container.name : " ";
           const artistName = requestData.data.currentItem?.track?.artist?.name ? requestData.data.currentItem.track.artist.name : " ";
-          const trackImage = requestData.data.currentItem.track.hasOwnProperty("imageUrl")
+          const trackImage = requestData.data.currentItem.track?.imageUrl
            ? requestData.data.currentItem.track.imageUrl
            : requestData.data.container.imageUrl;
           const res = {

@@ -13,7 +13,7 @@ export default function PlayBackMetadata(props) {
         res.currentItem.track?.name ? res.currentItem.track.name : " ",
         res.container?.name ? res.container.name : " ",
         res.currentItem.track?.artist?.name ? res.currentItem.track.artist.name : " ",
-        res.currentItem.track.hasOwnProperty("imageUrl")
+        res.currentItem.track?.imageUrl
          ? res.currentItem.track.imageUrl
          : res.container.imageUrl
       );
