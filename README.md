@@ -46,7 +46,7 @@ download it to use as a template for your own applications.
 6. Start the Application
 
 	a) **With Docker**
-
+  
     Note - you must have Docker for Desktop installed to perform these steps  - https://www.docker.com/products/docker-desktop/:
 
 	  i. Ensure Docker is running.
@@ -59,6 +59,7 @@ download it to use as a template for your own applications.
 	b) **Without Docker**
 
 	  i. In a terminal/command prompt, run `sh sample-app/run.sh`
+
 7. Access the application at http://localhost:3000
 
 ## Open API Specification Generator
