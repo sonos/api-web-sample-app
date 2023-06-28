@@ -57,7 +57,7 @@ download it to use as a template for your own applications.
 
    b) **Without Docker**
    
-   		i. Enter the `sample-app` directory and run `node cors-format`
+   		i. Enter the `sample-app/Cors` directory and run `node cors-format`
    
 		ii. In a new terminal/command prompt window, run `sh sample-app/run.sh`
 
