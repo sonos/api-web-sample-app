@@ -19,7 +19,6 @@ export default function PlayBackMetaDataEvent(props) {
     }
   });
 
-  console.log(MBEResponse);
   const eventResponse = JSON.parse(MBEResponse);
   if (eventResponse.method === "playBackMetaData"){
       props.handler(eventResponse["data"]);

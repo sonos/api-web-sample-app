@@ -10,13 +10,10 @@ export default function PlayBackStateEvent(props) {
     if (socket !== undefined) {
       // Receive the events via websocket connection established
       socket.on("message from server", (data) => {
-        console.log(data);
         if (data.headers !== undefined) {
           const processRequest = new ProcessRequest();
           const res = processRequest.loadRequest(data);
-          if(JSON.parse(res).method === "playBackState") {
-            SetMBEResponse(res);
-          }
+          SetMBEResponse(res);
         }
       });
     }
