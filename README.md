@@ -58,7 +58,11 @@ download it to use as a template for your own applications.
 
 	b) **Without Docker**
 
-	  i. In a terminal/command prompt, run `sh sample-app/run.sh`
+	  i. In a terminal/command prompt, run `npm start --prefix sample-app/Server`
+
+	  ii. Open a diferent terminal/command prompt, run `npm start --prefix sample-app/Client`
+
+	  iii. Ensure to keep both terminal/command prompt open. Do not close.
 
 7. Access the application at http://localhost:3000
 
