@@ -3,7 +3,6 @@ import { Component } from "react";
 import HelperControls from "../../ControlAPIs/playerControls";
 import PlayBackMetadata from "../../ControlAPIs/playbackMetadata";
 import ImageComponent from "./imageComponent";
-import { SocketContext, socket } from "../../WebSocket/socket";
 import PlayBackMetaDataEvent from "../../WebSocket/playbackMetaDataEvent";
 
 class PlayBackMetaDataComponent extends Component {
@@ -53,9 +52,7 @@ class PlayBackMetaDataComponent extends Component {
   render() {
     return (
       <div className="play_back_metadata">
-        <SocketContext.Provider value={socket}>
-          <PlayBackMetaDataEvent handler={this.receiveEventsHandler} />
-        </SocketContext.Provider>
+        <PlayBackMetaDataEvent handler={this.receiveEventsHandler} />
 
         {this.state.getPlayBackMetaDataFlag && (
           <PlayBackMetadata

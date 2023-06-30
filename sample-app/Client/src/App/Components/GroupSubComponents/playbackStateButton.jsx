@@ -82,9 +82,7 @@ class PlayBackStateButton extends Component {
   render() {
     return (
       <div>
-        <SocketContext.Provider value={socket}>
-          <PlayBackStateEvent handler={this.receiveEventsHandler} />
-        </SocketContext.Provider>
+        <PlayBackStateEvent handler={this.receiveEventsHandler} />
 
         <div>
           {this.state.getStateFlag && (

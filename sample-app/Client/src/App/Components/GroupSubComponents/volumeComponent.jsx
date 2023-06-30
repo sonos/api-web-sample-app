@@ -37,9 +37,7 @@ class VolumeComponent extends Component {
   render() {
     return (
       <div className="slider_container">
-        <SocketContext.Provider value={socket}>
-          <VolumeEvent handler={this.receiveEventsHandler} />
-        </SocketContext.Provider>
+        <VolumeEvent handler={this.receiveEventsHandler} />
 
         {this.state.getStartVolumeFlag && (
           <GetVolume

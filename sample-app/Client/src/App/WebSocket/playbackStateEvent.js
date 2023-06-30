@@ -1,26 +1,14 @@
 import { useState, useContext, useEffect } from "react";
 import { SocketContext } from "./socket";
-import ProcessRequest from "../Eventing/processEvents";
+import MBEResponse from "../Recoil/MBEResponse";
+import { useRecoilValue} from "recoil";
+
 
 export default function PlayBackStateEvent(props) {
-  const socket = useContext(SocketContext);
-  const [MBEResponse, SetMBEResponse] = useState(false);
-
+  const eventResponse = useRecoilValue(MBEResponse);
   useEffect(() => {
-    if (socket !== undefined) {
-      // Receive the events via websocket connection established
-      socket.on("message from server", (data) => {
-        if (data.headers !== undefined) {
-          const processRequest = new ProcessRequest();
-          const res = processRequest.loadRequest(data);
-          SetMBEResponse(res);
-        }
-      });
-    }
-  });
-
-  const eventResponse = JSON.parse(MBEResponse);
-  if (eventResponse.method === "playBackState"){
+    if (eventResponse.method === "playBackState") {
       props.handler(eventResponse["data"]);
-  }
+    }
+  }, [eventResponse]);
 }
