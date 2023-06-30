@@ -58,11 +58,15 @@ download it to use as a template for your own applications.
 
 	b) **Without Docker**
 
-	  i. In a terminal/command prompt, run `npm start --prefix sample-app/Server`
+	  i.  In a terminal/command prompt, navigate to `sample-app/Server/`, and run `npm install`
+	  
+	  ii. In the terminal/command prompt, navigate back to this repository, and run `npm start --prefix sample-app/Server`
 
-	  ii. Open a diferent terminal/command prompt, run `npm start --prefix sample-app/Client`
+	  iii. Open a diferent terminal/command prompt, navigate to `sample-app/Client`, and run `npm install`
 
-	  iii. Ensure to keep both terminal/command prompt open. Do not close.
+	  iv. In the terminal/command prompt, navigate back to this repository, and run `npm start --prefix sample-app/Client`
+
+	  v. Ensure to keep both terminal/command prompt open. Do not close.
 
 7. Access the application at http://localhost:3000
 
