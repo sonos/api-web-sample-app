@@ -4,7 +4,7 @@ class ProcessRequest {
     if (this.getMethodType(requestData) === "playbackStatus") {
       try {
         const playBackState =
-          requestData.data.playbackState === "PLAYBACK_STATE_PLAYING";
+          requestData.data.playbackState === "PLAYBACK_STATE_PLAYING" || requestData.data.playbackState === "PLAYBACK_STATE_BUFFERING";
         const res = {
           method: "playBackState",
           data: { "isPlayingFlag" : playBackState },
@@ -37,9 +37,9 @@ class ProcessRequest {
           const containerName = requestData.data.container?.name 
             ? requestData.data.container.name 
             : " ";
-          const trackImage = requestData.data.currentItem.track.imageUrl
+          const trackImage = requestData.data.currentItem?.track?.imageUrl
            ? requestData.data.currentItem.track.imageUrl
-           : requestData.data.currentItem.container.imageUrl;
+           : requestData.data.container.imageUrl;
           const res = {
             method: "playBackMetaData",
             data: {
