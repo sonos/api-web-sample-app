@@ -3,7 +3,6 @@ import { Component } from "react";
 import PlayBackToggleComponent from "../../ControlAPIs/playbackToggleComponent";
 import HelperControls from "../../ControlAPIs/playerControls";
 import PlayBackStateEvent from "../../WebSocket/playbackStateEvent";
-import { SocketContext, socket } from "../../WebSocket/socket";
 
 class PlayBackStateButton extends Component {
   constructor() {
