@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { SocketContext } from "./socket";
 import ProcessRequest from "../Eventing/processEvents";
