@@ -57,15 +57,17 @@ download it to use as a template for your own applications.
 
    b) **Without Docker**
    
-	  i.  In a terminal/command prompt, navigate to `sample-app/Server/`, and run `npm install`
+	  i. Enter the `sample-app/Cors` directory and run `node cors-format`  
+
+	  ii. In a terminal/command prompt, navigate to `sample-app/Server/`, and run `npm install`
 	  
-	  ii. In the terminal/command prompt, navigate back to this repository, and run `npm start --prefix sample-app/Server`
+	  iii. In the terminal/command prompt, navigate back to this repository, and run `npm start --prefix sample-app/Server`
 
-	  iii. Open a diferent terminal/command prompt, navigate to `sample-app/Client`, and run `npm install`
+	  iv. Open a diferent terminal/command prompt, navigate to `sample-app/Client`, and run `npm install`
 
-	  iv. In the terminal/command prompt, navigate back to this repository, and run `npm start --prefix sample-app/Client`
+	  v. In the terminal/command prompt, navigate back to this repository, and run `npm start --prefix sample-app/Client`
 
-	  v. Ensure to keep both terminal/command prompt open. Do not close.
+	  vi. Ensure to keep both terminal/command prompt open. Do not close.
 
 6. Access the application at http://localhost:3000
 
