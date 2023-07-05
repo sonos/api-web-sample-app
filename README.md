@@ -61,7 +61,7 @@ download it to use as a template for your own applications.
 
 	  	ii. In a different terminal/command prompt, navigate to `sample-app/Server/`, and run `npm install`
 	  
-	  	iii. In the terminal/command prompt, navigate back to this repository, and run `npm start --prefix sample-app/Server`
+	  	iii. After the install, run `npm start`
 
 	  	iv. Open a diferent terminal/command prompt, navigate to `sample-app/Client`, and run `npm install`
 
