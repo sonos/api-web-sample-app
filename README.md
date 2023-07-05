@@ -42,7 +42,7 @@ download it to use as a template for your own applications.
    2. Put the clientId & secret from the key created in [Create client credentials](#Create client credentials) in `config.json`.
    3. Generate Base64 encoded key & secret in the following format: `clientId:secret`.
    4. Paste the generated Base64 encoded key & secret in `b64EncodedKeySecret` inside `config.json`.
-6. Start the Application
+5. Start the Application
 
    a) **With Docker**
   
@@ -57,11 +57,19 @@ download it to use as a template for your own applications.
 
    b) **Without Docker**
    
-   		i. Enter the `sample-app/Cors` directory and run `node cors-format`
-   
-		ii. In a new terminal/command prompt window, run `sh sample-app/run.sh`
+	  	i. Enter the `sample-app/Cors` directory and run `node cors-format`  
 
-8. Access the application at http://localhost:3000
+	  	ii. In a different terminal/command prompt, navigate to `sample-app/Server/`, and run `npm install`
+	  
+	  	iii. After the install, run `npm start`
+
+	  	iv. Open a diferent terminal/command prompt, navigate to `sample-app/Client`, and run `npm install`
+
+	  	v. After the install, run `npm start`
+
+	  	vi. Ensure to keep both terminal/command prompt open. Do not close.
+
+6. Access the application at http://localhost:3000
 
 ## Open API Specification Generator
 The steps for open API spec generation are available in the README in `sample-app/Client/src/App/museClient`
