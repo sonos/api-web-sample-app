@@ -30,6 +30,10 @@ class GroupPlayersComponent extends Component {
         <HeaderComponent />
 
         <div className="group_name">
+          <div className="back_button" >
+            <i className="fa fa-chevron-circle-left fa-4x" aria-hidden="true"></i>
+          </div>
+
           <div className="group_box">
             <p>{this.group.name} </p>
           </div>

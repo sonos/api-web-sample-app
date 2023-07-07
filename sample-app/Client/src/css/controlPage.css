@@ -10,6 +10,12 @@
   color: #000000;
 }
 
+/* .back_button {
+  width: 40%;
+  box-sizing: border-box;
+  color: #000000;
+} */
+
 .group_box {
   width: 40%;
   height: 40%;
@@ -83,14 +89,16 @@
 
 .playpause_track:hover,
 .group_prev:hover,
-.group_next:hover {
+.group_next:hover,
+.back_button:hover {
   opacity: 1;
 }
 
 i.fa-play-circle,
 i.fa-pause-circle,
 i.fa-step-forward,
-i.fa-step-backward {
+i.fa-step-backward,
+i.fa-chevron-circle-left {
   cursor: pointer;
 }
 
