@@ -3,73 +3,37 @@ import { Component } from "react";
 import HelperControls from "../../ControlAPIs/playerControls";
 import PlayBackMetadata from "../../ControlAPIs/playbackMetadata";
 import ImageComponent from "./imageComponent";
-import { SocketContext, socket } from "../../WebSocket/socket";
-import PlayBackMetaDataEvent from "../../WebSocket/playbackMetaDataEvent";
 
 class PlayBackMetaDataComponent extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.ControlOptions = new HelperControls();
     this.volumeSlider = React.createRef();
-    this.state = {
-      getPlayBackMetaDataFlag: true,
-      trackName: null,
-      trackImage: null,
-      artistName: null,
-      containerName: null
-    };
   }
 
-  playBackMetadataHandler = (flag, trackName, artistName, containerName, trackImage) => {
-    this.setState({
-      getPlayBackMetaDataFlag: flag,
-      trackName: trackName,
-      trackImage: trackImage,
-      artistName: artistName,
-      containerName: containerName
-    });
-  };
-
   getImage = () => {
-    if (this.state.trackImage === undefined || this.state.trackImage === "") {
+    if (this.props.state.trackImage === undefined || this.props.state.trackImage === "") {
       return require("../../../images/sonos.png");
     } else {
-      return this.state.trackImage;
-    }
-  };
-
-  receiveEventsHandler = (response) => {
-    console.log(response);
-    if (this.state.trackName !== response["trackName"]) {
-      this.setState({
-        trackName: response["trackName"],
-        trackImage: response["trackImage"],
-        artistName: response["artistName"],
-        containerName: response["containerName"]
-      });
+      return this.props.state.trackImage;
     }
   };
 
   render() {
     return (
       <div className="play_back_metadata">
-        <SocketContext.Provider value={socket}>
-          <PlayBackMetaDataEvent handler={this.receiveEventsHandler} />
-        </SocketContext.Provider>
-
-        {this.state.getPlayBackMetaDataFlag && (
+        {this.props.state.getPlayBackMetaDataFlag && (
           <PlayBackMetadata
             group_id={this.props.groupID}
-            playBackMetadataHandler={this.playBackMetadataHandler}
             museClientConfig={this.props.museClientConfig}
           />
         )}
         <div className="track_details">
           <div className="track_image">
             <ImageComponent src={this.getImage()} alt="Song being played" />
-            <div className="track_name">{this.state.trackName}</div>
-            <div className="track_artist">{this.state.artistName}</div>
-            <div className="track_container">{this.state.containerName}</div>
+            <div className="track_name">{this.props.state.trackName}</div>
+            <div className="track_artist">{this.props.state.artistName}</div>
+            <div className="track_container">{this.props.state.containerName}</div>
           </div>
         </div>
       </div>

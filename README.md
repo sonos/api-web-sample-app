@@ -11,6 +11,8 @@ This repo contains the source code for the Sample-App (Web based). This sample a
 The purpose of this Sample-App is to showcase some examples of how you can integrate your application with the Sonos Ecosystem. Feel free to use it as a reference, or even
 download it to use as a template for your own applications.
 
+*Note: There is a known issue where ngrok does not receive some events. This is a limitation of running the server locally and can be fixed by implementing your own remote server.
+
 
 ## Table of Contents
 
@@ -74,3 +76,31 @@ download it to use as a template for your own applications.
 ## Open API Specification Generator
 The steps for open API spec generation are available in the README in `sample-app/Client/src/App/museClient`
 
+## Eventing Structure
+Event handling uses [Recoil](https://recoiljs.org/) ([learn more here](https://recoiljs.org/docs/introduction/core-concepts)) to keep track of the playback state, playback metadata, and 
+group volume independently of any component. Each of these pieces of state is represented by a [Recoil Atom](sample-app/Client/src/App/Recoil), which is updated and accessed by calling the result 
+of `useRecoilState(AtomName)`.
+
+When the group player page is navigated to, the three atoms are updated by fetching the current state of the group from the Sonos API. From then on, any 
+subsequent updates to the playback state are through eventing. There is a single event listener ([`MuseEventHandler`](sample-app/Client/src/App/WebSocket/MuseEventHandler.js)) that, when it receives an event, calls the 
+relevant function in [`MuseDataHandlers`](sample-app/Client/src/App/MuseDataHandlers) to format the response and then uses this formatted response to update the respective Recoil Atom.
+
+To allow for [group player components](sample-app/Client/src/App/Components/GroupSubComponents) to access and modify the state of the Atoms, the components are created within a wrapper function component, in which the 
+result of `useRecoilState(AtomName)` is passed through props as `state` and `setState`. Any external or internal changes to the Atom's state are reflected in 
+`this.props.state` and the component is automatically re-rendered to reflect the change. Additionally, calling `this.props.setState(newState)` within a 
+component modifies its Atom's state as well as its `this.props.state` field.
+
+### Example/Walkthrough for Playback Metadata
+In [`groupPlayersComponent`](sample-app/Client/src/App/Components/groupPlayersComponent.jsx), `PlaybackMetaDataComponentWrapper` is called, with the current
+group ID and configuration passed through props. In [`PlaybackMetaDataComponentWrapper`](sample-app/Client/src/App/Components/GroupSubComponents/PlaybackMetaDataComponentWrapper.js),
+`useRecoilState(playbackMetadataAtom)` is called and passed into `PlaybackMetaDataComponent` through props as `state` and `setState`, along with the group ID and configuration.
+
+When [`PlaybackMetaDataComponent`](sample-app/Client/src/App/Components/GroupSubComponents/playbackMetaDataComponent.jsx)
+is first created, it calls [`PlaybackMetadata`](sample-app/Client/src/App/ControlAPIs/playbackMetadata.js), which uses the group ID and configuration to make an API request to get the current group's
+playback metadata. Once the API request is received, [`PlaybackMetadataHandler`](sample-app/Client/src/App/MuseDataHandlers/PlaybackMetadataHandler.js) is called
+to properly format the request data. `playbackMetadataAtom`'s state is then set to equal the formatted data, and since the Atom was passed into `PlaybackMetaDataComponent`
+through props, the component automatically re-renders to display the new playback metadata.
+
+Once the initial value is set, any playback metadata events received by 
+[`MuseEventHandler`](sample-app/Client/src/App/WebSocket/MuseEventHandler.js) are passed through [`PlaybackMetadataHandler`](sample-app/Client/src/App/MuseDataHandlers/PlaybackMetadataHandler.js)
+and the state of `playbackMetadataAtom` is updated to reflect the new change. These changes are also atomatically re-rendered by `PlaybackMetadataComponent`.

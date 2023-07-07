@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import {RecoilRoot} from 'recoil';
 import "bootstrap/dist/css/bootstrap.css";
 
 import "./css/login.css";
@@ -15,17 +16,24 @@ import RouteComponents from "./App/Controllers/routingController";
 import RouteGroup from "./App/Routing/routeGroup";
 import RouteHousehold from "./App/Routing/routeHousehold";
 import ErrorPage from "./App/ErrorHandling/errorPage";
+import {socket, SocketContext} from "./App/WebSocket/socket";
+import MuseEventHandler from "./App/WebSocket/MuseEventHandler";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <div>
-    <Router>
-      <Routes>
-        <Route path={"/*"} element={<RouteComponents />} />
-        <Route path="/households/:id" element={<RouteHousehold />} />
-        <Route path="/groups/:id" element={<RouteGroup />} />
-        <Route path="/error-page" element={<ErrorPage />} />
-      </Routes>
-    </Router>
+    <RecoilRoot>
+     <Router>
+       <Routes>
+         <Route path={"/*"} element={<RouteComponents />} />
+         <Route path="/households/:id" element={<RouteHousehold />} />
+         <Route path="/groups/:id" element={<RouteGroup />}/>
+         <Route path="/error-page" element={<ErrorPage />} />
+       </Routes>
+     </Router>
+      <SocketContext.Provider value={socket}>
+        <MuseEventHandler />
+      </SocketContext.Provider>
+    </RecoilRoot>
   </div>
 );

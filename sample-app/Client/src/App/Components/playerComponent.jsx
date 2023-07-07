@@ -5,8 +5,8 @@ import GetVolume from "../ControlAPIs/getVolume";
 import SetVolume from "../ControlAPIs/setVolume";
 
 class PlayerComponent extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { volumeVal: 40, getStartVolumeFlag: true };
     this.volumeSlider = React.createRef();
   }
@@ -29,7 +29,7 @@ class PlayerComponent extends Component {
           <i className="fa fa-volume-down"></i>
           <input
             type="range"
-            min="1"
+            min="0"
             max="100"
             value={this.state.volumeVal}
             step="1"

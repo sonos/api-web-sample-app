@@ -1,22 +1,25 @@
-import { GroupVolumeApiFactory } from "../museClient/api";
-import { PlayerVolumeApiFactory } from "../museClient/api";
+import {GroupVolumeApiFactory, PlayerVolumeApiFactory} from "../museClient/api";
+import VolumeHandler from "../MuseDataHandlers/VolumeHandler";
+import volumeAtom from "../Recoil/volumeAtom";
+import {useRecoilState} from "recoil";
 
 export default function GetVolume(props) {
+  const [volumeState, setVolumeState] = useRecoilState(volumeAtom);
   if (props.deviceType === "GROUP") {
-    const groupVoumeApi = new GroupVolumeApiFactory(props.museClientConfig);
-    groupVoumeApi
+    const groupVolumeApi = new GroupVolumeApiFactory(props.museClientConfig);
+    groupVolumeApi
       .groupVolumeGetVolume(props.deviceId)
-
       .then((res) => {
         console.debug(props.deviceType + " volume at start is : ", res);
-        props.getVolumeHandler(false, res.volume);
+        setVolumeState(VolumeHandler(res));
       })
       .catch(function (error) {
         console.error("Error", error.message);
       });
-  } else {
-    const playerVoumeApi = new PlayerVolumeApiFactory(props.museClientConfig);
-    playerVoumeApi
+  }
+  else {
+    const playerVolumeApi = new PlayerVolumeApiFactory(props.museClientConfig);
+    playerVolumeApi
       .playerVolumeGetVolume(props.deviceId)
       .then((res) => {
         console.debug(props.deviceType + " volume at start is : ", res);

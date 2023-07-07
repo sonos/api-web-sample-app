@@ -3,15 +3,15 @@ import { Component } from "react";
 
 import HelperControls from "../ControlAPIs/playerControls";
 import Subscribe from "../UserDetails/subscribe";
-import PlayBackMetaDataComponent from "./GroupSubComponents/playbackMetaDataComponent";
-import PlayBackStateButton from "./GroupSubComponents/playbackStateButton";
-import VolumeComponent from "./GroupSubComponents/volumeComponent";
+import PlaybackMetaDataComponentWrapper from "./GroupSubComponents/PlaybackMetaDataComponentWrapper";
+import PlayBackStateButtonWrapper from "./GroupSubComponents/PlaybackStateButtonWrapper";
+import VolumeComponentWrapper from "./GroupSubComponents/VolumeComponentWrapper";
 import PlayersController from "../Controllers/playersController";
 import HeaderComponent from "./headerComponent";
 
 class GroupPlayersComponent extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.ControlOptions = new HelperControls();
   }
 
@@ -36,7 +36,7 @@ class GroupPlayersComponent extends Component {
         </div>
 
         <div className="player">
-          <PlayBackMetaDataComponent
+          <PlaybackMetaDataComponentWrapper
             groupID={this.group.id}
             museClientConfig={this.props.museClientConfig}
           />
@@ -45,9 +45,8 @@ class GroupPlayersComponent extends Component {
               <i className="fa fa-step-backward fa-2x"></i>
             </div>
 
-            <PlayBackStateButton
+            <PlayBackStateButtonWrapper
               groupID={this.group.id}
-              playPauseState={false}
               museClientConfig={this.props.museClientConfig}
             />
 
@@ -57,7 +56,7 @@ class GroupPlayersComponent extends Component {
           </div>
 
           <p className="group_volume">Group Volume:</p>
-          <VolumeComponent
+          <VolumeComponentWrapper
             groupID={this.group.id}
             museClientConfig={this.props.museClientConfig}
           />

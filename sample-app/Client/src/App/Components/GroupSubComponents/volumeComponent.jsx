@@ -3,49 +3,30 @@ import { Component } from "react";
 import GetVolume from "../../ControlAPIs/getVolume";
 import SetVolume from "../../ControlAPIs/setVolume";
 import HelperControls from "../../ControlAPIs/playerControls";
-import { SocketContext, socket } from "../../WebSocket/socket";
-import VolumeEvent from "../../WebSocket/volumeEvent";
 
 class VolumeComponent extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.ControlOptions = new HelperControls();
     this.volumeSlider = React.createRef();
-    this.state = {
-      volumeVal: 40,
-      getStartVolumeFlag: true,
-    };
   }
 
   onSetVolume = () => {
     const volume = this.volumeSlider.current.value;
     SetVolume(volume, this.props.groupID, "GROUP", this.props.museClientConfig);
-    this.setState({ volumeVal: volume });
-  };
-
-  getVolumeHandler = (flag, volumeAtStart) => {
-    this.setState({ getStartVolumeFlag: flag, volumeVal: volumeAtStart });
-  };
-
-  receiveEventsHandler = (response) => {
-    console.log(response);
-    const newVolume = response["volume"];
-    if (this.state.volumeVal !== newVolume)
-      this.setState({ volumeVal: newVolume });
+    this.props.setState({
+      volumeVal: volume,
+      getStartVolumeFlag: false
+    });
   };
 
   render() {
     return (
       <div className="slider_container">
-        <SocketContext.Provider value={socket}>
-          <VolumeEvent handler={this.receiveEventsHandler} />
-        </SocketContext.Provider>
-
-        {this.state.getStartVolumeFlag && (
+        {this.props.state.getStartVolumeFlag && (
           <GetVolume
             deviceId={this.props.groupID}
             deviceType={"GROUP"}
-            getVolumeHandler={this.getVolumeHandler}
             museClientConfig={this.props.museClientConfig}
           />
         )}
@@ -53,9 +34,9 @@ class VolumeComponent extends Component {
         <i className="fa fa-volume-down"></i>
         <input
           type="range"
-          min="1"
+          min="0"
           max="100"
-          value={this.state.volumeVal}
+          value={this.props.state.volumeVal}
           step="1"
           ref={this.volumeSlider}
           className="groupVolumeSlider"

@@ -1,6 +1,10 @@
 import { PlaybackMetadataApiFactory } from "../museClient/api";
+import PlaybackMetadataHandler from "../MuseDataHandlers/PlaybackMetadataHandler";
+import {useRecoilState} from "recoil";
+import playbackMetadataAtom from "../Recoil/playbackMetadataAtom";
 
 export default function PlayBackMetadata(props) {
+  const [playbackMetadataResponse, setPlaybackMetadataResponse] = useRecoilState(playbackMetadataAtom);
   const playBackMetadataApi = new PlaybackMetadataApiFactory(
     props.museClientConfig
   );
@@ -8,21 +12,7 @@ export default function PlayBackMetadata(props) {
   playBackMetadataApi
     .playbackMetadataGetMetadataStatus(props.group_id)
     .then((res) => {
-      props.playBackMetadataHandler(
-        false,
-        res.currentItem?.track?.name
-          ? res.currentItem.track.name
-          : " ",
-        res.currentItem?.track?.artist?.name
-          ? res.currentItem.track.artist.name
-          : " ", 
-        res.container?.name
-          ? res.container.name
-          : " ",
-        res.currentItem?.track?.imageUrl
-          ? res.currentItem.track.imageUrl 
-          : res.container.imageUrl,
-      );
+      setPlaybackMetadataResponse(PlaybackMetadataHandler(res));
     })
     .catch(function (error) {
       console.error("Error", error);
