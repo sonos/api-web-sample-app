@@ -8,7 +8,16 @@
   box-sizing: border-box;
   display: block;
   color: #000000;
+  position: relative;
 }
+
+.back_button_Wrapper {
+  position: absolute;
+  top: -4px;
+  left: 10px;
+  z-index: 100;
+}
+
 
 .group_box {
   width: 40%;
