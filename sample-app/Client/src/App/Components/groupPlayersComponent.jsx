@@ -8,6 +8,7 @@ import PlayBackStateButton from "./GroupSubComponents/playbackStateButton";
 import VolumeComponent from "./GroupSubComponents/volumeComponent";
 import PlayersController from "../Controllers/playersController";
 import HeaderComponent from "./headerComponent";
+import BackButton from "./backButtonComponent"
 
 class GroupPlayersComponent extends Component {
   constructor() {
@@ -30,6 +31,9 @@ class GroupPlayersComponent extends Component {
         <HeaderComponent />
 
         <div className="group_name">
+          <div className="back_button_Wrapper"> 
+            <BackButton />
+          </div>
           <div className="group_box">
             <p>{this.group.name} </p>
           </div>

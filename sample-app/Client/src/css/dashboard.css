@@ -26,8 +26,6 @@ body {
 */
 
 .group_text {
-  height: 20%;
-  box-sizing: border-box;
   text-align: center;
 
   display: block;
@@ -38,6 +36,20 @@ body {
   font-size: 25px;
 
   color: #000000;
+  margin-top: 75px;
+}
+
+.info_Wrapper{
+  position: relative;
+  height: 10%;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 100px;
+
+}
+
+.back_button {
+  color: black;
 }
 
 .group_text p {
