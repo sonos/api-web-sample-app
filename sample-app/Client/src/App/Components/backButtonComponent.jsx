@@ -9,7 +9,7 @@ export default function BackButton() {
 
   return (
       <div className="back_button" onClick={goBack} >
-          <i className="fa fa-chevron-circle-left fa-3x" aria-hidden="true"></i>
+          <i className="fa fa-chevron-circle-left fa-3x" ></i>
       </div>
   );
 }

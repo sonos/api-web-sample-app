@@ -1,6 +1,5 @@
 import React from "react";
 import ImageComponent from "./GroupSubComponents/imageComponent";
-// import { useNavigate } from 'react-router-dom';
 
 
 export default function HeaderComponent() {
