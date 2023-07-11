@@ -21,7 +21,6 @@ export default function MuseEventHandler() {
     if (socket !== undefined) {
       // Receive the events via websocket connection established
       socket.on("message from server", (requestData) => {
-        console.log(requestData);
         if (requestData.headers !== undefined) {
           if (getMethodType(requestData) === "playbackStatus") {
             const res = PlaybackStateHandler(requestData.data);
@@ -36,7 +35,7 @@ export default function MuseEventHandler() {
             setPlaybackMetadataResponse(res);
           }
           else if (getMethodType(requestData) === "groupCoordinatorChanged") {
-            const res = GroupStatusHandler(requestData);
+            const res = GroupStatusHandler(requestData.data);
             setGroupStatusResponse(res);
           }
           else{

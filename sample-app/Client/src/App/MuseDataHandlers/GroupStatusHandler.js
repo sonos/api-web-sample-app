@@ -1,19 +1,17 @@
 export default function GroupStatusHandler(requestData) {
   try {
-    if(requestData.data.groupStatus === "GROUP_STATUS_GONE") {
+    if(requestData.groupStatus === "GROUP_STATUS_GONE") {
       const res = {
         groupName: " ",
         groupGoneFlag: true,
-        householdID: requestData.headers["x-sonos-household-id"]
       };
       console.log(res);
       return res;
     }
     else {
       const res = {
-        groupName: requestData.data.groupName,
+        groupName: requestData.groupName,
         groupGoneFlag: false,
-        householdID: requestData.headers["x-sonos-household-id"]
       };
       console.log(res);
       return res;

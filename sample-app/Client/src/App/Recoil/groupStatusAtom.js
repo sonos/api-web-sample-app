@@ -5,7 +5,6 @@ const groupStatusAtom = atom({
   default: {
     groupName: null,
     groupGoneFlag: false,
-    householdID: null
   }
 });
 
