@@ -7,17 +7,21 @@ import VolumeHandler from "../MuseDataHandlers/VolumeHandler";
 import playbackMetadataAtom from "../Recoil/playbackMetadataAtom";
 import playbackStateAtom from "../Recoil/playbackStateAtom";
 import volumeAtom from "../Recoil/volumeAtom";
+import groupStatusAtom from "../Recoil/groupStatusAtom";
+import GroupStatusHandler from "../MuseDataHandlers/GroupStatusHandler";
 
 export default function MuseEventHandler() {
   const socket = useContext(SocketContext);
   const [playbackMetadataResponse, setPlaybackMetadataResponse] = useRecoilState(playbackMetadataAtom);
   const [playbackStateResponse, setPlaybackStateResponse] = useRecoilState(playbackStateAtom);
   const [volumeResponse, setVolumeResponse] = useRecoilState(volumeAtom);
+  const [groupStatusResponse, setGroupStatusResponse] = useRecoilState(groupStatusAtom)
 
   useEffect(() => {
     if (socket !== undefined) {
       // Receive the events via websocket connection established
       socket.on("message from server", (requestData) => {
+        console.log(requestData);
         if (requestData.headers !== undefined) {
           if (getMethodType(requestData) === "playbackStatus") {
             const res = PlaybackStateHandler(requestData.data);
@@ -30,6 +34,10 @@ export default function MuseEventHandler() {
           else if (getMethodType(requestData) === "metadataStatus") {
             const res = PlaybackMetadataHandler(requestData.data);
             setPlaybackMetadataResponse(res);
+          }
+          else if (getMethodType(requestData) === "groupCoordinatorChanged") {
+            const res = GroupStatusHandler(requestData);
+            setGroupStatusResponse(res);
           }
           else{
             console.error(requestData);

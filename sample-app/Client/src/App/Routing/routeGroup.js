@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import GroupPlayersComponent from "../Components/groupPlayersComponent";
 import Authentication from "../Authentication/authentication";
 import { Configuration } from "../museClient/configuration";
+import GroupPlayersComponentWrapper from "../Components/groupPlayersComponentWrapper";
 
 function RouteGroup() {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ function RouteGroup() {
     const museClientConfig = new Configuration({
       accessToken: JSON.parse(window.localStorage.accessToken).token,
     });
-    return <GroupPlayersComponent group={group} museClientConfig={museClientConfig} players={players}/>;
+    return <GroupPlayersComponentWrapper group={group} museClientConfig={museClientConfig} players={players}/>;
   }
 }
 

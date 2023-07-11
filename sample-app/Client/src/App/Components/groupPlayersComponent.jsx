@@ -8,15 +8,17 @@ import PlayBackStateButtonWrapper from "./GroupSubComponents/PlaybackStateButton
 import VolumeComponentWrapper from "./GroupSubComponents/VolumeComponentWrapper";
 import PlayersController from "../Controllers/playersController";
 import HeaderComponent from "./headerComponent";
+import GroupGoneRoutingController from "../Controllers/groupGoneRoutingController";
 
 class GroupPlayersComponent extends Component {
   constructor(props) {
     super(props);
     this.ControlOptions = new HelperControls();
+    this.group = JSON.parse(this.props.group);
+    this.props.setState({groupName: this.group.name})
   }
 
   render() {
-    this.group = JSON.parse(this.props.group);
 
     return (
       <div className="selected_group_page">
@@ -27,11 +29,15 @@ class GroupPlayersComponent extends Component {
           />
         </div>
 
+        {this.props.state.groupGoneFlag && (
+          <GroupGoneRoutingController/>
+        )}
+
         <HeaderComponent />
 
         <div className="group_name">
           <div className="group_box">
-            <p>{this.group.name} </p>
+            <p>{this.props.state.groupName} </p>
           </div>
         </div>
 
