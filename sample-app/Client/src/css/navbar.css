@@ -2,7 +2,7 @@
 *           navBar page
 */
 
-.logo_logout {
+  .logo_logout {
     border:none;
     height: 5%;
     width: 100%;
@@ -34,4 +34,3 @@
   i.fa-chevron-circle-left {
     cursor: pointer;
   }
-  
