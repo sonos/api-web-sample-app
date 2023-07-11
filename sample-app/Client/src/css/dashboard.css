@@ -52,6 +52,10 @@ body {
   color: black;
 }
 
+i.fa-chevron-circle-left {
+  cursor: pointer;
+}
+
 .group_text p {
   top: 42%;
   text-align: center;
