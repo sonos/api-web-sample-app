@@ -9,6 +9,7 @@ import VolumeComponentWrapper from "./GroupSubComponents/VolumeComponentWrapper"
 import PlayersController from "../Controllers/playersController";
 import HeaderComponent from "./headerComponent";
 import GroupGoneRoutingController from "../Controllers/groupGoneRoutingController";
+import BackButton from "./backButtonComponent"
 
 class GroupPlayersComponent extends Component {
   constructor(props) {
@@ -36,6 +37,9 @@ class GroupPlayersComponent extends Component {
         <HeaderComponent />
 
         <div className="group_name">
+          <div className="back_button_Wrapper"> 
+            <BackButton />
+          </div>
           <div className="group_box">
             <p>{this.props.state.groupName} </p>
           </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import ImageComponent from "./GroupSubComponents/imageComponent";
 
+
 export default function HeaderComponent() {
   const logout = () => {
     console.debug("Logging out...");
@@ -15,7 +16,7 @@ export default function HeaderComponent() {
       </div>
       <div className="logout">
         <a onClick={logout}>
-          <ImageComponent src={require("../../images/logout.png")} />
+          <ImageComponent src={require("../../images/logout.png")} /> 
         </a>
       </div>
     </div>

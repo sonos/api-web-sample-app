@@ -13,7 +13,11 @@ class PlayerComponent extends Component {
     this.checked = false;
   }
 
-  handleChange = e => this.setState({ agreement: e.target.checked });
+  handleChange = e => this.props.setState({
+    getStartVolumeFlag: this.props.state.getStartVolumeFlag,
+    volumeVal: this.props.state.volumeVal,
+    inGroup: !this.props.state.inGroup
+  });
 
   render() {
     return (
@@ -28,10 +32,12 @@ class PlayerComponent extends Component {
           )}
         </div>
         <div className="subscribe">
-          <PlayerSubscribe
-            museClientConfig={this.props.museClientConfig}
-            playerID={this.props.playerId}
-          />
+          {this.props.state.inGroup && (
+            <PlayerSubscribe
+              museClientConfig={this.props.museClientConfig}
+              playerID={this.props.playerId}
+            />
+          )}
         </div>
         <div className="checkbox">
           <label>
@@ -43,20 +49,22 @@ class PlayerComponent extends Component {
             <span>{this.props.playerName}</span>
           </label>
         </div>
-        <div className="player_slider_container">
-          <i className="fa fa-volume-down"></i>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={this.props.state.volumeVal}
-            step="1"
-            ref={this.volumeSlider}
-            className="volumeSlider"
-            onChange={() => this.onSetVolume()}
-          />
-          <i className="fa fa-volume-up"></i>
-        </div>
+        {this.props.state.inGroup && (
+          <div className="player_slider_container">
+            <i className="fa fa-volume-down"></i>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={this.props.state.volumeVal}
+              step="1"
+              ref={this.volumeSlider}
+              className="volumeSlider"
+              onChange={() => this.onSetVolume()}
+            />
+            <i className="fa fa-volume-up"></i>
+          </div>
+        )}
         <br />
       </div>
     );

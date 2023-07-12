@@ -9,7 +9,6 @@ import playbackStateAtom from "../Recoil/playbackStateAtom";
 import volumeAtom from "../Recoil/volumeAtom";
 import groupStatusAtom from "../Recoil/groupStatusAtom";
 import GroupStatusHandler from "../MuseDataHandlers/GroupStatusHandler";
-import playerVolumeSelectorFamily from "../Recoil/playerVolumeSelectorFamily";
 import playerVolumeAtomFamily from "../Recoil/playerVolumeAtomFamily";
 
 export default function MuseEventHandler() {
@@ -46,6 +45,7 @@ export default function MuseEventHandler() {
           }
           else if (getMethodType(requestData) === "playerVolume") {
             const res = VolumeHandler(requestData.data);
+            res.inGroup = true;
             setPlayerVolumeResponse(requestData.headers["x-sonos-target-value"], res);
           }
           else{
