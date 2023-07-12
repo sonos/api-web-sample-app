@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import PlayerComponent from "../Components/playerComponent";
+import PlayerComponentWrapper from "../Components/playerComponentWrapper";
 
 class PlayersController extends Component {
   state = {};
@@ -12,7 +12,7 @@ class PlayersController extends Component {
       <div>
         <br />
         {players.map((item) => {
-          return (<PlayerComponent
+          return (<PlayerComponentWrapper
             key={item.id}
             playerId={item.id}
             playerName={item.name}

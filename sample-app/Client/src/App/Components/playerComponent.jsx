@@ -1,37 +1,55 @@
 import React from "react";
 import { Component } from "react";
 
-import GetVolume from "../ControlAPIs/getVolume";
 import SetVolume from "../ControlAPIs/setVolume";
+import GetPlayerVolume from "../ControlAPIs/getPlayerVolume";
+import PlayerSubscribe from "../UserDetails/playerSubscribe";
 
 class PlayerComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = { volumeVal: 40, getStartVolumeFlag: true };
+    this.props.setState({ volumeVal: 40, getStartVolumeFlag: true });
     this.volumeSlider = React.createRef();
+    this.checked = false;
   }
+
+  handleChange = e => this.setState({ agreement: e.target.checked });
 
   render() {
     return (
       <div>
         <div>
-          {this.state.getStartVolumeFlag && (
-            <GetVolume
+          {this.props.state.getStartVolumeFlag && (
+            <GetPlayerVolume
+              state={this.props.state}
               deviceId={this.props.playerId}
-              deviceType={"PLAYER"}
-              getVolumeHandler={this.getVolumeHandler}
               museClientConfig={this.props.museClientConfig}
             />
           )}
         </div>
-        <div className="playerName">{this.props.playerName}</div>
+        <div className="subscribe">
+          <PlayerSubscribe
+            museClientConfig={this.props.museClientConfig}
+            playerID={this.props.playerId}
+          />
+        </div>
+        <div className="checkbox">
+          <label>
+            <input
+              type="checkbox"
+              onChange={this.handleChange}
+              checked={this.checked}
+            />
+            <span>{this.props.playerName}</span>
+          </label>
+        </div>
         <div className="player_slider_container">
           <i className="fa fa-volume-down"></i>
           <input
             type="range"
             min="0"
             max="100"
-            value={this.state.volumeVal}
+            value={this.props.state.volumeVal}
             step="1"
             ref={this.volumeSlider}
             className="volumeSlider"
@@ -44,10 +62,6 @@ class PlayerComponent extends Component {
     );
   }
 
-  getVolumeHandler = (flag, volumeAtStart) => {
-    this.setState({ getStartVolumeFlag: flag, volumeVal: volumeAtStart });
-  };
-
   onSetVolume = () => {
     const volume = this.volumeSlider.current.value;
     SetVolume(
@@ -56,7 +70,6 @@ class PlayerComponent extends Component {
       "PLAYER",
       this.props.museClientConfig
     );
-    this.setState({ volumeVal: volume });
   };
 }
 

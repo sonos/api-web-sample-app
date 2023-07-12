@@ -93,3 +93,64 @@
 .volumeSlider {
   width: 30%;
 }
+
+/*.checkbox input[type="checkbox"] {*/
+/*  !* removing default appearance *!*/
+/*  -webkit-appearance: none;*/
+/*  appearance: none;*/
+/*  !* creating a custom design *!*/
+/*  width: 1.6em;*/
+/*  height: 1.6em;*/
+/*  border-radius: 0.15em;*/
+/*  margin-right: 0.5em;*/
+/*  border: 0.15em solid #007a7e;*/
+/*  outline: none;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*input.checked {*/
+/*  background-color: black;*/
+/*  position: relative;*/
+/*}*/
+
+/*input.checked::before {*/
+/*  content: "\2714";*/
+/*  font-size: 1.5em;*/
+/*  color: #fff;*/
+/*  position: absolute;*/
+/*  right: 1px;*/
+/*  top: -5px;*/
+/*}*/
+/* input:checked {
+  background-color: #007a7e;
+  position: relative;
+}
+
+input:checked::before {
+  content: "\2714";
+  font-size: 1.5em;
+  color: #fff;
+  position: absolute;
+  right: 1px;
+  top: -5px;
+} */
+
+.checkbox label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+
+/*.checkbox input[type="checkbox"]:disabled {*/
+/*  border-color: gray;*/
+/*  background-color: #c0c0c0;*/
+/*}*/
+
+/*.checkbox input[type="checkbox"]:disabled + span {*/
+/*  color: #c0c0c0;*/
+/*}*/
+
+/*.checkbox input[type="checkbox"]:focus {*/
+/*  box-shadow: 0 0 10px black;*/
+/*}*/

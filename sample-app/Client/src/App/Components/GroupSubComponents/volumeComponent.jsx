@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import GetVolume from "../../ControlAPIs/getVolume";
+import GetGroupVolume from "../../ControlAPIs/getGroupVolume";
 import SetVolume from "../../ControlAPIs/setVolume";
 import HelperControls from "../../ControlAPIs/playerControls";
 
@@ -24,9 +24,8 @@ class VolumeComponent extends Component {
     return (
       <div className="slider_container">
         {this.props.state.getStartVolumeFlag && (
-          <GetVolume
+          <GetGroupVolume
             deviceId={this.props.groupID}
-            deviceType={"GROUP"}
             museClientConfig={this.props.museClientConfig}
           />
         )}

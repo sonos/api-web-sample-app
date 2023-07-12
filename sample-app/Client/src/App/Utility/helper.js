@@ -134,7 +134,7 @@ class Helper {
   }
 
   /*
-   * This method returns the house hold url from config.json
+   * This method returns the household url from config.json
    */
   getHouseHoldURL() {
     return config.apiEndPoints.householdApiURL;
@@ -145,6 +145,13 @@ class Helper {
    */
   getGroupsURL() {
     return config.apiEndPoints.controlApiURL;
+  }
+
+  /*
+   * Returns the players control url from config.json
+   */
+  getPlayersURL() {
+    return config.apiEndPoints.playerApiURL;
   }
 
   /*
