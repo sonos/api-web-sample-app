@@ -77,11 +77,11 @@ download it to use as a template for your own applications.
 The steps for open API spec generation are available in the README in `sample-app/Client/src/App/museClient`
 
 ## Eventing Structure
-Event handling uses [Recoil](https://recoiljs.org/) ([learn more here](https://recoiljs.org/docs/introduction/core-concepts)) to keep track of the playback state, playback metadata, and 
-group volume independently of any component. Each of these pieces of state is represented by a [Recoil Atom](sample-app/Client/src/App/Recoil), which is updated and accessed by calling the result 
+Event handling uses [Recoil](https://recoiljs.org/) ([learn more here](https://recoiljs.org/docs/introduction/core-concepts)) to keep track of the playback state, playback metadata, 
+group volume, and group status independently of any component. Each of these pieces of state is represented by a [Recoil Atom](sample-app/Client/src/App/Recoil), which is updated and accessed by calling the result 
 of `useRecoilState(AtomName)`.
 
-When the group player page is navigated to, the three atoms are updated by fetching the current state of the group from the Sonos API. From then on, any 
+When the group player page is navigated to, the four atoms are updated by fetching the current state of the group from the Sonos API. From then on, any 
 subsequent updates to the playback state are through eventing. There is a single event listener ([`MuseEventHandler`](sample-app/Client/src/App/WebSocket/MuseEventHandler.js)) that, when it receives an event, calls the 
 relevant function in [`MuseDataHandlers`](sample-app/Client/src/App/MuseDataHandlers) to format the response and then uses this formatted response to update the respective Recoil Atom.
 

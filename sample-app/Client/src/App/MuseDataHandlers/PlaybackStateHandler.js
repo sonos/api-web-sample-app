@@ -6,9 +6,8 @@ export default function PlaybackStateHandler(requestData) {
       isPlaying: playBackState,
       getStateFlag: false
     };
-    console.log(res);
     return res;
   } catch (e) {
-    console.log("Error in fetching the playback state from the event", e);
+    console.error("Error in fetching the playback state from the event", e);
   }
 }

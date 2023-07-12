@@ -19,7 +19,6 @@ export default function PlaybackMetadataHandler(requestData) {
       containerName: containerName,
       getPlayBackMetaDataFlag: false
     };
-    console.log(res);
     return res;
   } catch (e) {
     console.error("Error in fetching the metadata state from the event", e);
