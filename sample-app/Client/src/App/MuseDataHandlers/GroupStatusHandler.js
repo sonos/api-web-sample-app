@@ -5,7 +5,6 @@ export default function GroupStatusHandler(requestData) {
         groupName: " ",
         groupGoneFlag: true,
       };
-      console.log(res);
       return res;
     }
     else {
@@ -13,10 +12,9 @@ export default function GroupStatusHandler(requestData) {
         groupName: requestData.groupName,
         groupGoneFlag: false,
       };
-      console.log(res);
       return res;
     }
   } catch (e) {
-    console.log("Error in fetching the group status from the event", e);
+    console.error("Error in fetching the group status from the event", e);
   }
 }

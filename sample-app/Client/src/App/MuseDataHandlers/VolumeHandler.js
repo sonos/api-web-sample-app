@@ -5,7 +5,6 @@ export default function VolumeHandler(requestData) {
       getStartVolumeFlag: false,
       volumeVal: volume
     };
-    console.log(res);
     return res;
   } catch (e) {
     console.error("Error in fetching the volume from the event", e);
