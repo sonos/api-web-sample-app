@@ -79,7 +79,7 @@ The steps for open API spec generation are available in the README in `sample-ap
 ## Eventing Structure
 Event handling uses [Recoil](https://recoiljs.org/) ([learn more here](https://recoiljs.org/docs/introduction/core-concepts)) to keep track of the playback state, playback metadata, 
 group volume, group status, and player information independently of any component. With the exception of player information, each of these pieces of state is represented by a [Recoil Atom](sample-app/Client/src/App/Recoil), which is updated and accessed by calling the result 
-of `useRecoilState(AtomName)`. Player information is represented by a Recoil Atom, which is updated and accessed by calling the result of `useRecoilState(AtomFamilyName(PlayerID))`.
+of `useRecoilState(AtomName)`. As the number of players is variable, player information is represented by a Recoil Atom Family, which is updated and accessed by calling the result of `useRecoilState(AtomFamilyName(PlayerID))`.
 
 When the group player page is navigated to, the atoms are updated by fetching the current state of the group from the Sonos API. From then on, any 
 subsequent updates to the playback state are through eventing. There is a single event listener ([`MuseEventHandler`](sample-app/Client/src/App/WebSocket/MuseEventHandler.js)) that, when it receives an event, calls the 
