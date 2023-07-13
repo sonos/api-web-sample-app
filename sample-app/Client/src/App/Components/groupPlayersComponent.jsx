@@ -32,7 +32,9 @@ class GroupPlayersComponent extends Component {
         </div>
 
         {this.props.state.groupGoneFlag && (
-          <GroupGoneRoutingController/>
+          <GroupGoneRoutingController
+            navigate={this.props.navigate}
+          />
         )}
 
         <div className="grouped_players_setter">
@@ -47,8 +49,10 @@ class GroupPlayersComponent extends Component {
         <HeaderComponent />
 
         <div className="group_name">
-          <div className="back_button_Wrapper"> 
-            <BackButton />
+          <div className="back_button_Wrapper">
+            <BackButton
+              navigate={this.props.navigate}
+            />
           </div>
           <div className="group_box">
             <p>{this.props.state.groupName} </p>
