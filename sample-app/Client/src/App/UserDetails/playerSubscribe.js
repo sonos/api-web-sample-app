@@ -1,7 +1,3 @@
-/**
- * @author Mugdha Rane <mugdha.rane@sonos.com>
- * This class handles the subscription api calls
- */
 import Helper from "../Utility/helper";
 import { useEffect, useState } from "react";
 
