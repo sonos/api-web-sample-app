@@ -78,15 +78,15 @@ The steps for open API spec generation are available in the README in `sample-ap
 
 ## Eventing Structure
 Event handling uses [Recoil](https://recoiljs.org/) ([learn more here](https://recoiljs.org/docs/introduction/core-concepts)) to keep track of the playback state, playback metadata, 
-group volume, and group status independently of any component. Each of these pieces of state is represented by a [Recoil Atom](sample-app/Client/src/App/Recoil), which is updated and accessed by calling the result 
-of `useRecoilState(AtomName)`.
+group volume, group status, and player information independently of any component. With the exception of player information, each of these pieces of state is represented by a [Recoil Atom](sample-app/Client/src/App/Recoil), which is updated and accessed by calling the result 
+of `useRecoilState(AtomName)`. Player information is represented by a Recoil Atom, which is updated and accessed by calling the result of `useRecoilState(AtomFamilyName(PlayerID))`.
 
-When the group player page is navigated to, the four atoms are updated by fetching the current state of the group from the Sonos API. From then on, any 
+When the group player page is navigated to, the atoms are updated by fetching the current state of the group from the Sonos API. From then on, any 
 subsequent updates to the playback state are through eventing. There is a single event listener ([`MuseEventHandler`](sample-app/Client/src/App/WebSocket/MuseEventHandler.js)) that, when it receives an event, calls the 
 relevant function in [`MuseDataHandlers`](sample-app/Client/src/App/MuseDataHandlers) to format the response and then uses this formatted response to update the respective Recoil Atom.
 
-To allow for [group player components](sample-app/Client/src/App/Components/GroupSubComponents) to access and modify the state of the Atoms, the components are created within a wrapper function component, in which the 
-result of `useRecoilState(AtomName)` is passed through props as `state` and `setState`. Any external or internal changes to the Atom's state are reflected in 
+To allow for [group player components](sample-app/Client/src/App/Components/GroupSubComponents) and [playerComponent](sample-app/Client/src/App/Components/playerComponent.jsx) to access and modify the state of the Atoms, the components are created within a wrapper function component, in which the 
+result of `useRecoilState(AtomName)` or `useRecoilState(AtomFamilyName(PlayerID))` is passed through props as `state` and `setState`. Any external or internal changes to the Atom's state are reflected in 
 `this.props.state` and the component is automatically re-rendered to reflect the change. Additionally, calling `this.props.setState(newState)` within a 
 component modifies its Atom's state as well as its `this.props.state` field.
 

@@ -158,7 +158,7 @@ class Helper {
    * This method returns the b64 encoded key secret from config.json
    */
   getB64KeySecretOAuthUrl() {
-    return config.credentials.b64EncodedKeySecret;
+    return btoa(config.credentials.clientId + ":" + config.credentials.secret);
   }
 
   /*

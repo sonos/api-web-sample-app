@@ -8,16 +8,17 @@ import PlayerSubscribe from "../UserDetails/playerSubscribe";
 class PlayerComponent extends Component {
   constructor(props) {
     super(props);
-    this.props.setState({ volumeVal: 40, getStartVolumeFlag: true });
     this.volumeSlider = React.createRef();
-    this.checked = false;
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = e => this.props.setState({
-    getStartVolumeFlag: this.props.state.getStartVolumeFlag,
-    volumeVal: this.props.state.volumeVal,
-    inGroup: !this.props.state.inGroup
-  });
+  handleChange() {
+    this.props.setState({
+      getStartVolumeFlag: this.props.state.getStartVolumeFlag,
+      volumeVal: this.props.state.volumeVal,
+      inGroup: !this.props.state.inGroup
+    });
+  }
 
   render() {
     return (
@@ -43,8 +44,8 @@ class PlayerComponent extends Component {
           <label>
             <input
               type="checkbox"
+              checked={this.props.state.inGroup}
               onChange={this.handleChange}
-              checked={this.checked}
             />
             <span>{this.props.playerName}</span>
           </label>

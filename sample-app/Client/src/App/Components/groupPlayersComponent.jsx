@@ -10,6 +10,7 @@ import PlayersController from "../Controllers/playersController";
 import HeaderComponent from "./headerComponent";
 import GroupGoneRoutingController from "../Controllers/groupGoneRoutingController";
 import BackButton from "./backButtonComponent"
+import GetGroupedPlayer from "../ControlAPIs/getGroupedPlayer";
 
 class GroupPlayersComponent extends Component {
   constructor(props) {
@@ -33,6 +34,15 @@ class GroupPlayersComponent extends Component {
         {this.props.state.groupGoneFlag && (
           <GroupGoneRoutingController/>
         )}
+
+        <div className="grouped_players_setter">
+          {this.group.playerIds.map((item) => {
+            return (<GetGroupedPlayer
+              key={item}
+              playerID={item}
+            />)
+          })}
+        </div>
 
         <HeaderComponent />
 

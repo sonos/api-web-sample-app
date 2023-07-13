@@ -2,7 +2,6 @@ import React from "react";
 import { Component } from "react";
 import GetGroups from "../UserDetails/getGroups";
 
-import { Configuration } from "../museClient/configuration";
 import ListGroupsComponent from "../Components/listGroupsComponent";
 
 class FetchGroups extends Component {

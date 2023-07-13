@@ -25,7 +25,6 @@ export default function MuseEventHandler() {
     if (socket !== undefined) {
       // Receive the events via websocket connection established
       socket.on("message from server", (requestData) => {
-        console.log(requestData);
         if (requestData.headers !== undefined) {
           if (getMethodType(requestData) === "playbackStatus") {
             const res = PlaybackStateHandler(requestData.data);

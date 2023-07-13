@@ -11,7 +11,7 @@ export default function GetPlayerVolume(props) {
     .then((res) => {
       console.debug(props.deviceType + " volume at start is : ", res);
       const data = VolumeHandler(res);
-      data.inGroup = true;
+      data.inGroup = props.state.inGroup;
       setVolumeState(data);
     })
     .catch(function (error) {

@@ -5,7 +5,6 @@ import PlayerComponentWrapper from "../Components/playerComponentWrapper";
 class PlayersController extends Component {
   state = {};
   render() {
-    // const group = JSON.parse(this.props.group);
     const players = JSON.parse(this.props.players);
 
     return (
