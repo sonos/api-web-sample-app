@@ -16,6 +16,7 @@ class PlayersController extends Component {
             playerId={item.id}
             playerName={item.name}
             museClientConfig={this.props.museClientConfig}
+            playersInGroup={this.props.playersInGroup}
           />)
         })}
       </div>

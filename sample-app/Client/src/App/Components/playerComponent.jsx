@@ -10,6 +10,11 @@ class PlayerComponent extends Component {
     super(props);
     this.volumeSlider = React.createRef();
     this.handleChange = this.handleChange.bind(this);
+    this.props.setState({
+      getStartVolumeFlag: true,
+      volumeVal: this.props.state.volumeVal,
+      inGroup: this.props.playersInGroup[this.props.playerId]
+    });
   }
 
   handleChange() {
@@ -61,7 +66,7 @@ class PlayerComponent extends Component {
               step="1"
               ref={this.volumeSlider}
               className="volumeSlider"
-              onChange={() => this.onSetVolume()}
+              onChange={this.onSetVolume}
             />
             <i className="fa fa-volume-up"></i>
           </div>
@@ -79,6 +84,11 @@ class PlayerComponent extends Component {
       "PLAYER",
       this.props.museClientConfig
     );
+    this.props.setState({
+      getStartVolumeFlag: this.props.state.getStartVolumeFlag,
+      volumeVal: volume,
+      inGroup: this.props.state.inGroup
+    });
   };
 }
 

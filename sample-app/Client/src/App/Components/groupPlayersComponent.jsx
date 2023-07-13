@@ -37,15 +37,6 @@ class GroupPlayersComponent extends Component {
           />
         )}
 
-        <div className="grouped_players_setter">
-          {this.group.playerIds.map((item) => {
-            return (<GetGroupedPlayer
-              key={item}
-              playerID={item}
-            />)
-          })}
-        </div>
-
         <HeaderComponent />
 
         <div className="group_name">
@@ -96,6 +87,7 @@ class GroupPlayersComponent extends Component {
             group={this.props.group}
             players={this.props.players}
             museClientConfig={this.props.museClientConfig}
+            playersInGroup={this.props.playersInGroup}
           />
         </div>
       </div>
