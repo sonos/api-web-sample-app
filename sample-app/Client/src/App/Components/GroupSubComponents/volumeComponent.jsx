@@ -9,6 +9,10 @@ class VolumeComponent extends Component {
     super(props);
     this.ControlOptions = new HelperControls();
     this.volumeSlider = React.createRef();
+    this.props.setState({
+      volumeVal: 0,
+      getStartVolumeFlag: true,
+    });
   }
 
   onSetVolume = () => {

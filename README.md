@@ -42,8 +42,6 @@ download it to use as a template for your own applications.
 4. Configure authentication
    1. Open the file config.json in the location - `sample-app/Client/src/`
    2. Put the clientId & secret from the key created in [Create client credentials](#Create client credentials) in `config.json`.
-   3. Generate Base64 encoded key & secret in the following format: `clientId:secret`.
-   4. Paste the generated Base64 encoded key & secret in `b64EncodedKeySecret` inside `config.json`.
 5. Start the Application
 
    a) **With Docker**

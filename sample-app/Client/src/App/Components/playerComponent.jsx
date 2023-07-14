@@ -13,7 +13,7 @@ class PlayerComponent extends Component {
     this.props.setState({
       getStartVolumeFlag: true,
       volumeVal: this.props.state.volumeVal,
-      inGroup: this.props.playersInGroup[this.props.playerId]
+      inGroup: this.props.inGroup
     });
   }
 

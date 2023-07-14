@@ -10,7 +10,7 @@ export default function PlayerComponentWrapper(props) {
     playerId={props.playerId}
     playerName={props.playerName}
     museClientConfig={props.museClientConfig}
-    playersInGroup={props.playersInGroup}
+    inGroup={props.inGroup}
     state={volState}
     setState={setVolState}
   />);

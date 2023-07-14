@@ -17,6 +17,10 @@ export default function MuseEventHandler() {
   const [playbackStateResponse, setPlaybackStateResponse] = useRecoilState(playbackStateAtom);
   const [volumeResponse, setVolumeResponse] = useRecoilState(volumeAtom);
   const [groupStatusResponse, setGroupStatusResponse] = useRecoilState(groupStatusAtom);
+  const groupStatusSnapshot = useRecoilCallback(({snapshot}) => () => {
+    let loadable = snapshot.getLoadable(groupStatusAtom);
+    return loadable.valueMaybe();
+  }, []);
   const setPlayerVolumeResponse = useRecoilCallback(({set}) => (playerId, val) => {
     set(playerVolumeAtomFamily(playerId), val);
   }, []);
@@ -30,29 +34,29 @@ export default function MuseEventHandler() {
       // Receive the events via websocket connection established
       socket.on("message from server", (requestData) => {
         if (requestData.headers !== undefined) {
-          if (getMethodType(requestData) === "playbackStatus") {
-            const res = PlaybackStateHandler(requestData.data);
-            setPlaybackStateResponse(res);
-          }
-          else if (getMethodType(requestData) === "groupVolume") {
-            const res = VolumeHandler(requestData.data);
-            setVolumeResponse(res);
-          }
-          else if (getMethodType(requestData) === "metadataStatus") {
-            const res = PlaybackMetadataHandler(requestData.data);
-            setPlaybackMetadataResponse(res);
-          }
-          else if (getMethodType(requestData) === "groupCoordinatorChanged") {
-            const res = GroupStatusHandler(requestData.data);
-            setGroupStatusResponse(res);
+          if (requestData.headers["x-sonos-target-value"] === groupStatusSnapshot().groupID) {
+            if (getMethodType(requestData) === "playbackStatus") {
+              const res = PlaybackStateHandler(requestData.data);
+              setPlaybackStateResponse(res);
+            }
+            else if (getMethodType(requestData) === "groupVolume") {
+              const res = VolumeHandler(requestData.data);
+              setVolumeResponse(res);
+            }
+            else if (getMethodType(requestData) === "metadataStatus") {
+              const res = PlaybackMetadataHandler(requestData.data);
+              setPlaybackMetadataResponse(res);
+            }
+            else if (getMethodType(requestData) === "groupCoordinatorChanged") {
+              const res = GroupStatusHandler(requestData.data);
+              res.groupID = groupStatusSnapshot().groupID;
+              setGroupStatusResponse(res);
+            }
           }
           else if (getMethodType(requestData) === "playerVolume") {
             const res = VolumeHandler(requestData.data);
             res.inGroup = playerVolumeResponse(requestData.headers["x-sonos-target-value"]).inGroup;
             setPlayerVolumeResponse(requestData.headers["x-sonos-target-value"], res);
-          }
-          else{
-            console.error(requestData);
           }
         }
       });

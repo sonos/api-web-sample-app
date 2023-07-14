@@ -10,18 +10,20 @@ import PlayersController from "../Controllers/playersController";
 import HeaderComponent from "./headerComponent";
 import GroupGoneRoutingController from "../Controllers/groupGoneRoutingController";
 import BackButton from "./backButtonComponent"
-import GetGroupedPlayer from "../ControlAPIs/getGroupedPlayer";
 
 class GroupPlayersComponent extends Component {
   constructor(props) {
     super(props);
     this.ControlOptions = new HelperControls();
     this.group = JSON.parse(this.props.group);
-    this.props.setState({groupName: this.group.name})
+    this.props.setState({
+      groupName: this.group.name,
+      groupID: this.group.id,
+      groupGoneFlag: false
+    });
   }
 
   render() {
-
     return (
       <div className="selected_group_page">
         <div className="subscribe">
