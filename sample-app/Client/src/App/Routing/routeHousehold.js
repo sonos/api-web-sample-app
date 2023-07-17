@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Authentication from "../Authentication/authentication";
 import { Configuration } from "../museClient/configuration";
-import FetchGroups from "../Controllers/fetchGroupsController";
+import FetchGroupsControllerWrapper from "../Controllers/fetchGroupsControllerWrapper";
 
 
 function RouteHousehold() {
@@ -25,7 +25,7 @@ function RouteHousehold() {
     const museClientConfig = new Configuration({
       accessToken: JSON.parse(window.localStorage.accessToken).token,
     });
-    return <FetchGroups household_id={household_id} museClientConfig={museClientConfig} />;
+    return <FetchGroupsControllerWrapper household_id={household_id} museClientConfig={museClientConfig} />;
   }
 }
 

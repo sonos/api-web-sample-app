@@ -4,25 +4,32 @@ import { Component } from "react";
 import SetVolume from "../ControlAPIs/setVolume";
 import GetPlayerVolume from "../ControlAPIs/getPlayerVolume";
 import PlayerSubscribe from "../UserDetails/playerSubscribe";
+import HelperControls from "../ControlAPIs/playerControls";
 
 class PlayerComponent extends Component {
   constructor(props) {
     super(props);
     this.volumeSlider = React.createRef();
     this.handleChange = this.handleChange.bind(this);
+    this.ControlOptions = new HelperControls();
     this.props.setState({
       getStartVolumeFlag: true,
       volumeVal: this.props.state.volumeVal,
-      inGroup: this.props.inGroup
     });
   }
 
   handleChange() {
-    this.props.setState({
-      getStartVolumeFlag: this.props.state.getStartVolumeFlag,
-      volumeVal: this.props.state.volumeVal,
-      inGroup: !this.props.state.inGroup
-    });
+    const data = {
+      playerIdsToAdd:[],
+      playerIdsToRemove:[]
+    }
+    if(!this.props.inGroup) {
+      data.playerIdsToAdd = [this.props.playerId];
+    }
+    else {
+      data.playerIdsToRemove = [this.props.playerId];
+    }
+    this.ControlOptions.helperControls("groups/modifyGroupMembers", this.props.group.id, data);
   }
 
   render() {
@@ -38,7 +45,7 @@ class PlayerComponent extends Component {
           )}
         </div>
         <div className="subscribe">
-          {this.props.state.inGroup && (
+          {this.props.inGroup && (
             <PlayerSubscribe
               museClientConfig={this.props.museClientConfig}
               playerID={this.props.playerId}
@@ -49,13 +56,13 @@ class PlayerComponent extends Component {
           <label>
             <input
               type="checkbox"
-              checked={this.props.state.inGroup}
+              checked={this.props.inGroup}
               onChange={this.handleChange}
             />
             <span>{this.props.playerName}</span>
           </label>
         </div>
-        {this.props.state.inGroup && (
+        {this.props.inGroup && (
           <div className="player_slider_container">
             <i className="fa fa-volume-down"></i>
             <input
@@ -87,7 +94,6 @@ class PlayerComponent extends Component {
     this.props.setState({
       getStartVolumeFlag: this.props.state.getStartVolumeFlag,
       volumeVal: volume,
-      inGroup: this.props.state.inGroup
     });
   };
 }

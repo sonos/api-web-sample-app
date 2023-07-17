@@ -10,17 +10,13 @@ import PlayersController from "../Controllers/playersController";
 import HeaderComponent from "./headerComponent";
 import GroupGoneRoutingController from "../Controllers/groupGoneRoutingController";
 import BackButton from "./backButtonComponent"
+import SkipToPreviousController from "../Controllers/skipToPreviousController";
+import GetGroups from "../UserDetails/getGroups";
 
 class GroupPlayersComponent extends Component {
   constructor(props) {
     super(props);
     this.ControlOptions = new HelperControls();
-    this.group = JSON.parse(this.props.group);
-    this.props.setState({
-      groupName: this.group.name,
-      groupID: this.group.id,
-      groupGoneFlag: false
-    });
   }
 
   render() {
@@ -29,9 +25,18 @@ class GroupPlayersComponent extends Component {
         <div className="subscribe">
           <Subscribe
             museClientConfig={this.props.museClientConfig}
-            groupID={this.group.id}
+            groupID={this.props.groupID}
           />
         </div>
+
+        {this.props.groupsInfoState.group_flag && (
+          <GetGroups
+            householdID={this.props.householdID}
+            museClientConfig={this.props.museClientConfig}
+            setGroup={true}
+            groupID={this.props.groupID}
+          />
+        )}
 
         {this.props.state.groupGoneFlag && (
           <GroupGoneRoutingController
@@ -40,6 +45,14 @@ class GroupPlayersComponent extends Component {
         )}
 
         <HeaderComponent />
+
+        {this.props.skipBack && (
+          <SkipToPreviousController
+            setSkipBack={this.props.setSkipBack}
+            groupID={this.props.groupID}
+            museClientConfig={this.props.museClientConfig}
+          />
+        )}
 
         <div className="group_name">
           <div className="back_button_Wrapper">
@@ -54,7 +67,7 @@ class GroupPlayersComponent extends Component {
 
         <div className="player">
           <PlaybackMetaDataComponentWrapper
-            groupID={this.group.id}
+            groupID={this.props.groupID}
             museClientConfig={this.props.museClientConfig}
           />
           <div className="group_buttons">
@@ -63,7 +76,7 @@ class GroupPlayersComponent extends Component {
             </div>
 
             <PlayBackStateButtonWrapper
-              groupID={this.group.id}
+              groupID={this.props.groupID}
               museClientConfig={this.props.museClientConfig}
             />
 
@@ -74,7 +87,7 @@ class GroupPlayersComponent extends Component {
 
           <p className="group_volume">Group Volume:</p>
           <VolumeComponentWrapper
-            groupID={this.group.id}
+            groupID={this.props.groupID}
             museClientConfig={this.props.museClientConfig}
           />
         </div>
@@ -85,25 +98,24 @@ class GroupPlayersComponent extends Component {
               <div className="player_text">Players</div>
             </div>
           </div>
-          <PlayersController
-            group={this.props.group}
-            players={this.props.players}
-            museClientConfig={this.props.museClientConfig}
-            playersInGroup={this.props.playersInGroup}
-          />
+          {!this.props.groupsInfoState.group_flag && (
+            <PlayersController
+              group={this.props.groupsInfoState.groups[this.props.groupID]}
+              players={this.props.groupsInfoState.players}
+              museClientConfig={this.props.museClientConfig}
+            />)}
         </div>
       </div>
     );
   }
 
   skipToPrevious = () => {
-    console.debug("Trying to skip to previous song...");
-    this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id);
+    this.props.setSkipBack(true);
   };
 
   skipToNext = () => {
     console.debug("Trying to skip to next song...");
-    this.ControlOptions.helperControls("skipToNextTrack", this.group.id);
+    this.ControlOptions.helperControls("playback/skipToNextTrack", this.props.groupID, {});
   };
 }
 

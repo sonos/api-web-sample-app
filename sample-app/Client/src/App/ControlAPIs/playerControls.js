@@ -1,7 +1,6 @@
 import Authentication from "../Authentication/authentication";
 import Helper from "../Utility/helper";
 import { Component } from "react";
-import { PlaybackApi } from "../museClient/api";
 
 class HelperControls extends Component {
   constructor() {
@@ -10,13 +9,11 @@ class HelperControls extends Component {
     this.helper = new Helper();
   }
 
-  helperControls(input_action, grp_id, museClientConfig) {
+  helperControls(input_action, grp_id, data) {
     let endPoint =
-      this.helper.getGroupsURL() + grp_id + "/playback/" + input_action;
+      this.helper.getGroupsURL() + grp_id + "/" + input_action;
 
     const headers = this.helper.getHeaderBearer();
-
-    const data = {};
 
     this.helper
       .apiCall(endPoint, headers, "POST", data)

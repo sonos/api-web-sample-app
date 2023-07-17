@@ -10,6 +10,8 @@ import volumeAtom from "../Recoil/volumeAtom";
 import groupStatusAtom from "../Recoil/groupStatusAtom";
 import GroupStatusHandler from "../MuseDataHandlers/GroupStatusHandler";
 import playerVolumeAtomFamily from "../Recoil/playerVolumeAtomFamily";
+import groupsInfoAtom from "../Recoil/groupsInfoAtom";
+import GroupsInfoHandler from "../MuseDataHandlers/GroupsInfoHandler";
 
 export default function MuseEventHandler() {
   const socket = useContext(SocketContext);
@@ -26,6 +28,11 @@ export default function MuseEventHandler() {
   }, []);
   const playerVolumeResponse = useRecoilCallback(({snapshot}) => (playerId) => {
     let loadable = snapshot.getLoadable(playerVolumeAtomFamily(playerId));
+    return loadable.valueMaybe();
+  }, []);
+  const [groupsInfoResponse, setGroupsInfoResponse] = useRecoilState(groupsInfoAtom);
+  const groupsInfoSnapshot = useRecoilCallback(({snapshot}) => () => {
+    let loadable = snapshot.getLoadable(groupsInfoAtom);
     return loadable.valueMaybe();
   }, []);
 
@@ -57,6 +64,11 @@ export default function MuseEventHandler() {
             const res = VolumeHandler(requestData.data);
             res.inGroup = playerVolumeResponse(requestData.headers["x-sonos-target-value"]).inGroup;
             setPlayerVolumeResponse(requestData.headers["x-sonos-target-value"], res);
+          }
+          else if (getMethodType(requestData) === "groups" && requestData.headers["x-sonos-target-value"] === groupsInfoSnapshot().householdID) {
+            const res = GroupsInfoHandler(requestData.data);
+            res.householdID = groupsInfoSnapshot().householdID;
+            setGroupsInfoResponse(res);
           }
         }
       });

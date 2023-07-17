@@ -7,7 +7,6 @@ import GroupPlayersComponentWrapper from "../Components/groupPlayersComponentWra
 function RouteGroup() {
   const navigate = useNavigate();
   const { state } = useLocation();
-
   useEffect(() => {
     if (state === null || state === undefined) {
       navigate("/");
@@ -17,14 +16,19 @@ function RouteGroup() {
     if (new Authentication().isAccessTokenValid() !== true) {
       navigate("/");
     }
+
   }, []);
 
   if ((state !== null) & (new Authentication().isAccessTokenValid() === true)) {
-    const { group, players } = state;
+    const { householdID, groupID } = state;
     const museClientConfig = new Configuration({
       accessToken: JSON.parse(window.localStorage.accessToken).token,
     });
-    return <GroupPlayersComponentWrapper group={group} museClientConfig={museClientConfig} players={players}/>;
+    return <GroupPlayersComponentWrapper
+      groupID={groupID}
+      museClientConfig={museClientConfig}
+      householdID={householdID}
+    />;
   }
 }
 
