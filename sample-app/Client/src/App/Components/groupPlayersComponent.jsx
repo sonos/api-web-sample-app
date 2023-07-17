@@ -43,9 +43,7 @@ class GroupPlayersComponent extends Component {
 
         <div className="group_name">
           <div className="back_button_Wrapper">
-            <BackButton
-              navigate={this.props.navigate}
-            />
+            <BackButton navigate={this.props.navigate}/>
           </div>
           <div className="group_box">
             <p>{this.props.state.groupName} </p>

@@ -14,9 +14,7 @@ class ListGroupsComponent extends Component {
           <HeaderComponent />
           <div className="info_Wrapper">
             <div className="back_button_Wrapper"> 
-                <BackButton
-                  navigate={this.props.navigate}
-                />
+                <BackButton navigate={this.props.navigate}/>
             </div>
             <div className="group_text">
               <p>List of Groups in your Household: </p>
