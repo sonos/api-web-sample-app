@@ -10,6 +10,8 @@ import PlayersController from "../Controllers/playersController";
 import HeaderComponent from "./headerComponent";
 import GroupGoneRoutingController from "../Controllers/groupGoneRoutingController";
 import BackButton from "./backButtonComponent"
+import SkipToPreviousController from "../Controllers/skipToPreviousController";
+import SkipToNextController from "../Controllers/skipToNextController";
 
 class GroupPlayersComponent extends Component {
   constructor(props) {
@@ -17,6 +19,7 @@ class GroupPlayersComponent extends Component {
     this.ControlOptions = new HelperControls();
     this.group = JSON.parse(this.props.group);
     this.props.setState({groupName: this.group.name})
+    this.previousClickTime = 0;
   }
 
   render() {
@@ -35,6 +38,22 @@ class GroupPlayersComponent extends Component {
         )}
 
         <HeaderComponent />
+
+        {this.props.skipBack && (
+          <SkipToPreviousController
+            setSkipBack={this.props.setSkipBack}
+            groupID={this.group.id}
+            museClientConfig={this.props.museClientConfig}
+          />
+        )}
+
+        {this.props.skipForward && (
+          <SkipToNextController
+            setSkipForward={this.props.setSkipForward}
+            groupID={this.group.id}
+            museClientConfig={this.props.museClientConfig}
+          />
+        )}
 
         <div className="group_name">
           <div className="back_button_Wrapper"> 
@@ -88,14 +107,13 @@ class GroupPlayersComponent extends Component {
     );
   }
 
+
   skipToPrevious = () => {
-    console.debug("Trying to skip to previous song...");
-    this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id);
+    this.props.setSkipBack(true);
   };
 
   skipToNext = () => {
-    console.debug("Trying to skip to next song...");
-    this.ControlOptions.helperControls("skipToNextTrack", this.group.id);
+    this.props.setSkipForward(true);
   };
 }
 
