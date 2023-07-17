@@ -36,6 +36,7 @@ class FetchGroups extends Component {
             <ListGroupsComponent
               groups={this.state.groups}
               players={this.state.players}
+              navigate={this.props.navigate}
             />
           )}
         </div>

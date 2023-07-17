@@ -25,7 +25,7 @@ function RouteHousehold() {
     const museClientConfig = new Configuration({
       accessToken: JSON.parse(window.localStorage.accessToken).token,
     });
-    return <FetchGroups household_id={household_id} museClientConfig={museClientConfig} />;
+    return <FetchGroups household_id={household_id} museClientConfig={museClientConfig} navigate={navigate} />;
   }
 }
 
