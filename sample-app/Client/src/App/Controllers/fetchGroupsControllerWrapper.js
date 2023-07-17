@@ -6,11 +6,6 @@ import {useNavigate} from "react-router-dom";
 
 export default function FetchGroupsControllerWrapper(props) {
   const [groupsInfoState, setGroupsInfoState] = useRecoilState(groupsInfoAtom);
-  // setGroupsInfoState({
-  //   group_flag: true,
-  //   groups: groupsInfoState.groups,
-  //   players: groupsInfoState.players
-  // });
   let navigate = useNavigate();
   return (<FetchGroups
     household_id={props.household_id}

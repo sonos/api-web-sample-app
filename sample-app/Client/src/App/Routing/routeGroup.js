@@ -16,7 +16,6 @@ function RouteGroup() {
     if (new Authentication().isAccessTokenValid() !== true) {
       navigate("/");
     }
-
   }, []);
 
   if ((state !== null) & (new Authentication().isAccessTokenValid() === true)) {
