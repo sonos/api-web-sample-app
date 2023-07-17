@@ -7,7 +7,7 @@
   "apiEndPoints": {
     "oauthURL":"https://api.sonos.com/login/v3/oauth?",
     "createRefreshAuthTokenURL" : "http://localhost:8090/https://api.sonos.com/login/v3/oauth/access",
-    "householdApiURL":"http://localhost:8090/https://api.ws.sonos.com/control/api/v1/households",
+    "householdApiURL":"http://localhost:8090/https://api.ws.sonos.com/control/api/v1/households/",
     "controlApiURL":"http://localhost:8090/https://api.ws.sonos.com/control/api/v1/groups/",
     "playerApiURL":"http://localhost:8090/https://api.ws.sonos.com/control/api/v1/players/"
   },
