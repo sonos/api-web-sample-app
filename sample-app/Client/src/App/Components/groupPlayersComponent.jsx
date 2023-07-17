@@ -19,7 +19,6 @@ class GroupPlayersComponent extends Component {
     this.ControlOptions = new HelperControls();
     this.group = JSON.parse(this.props.group);
     this.props.setState({groupName: this.group.name})
-    this.previousClickTime = 0;
   }
 
   render() {
