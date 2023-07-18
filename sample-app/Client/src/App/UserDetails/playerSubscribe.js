@@ -1,15 +1,12 @@
 import Helper from "../Utility/helper";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 
 export default function PlayerSubscribe(props) {
-  const [error, setError] = useState([]);
   const helper = new Helper();
 
   useEffect(() => {
-    let mounted = true;
-
-    var playerID = props.playerID;
+    const playerID = props.playerID;
 
     let endPoint = helper.getPlayersURL() + playerID + "/playerVolume/subscription";
 
@@ -17,19 +14,10 @@ export default function PlayerSubscribe(props) {
 
     const data = {};
 
-    helper
-      .apiCall(endPoint, headers, "POST", data)
-      .then((res) => {
-        console.debug(endPoint, res.data);
-        if (mounted) {
-          setError(false);
-        }
-      })
-      .catch(function () {
-        setError(true);
-        return Promise.reject(error);
-      });
+    helper.apiCall(endPoint, headers, "POST", data);
 
-    return () => (mounted = false);
+    return () => {
+      helper.apiCall(endPoint, headers, "DELETE", data);
+    }
   }, []);
 }

@@ -3,6 +3,7 @@ import { Component } from "react";
 import GetGroupVolume from "../../ControlAPIs/getGroupVolume";
 import SetVolume from "../../ControlAPIs/setVolume";
 import HelperControls from "../../ControlAPIs/playerControls";
+import {debounce} from "lodash";
 
 class VolumeComponent extends Component {
   constructor(props) {
@@ -15,13 +16,15 @@ class VolumeComponent extends Component {
     });
   }
 
+  debouncedSetVolume = debounce(volume => SetVolume(volume, this.props.groupID, "GROUP", this.props.museClientConfig), 300);
+
   onSetVolume = () => {
     const volume = this.volumeSlider.current.value;
-    SetVolume(volume, this.props.groupID, "GROUP", this.props.museClientConfig);
     this.props.setState({
       volumeVal: volume,
       getStartVolumeFlag: false
     });
+    this.debouncedSetVolume(volume);
   };
 
   render() {

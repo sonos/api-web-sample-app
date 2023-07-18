@@ -4,6 +4,7 @@ import { Component } from "react";
 import SetVolume from "../ControlAPIs/setVolume";
 import GetPlayerVolume from "../ControlAPIs/getPlayerVolume";
 import PlayerSubscribe from "../UserDetails/playerSubscribe";
+import {debounce} from "lodash"
 
 class PlayerComponent extends Component {
   constructor(props) {
@@ -76,20 +77,17 @@ class PlayerComponent extends Component {
     );
   }
 
+  debouncedSetVolume = debounce(volume => SetVolume(volume, this.props.playerId, "PLAYER", this.props.museClientConfig), 300);
+
   onSetVolume = () => {
     const volume = this.volumeSlider.current.value;
-    SetVolume(
-      volume,
-      this.props.playerId,
-      "PLAYER",
-      this.props.museClientConfig
-    );
     this.props.setState({
       getStartVolumeFlag: this.props.state.getStartVolumeFlag,
       volumeVal: volume,
       inGroup: this.props.state.inGroup
     });
-  };
+    this.debouncedSetVolume(volume);
+  }
 }
 
 export default PlayerComponent;
