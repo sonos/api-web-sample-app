@@ -12,6 +12,7 @@ import GroupGoneRoutingController from "../Controllers/groupGoneRoutingControlle
 import BackButton from "./backButtonComponent"
 import SkipToPreviousController from "../Controllers/skipToPreviousController";
 import GetGroups from "../UserDetails/getGroups";
+import GroupsSubscribe from "../UserDetails/groupsSubscribe";
 
 class GroupPlayersComponent extends Component {
   constructor(props) {
@@ -26,6 +27,12 @@ class GroupPlayersComponent extends Component {
           <Subscribe
             museClientConfig={this.props.museClientConfig}
             groupID={this.props.groupID}
+          />
+        </div>
+
+        <div>
+          <GroupsSubscribe
+            householdID= {this.props.householdID}
           />
         </div>
 

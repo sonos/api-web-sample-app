@@ -5,12 +5,13 @@ import SetVolume from "../ControlAPIs/setVolume";
 import GetPlayerVolume from "../ControlAPIs/getPlayerVolume";
 import PlayerSubscribe from "../UserDetails/playerSubscribe";
 import HelperControls from "../ControlAPIs/playerControls";
+import {debounce} from "lodash";
 
 class PlayerComponent extends Component {
   constructor(props) {
     super(props);
     this.volumeSlider = React.createRef();
-    this.handleChange = this.handleChange.bind(this);
+    this.handleGroupChange = this.handleGroupChange.bind(this);
     this.ControlOptions = new HelperControls();
     this.props.setState({
       getStartVolumeFlag: true,
@@ -18,7 +19,7 @@ class PlayerComponent extends Component {
     });
   }
 
-  handleChange() {
+  handleGroupChange() {
     const data = {
       playerIdsToAdd:[],
       playerIdsToRemove:[]
@@ -57,7 +58,7 @@ class PlayerComponent extends Component {
             <input
               type="checkbox"
               checked={this.props.inGroup}
-              onChange={this.handleChange}
+              onChange={this.handleGroupChange}
             />
             <span>{this.props.playerName}</span>
           </label>
@@ -83,19 +84,16 @@ class PlayerComponent extends Component {
     );
   }
 
+  debouncedSetVolume = debounce(volume => SetVolume(volume, this.props.playerId, "PLAYER", this.props.museClientConfig), 300);
+
   onSetVolume = () => {
     const volume = this.volumeSlider.current.value;
-    SetVolume(
-      volume,
-      this.props.playerId,
-      "PLAYER",
-      this.props.museClientConfig
-    );
     this.props.setState({
       getStartVolumeFlag: this.props.state.getStartVolumeFlag,
       volumeVal: volume,
     });
-  };
+    this.debouncedSetVolume(volume);
+  }
 }
 
 export default PlayerComponent;
