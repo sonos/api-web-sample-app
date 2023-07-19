@@ -134,7 +134,7 @@ class Helper {
   }
 
   /*
-   * This method returns the house hold url from config.json
+   * This method returns the household url from config.json
    */
   getHouseHoldURL() {
     return config.apiEndPoints.householdApiURL;
@@ -148,10 +148,17 @@ class Helper {
   }
 
   /*
+   * Returns the players control url from config.json
+   */
+  getPlayersURL() {
+    return config.apiEndPoints.playerApiURL;
+  }
+
+  /*
    * This method returns the b64 encoded key secret from config.json
    */
   getB64KeySecretOAuthUrl() {
-    return config.credentials.b64EncodedKeySecret;
+    return btoa(config.credentials.clientId + ":" + config.credentials.secret);
   }
 
   /*

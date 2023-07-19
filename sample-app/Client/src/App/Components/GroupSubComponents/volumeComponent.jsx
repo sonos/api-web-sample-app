@@ -1,32 +1,38 @@
 import React from "react";
 import { Component } from "react";
-import GetVolume from "../../ControlAPIs/getVolume";
+import GetGroupVolume from "../../ControlAPIs/getGroupVolume";
 import SetVolume from "../../ControlAPIs/setVolume";
 import HelperControls from "../../ControlAPIs/playerControls";
+import {debounce} from "lodash";
 
 class VolumeComponent extends Component {
   constructor(props) {
     super(props);
     this.ControlOptions = new HelperControls();
     this.volumeSlider = React.createRef();
+    this.props.setState({
+      volumeVal: 0,
+      getStartVolumeFlag: true,
+    });
   }
+
+  debouncedSetVolume = debounce(volume => SetVolume(volume, this.props.groupID, "GROUP", this.props.museClientConfig), 300);
 
   onSetVolume = () => {
     const volume = this.volumeSlider.current.value;
-    SetVolume(volume, this.props.groupID, "GROUP", this.props.museClientConfig);
     this.props.setState({
       volumeVal: volume,
       getStartVolumeFlag: false
     });
+    this.debouncedSetVolume(volume);
   };
 
   render() {
     return (
       <div className="slider_container">
         {this.props.state.getStartVolumeFlag && (
-          <GetVolume
+          <GetGroupVolume
             deviceId={this.props.groupID}
-            deviceType={"GROUP"}
             museClientConfig={this.props.museClientConfig}
           />
         )}

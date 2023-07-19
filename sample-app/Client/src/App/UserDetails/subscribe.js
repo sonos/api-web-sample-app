@@ -3,67 +3,55 @@
  * This class handles the subscription api calls
  */
 import Helper from "../Utility/helper";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 
 export default function Subscribe(props) {
-  const [error, setError] = useState([]);
   const helper = new Helper();
 
   useEffect(() => {
-    let mounted = true;
+    const groupID = props.groupID;
 
-    var groupID = props.groupID;
+    const endPointPB = helper.getGroupsURL() + groupID + "/playback/subscription";
 
-    let endPointPB = helper.getGroupsURL() + groupID + "/playback/subscription";
+    const endPointGV = helper.getGroupsURL() + groupID + "/groupVolume/subscription";
 
-    let endPointGV =
-      helper.getGroupsURL() + groupID + "/groupVolume/subscription";
-
-    let endPointMD =
-      helper.getGroupsURL() + groupID + "/playbackMetadata/subscription";
+    const endPointMD = helper.getGroupsURL() + groupID + "/playbackMetadata/subscription";
 
     const headers = helper.getHeaderBearer();
 
     const data = {};
 
-    helper
-      .apiCall(endPointPB, headers, "POST", data)
-      .then((res) => {
-        console.debug(endPointPB, res.data);
-        if (mounted) {
-          setError(false);
-        }
-      })
-      .catch(function () {
-        setError(true);
-        return Promise.reject(error);
-      });
-
-    helper
-      .apiCall(endPointGV, headers, "POST", data)
-      .then((res) => {
-        if (mounted) {
-          setError(false);
-        }
-      })
+    helper.apiCall(endPointPB, headers, "POST", data)
       .catch(function (error) {
-        setError(true);
-        return Promise.reject(error);
+        console.error(error);
       });
 
-    helper
-      .apiCall(endPointMD, headers, "POST", data)
-      .then((res) => {
-        if (mounted) {
-          setError(false);
-        }
-      })
+    helper.apiCall(endPointGV, headers, "POST", data)
       .catch(function (error) {
-        setError(true);
-        return Promise.reject(error);
+        console.error(error);
       });
 
-    return () => (mounted = false);
+    helper.apiCall(endPointMD, headers, "POST", data)
+      .catch(function (error) {
+        console.error(error);
+      });
+
+    return () => {
+      helper.apiCall(endPointPB, headers, "DELETE", data)
+        .catch(function (error) {
+          console.error(error);
+        });
+
+      helper.apiCall(endPointGV, headers, "DELETE", data)
+        .catch(function (error) {
+          console.error(error);
+        });
+
+      helper.apiCall(endPointMD, headers, "DELETE", data)
+        .catch(function (error) {
+          console.error(error);
+        });
+    };
   }, []);
 }

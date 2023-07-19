@@ -9,6 +9,13 @@ class PlayBackMetaDataComponent extends Component {
     super(props);
     this.ControlOptions = new HelperControls();
     this.volumeSlider = React.createRef();
+    this.props.setState({
+      getPlayBackMetaDataFlag: true,
+      trackName: null,
+      trackImage: null,
+      artistName: null,
+      containerName: null
+    });
   }
 
   getImage = () => {

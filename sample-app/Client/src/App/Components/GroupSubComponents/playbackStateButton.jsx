@@ -8,6 +8,10 @@ class PlayBackStateButton extends Component {
     super(props);
     this.ControlOptions = new HelperControls();
     this.playpauseBtn = React.createRef();
+    this.props.setState({
+      isPlaying: false,
+      getStateFlag: true
+    });
   }
 
   playModeClass = () => {

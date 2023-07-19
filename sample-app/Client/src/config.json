@@ -2,14 +2,14 @@
   "credentials": {
     "clientId": "<Insert key from Developer Portal here>",
     "secret": "<Insert secret from Developer Portal here>",
-    "redirectURL": "http://localhost:3000",
-    "b64EncodedKeySecret" : "<Insert Base64 encoded key:secret here>"
+    "redirectURL": "http://localhost:3000"
   },
   "apiEndPoints": {
     "oauthURL":"https://api.sonos.com/login/v3/oauth?",
     "createRefreshAuthTokenURL" : "http://localhost:8090/https://api.sonos.com/login/v3/oauth/access",
     "householdApiURL":"http://localhost:8090/https://api.ws.sonos.com/control/api/v1/households",
-    "controlApiURL":"http://localhost:8090/https://api.ws.sonos.com/control/api/v1/groups/"
+    "controlApiURL":"http://localhost:8090/https://api.ws.sonos.com/control/api/v1/groups/",
+    "playerApiURL":"http://localhost:8090/https://api.ws.sonos.com/control/api/v1/players/"
   },
   "appConfig" : {
     "logLevel" : "debug"

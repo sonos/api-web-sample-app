@@ -1,7 +1,6 @@
 import Authentication from "../Authentication/authentication";
 import Helper from "../Utility/helper";
 import { Component } from "react";
-import { PlaybackApi } from "../museClient/api";
 
 class HelperControls extends Component {
   constructor() {

@@ -16,11 +16,14 @@ class GroupPlayersComponent extends Component {
     super(props);
     this.ControlOptions = new HelperControls();
     this.group = JSON.parse(this.props.group);
-    this.props.setState({groupName: this.group.name})
+    this.props.setState({
+      groupName: this.group.name,
+      groupID: this.group.id,
+      groupGoneFlag: false
+    });
   }
 
   render() {
-
     return (
       <div className="selected_group_page">
         <div className="subscribe">
@@ -31,14 +34,16 @@ class GroupPlayersComponent extends Component {
         </div>
 
         {this.props.state.groupGoneFlag && (
-          <GroupGoneRoutingController/>
+          <GroupGoneRoutingController
+            navigate={this.props.navigate}
+          />
         )}
 
         <HeaderComponent />
 
         <div className="group_name">
-          <div className="back_button_Wrapper"> 
-            <BackButton />
+          <div className="back_button_Wrapper">
+            <BackButton navigate={this.props.navigate}/>
           </div>
           <div className="group_box">
             <p>{this.props.state.groupName} </p>
@@ -82,6 +87,7 @@ class GroupPlayersComponent extends Component {
             group={this.props.group}
             players={this.props.players}
             museClientConfig={this.props.museClientConfig}
+            playersInGroup={this.props.playersInGroup}
           />
         </div>
       </div>
