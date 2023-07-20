@@ -16,13 +16,13 @@ class GroupPlayersComponent extends Component {
     super(props);
     this.ControlOptions = new HelperControls();
     this.group = JSON.parse(this.props.group);
+    this.lastClickTime = Date.now();
     this.props.setState({
       groupName: this.group.name,
       groupID: this.group.id,
       groupGoneFlag: false
     });
   }
-
   render() {
     return (
       <div className="selected_group_page">
@@ -95,14 +95,22 @@ class GroupPlayersComponent extends Component {
   }
 
   skipToPrevious = () => {
+    let elapsedTime = Date.now() - this.lastClickTime;
     console.debug("Trying to skip to previous song...");
-    this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id);
-  };
+    if(elapsedTime <= 4000 && this.props.playback.canSkipBack) {
+      this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id, {});
+    } else {
+      this.ControlOptions.helperControls("seek", this.group.id, {positionMillis: 0});
+    }
+    this.lastClickTime = Date.now();
+  }
 
   skipToNext = () => {
     console.debug("Trying to skip to next song...");
-    this.ControlOptions.helperControls("skipToNextTrack", this.group.id);
-  };
+    if(this.props.playback.canSkip) {
+      this.ControlOptions.helperControls("skipToNextTrack", this.group.id, {});
+    }
+  }
 }
 
 export default GroupPlayersComponent;

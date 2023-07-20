@@ -25,7 +25,7 @@ class PlayBackStateButton extends Component {
     this.ControlOptions.helperControls(
       "togglePlayPause",
       this.props.groupID,
-      this.props.museClientConfig
+      {}
     );
     this.setState({
       isPlaying: !this.props.state.isPlaying,

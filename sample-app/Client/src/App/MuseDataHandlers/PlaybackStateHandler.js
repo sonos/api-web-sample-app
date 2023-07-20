@@ -4,7 +4,9 @@ export default function PlaybackStateHandler(requestData) {
       requestData.playbackState === "PLAYBACK_STATE_PLAYING" || requestData.playbackState === "PLAYBACK_STATE_BUFFERING";
     const res = {
       isPlaying: playBackState,
-      getStateFlag: false
+      getStateFlag: false,
+      canSkip: requestData.availablePlaybackActions.canSkip,
+      canSkipBack: requestData.availablePlaybackActions.canSkipBack
     };
     return res;
   } catch (e) {

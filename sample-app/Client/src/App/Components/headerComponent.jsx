@@ -1,7 +1,6 @@
 import React from "react";
 import ImageComponent from "./GroupSubComponents/imageComponent";
 
-
 export default function HeaderComponent() {
   const logout = () => {
     console.debug("Logging out...");

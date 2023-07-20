@@ -5,6 +5,8 @@ const playbackStateAtom = atom({
   default: {
     isPlaying: false,
     getStateFlag: true,
+    canSkip: false,
+    canSkipBack: false
   },
 });
 

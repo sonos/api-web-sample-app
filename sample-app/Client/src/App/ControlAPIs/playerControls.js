@@ -9,13 +9,11 @@ class HelperControls extends Component {
     this.helper = new Helper();
   }
 
-  helperControls(input_action, grp_id, museClientConfig) {
+  helperControls(input_action, grp_id, data) {
     let endPoint =
       this.helper.getGroupsURL() + grp_id + "/playback/" + input_action;
 
     const headers = this.helper.getHeaderBearer();
-
-    const data = {};
 
     this.helper
       .apiCall(endPoint, headers, "POST", data)

@@ -33,7 +33,7 @@ class Helper {
       method: method,
       headers: headers,
       data: data,
-      url: endPoint,
+      url: endPoint
     };
 
     const response = axios(options);
