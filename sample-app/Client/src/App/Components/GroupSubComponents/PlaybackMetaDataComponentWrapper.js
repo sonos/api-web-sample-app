@@ -6,7 +6,7 @@ import PlayBackMetaDataComponent from "./playbackMetaDataComponent";
 export default function PlaybackMetaDataComponentWrapper(props) {
   const [playbackMetadataState, setPlaybackMetadataState] = useRecoilState(playbackMetadataAtom);
   return (<PlayBackMetaDataComponent
-    groupID={props.groupID}
+    groupId={props.groupId}
     museClientConfig={props.museClientConfig}
     state={playbackMetadataState}
     setState={setPlaybackMetadataState}

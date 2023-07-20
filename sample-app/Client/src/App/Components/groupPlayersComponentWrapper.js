@@ -1,29 +1,24 @@
 import { useRecoilState } from "recoil";
 import React from "react";
-import groupStatusAtom from "../Recoil/groupStatusAtom";
+import selectedGroupAtom from "../Recoil/selectedGroupAtom";
 import GroupPlayersComponent from "./groupPlayersComponent";
 import playbackStateAtom from "../Recoil/playbackStateAtom";
 import {useNavigate} from "react-router-dom";
+import groupsInfoAtom from "../Recoil/groupsInfoAtom";
 
 export default function GroupPlayersComponentWrapper(props) {
-  const [groupState, setGroupState] = useRecoilState(groupStatusAtom);
+  const [groupState, setGroupState] = useRecoilState(selectedGroupAtom);
+  const [groupsInfoState, setGroupsInfoState] = useRecoilState(groupsInfoAtom);
   const [playbackState, setPlaybackState] = useRecoilState(playbackStateAtom);
   let navigate = useNavigate();
-  let playersInGroup = {}
-  JSON.parse(props.players).map((player) => {
-    playersInGroup[player.id] = false;
-  });
-  JSON.parse(props.group).playerIds.map((playerId) => {
-    playersInGroup[playerId] = true;
-  });
   return (<GroupPlayersComponent
     navigate={navigate}
-    group={props.group}
+    groupId={props.groupId}
     museClientConfig={props.museClientConfig}
-    players={props.players}
-    playersInGroup={playersInGroup}
     state={groupState}
     setState={setGroupState}
+    householdId={props.householdId}
+    groupsInfoState={groupsInfoState}
     playback = {playbackState}
   />);
 }

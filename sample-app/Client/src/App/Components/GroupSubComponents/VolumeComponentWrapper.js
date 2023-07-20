@@ -6,7 +6,7 @@ import React from "react";
 export default function VolumeComponentWrapper(props) {
   const [volumeState, setVolumeState] = useRecoilState(volumeAtom);
   return (<VolumeComponent
-    groupID={props.groupID}
+    groupId={props.groupId}
     museClientConfig={props.museClientConfig}
     state={volumeState}
     setState={setVolumeState}

@@ -10,18 +10,17 @@ export default function Subscribe(props) {
   const helper = new Helper();
 
   useEffect(() => {
-    const groupID = props.groupID;
+    const groupId = props.groupId;
 
-    const endPointPB = helper.getGroupsURL() + groupID + "/playback/subscription";
+    const endPointPB = helper.getGroupsURL() + groupId + "/playback/subscription";
 
-    const endPointGV = helper.getGroupsURL() + groupID + "/groupVolume/subscription";
+    const endPointGV = helper.getGroupsURL() + groupId + "/groupVolume/subscription";
 
-    const endPointMD = helper.getGroupsURL() + groupID + "/playbackMetadata/subscription";
+    const endPointMD = helper.getGroupsURL() + groupId + "/playbackMetadata/subscription";
 
     const headers = helper.getHeaderBearer();
 
     const data = {};
-
     helper.apiCall(endPointPB, headers, "POST", data)
       .catch(function (error) {
         console.error(error);

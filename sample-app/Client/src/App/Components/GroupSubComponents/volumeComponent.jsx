@@ -16,7 +16,7 @@ class VolumeComponent extends Component {
     });
   }
 
-  debouncedSetVolume = debounce(volume => SetVolume(volume, this.props.groupID, "GROUP", this.props.museClientConfig), 300);
+  debouncedSetVolume = debounce(volume => SetVolume(volume, this.props.groupId, "GROUP", this.props.museClientConfig), 300);
 
   onSetVolume = () => {
     const volume = this.volumeSlider.current.value;
@@ -32,7 +32,7 @@ class VolumeComponent extends Component {
       <div className="slider_container">
         {this.props.state.getStartVolumeFlag && (
           <GetGroupVolume
-            deviceId={this.props.groupID}
+            deviceId={this.props.groupId}
             museClientConfig={this.props.museClientConfig}
           />
         )}

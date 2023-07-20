@@ -3,40 +3,38 @@ import { Component } from "react";
 import GetGroups from "../UserDetails/getGroups";
 
 import ListGroupsComponent from "../Components/listGroupsComponent";
+import GroupsSubscribe from "../UserDetails/groupsSubscribe";
 
 class FetchGroups extends Component {
-  state = {
-    group_flag: true,
-    groups: null,
-    players: null,
-  };
-
-  group_handler = (input_flag, groups, players) => {
-    this.setState({
-      group_flag: input_flag,
-      groups: groups,
-      players: players,
+  constructor(props) {
+    super(props);
+    this.props.setGroupsInfoState({
+      groupFlag: true,
+      groups: null,
+      players: null
     });
-  };
-
+  }
   render() {
     return (
       <div>
         <div className="getHouseholdID">
-          {this.state.group_flag && (
+          {this.props.groupsInfoState.groupFlag && (
             <GetGroups
-              household_id={this.props.household_id}
-              group_handler={this.group_handler}
+              householdId={this.props.householdId}
               museClientConfig={this.props.museClientConfig}
             />
           )}
         </div>
         <div>
-          {!this.state.group_flag && (
+          <GroupsSubscribe householdId= {this.props.householdId}/>
+        </div>
+        <div>
+          {!this.props.groupsInfoState.groupFlag && (
             <ListGroupsComponent
-              groups={this.state.groups}
-              players={this.state.players}
               navigate={this.props.navigate}
+              groups={this.props.groupsInfoState.groups}
+              players={this.props.groupsInfoState.players}
+              householdId={this.props.householdId}
             />
           )}
         </div>

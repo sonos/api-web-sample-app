@@ -8,7 +8,7 @@ export default function HouseholdRoutingController(props) {
 
   const routeChange = () => {
     let path = "households/" + props.household.id;
-    const data = { state: { household_id: props.household.id } };
+    const data = { state: { householdId: props.household.id } };
     navigate(path, data);
   };
 

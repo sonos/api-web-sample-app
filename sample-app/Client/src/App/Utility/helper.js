@@ -15,7 +15,7 @@ class Helper {
   }
 
   /*
-   * api calling is done using the below mthod.
+   * api calling is done using the below method.
    */
   apiCall(endPoint, headers, method, data) {
     logMessage(
@@ -28,14 +28,12 @@ class Helper {
         " data : " +
         JSON.stringify(data)
     );
-
     const options = {
       method: method,
       headers: headers,
       data: data,
       url: endPoint
     };
-
     const response = axios(options);
     return response;
   }
@@ -165,7 +163,7 @@ class Helper {
    * This method returns the group Id stored in the localStorage
    */
   getHouseHoldIdFromStorage() {
-    return window.localStorage.getItem("household_id");
+    return window.localStorage.getItem("householdId");
   }
 
   /*

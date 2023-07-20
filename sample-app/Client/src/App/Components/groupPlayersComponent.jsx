@@ -10,18 +10,14 @@ import PlayersController from "../Controllers/playersController";
 import HeaderComponent from "./headerComponent";
 import GroupGoneRoutingController from "../Controllers/groupGoneRoutingController";
 import BackButton from "./backButtonComponent"
+import GetGroups from "../UserDetails/getGroups";
+import GroupsSubscribe from "../UserDetails/groupsSubscribe";
 
 class GroupPlayersComponent extends Component {
   constructor(props) {
     super(props);
     this.ControlOptions = new HelperControls();
-    this.group = JSON.parse(this.props.group);
     this.lastClickTime = Date.now();
-    this.props.setState({
-      groupName: this.group.name,
-      groupID: this.group.id,
-      groupGoneFlag: false
-    });
   }
   render() {
     return (
@@ -29,9 +25,22 @@ class GroupPlayersComponent extends Component {
         <div className="subscribe">
           <Subscribe
             museClientConfig={this.props.museClientConfig}
-            groupID={this.group.id}
+            groupId={this.props.groupId}
           />
         </div>
+
+        <div>
+          <GroupsSubscribe householdId= {this.props.householdId}/>
+        </div>
+
+        {this.props.groupsInfoState.groupFlag && (
+          <GetGroups
+            householdId={this.props.householdId}
+            museClientConfig={this.props.museClientConfig}
+            setGroup={true}
+            groupId={this.props.groupId}
+          />
+        )}
 
         {this.props.state.groupGoneFlag && (
           <GroupGoneRoutingController
@@ -52,7 +61,7 @@ class GroupPlayersComponent extends Component {
 
         <div className="player">
           <PlaybackMetaDataComponentWrapper
-            groupID={this.group.id}
+            groupId={this.props.groupId}
             museClientConfig={this.props.museClientConfig}
           />
           <div className="group_buttons">
@@ -61,7 +70,7 @@ class GroupPlayersComponent extends Component {
             </div>
 
             <PlayBackStateButtonWrapper
-              groupID={this.group.id}
+              groupId={this.props.groupId}
               museClientConfig={this.props.museClientConfig}
             />
 
@@ -72,7 +81,7 @@ class GroupPlayersComponent extends Component {
 
           <p className="group_volume">Group Volume:</p>
           <VolumeComponentWrapper
-            groupID={this.group.id}
+            groupId={this.props.groupId}
             museClientConfig={this.props.museClientConfig}
           />
         </div>
@@ -83,12 +92,12 @@ class GroupPlayersComponent extends Component {
               <div className="player_text">Players</div>
             </div>
           </div>
-          <PlayersController
-            group={this.props.group}
-            players={this.props.players}
-            museClientConfig={this.props.museClientConfig}
-            playersInGroup={this.props.playersInGroup}
-          />
+          {!this.props.groupsInfoState.groupFlag && (
+            <PlayersController
+              group={this.props.groupsInfoState.groups[this.props.groupId]}
+              players={this.props.groupsInfoState.players}
+              museClientConfig={this.props.museClientConfig}
+            />)}
         </div>
       </div>
     );
@@ -98,9 +107,9 @@ class GroupPlayersComponent extends Component {
     let elapsedTime = Date.now() - this.lastClickTime;
     console.debug("Trying to skip to previous song...");
     if(elapsedTime <= 4000 && this.props.playback.canSkipBack) {
-      this.ControlOptions.helperControls("skipToPreviousTrack", this.group.id, {});
+      this.ControlOptions.helperControls("playback/skipToPreviousTrack", this.props.groupId, {});
     } else {
-      this.ControlOptions.helperControls("seek", this.group.id, {positionMillis: 0});
+      this.ControlOptions.helperControls("playback/seek", this.props.groupId, {positionMillis: 0});
     }
     this.lastClickTime = Date.now();
   }
@@ -108,7 +117,7 @@ class GroupPlayersComponent extends Component {
   skipToNext = () => {
     console.debug("Trying to skip to next song...");
     if(this.props.playback.canSkip) {
-      this.ControlOptions.helperControls("skipToNextTrack", this.group.id, {});
+      this.ControlOptions.helperControls("playback/skipToNextTrack", this.props.groupId, {});
     }
   }
 }

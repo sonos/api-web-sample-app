@@ -1,7 +1,7 @@
 function getGroupIDFlag() {
   return !(
-    window.localStorage.household_id === undefined ||
-    window.localStorage.household_id === ""
+    window.localStorage.householdId === undefined ||
+    window.localStorage.householdId === ""
   );
 }
 

@@ -11,7 +11,7 @@ class HelperControls extends Component {
 
   helperControls(input_action, grp_id, data) {
     let endPoint =
-      this.helper.getGroupsURL() + grp_id + "/playback/" + input_action;
+      this.helper.getGroupsURL() + grp_id + "/" + input_action;
 
     const headers = this.helper.getHeaderBearer();
 

@@ -6,7 +6,7 @@ import React from "react";
 export default function PlaybackStateButtonWrapper(props) {
   const [playbackState, setPlaybackState] = useRecoilState(playbackStateAtom);
   return (<PlaybackStateButton
-    groupID={props.groupID}
+    groupId={props.groupId}
     museClientConfig={props.museClientConfig}
     state={playbackState}
     setState={setPlaybackState}

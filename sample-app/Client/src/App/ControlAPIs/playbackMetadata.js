@@ -10,7 +10,7 @@ export default function PlayBackMetadata(props) {
   );
 
   playBackMetadataApi
-    .playbackMetadataGetMetadataStatus(props.group_id)
+    .playbackMetadataGetMetadataStatus(props.groupId)
     .then((res) => {
       setPlaybackMetadataResponse(PlaybackMetadataHandler(res));
     })

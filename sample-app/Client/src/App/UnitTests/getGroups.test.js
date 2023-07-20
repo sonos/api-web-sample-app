@@ -10,7 +10,7 @@ test("testing the getGroups API", () => {
   });
   render(
     <GetGroups
-      household_id={testHouseholdID}
+      householdId={testHouseholdID}
       museClientConfig={testMuseClientConfig}
     />
   );

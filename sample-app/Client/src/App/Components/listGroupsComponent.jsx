@@ -5,8 +5,9 @@ import HeaderComponent from "./headerComponent";
 import BackButton from "./backButtonComponent"
 
 class ListGroupsComponent extends Component {
-  state = {};
-
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div>
@@ -14,16 +15,17 @@ class ListGroupsComponent extends Component {
           <HeaderComponent />
           <div className="info_Wrapper">
             <div className="back_button_Wrapper"> 
-                <BackButton navigate={this.props.navigate}/>
+                <BackButton navigate={this.props.navigate} />
             </div>
             <div className="group_text">
               <p>List of Groups in your Household: </p>
             </div>
           </div>
-          {this.props.groups.map((group) => (
+          {Object.keys(this.props.groups).map((key) => (
             <GroupRoutingController
-              key={group.id}
-              group={group}
+              key={key}
+              householdId={this.props.householdId}
+              group={this.props.groups[key]}
               players={this.props.players}
             />
           ))}

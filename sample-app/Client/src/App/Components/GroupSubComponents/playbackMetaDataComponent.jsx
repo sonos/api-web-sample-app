@@ -31,7 +31,7 @@ class PlayBackMetaDataComponent extends Component {
       <div className="play_back_metadata">
         {this.props.state.getPlayBackMetaDataFlag && (
           <PlayBackMetadata
-            group_id={this.props.groupID}
+            groupId={this.props.groupId}
             museClientConfig={this.props.museClientConfig}
           />
         )}

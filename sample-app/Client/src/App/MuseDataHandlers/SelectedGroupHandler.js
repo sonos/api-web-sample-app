@@ -1,4 +1,4 @@
-export default function GroupStatusHandler(requestData) {
+export default function SelectedGroupHandler(requestData) {
   try {
     if(requestData.groupStatus === "GROUP_STATUS_GONE") {
       const res = {
@@ -6,8 +6,7 @@ export default function GroupStatusHandler(requestData) {
         groupGoneFlag: true,
       };
       return res;
-    }
-    else {
+    } else {
       const res = {
         groupName: requestData.groupName,
         groupGoneFlag: false,
