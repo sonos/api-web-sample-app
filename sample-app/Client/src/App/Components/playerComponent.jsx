@@ -37,14 +37,13 @@ class PlayerComponent extends Component {
         <div>
           {this.props.state.getStartVolumeFlag && (
             <GetPlayerVolume
-              state={this.props.state}
               deviceId={this.props.playerId}
               museClientConfig={this.props.museClientConfig}
             />
           )}
         </div>
         <div className="playerVolumeSubscribe">
-          {this.props.state.inGroup && (
+          {this.props.inGroup && (
             <PlayerVolumeSubscribe
               museClientConfig={this.props.museClientConfig}
               playerID={this.props.playerId}
