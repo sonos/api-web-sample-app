@@ -8,17 +8,12 @@ function RouteGroup() {
   const navigate = useNavigate();
   const { state } = useLocation();
   useEffect(() => {
-    if (state === null || state === undefined) {
-      navigate("/");
-    }
-
-    // Redirect the user to login page
-    if (new Authentication().isAccessTokenValid() !== true) {
+    if (state === null || state === undefined || !(new Authentication().isAccessTokenValid())) {
       navigate("/");
     }
   }, []);
 
-  if ((state !== null) & (new Authentication().isAccessTokenValid() === true)) {
+  if (state !== null && (new Authentication().isAccessTokenValid())) {
     const { householdId, groupId } = state;
     const museClientConfig = new Configuration({
       accessToken: JSON.parse(window.localStorage.accessToken).token,

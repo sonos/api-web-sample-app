@@ -1,64 +1,63 @@
-/**
- * @author Mugdha Rane <mugdha.rane@sonos.com>
- */
-
 import Helper from "../Utility/helper";
 import config from "../../config.json";
 
-class RefreshAuthToken {
-  /*
-   * This method internally calls the refresh token api
-   */
-  refreshAccessToken = () => {
-    const helper = new Helper();
+/**
+ * Functional component used to retrieve a new access token when access token has become invalid
+ * @param props.accessTokenHandler Handler function from RouteComponents that updates status of access token
+ */
+export default function RefreshAccessToken(props) {
+  // Uses Helper apiCall function to call Sonos API
+  const helper = new Helper();
 
-    let refreshToken = JSON.parse(
-      window.localStorage.accessToken
-    ).refresh_token;
-    let endPoint = config.apiEndPoints.createRefreshAuthTokenURL;
+  // Gets access token's refresh token from local storage
+  let refreshToken = JSON.parse(
+    window.localStorage.accessToken
+  ).refresh_token;
+  let endPoint = config.apiEndPoints.createRefreshAuthTokenURL;
 
-    const HEADER_BASIC = helper.getHeadersBasic();
-
-    const data = {
-      grant_type: "refresh_token",
-      refresh_token: refreshToken,
-    };
-    const dataKeyValue = Object.keys(data)
-      .map((key, index) => `${key}=${encodeURIComponent(data[key])}`)
-      .join("&");
-    helper
-      .apiCall(endPoint, HEADER_BASIC, "POST", dataKeyValue)
-      .then((refreshTokenResponse) => {
-        if (
-          !(refreshTokenResponse === undefined || refreshTokenResponse === "")
-        ) {
-          this.updateRefreshToken(refreshTokenResponse);
-        }
-      })
-      .catch(function (error) {
-        helper.logError(error);
-      });
-
-    return refreshToken;
+  // Calls Sonos API to request fresh access token
+  const HEADER_BASIC = helper.getHeadersBasic();
+  const data = {
+    grant_type: "refresh_token",
+    refresh_token: refreshToken,
   };
+  const dataKeyValue = Object.keys(data)
+    .map((key, index) => `${key}=${encodeURIComponent(data[key])}`)
+    .join("&");
+  helper.apiCall(endPoint, HEADER_BASIC, "POST", dataKeyValue)
+    .then((refreshTokenResponse) => {
+      // If access token is successfully retrieved, update the value of the currently stored token and
+      // notify RouteComponents that the access token is valid
+      if (refreshTokenResponse !== undefined) {
+        updateAccessToken(refreshTokenResponse.data);
+        props.accessTokenHandler("VALID");
+      }
+    })
+    .catch(function (error) {
+      // If access token is not successfully retrieved, notify RouteComponents that the user needs to log in
+      console.error(error);
+      props.accessTokenHandler("DOES NOT EXIST");
+    });
+};
 
-  /*
-   * This method updates the token object in the local storage cache
-   */
-  updateRefreshToken(response) {
-    const helper = new Helper();
+/**
+ * Sets the stored value of the Sonos API access token
+ * @param response Sonos API response when requesting a refreshed access token
+ */
+function updateAccessToken(response) {
+  if (!(response === undefined || response === "")) {
+    const accessTokenData = {
+      token: response["access_token"],
+      refresh_token: response["refresh_token"],
+      token_type: response["token_type"],
+      expiry: response["expires_in"],
+      tokenTimestamp: Math.floor(Date.now() / 1000),
+    };
 
-    if (!(response.data === undefined || response.data === "")) {
-      const accessTokenData = {
-        token: response.data.access_token,
-        refresh_token: response.data.refresh_token,
-        token_type: response.data.token_type,
-        expiry: response.data.expiry,
-        tokenTimestamp: response.data.token_timestamp,
-      };
-      helper.setAccessTokeDatainStorage(accessTokenData);
-    }
+    // Can be accessed from other pages within the sample app
+    window.localStorage.setItem(
+      "accessToken",
+      JSON.stringify(accessTokenData)
+    );
   }
 }
-
-export default RefreshAuthToken;
