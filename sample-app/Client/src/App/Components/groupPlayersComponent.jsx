@@ -65,7 +65,7 @@ class GroupPlayersComponent extends Component {
             museClientConfig={this.props.museClientConfig}
           />
           <div className="group_buttons">
-            <div className="group_prev" onClick={this.skipToPrevious}>
+            <div className={this.props.playback.canSkipBack === false && this.props.playback.canSeek === false ? "group_prev_disabled" : "group_prev"} onClick={this.skipToPrevious}>
               <i className="fa fa-step-backward fa-2x"></i>
             </div>
 
@@ -74,7 +74,7 @@ class GroupPlayersComponent extends Component {
               museClientConfig={this.props.museClientConfig}
             />
 
-            <div className="group_next" onClick={this.skipToNext}>
+            <div className={this.props.playback.canSkip === false ? "group_next_disabled" : "group_next"} onClick={this.skipToNext}>
               <i className="fa fa-step-forward fa-2x"></i>
             </div>
           </div>
@@ -106,9 +106,9 @@ class GroupPlayersComponent extends Component {
   skipToPrevious = () => {
     let elapsedTime = Date.now() - this.lastClickTime;
     console.debug("Trying to skip to previous song...");
-    if(elapsedTime <= 4000 && this.props.playback.canSkipBack) {
+    if(this.props.playback.canSkipBack && (!this.props.playback.canSeek || elapsedTime <= 4000)) {
       this.ControlOptions.helperControls("playback/skipToPreviousTrack", this.props.groupId, {});
-    } else {
+    } else if(this.props.playback.canSeek) {
       this.ControlOptions.helperControls("playback/seek", this.props.groupId, {positionMillis: 0});
     }
     this.lastClickTime = Date.now();

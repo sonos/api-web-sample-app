@@ -10,7 +10,10 @@ class PlayBackStateButton extends Component {
     this.playpauseBtn = React.createRef();
     this.props.setState({
       isPlaying: false,
-      getStateFlag: true
+      getStateFlag: true,
+      canSkip: false,
+      canSkipBack: false,
+      canSeek: false
     });
   }
 

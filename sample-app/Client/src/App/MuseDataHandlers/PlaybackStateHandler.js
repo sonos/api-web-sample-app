@@ -6,7 +6,8 @@ export default function PlaybackStateHandler(requestData) {
       isPlaying: playBackState,
       getStateFlag: false,
       canSkip: requestData.availablePlaybackActions.canSkip,
-      canSkipBack: requestData.availablePlaybackActions.canSkipBack
+      canSkipBack: requestData.availablePlaybackActions.canSkipBack,
+      canSeek: requestData.availablePlaybackActions.canSeek
     };
     return res;
   } catch (e) {

@@ -6,7 +6,8 @@ const playbackStateAtom = atom({
     isPlaying: false,
     getStateFlag: true,
     canSkip: false,
-    canSkipBack: false
+    canSkipBack: false,
+    canSeek: false
   },
 });
 

@@ -82,11 +82,18 @@
   margin-top: 120px;
 }
 
-.playpause_track,
+.playpause_track, 
 .group_prev,
 .group_next {
   padding: 15px;
   opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.group_prev_disabled,
+.group_next_disabled {
+  padding: 15px;
+  opacity: 0.2;
   transition: opacity 0.2s;
 }
 
@@ -140,12 +147,14 @@ i.fa-volume-up {
   background: black;
   border-radius: 50%;
   position: relative;
+  cursor: pointer;
 }
 
 
 
 .seek_slider:hover,
 .groupVolumeSlider:hover {
+  cursor: pointer;
   opacity: 1;
 }
 
