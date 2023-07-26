@@ -90,7 +90,7 @@ component modifies its Atom's state as well as its `this.props.state` field.
 
 ### Example/Walkthrough for Playback Metadata
 In [`groupPlayersComponent`](sample-app/Client/src/App/Components/groupPlayersComponent.jsx), `PlaybackMetaDataComponentWrapper` is called, with the current
-group ID and configuration passed through props. In [`PlaybackMetaDataComponentWrapper`](sample-app/Client/src/App/Components/GroupSubComponents/PlaybackMetaDataComponentWrapper.js),
+group ID and configuration passed through props. In [`PlaybackMetaDataComponentWrapper`](sample-app/Client/src/App/Components/GroupSubComponents/playbackMetaDataComponentWrapper.js),
 `useRecoilState(playbackMetadataAtom)` is called and passed into `PlaybackMetaDataComponent` through props as `state` and `setState`, along with the group ID and configuration.
 
 When [`PlaybackMetaDataComponent`](sample-app/Client/src/App/Components/GroupSubComponents/playbackMetaDataComponent.jsx)

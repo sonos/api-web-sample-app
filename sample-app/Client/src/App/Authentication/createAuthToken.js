@@ -3,7 +3,7 @@ import Helper from "../Utility/helper";
 
 /**
  * Functional component that fetches access token from Sonos API using previously retrieved code
- * @param props.code Code retrieved from logging into Sonos account
+ * @param props.code {string} Code retrieved from logging into Sonos account
  * @param props.isLoggedInHandler Handler function that updates access token in oAuthController and status in RouteComponents
  */
 export default function CreateAuthToken(props) {

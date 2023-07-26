@@ -1,10 +1,8 @@
-/**
- * @author Mugdha Rane <mugdha.rane@sonos.com>
- * Code to display images, pass the url of the image as props
- */
-
 import React, { Component } from "react";
 
+/**
+ * Class component that returns and displays an image based on src and alt provided through props
+ */
 class ImageComponent extends Component {
   render() {
     return (

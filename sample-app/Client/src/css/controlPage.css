@@ -1,6 +1,6 @@
-/*
-*           group page containing all Control APIs
-*/
+/**
+  Defines appearance of group player page
+ */
 
 .group_name {
   height: 10%;
@@ -149,8 +149,6 @@ i.fa-volume-up {
   position: relative;
   cursor: pointer;
 }
-
-
 
 .seek_slider:hover,
 .groupVolumeSlider:hover {

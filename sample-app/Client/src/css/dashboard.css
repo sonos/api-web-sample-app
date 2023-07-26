@@ -1,5 +1,9 @@
+/**
+ * Defines appearance of households and groups selection pages
+ */
+
 body {
-  background-color: white;
+  background-color: linen;
 
   transition: background-color 0.5s;
 }

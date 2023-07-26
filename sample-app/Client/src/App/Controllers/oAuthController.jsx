@@ -49,8 +49,8 @@ export default class OAuthController extends Component {
   /**
    * Passed through props to CreateAuthToken
    * Sets value of access token status in RouteComponents by calling accessTokenHandler function passed through props
-   * @param flag True if user has logged in, false otherwise
-   * @param response Sonos API response from CreateAuthToken
+   * @param flag {boolean} True if user has logged in, false otherwise
+   * @param response {JSON} Sonos API response from CreateAuthToken
    */
   isLoggedInHandler = (flag, response) => {
     // Data retrieved from CreateAuthToken that is to be stored in the current window
@@ -108,7 +108,7 @@ export default class OAuthController extends Component {
             {/* When param code is retrieved, auth token is created and value in RouteComponents is updated */}
             {this.codeGeneratedFlag && (
               <CreateAuthToken
-                b64_encoded_string={this.helper.getB64KeySecretOAuthUrl()}
+                b64_encoded_string={this.helper.getB64KeySecret()}
                 code={this.code}
                 isLoggedInHandler={this.isLoggedInHandler}
               />

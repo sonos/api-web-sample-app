@@ -1,6 +1,6 @@
-/*
-*           authentication page
-*/
+/**
+ * Defines appearance of login page
+ */
 .oauth_bkg {
   box-sizing: border-box;
   display: block;

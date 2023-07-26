@@ -11,8 +11,5 @@
     "controlApiURL":"http://localhost:8090/https://api.ws.sonos.com/control/api/v1/groups/",
     "playerApiURL":"http://localhost:8090/https://api.ws.sonos.com/control/api/v1/players/"
   },
-  "appConfig" : {
-    "logLevel" : "debug"
-  },
   "socketURL":"ws://localhost:8000"
 }

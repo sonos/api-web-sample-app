@@ -13,7 +13,6 @@ import playerVolumeAtomFamily from "../Recoil/playerVolumeAtomFamily";
 import groupsInfoAtom from "../Recoil/groupsInfoAtom";
 import GroupsInfoHandler from "../MuseDataHandlers/GroupsInfoHandler";
 
-
 export default function MuseEventHandler() {
   const socket = useContext(SocketContext);
   const [playbackMetadataResponse, setPlaybackMetadataResponse] = useRecoilState(playbackMetadataAtom);

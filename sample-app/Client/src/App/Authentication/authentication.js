@@ -13,7 +13,7 @@ class Authentication extends Component {
     let accessToken = window.localStorage.accessToken;
 
     // If access token does not exist, user will have to log in to Sonos account
-    if (accessToken === undefined || accessToken === "") {
+    if (!accessToken) {
       return "DOES NOT EXIST";
     } else {
       // Checks if access token is expired

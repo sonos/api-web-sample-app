@@ -7,7 +7,7 @@ test("testing the authentication API", () => {
   const sampleCode = "BX48GHe6";
   render(
     <CreateAuthToken
-      b64_encoded_string={helper.getB64KeySecretOAuthUrl()}
+      b64_encoded_string={helper.getB64KeySecret()}
       code={sampleCode}
     />
   );

@@ -1,3 +1,7 @@
+/**
+ * Defines appearance of each player's component
+ */
+
 .player_name {
     height: 20%;
     box-sizing: border-box;

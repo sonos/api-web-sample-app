@@ -3,9 +3,9 @@ import { Component } from "react";
 
 import HelperControls from "../ControlAPIs/playerControls";
 import Subscribe from "../UserDetails/subscribe";
-import PlaybackMetaDataComponentWrapper from "./GroupSubComponents/PlaybackMetaDataComponentWrapper";
-import PlayBackStateButtonWrapper from "./GroupSubComponents/PlaybackStateButtonWrapper";
-import VolumeComponentWrapper from "./GroupSubComponents/VolumeComponentWrapper";
+import PlaybackMetaDataComponentWrapper from "./GroupSubComponents/playbackMetaDataComponentWrapper";
+import PlayBackStateButtonWrapper from "./GroupSubComponents/playbackStateButtonWrapper";
+import VolumeComponentWrapper from "./GroupSubComponents/volumeComponentWrapper";
 import PlayersController from "../Controllers/playersController";
 import HeaderComponent from "./headerComponent";
 import GroupGoneRoutingController from "../Controllers/groupGoneRoutingController";

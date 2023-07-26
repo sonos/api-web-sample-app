@@ -42,7 +42,7 @@ class PlayBackStateButton extends Component {
       <div>
         <div>
           {this.props.state.getStateFlag && (
-            <PlayBackToggleComponent deviceId={this.props.groupId} museClientConfig={this.props.museClientConfig}/>
+            <PlayBackToggleComponent groupId={this.props.groupId} museClientConfig={this.props.museClientConfig}/>
           )}
         </div>
 

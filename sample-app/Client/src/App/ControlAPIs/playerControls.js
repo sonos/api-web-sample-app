@@ -1,20 +1,31 @@
-import Authentication from "../Authentication/authentication";
 import Helper from "../Utility/helper";
 import { Component } from "react";
 
+/**
+ * Helper class used to make player control Sonos API calls
+ */
 class HelperControls extends Component {
   constructor() {
     super();
-    this.authentication = new Authentication();
+
+    // Used to make API calls
     this.helper = new Helper();
   }
 
-  helperControls(input_action, grp_id, data) {
+  /**
+   * Calls apiCall() from ../Utility/helper.js using the specified control action, group, and data
+   * @param input_action {string} Specific control action to execute
+   * @param groupId {string} Group ID to target in API call
+   * @param data {JSON} Body of API call
+   */
+  helperControls(input_action, groupId, data) {
     let endPoint =
-      this.helper.getGroupsURL() + grp_id + "/" + input_action;
+      this.helper.getGroupsURL() + groupId + "/" + input_action;
 
+    // Contains access token and API response format specifier
     const headers = this.helper.getHeaderBearer();
 
+    // Executes API call
     this.helper
       .apiCall(endPoint, headers, "POST", data)
       .then((res) => {

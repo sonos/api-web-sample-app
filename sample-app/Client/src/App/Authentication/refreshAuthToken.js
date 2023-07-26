@@ -45,7 +45,7 @@ export default function RefreshAccessToken(props) {
  * @param response Sonos API response when requesting a refreshed access token
  */
 function updateAccessToken(response) {
-  if (!(response === undefined || response === "")) {
+  if (response) {
     const accessTokenData = {
       token: response["access_token"],
       refresh_token: response["refresh_token"],
