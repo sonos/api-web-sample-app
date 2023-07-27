@@ -6,6 +6,14 @@ import playbackStateAtom from "../Recoil/playbackStateAtom";
 import {useNavigate} from "react-router-dom";
 import groupsInfoAtom from "../Recoil/groupsInfoAtom";
 
+/**
+ * Wrapper functional component for groupPlayersComponent class
+ * The Recoil atom states are passed through props to GroupPlayersComponent
+ * @param props.householdId {string} targets specific household in Sonos API
+ * @param props.groupId {string} targets specific group when fetching current playback state from Sonos API
+ * @param props.museClientConfig {JSON} Contains access token for Sonos API call
+ * @returns elements for use by GroupPlayersComponent for use in groupPlayersComponent.jsx
+ */
 export default function GroupPlayersComponentWrapper(props) {
   const [groupState, setGroupState] = useRecoilState(selectedGroupAtom);
   const [groupsInfoState, setGroupsInfoState] = useRecoilState(groupsInfoAtom);

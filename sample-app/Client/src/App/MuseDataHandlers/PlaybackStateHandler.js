@@ -1,3 +1,9 @@
+/** 
+ * The PlaybackStateHandler function is passed the parameter "requestData" 
+ * "PLAYBACK_STATE_PLAYING" and "PLAYBACK_STATE_BUFFERING" are string literals representing two possible playback states
+ * @param requestData.playbackState {string} holds the current state of playback 
+ * @param requestData.availablePlaybackActions {boolean} returns true for available playback actions
+*/
 export default function PlaybackStateHandler(requestData) {
   try {
     const playBackState =
