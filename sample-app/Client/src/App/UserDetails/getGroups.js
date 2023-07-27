@@ -17,6 +17,7 @@ import selectedGroupAtom from "../Recoil/selectedGroupAtom";
  *    This is true when GetGroups is called by GroupPlayersComponent, since a group has been selected
  * @param props.groupId {string} Only to be passed through props if props.setGroup is true.
  *    Used to identify which group's data to use when updating selectedGroupAtom
+ * @param props.displayLoadingScreen {boolean} True when called from FetchGroups, false when called from GroupPlayersComponent
  * @return {JSX.Element} Displays error screen only if error has been encountered
  */
 export default function GetGroups(props) {
@@ -60,14 +61,14 @@ export default function GetGroups(props) {
     });
   }, []);
 
-  // If an error has occurred, show error screen. Otherwise, show loading screen while data is being fetched
+  // If an error has occurred, show error screen. Otherwise, if on groups page, show loading screen while data is being fetched
   return error === true ? (
     <div className="main_page">
       <HeaderComponent/>
       <br />
       <h1 className="oauthtext">Groups in this household could not be found.</h1>
     </div>
-  ) : (
+  ) : props.showLoadingScreen && (
     <div className="main_page">
       <div className="render_page">
       <CircularProgress color="inherit" />

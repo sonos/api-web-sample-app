@@ -33,6 +33,7 @@ class FetchGroups extends Component {
               householdId={this.props.householdId}
               museClientConfig={this.props.museClientConfig}
               setGroup={false}
+              showLoadingScreen={true}
             />
           )}
         </div>

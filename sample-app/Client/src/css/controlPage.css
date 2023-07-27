@@ -18,22 +18,22 @@
   z-index: 100;
 }
 
-
 .group_box {
+  position:relative;
   width: 40%;
-  height: 40%;
-  margin: 0 auto;
+  height: 38px;
+  margin: 2% auto;
   box-sizing: border-box;
   display: block;
   color: #000000;
   background-color: black;
+  z-index: 100;
 }
 
 .group_box p {
-  top: 5%;
+  top: 16%;
   text-align: center;
   position: relative;
-  font-family: "Inter";
   font-style: normal;
   font-weight: 600;
   color: white;
@@ -41,12 +41,11 @@
 }
 
 .player {
-  height: 40vh;
+  position:relative;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-  margin-top: 5%;
+  margin-top: -80px;
 }
 
 .track_details {
@@ -56,6 +55,7 @@
   justify-content: center;
   margin-top: 50px;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .track_name {
@@ -68,18 +68,17 @@
 
 .track_image {
   margin: 25px;
-  height: 250px;
+  height: 300px;
   width: 300px;
   background-size: cover;
-  background-position: center;
-  border-radius: 15%;
 }
 
 .group_buttons {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 120px;
+  margin-top: 90px;
+  position: relative;
 }
 
 .playpause_track, 
@@ -164,10 +163,6 @@ i.fa-volume-up {
   width: 60%;
 }
 
-.players_component {
-  margin-top: 140px;
-}
-
 .play_back_metadata {
   align-items: center;
 }
@@ -175,4 +170,55 @@ i.fa-volume-up {
 .group_volume {
   font-size: small;
   margin-right: 150px;
+}
+
+.dropdown_menu {
+  position:relative;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.playback_item {
+  margin-top: 10px;
+  display: block;
+  position: relative;
+  width: 50%;
+  height: 10%;
+  left: 25%;
+  background: #d9d9d9;
+  mix-blend-mode: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  opacity : 0.8;
+  cursor:pointer;
+}
+
+.react_select_container .react_select__control {
+  background-color: black;
+  color: white;
+}
+
+.react_select_container .react_select__single-value {
+  color: white;
+}
+
+.react_select_container .react_select__menu {
+  background-color: black;
+  color: white;
+}
+
+.react_select_container .react_select__option {
+  color: white;
+}
+
+.react_select_container .react_select__option--is-focused {
+  background-color: #6F6F6F;
+  color: white;
+}
+
+.react_select_container .react_select__option--is-selected {
+  background-color: #3F3F3F;
+  color: white;
 }

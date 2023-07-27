@@ -22,13 +22,11 @@ class ListGroupsComponent extends Component {
       <div>
         <div className="main_page">
           <HeaderComponent />
-          <div className="info_Wrapper">
-            <div className="back_button_Wrapper"> 
-                <BackButton navigate={this.props.navigate} />
-            </div>
-            <div className="group_text">
-              <p>List of Groups in your Household: </p>
-            </div>
+          <div className="back_button_Wrapper">
+              <BackButton navigate={this.props.navigate} />
+          </div>
+          <div className="group_text">
+            <p>Groups</p>
           </div>
           {/* For each group in this.props.groups, a button is created that when clicked, routes user to group player page */}
           {Object.keys(this.props.groups).map((key) => (

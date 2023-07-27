@@ -84,13 +84,13 @@ export default class OAuthController extends Component {
             />
           </div>
           <div className="login_with_sonos_text">
-            <p>Login with Sonos</p>
+            <p>Log into your Sonos account</p>
           </div>
           <div>
             {/* Login button that when clicked, takes user to Sonos login URL */}
             <a href={this.helper.getOAuthUrl()} className="oauthhref">
               <button type="button" className="login_btn">
-                Login
+                Log In
               </button>
             </a>
           </div>

@@ -19,7 +19,7 @@ class ListHouseholdsComponent extends Component {
         <div className="main_page">
           <HeaderComponent />
           <div className="group_text">
-            <p>List of Households: </p>
+            <p>Households</p>
           </div>
           {/* For each household in this.props.households, a button is created that when clicked, routes the user to that household */}
           {this.props.households.map((household, index) => (

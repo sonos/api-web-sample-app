@@ -84,7 +84,7 @@ class PlayerComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div className="player_component">
         <div>
           {/* On instantiation, gets current player volume from Sonos API. GetPlayerVolume finishes by setting getStartVolumeFlag to false */}
           {this.props.state.getStartVolumeFlag && (

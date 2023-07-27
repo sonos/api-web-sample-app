@@ -2,58 +2,8 @@
  * Defines appearance of each player's component
  */
 
-.player_name {
-    height: 20%;
-    box-sizing: border-box;
-    display: block;
-  }
-
-  .player_box {
-    height: 40%;
-    width: 60%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    display: block;
-    color: #000000;
-    background-color: black;
-    margin-top: 10%;
-  }
-  
-  .player_box p {
-    top: 5%;
-    text-align: center;
-    position: relative;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 600;
-    color: white;
-  }
-
-.player_text {
-  height: 20%;
-  box-sizing: border-box;
-  text-align: center;
-
-  display: block;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 800;
-  font-size: medium;
-
-  color: white;
-}
-
-.player_text p {
-  top: 42%;
-  text-align: center;
-  position: relative;
-}
-
-
-.playerName {
-    text-align: left;
-    margin-left: 50px;
+.player_component {
+  margin-left:25%;
 }
 
 .player_slider_container {
@@ -131,5 +81,5 @@ input[type="checkbox"] {
   cursor: pointer;
   display: flex;
   align-items: center;
-  margin-left: 80px;
+  margin-left: 12%;
 }
