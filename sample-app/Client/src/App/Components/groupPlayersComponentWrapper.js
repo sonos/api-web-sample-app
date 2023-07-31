@@ -15,10 +15,14 @@ import groupsInfoAtom from "../Recoil/groupsInfoAtom";
  * @returns elements for use by GroupPlayersComponent for use in groupPlayersComponent.jsx
  */
 export default function GroupPlayersComponentWrapper(props) {
+  // Accesses and modifies the states of selectedGroupAtom, groupsInfoAtom, and playbackStateAtom
   const [groupState, setGroupState] = useRecoilState(selectedGroupAtom);
   const [groupsInfoState, setGroupsInfoState] = useRecoilState(groupsInfoAtom);
   const [playbackState, setPlaybackState] = useRecoilState(playbackStateAtom);
+
+  // Used by BackButton and GroupGoneRoutingController to navigate to previous page
   let navigate = useNavigate();
+
   return (<GroupPlayersComponent
     navigate={navigate}
     groupId={props.groupId}

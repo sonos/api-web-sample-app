@@ -7,11 +7,11 @@ import { atom } from "recoil"
 const playbackStateAtom = atom({
   key: 'playbackStateAtom', // unique ID (with respect to other atoms/selectors)
   default: {
-    isPlaying: false,  // If playback isPlaying, set to true
-    getStateFlag: true, // If true, current state is fetched
-    canSkip: false,   // If playback canSkip, set to true
-    canSkipBack: false,  // If playback canSkipBack, set to true
-    canSeek: false  // If playback canSeek, set to true
+    isPlaying: false,  // {boolean} Determines state of play/pause button on group player page
+    getStateFlag: true, // {boolean} If true, GetPlaybackState is called and current playback state is fetched from Sonos API
+    canSkip: false,   // {boolean} Determines functionality of skip button
+    canSkipBack: false,  // {boolean} Determines functionality of skip back button
+    canSeek: false  // {boolean} Determines functionality of skip back button. Seek is needed when restarting track (seek to position 0)
   },
 });
 

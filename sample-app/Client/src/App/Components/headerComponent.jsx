@@ -2,16 +2,17 @@ import React from "react";
 import ImageComponent from "./GroupSubComponents/imageComponent";
 
 /** 
- *  This contains elements for the header. 
- *  The elements are the Sonos logo image and the logout button image
+ *  Functional component for header used throughout application
+ *  Displays Sonos logo image and logout button image
  *  These elements appear on the households, groups, and group player pages.
  */
 export default function HeaderComponent() {
-  //this function is called upon when the logout image is clicked.
+  /**
+   * onClick handler for log out button. Clears stored access token and navigates user back to login page
+   */
   const logout = () => {
-    console.debug("Logging out...");
     window.localStorage.clear();
-    window.location.reload(true);
+    window.location.reload();
   };
 
   return (

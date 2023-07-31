@@ -1,13 +1,27 @@
 import React from "react";
 import { Component } from "react";
-import PlayBackToggleComponent from "../../ControlAPIs/playbackToggleComponent";
+import GetPlaybackState from "../../ControlAPIs/getPlaybackState";
 import HelperControls from "../../ControlAPIs/playerControls";
 
+/**
+ * Class component for play/pause button
+ */
 class PlayBackStateButton extends Component {
+  /**
+   * @param props.state {JSON} Accesses state of playbackStateAtom
+   * @param props.setState Modifies state of playbackStateAtom
+   * @param props.groupId {string} Used to target current group in Sonos API calls
+   * @param props.museClientConfig {JSON} Contains access token for Sonos API calls
+   */
   constructor(props) {
     super(props);
+
+    // Used for Sonos API calls
     this.ControlOptions = new HelperControls();
+
     this.playpauseBtn = React.createRef();
+
+    // getStateFlag = true ensures that current playback state is fetched on instantiation
     this.props.setState({
       isPlaying: false,
       getStateFlag: true,
@@ -17,14 +31,21 @@ class PlayBackStateButton extends Component {
     });
   }
 
+  /**
+   * Causes play symbol to show if paused and pause symbol to show if playing
+   * @return {string} className of play or pause symbol
+   */
   playModeClass = () => {
     const playClass = "fa fa-play-circle fa-5x";
     const pauseClass = "fa fa-pause-circle fa-5x";
     return this.props.state.isPlaying ? pauseClass : playClass;
   };
 
+  /**
+   * onClick handler for play/pause button
+   * Calls Sonos API to toggle playback for current group
+   */
   toggleMusic = () => {
-    console.debug("Trying to play/pause music...");
     this.ControlOptions.helperControls(
       "playback/togglePlayPause",
       this.props.groupId,
@@ -39,10 +60,11 @@ class PlayBackStateButton extends Component {
 
   render() {
     return (
+      // On instantiation, fetches current playback state from Sonos API. Displays play/pause button
       <div>
         <div>
           {this.props.state.getStateFlag && (
-            <PlayBackToggleComponent groupId={this.props.groupId} museClientConfig={this.props.museClientConfig}/>
+            <GetPlaybackState groupId={this.props.groupId} museClientConfig={this.props.museClientConfig}/>
           )}
         </div>
 

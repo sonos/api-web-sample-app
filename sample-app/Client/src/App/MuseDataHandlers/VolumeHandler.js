@@ -3,7 +3,7 @@
  * See https://devdocs.sonos.com/reference/groupvolume-getvolume for Sonos API group volume response example
  * @param requestData {JSON} Sonos API response for a group or player volume event or a group or player getVolume call
  * @return {{volumeVal: number, getStartVolumeFlag: boolean}}
- *    volume value for player or group. Boolean getStartVolume flag is false since volume has been retrieved
+ *    volume value for player or group. Boolean getStartVolumeFlag is false since volume has been retrieved
  */
 export default function VolumeHandler(requestData) {
   try {

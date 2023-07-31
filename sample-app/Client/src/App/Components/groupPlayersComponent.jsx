@@ -20,7 +20,7 @@ import PlaylistsController from "../Controllers/playlistsController";
  * This page contains all the components on the group player page
  * Contains players in current household, group volume slider, players volume slider, and the back button to the groups page 
  * @param props.householdId {string} targets specific household in Sonos API
- * @param props.museCLientConfig {JSON} Contains access token for Sonos API call
+ * @param props.museClientConfig {JSON} Contains access token for Sonos API call
  * @param props.groupId {string} targets specific group when fetching current playback state from Sonos API
  * @param props.playback {JSON} Accesses the state of playbackStateAtom
  * @param props.groupsInfoState {JSON} Accesses state of groupsInfoAtom
@@ -28,8 +28,11 @@ import PlaylistsController from "../Controllers/playlistsController";
 class GroupPlayersComponent extends Component {
   constructor(props) {
     super(props);
+
+    // Used for Sonos API calls
     this.ControlOptions = new HelperControls();
-    //this variable is used to track when the "skip to previous" button was last clicked. If the user recently clicked
+
+    // Keeps track of when the "skip to previous" button was last clicked
     this.lastClickTime = Date.now();
 
     // Keeps track of which menu option to display (players, favorites, or playlists). Displays players by default
@@ -89,18 +92,18 @@ class GroupPlayersComponent extends Component {
         </div>
 
         <div className="player">
-          {/* Returns PlaybackMetaDataComponent for the current group through PlaybackMetaDataComponentWrapper */}
+          {/* Fetches playback metadata from Sonos API and displays. Updates in response to events */}
           <PlaybackMetaDataComponentWrapper
             groupId={this.props.groupId}
             museClientConfig={this.props.museClientConfig}
           />
           <div className="group_buttons">
-            {/* if current playback cannot skip to previous and cannot restart, make skipToPrevious button appear disabled */}  
+            {/* If current playback cannot skip to previous and cannot restart, make skipToPrevious button appear disabled */}
             <div className={this.props.playback.canSkipBack === false && this.props.playback.canSeek === false ? "group_prev_disabled" : "group_prev"} onClick={this.skipToPrevious}>
               <i className="fa fa-step-backward fa-2x"></i>
             </div>
 
-            {/* Returns PlaybackStateButton for the current group through PlayBackStateButtonWrapper */}
+            {/* Fetches playback state from Sonos API and displays play/pause button. Updates in response to events */}
             <PlayBackStateButtonWrapper
               groupId={this.props.groupId}
               museClientConfig={this.props.museClientConfig}
@@ -113,7 +116,7 @@ class GroupPlayersComponent extends Component {
           </div>
 
           <p className="group_volume">Group Volume:</p>
-          {/* Returns VolumeComponent for the current group through VolumeComponentWrapper */}
+          {/* Fetches current group's volume state from Sonos API and displays volume slider. Volume slider value updates in response to events */}
           <VolumeComponentWrapper
             groupId={this.props.groupId}
             museClientConfig={this.props.museClientConfig}
@@ -157,13 +160,13 @@ class GroupPlayersComponent extends Component {
 
 
   /**
-   * Onclick handler for skiipToPrevious button, we assume they want to go to the previous track, 
-   * otherwise we seek to the beginning of the song.
+   * Onclick handler for skipToPrevious button
+   * If skip back button was last clicked more than 4 seconds ago, restart current track if possible. Otherwise, skip to previous song if possible
    */
   skipToPrevious = () => {
-    //gets the time in milliseconds between the lastClickTime and a current click
+    // Time in milliseconds between the lastClickTime and a current click
     let elapsedTime = Date.now() - this.lastClickTime;
-    console.debug("Trying to skip to previous song...");
+
     if(this.props.playback.canSkipBack && (!this.props.playback.canSeek || elapsedTime <= 4000)) {
       this.ControlOptions.helperControls("playback/skipToPreviousTrack", this.props.groupId, {});
     } else if(this.props.playback.canSeek) {
@@ -173,10 +176,10 @@ class GroupPlayersComponent extends Component {
   }
 
   /**
-   * Onclick handler for skiipToNext button, we assume they want to go to the next track
+   * Onclick handler for skipToNext button
+   * Skips to next track if possible
    */
   skipToNext = () => {
-    console.debug("Trying to skip to next song...");
     if(this.props.playback.canSkip) {
       this.ControlOptions.helperControls("playback/skipToNextTrack", this.props.groupId, {});
     }

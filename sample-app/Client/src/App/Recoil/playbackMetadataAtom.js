@@ -11,7 +11,9 @@ const playbackMetadataAtom = atom({
     trackName: null,  // {string} Currently playing item's name
     trackImage: null,  // {string} URL of currently playing item or item's container if current item's image does not exist
     artistName: null,  // {string} Currently playing item's artist's name
-    containerName: null  // {string} Currently playing container's name
+    containerName: null,  // {string} Currently playing container's name
+    serviceId: null,  // {number} ID of currently playing music service. Used to display service logo
+    serviceName: null  // {string} Name of currently playing music service. Used for service logo image alt
   }
 });
 

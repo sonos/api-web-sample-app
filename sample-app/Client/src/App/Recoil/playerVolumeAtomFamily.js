@@ -7,7 +7,7 @@ import { atomFamily } from "recoil"
 const playerVolumeAtomFamily = atomFamily({
   key: 'playerVolumeAtomFamily',  // unique ID (with respect to other atoms/selectors)
   default: {
-    getStartVolumeFlag: true,  // If true, getPlayerVolume is called and player volume state is fetched from Sonos API
+    getStartVolumeFlag: true,  // {boolean} If true, getPlayerVolume is called and player volume state is fetched from Sonos API
     volumeVal: 0  // {number} Volume value of player. Player volume slider is set to this value
   }
 });

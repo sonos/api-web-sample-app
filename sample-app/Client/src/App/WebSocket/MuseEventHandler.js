@@ -14,18 +14,20 @@ import groupsInfoAtom from "../Recoil/groupsInfoAtom";
 import GroupsInfoHandler from "../MuseDataHandlers/GroupsInfoHandler";
 
 /** 
- * The function "MuseEventHandler" handles WebSocket messages 
- * from a server and processes different types of messages based on their headers.
- * It processes the incoming data, and updates the state using Recoil's atoms.
- * It also uses a helper function "getMethodType" to extract the message type from the incoming WebSocket messages.
- * "useRecoilCallback" was used here to fetch the state of Recoil atoms without having MuseEventHandler subscribed to their states
+ * Functional component that listens for Sonos API events sent via WebSocket connection from the server
+ * Updates the state of Recoil atoms depending on the type of event received
  */
 export default function MuseEventHandler() {
+  // Uses WebSocket context defined in socket.js and connects to WebSocket initiated in Server/main.mjs
   const socket = useContext(SocketContext);
+
   const [playbackMetadataResponse, setPlaybackMetadataResponse] = useRecoilState(playbackMetadataAtom);
   const [playbackStateResponse, setPlaybackStateResponse] = useRecoilState(playbackStateAtom);
   const [volumeResponse, setVolumeResponse] = useRecoilState(volumeAtom);
   const [selectedGroupResponse, setSelectedGroupResponse] = useRecoilState(selectedGroupAtom);
+  const [groupsInfoResponse, setGroupsInfoResponse] = useRecoilState(groupsInfoAtom);
+
+  // useRecoilCallback was used to fetch the state of Recoil atoms without having MuseEventHandler subscribed to their states
   const selectedGroupSnapshot = useRecoilCallback(({snapshot}) => () => {
     let loadable = snapshot.getLoadable(selectedGroupAtom);
     return loadable.valueMaybe();
@@ -33,20 +35,19 @@ export default function MuseEventHandler() {
   const setPlayerVolumeResponse = useRecoilCallback(({set}) => (playerId, val) => {
     set(playerVolumeAtomFamily(playerId), val);
   }, []);
-  const [groupsInfoResponse, setGroupsInfoResponse] = useRecoilState(groupsInfoAtom);
   const groupsInfoSnapshot = useRecoilCallback(({snapshot}) => () => {
     let loadable = snapshot.getLoadable(groupsInfoAtom);
     return loadable.valueMaybe();
   }, []);
 
-  //"useEffect" hook sets up a callback function to handle incoming messages
+  // Sets up a callback function to handle incoming messages
   useEffect(() => {
     if (socket !== undefined) {
-      // Receive the events via websocket connection established
+      // Receive the events from server via WebSocket connection
       socket.on("message from server", (requestData) => {
-        // An event has been received from the server and will be processed based on the type of event.
+        // An event has been received from the server and will be processed based on the type of event
         if (requestData.headers !== undefined) {
-          // This filters events to ensure that only events targeting the current group are acted on.
+          // Filters events to ensure only group events targeting the current group are acted on
           if (requestData.headers["x-sonos-target-value"] === selectedGroupSnapshot().groupId) {
             if (getMethodType(requestData) === "playbackStatus") {
               const res = PlaybackStateHandler(requestData.data);
@@ -63,10 +64,11 @@ export default function MuseEventHandler() {
               setSelectedGroupResponse(res);
             }
           } else if (getMethodType(requestData) === "playerVolume") {
+            // Uses message's target to determine which player's volume to update
             const res = VolumeHandler(requestData.data);
             setPlayerVolumeResponse(requestData.headers["x-sonos-target-value"], res);
           } else if (getMethodType(requestData) === "groups" && requestData.headers["x-sonos-target-value"] === groupsInfoSnapshot().householdId) {
-            // This filters events to ensure that only events targeting the current household is acted on.
+            // Filters events to ensure that only events targeting the current household are acted on
             const res = GroupsInfoHandler(requestData.data);
             res.householdId = groupsInfoSnapshot().householdId;
             setGroupsInfoResponse(res);
@@ -77,6 +79,11 @@ export default function MuseEventHandler() {
   }, []);
 }
 
+/**
+ * Retrieves message type from Sonos API message
+ * @param request {JSON} Message received by client via WebSocket connection
+ * @return {string} Sonos API message type
+ */
 function getMethodType(request) {
   try {
     return request.headers["x-sonos-type"];

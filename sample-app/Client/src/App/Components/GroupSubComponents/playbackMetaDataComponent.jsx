@@ -2,11 +2,12 @@ import React from "react";
 import { Component } from "react";
 import PlayBackMetadata from "../../ControlAPIs/playbackMetadata";
 import ImageComponent from "./imageComponent";
+import ServiceLogoComponent from "./serviceLogoComponent";
 
 /**
  * Class component for displaying track metadata (track name, track image, artist, container)
  */
-class PlayBackMetaDataComponent extends Component {
+class PlaybackMetaDataComponent extends Component {
   /**
   * @param props.state {JSON} Accesses playbackMetadataAtom's state
   * @param props.setState Modifies playbackMetadataAtom's state
@@ -24,7 +25,9 @@ class PlayBackMetaDataComponent extends Component {
       trackName: null,
       trackImage: null,
       artistName: null,
-      containerName: null
+      containerName: null,
+      serviceId: null,
+      serviceName: null
     });
   }
 
@@ -58,14 +61,15 @@ class PlayBackMetaDataComponent extends Component {
         <div className="track_details">
           <div className="track_image">
             <ImageComponent src={this.getImage()} alt="Song being played" />
-            <div className="track_name">{this.props.state.trackName}</div>
-            <div className="track_artist">{this.props.state.artistName}</div>
-            <div className="track_container">{this.props.state.containerName}</div>
           </div>
+          <div className="track_name">{this.props.state.trackName}</div>
+          <div className="track_artist">{this.props.state.artistName}</div>
+          <div className="track_container">{this.props.state.containerName}</div>
+          <ServiceLogoComponent serviceId={this.props.state.serviceId} serviceName={this.props.state.serviceName} />
         </div>
       </div>
     );
   }
 }
 
-export default PlayBackMetaDataComponent;
+export default PlaybackMetaDataComponent;

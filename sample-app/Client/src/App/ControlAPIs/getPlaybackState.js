@@ -8,7 +8,7 @@ import playbackStateAtom from "../Recoil/playbackStateAtom";
  * @param props.museClientConfig {JSON} Contains access token for Sonos API call
  * @param props.groupId Used to target specific group when calling Sonos API
  */
-export default function StateAtStart(props) {
+export default function GetPlaybackState(props) {
   // playbackStateResponse (unused) accesses and setPlaybackStateResponse modifies playbackStateAtom's state
   const [playbackStateResponse, setPlaybackStateResponse] = useRecoilState(playbackStateAtom);
 
@@ -19,7 +19,6 @@ export default function StateAtStart(props) {
   playBackApi
     .playbackGetPlaybackStatus(props.groupId)
     .then((res) => {
-      console.debug(" State at start is : ", res.playbackState);
       setPlaybackStateResponse(PlaybackStateHandler(res));
     })
     .catch(function (error) {

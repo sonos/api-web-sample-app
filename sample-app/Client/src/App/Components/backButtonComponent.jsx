@@ -6,6 +6,9 @@ import React from "react";
  * @param props.navigate Used to navigate to previous page. Result of useNavigate() call
  */
 export default function BackButton(props) {
+  /**
+   * onClick handler for back button. Navigates user to previous page
+   */
   const goBack = () => {
     props.navigate(-1);
   }

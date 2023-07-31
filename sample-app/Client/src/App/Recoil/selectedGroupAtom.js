@@ -9,7 +9,7 @@ const selectedGroupAtom = atom({
   default: {
     groupName: null,  // {string} Name of currently displayed group
     groupId: null,  // {string} ID of currently displayed group
-    groupGoneFlag: false  // If group has disappeared, set to true. If true, user is navigated back to groups page
+    groupGoneFlag: false  // {boolean} If group has disappeared, set to true. If true, user is navigated back to groups page
   }
 });
 
