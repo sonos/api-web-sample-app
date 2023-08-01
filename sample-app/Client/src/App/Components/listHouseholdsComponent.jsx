@@ -9,6 +9,7 @@ import HeaderComponent from "./headerComponent";
 class ListHouseholdsComponent extends Component {
   /**
    * @param props.households {Array} Array of JSON objects each containing information for a household
+   * @param props.museCLientConfig {JSON} Contains access token for Sonos API call
    */
   constructor(props) {
     super(props);
@@ -27,6 +28,7 @@ class ListHouseholdsComponent extends Component {
               key={household.id}
               household={household}
               index={index}
+              museClientConfig={this.props.museClientConfig}
             />
           ))}
         </div>

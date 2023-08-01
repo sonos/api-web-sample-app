@@ -46,7 +46,7 @@ class FetchHouseholds extends Component {
         </div>
         <div>
           {!this.state.householdFlag && (
-            <ListHouseholdsComponent households={this.state.households} />
+            <ListHouseholdsComponent households={this.state.households} museClientConfig={museClientConfig}/>
           )}
         </div>
       </div>

@@ -61,6 +61,7 @@ i.fa-chevron-circle-left {
   height: 10%;
   display: block;
 }
+
 .group_ind {
   position: absolute;
   width: 50%;
@@ -76,10 +77,47 @@ i.fa-chevron-circle-left {
   cursor:pointer;
 }
 
+.household_det {
+  width: 50%;
+  left: 25%;
+  min-height: 9%;
+  background: #d9d9d9;
+  position: relative;
+  mix-blend-mode: normal;
+  display: flex;
+  justify-content: center;
+  cursor:pointer;
+  align-content: center;
+  margin-bottom: 3%;
+}
+
+.household_ind {
+  font-size: 20px;
+  opacity : 0.8;
+  align-content: center;
+  align-self: center;
+  position: relative;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.household_player_name {
+  position: relative;
+  width: 50%;
+  height: 1px;
+  left: 25%;
+  display: block;
+  font-size: 12px;
+  opacity : 0.8;
+  cursor:pointer;
+  align-items: flex-end;
+  text-align: center;
+  align-content: center;
+}
+
 .group_ind:hover {
   opacity: 1;
 }
-
 
 .selected_group_page {
   box-sizing: border-box;

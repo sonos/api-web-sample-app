@@ -79,41 +79,30 @@ export default class OAuthController extends Component {
       <div className="background">
         <div className="main_page">
           <div className="oauth_bkg">
-            <ImageComponent
+            <img
               src={require("../../images/sonos_background.png")}
+              width="100%"
             />
           </div>
           <div className="login_with_sonos_text">
             <p>Log into your Sonos account</p>
           </div>
-          <div>
-            {/* Login button that when clicked, takes user to Sonos login URL */}
-            <a href={this.helper.getOAuthUrl()} className="oauthhref">
-              <button type="button" className="login_btn">
-                Log In
-              </button>
-            </a>
-          </div>
+          {/* Login button that when clicked, takes user to Sonos login URL */}
+          <a href={this.helper.getOAuthUrl()} className="oauthhref">
+            <button type="button" className="login_btn">
+              Log In
+            </button>
+          </a>
         </div>
-        <div className="login_to_sonos" align="center">
-          <div>
-            <img
-              src={require("../../images/sonos.png")}
-              alt="Sonos"
-              width="300"
-              height="200"
-            ></img>
-          </div>
-          <div>
-            {/* When param code is retrieved, auth token is created and value in RouteComponents is updated */}
-            {this.codeGeneratedFlag && (
-              <CreateAuthToken
-                b64_encoded_string={this.helper.getB64KeySecret()}
-                code={this.code}
-                isLoggedInHandler={this.isLoggedInHandler}
-              />
-            )}
-          </div>
+        <div className="login_to_sonos"  align="center">      
+          {/* When param code is retrieved, auth token is created and value in RouteComponents is updated */}
+          {this.codeGeneratedFlag && (
+            <CreateAuthToken
+              b64_encoded_string={this.helper.getB64KeySecret()}
+              code={this.code}
+              isLoggedInHandler={this.isLoggedInHandler}
+            />
+          )}
         </div>
       </div>
     );
