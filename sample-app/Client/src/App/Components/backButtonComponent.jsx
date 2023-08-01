@@ -14,8 +14,8 @@ export default function BackButton(props) {
   }
 
   return (
-      <div className="back_button" onClick={goBack} >
-          <i className="fa fa-chevron-circle-left fa-3x" ></i>
+      <div className="back_button" >
+          <i className="fa fa-chevron-circle-left fa-3x" onClick={goBack}></i>
       </div>
   );
 }

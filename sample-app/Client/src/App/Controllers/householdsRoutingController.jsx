@@ -48,16 +48,16 @@ export default function HouseholdRoutingController(props) {
 
   // Returns household button with routeChange as onClick listener
   return (
-    <div className="household_det">
+    <div className="household_det" onClick={routeChange}>
       <Container>
-        <a onClick={routeChange}>
+        <a>
           <p className="household_ind">Household {props.index + 1}</p>
           {/* Once players have been fetched, an array is created containing the players */}
           {!fetchFlag && (players.map((player, index) => {
-            // If index of the player currently being proccessed is less than 4 or household has 5 players, display player
+            // If index of the player currently being processed is less than 4 or household has 5 players, display player
             if(players.length <= 5 || index < 4) {
               return (<p className="household_player_name" key={player.id}>{player.name}</p>);
-            } else if(index === 4) { 
+            } else if(index === 4) {
               // For larger households, only the first four players are displayed and instead of displaying the 5th, the number of remaining players is displayed
               return (<p className="household_player_name" key={index}> + {players.length - 4} more</p>);
             }
