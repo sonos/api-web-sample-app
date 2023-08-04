@@ -14,10 +14,10 @@ import selectedGroupAtom from "../Recoil/selectedGroupAtom";
  * @param props.householdId {string} ID of current household
  * @param props.setGroup {boolean} If true, this function updates the state of selectedGroupAtom
  *    This is false when GetGroups is called by FetchGroupsController, since a group has not yet been selected
- *    This is true when GetGroups is called by GroupPlayersComponent, since a group has been selected
+ *    This is true when GetGroups is called by GroupPlaybackComponent, since a group has been selected
  * @param props.groupId {string} Only to be passed through props if props.setGroup is true.
  *    Used to identify which group's data to use when updating selectedGroupAtom
- * @param props.displayLoadingScreen {boolean} True when called from FetchGroups, false when called from GroupPlayersComponent
+ * @param props.displayLoadingScreen {boolean} True when called from FetchGroups, false when called from GroupPlaybackComponent
  * @return {JSX.Element} Displays error screen only if error has been encountered
  */
 export default function GetGroups(props) {

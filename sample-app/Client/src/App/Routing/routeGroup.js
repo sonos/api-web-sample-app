@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Authentication from "../Authentication/authentication";
 import { Configuration } from "../museClient/configuration";
-import GroupPlayersComponentWrapper from "../Components/groupPlayersComponentWrapper";
+import GroupPlaybackComponentWrapper from "../Components/groupPlaybackComponentWrapper";
 
 /**
- * Functional component that displays the GroupPlayersComponent for the selected group
+ * Functional component that displays the GroupPlaybackComponent for the selected group
  * User is routed to this page after clicking a group button on the groups page
- * @return {JSX.Element} GroupPlayersComponent through GroupPlayersComponentWrapper
+ * @return {JSX.Element} GroupPlaybackComponent through GroupPlaybackComponentWrapper
  */
 function RouteGroup() {
   // Used to route user to back to start page if access token has expired or if routed information has been lost
@@ -32,8 +32,8 @@ function RouteGroup() {
       accessToken: JSON.parse(window.localStorage.accessToken).token,
     });
 
-    // Returns GroupPlayerComponent of current group through GroupPlayersComponentWrapper
-    return <GroupPlayersComponentWrapper
+    // Returns GroupPlaybackComponent of current group through GroupPlaybackComponentWrapper
+    return <GroupPlaybackComponentWrapper
       groupId={groupId}
       museClientConfig={museClientConfig}
       householdId={householdId}

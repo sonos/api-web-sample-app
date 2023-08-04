@@ -7,7 +7,7 @@
 */
 export default function PlaybackStateHandler(requestData) {
   try {
-    // Determines state of play/pause button on group player page
+    // Determines state of play/pause button on group playback page
     const playBackState = requestData.playbackState === "PLAYBACK_STATE_PLAYING" || requestData.playbackState === "PLAYBACK_STATE_BUFFERING";
 
     // playbackStateAtom is set to equal return value

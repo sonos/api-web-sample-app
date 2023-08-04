@@ -1,7 +1,7 @@
 import { atom } from "recoil"
 
 /**
- * Recoil atom that keeps track of the playback metadata of the currently displayed group on the group player page
+ * Recoil atom that keeps track of the playback metadata of the currently displayed group on the group playback page
  * Can be accessed and modified by calling useRecoilState(playbackMetadataAtom)
  */
 const playbackMetadataAtom = atom({

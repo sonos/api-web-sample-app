@@ -82,6 +82,7 @@ export default class OAuthController extends Component {
             <img
               src={require("../../images/sonos_background.png")}
               width="100%"
+              alt="Login page background image"
             />
           </div>
           <div className="login_with_sonos_text">

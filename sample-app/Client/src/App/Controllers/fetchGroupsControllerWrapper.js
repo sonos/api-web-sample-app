@@ -16,7 +16,7 @@ export default function FetchGroupsControllerWrapper(props) {
   // groupsInfoState accesses state and setGroupsInfoState modifies state of groupsInfoAtom
   const [groupsInfoState, setGroupsInfoState] = useRecoilState(groupsInfoAtom);
 
-  // Used to route user to group player and send data to new location
+  // Used to route user to group playback and send data to new location
   let navigate = useNavigate();
 
   // Returns a FetchGroups component with the ability to access and modify groupsInfoAtom through props

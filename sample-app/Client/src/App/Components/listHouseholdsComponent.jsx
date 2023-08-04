@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import HouseholdRoutingController from "../Controllers/householdsRoutingController";
+import HouseholdRoutingController from "../Controllers/householdRoutingController";
 import HeaderComponent from "./headerComponent";
 
 /**

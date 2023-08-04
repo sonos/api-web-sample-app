@@ -27,8 +27,8 @@ export default function HouseholdRoutingController(props) {
 
     // Fetches current groups from Sonos API
     groupsApi.groupsGetGroups(props.household.id)
-    .then((groupsAPIresponse) => { 
-      setPlayers(groupsAPIresponse.players);
+    .then((groupsApiResponse) => {
+      setPlayers(groupsApiResponse.players);
       setFetchFlag(false);
     })
     .catch(function (error) {

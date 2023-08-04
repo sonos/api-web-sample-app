@@ -6,7 +6,7 @@ import {useRecoilState} from "recoil";
 import selectedGroupAtom from "../Recoil/selectedGroupAtom";
 
 /**
- * Returns a button that when clicked, routes user to the appropriate group player
+ * Returns a button that when clicked, routes user to the appropriate group playback
  * @param props.group {JSON} Contains group information
  * @param props.householdID {string} Current household ID
  * @returns {JSX.Element} Group button

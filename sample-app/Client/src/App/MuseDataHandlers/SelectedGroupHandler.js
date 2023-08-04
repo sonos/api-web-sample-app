@@ -7,7 +7,7 @@
  */
 export default function SelectedGroupHandler(requestData) {
   try {
-    // Group has disappeared. groupGoneFlag = true notifies GroupPlayersComponent to navigate user back to groups page
+    // Group has disappeared. groupGoneFlag = true notifies GroupPlaybackComponent to navigate user back to groups page
     if(requestData.groupStatus === "GROUP_STATUS_GONE") {
       // selectedGroupAtom is set to equal this return value
       return {

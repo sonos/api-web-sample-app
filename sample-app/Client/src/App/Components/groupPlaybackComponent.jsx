@@ -17,7 +17,7 @@ import Select from "react-select";
 import PlaylistsController from "../Controllers/playlistsController";
 
 /** 
- * This page contains all the components on the group player page
+ * This page contains all the components on the group playback page
  * Contains players in current household, group volume slider, players volume slider, and the back button to the groups page 
  * @param props.householdId {string} targets specific household in Sonos API
  * @param props.museClientConfig {JSON} Contains access token for Sonos API call
@@ -25,7 +25,7 @@ import PlaylistsController from "../Controllers/playlistsController";
  * @param props.playback {JSON} Accesses the state of playbackStateAtom
  * @param props.groupsInfoState {JSON} Accesses state of groupsInfoAtom
  */
-class GroupPlayersComponent extends Component {
+class GroupPlaybackComponent extends Component {
   constructor(props) {
     super(props);
 
@@ -194,4 +194,4 @@ class GroupPlayersComponent extends Component {
   }
 }
 
-export default GroupPlayersComponent;
+export default GroupPlaybackComponent;

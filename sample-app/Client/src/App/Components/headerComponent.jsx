@@ -4,7 +4,7 @@ import ImageComponent from "./GroupSubComponents/imageComponent";
 /** 
  *  Functional component for header used throughout application
  *  Displays Sonos logo image and logout button image
- *  These elements appear on the households, groups, and group player pages.
+ *  These elements appear on the households, groups, and group playback pages.
  */
 export default function HeaderComponent() {
   /**

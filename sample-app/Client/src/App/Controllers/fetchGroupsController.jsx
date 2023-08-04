@@ -45,7 +45,7 @@ class FetchGroups extends Component {
           <GroupsSubscribe householdId= {this.props.householdId}/>
         </div>
         <div>
-          {/* Once groups information has been fetched, a button that routes user to group player page is created for each group */}
+          {/* Once groups information has been fetched, a button that routes user to group playback page is created for each group */}
           {!this.props.groupsInfoState.groupFlag && (
             <ListGroupsComponent
               navigate={this.props.navigate}
