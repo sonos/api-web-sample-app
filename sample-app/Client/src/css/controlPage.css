@@ -11,13 +11,6 @@
   position: relative;
 }
 
-.back_button_Wrapper {
-  position: absolute;
-  top: -4px;
-  left: 10px;
-  z-index: 100;
-}
-
 .group_box {
   position:relative;
   width: 40%;

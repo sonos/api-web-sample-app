@@ -22,9 +22,7 @@ class ListGroupsComponent extends Component {
       <div>
         <div className="main_page">
           <HeaderComponent />
-          <div className="back_button_Wrapper">
-              <BackButton navigate={this.props.navigate} />
-          </div>
+          <BackButton navigate={this.props.navigate} />
           <div className="group_text">
             <p>Groups</p>
           </div>

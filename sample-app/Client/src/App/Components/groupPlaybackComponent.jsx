@@ -16,9 +16,9 @@ import FavoritesController from "../Controllers/favoritesController";
 import Select from "react-select";
 import PlaylistsController from "../Controllers/playlistsController";
 
-/** 
+/**
  * This page contains all the components on the group playback page
- * Contains players in current household, group volume slider, players volume slider, and the back button to the groups page 
+ * Contains players in current household, group volume slider, players volume slider, and the back button to the groups page
  * @param props.householdId {string} targets specific household in Sonos API
  * @param props.museClientConfig {JSON} Contains access token for Sonos API call
  * @param props.groupId {string} targets specific group when fetching current playback state from Sonos API
@@ -63,7 +63,7 @@ class GroupPlaybackComponent extends Component {
         </div>
 
         {/* Upon instantiation, fetches groups information from Sonos API and sets groupFlag to false */}
-        {this.props.groupsInfoState.groupFlag && ( 
+        {this.props.groupsInfoState.groupFlag && (
           <GetGroups
             householdId={this.props.householdId}
             museClientConfig={this.props.museClientConfig}
@@ -81,11 +81,8 @@ class GroupPlaybackComponent extends Component {
         )}
 
         <HeaderComponent />
-
+        <BackButton navigate={this.props.navigate}/>
         <div className="group_name">
-          <div className="back_button_Wrapper">
-            <BackButton navigate={this.props.navigate}/>
-          </div>
           <div className="group_box">
             <p>{this.props.state.groupName} </p>
           </div>
@@ -109,7 +106,7 @@ class GroupPlaybackComponent extends Component {
               museClientConfig={this.props.museClientConfig}
             />
 
-            {/* If current playback cannot skip to next, make skipToNext button appear disabled */} 
+            {/* If current playback cannot skip to next, make skipToNext button appear disabled */}
             <div className={this.props.playback.canSkip === false ? "group_next_disabled" : "group_next"} onClick={this.skipToNext}>
               <i className="fa fa-step-forward fa-2x"></i>
             </div>

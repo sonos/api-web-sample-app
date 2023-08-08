@@ -25,10 +25,6 @@ body {
   width: 100%;
 }
 
-/*
-*           group page
-*/
-
 .group_text {
   text-align: center;
 
@@ -41,10 +37,10 @@ body {
 }
 
 .back_button {
-  position: relative;
-  margin-top: 34%;
-  height: 10%;
-  color: black;
+  position: absolute;
+  margin-top: 4%;
+  margin-left: 2%;
+  z-index: 100;
 }
 
 i.fa-chevron-circle-left {
