@@ -105,7 +105,7 @@ See [Sonos Developer Documentation](https://devdocs.sonos.com/reference/) for in
 The sample application has two main parts: the client and the server. The client handles all user-facing components, while the server listens for Sonos
 API events and sends those events to the client via a WebSocket connection.
 
-![Client/Server/ngrok sequence diagram](https://github.com/Sonos-Inc/pdsw-portal-sample-app/assets/107051324/faf117c4-c557-4b67-a466-654ffb35d397)
+![Client/Server/ngrok sequence diagram](https://github.com/Sonos-Inc/pdsw-portal-sample-app/assets/107051324/2aabf18c-c0ba-4307-b8e0-f5f10701d54e)
 
 In order for the server to receive Sonos API events, the in-use Sonos Control Integration API key must specify a URL for the events to be sent to. For the purpose of demonstrating this Sample App,
 ngrok exposes a port on your computer and creates a public URL that allows events to be sent directly to the specified port (8080 in this case).
