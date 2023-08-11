@@ -10,6 +10,7 @@ download it to use as a template for your own applications.
 - System control actions
   - Play/pause
   - Skip to next/previous track
+  - Shuffle and repeat/repeat 1
   - Group volume control
   - Player volume control
   - Grouping/ungrouping players
@@ -262,7 +263,7 @@ See [refreshAuthToken.js](sample-app/Client/src/App/Authentication/refreshAuthTo
 - Fetches music service logos from [XML URL](https://service-catalog.ws.sonos.com/mslogo) and uses music service provider ID obtained from playback metadata
   Sonos API call to display correct logo
 - Subscribes to the following event types and automatically re-renders the page to update the following aspects:
-  - Playback: Play/pause button state
+  - Playback: Play/pause button state, shuffle button state, repeat button state
   - Playback metadata: Track name, container name, artist name, track cover art, and music service provider logo
   - Group volume: Group volume slider
   - Group status: Group name. If group disappears (GROUP_STATUS_GONE event), user is automatically navigated back to groups page
@@ -273,6 +274,8 @@ See [refreshAuthToken.js](sample-app/Client/src/App/Authentication/refreshAuthTo
   - On click, skip back button restarts current track if possible. On two clicks within 4 seconds, skip back button skips to previous track.
     See [`GroupPlaybackComponent`](sample-app/Client/src/App/Components/groupPlaybackComponent.jsx)
   - On click, skip next button skips to next track if possible. See [`GroupPlaybackComponent`](sample-app/Client/src/App/Components/groupPlaybackComponent.jsx)
+  - On click, repeat button cycles through repeat/repeat 1/no repeat if possible. See [`GroupPlaybackComponent`](sample-app/Client/src/App/Components/groupPlaybackComponent.jsx)
+  - On click, shuffle button toggles shuffle for current group. See [`GroupPlaybackComponent`](sample-app/Client/src/App/Components/groupPlaybackComponent.jsx)
   - On change, group volume slider sends volume command for current group. See [`VolumeComponent`](sample-app/Client/src/App/Components/GroupSubComponents/volumeComponent.jsx)
   - Clicking an unchecked player groups that player to current group. Clicking a checked player ungroups that player. See
     [`PlayerComponent`](sample-app/Client/src/App/Components/playerComponent.jsx)

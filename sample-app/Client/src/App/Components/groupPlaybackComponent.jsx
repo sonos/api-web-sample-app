@@ -94,9 +94,21 @@ class GroupPlaybackComponent extends Component {
             groupId={this.props.groupId}
             museClientConfig={this.props.museClientConfig}
           />
+
           <div className="group_buttons">
-            {/* If current playback cannot skip to previous and cannot restart, make skipToPrevious button appear disabled */}
-            <div className={this.props.playback.canSkipBack === false && this.props.playback.canSeek === false ? "group_prev_disabled" : "group_prev"} onClick={this.skipToPrevious}>
+            {/* If repeat or repeatOne is available, repeat/repeatOne button is shown
+                If repeat is enabled, repeat button is shown
+                If repeatOne is enabled, repeatOne button is shown
+                If both repeat and repeatOne are disabled, a light gray repeat button is shown */}
+            <div className={(this.props.playback.repeatOne || this.props.playback.repeat) ? "repeat" : "not_repeat"} onClick={this.toggleRepeat}>
+              {(this.props.playback.canRepeat || this.props.playback.canRepeatOne) && (!this.props.playback.repeatOne
+                ? (<img className="pointer" src={require("../../images/repeat.png")} width="50px" height="50px" alt="Repeat"/>)
+                : (<img className="pointer" src={require("../../images/repeat_one.png")} width="50px" height="50px" alt="Repeat One"/>)
+              )}
+            </div>
+
+            {/* If current playback cannot skip to previous and cannot restart, skipToPrevious button appears disabled */}
+            <div className={!this.props.playback.canSkipBack && !this.props.playback.canSeek ? "group_prev_disabled" : "group_prev"} onClick={this.skipToPrevious}>
               <i className="fa fa-step-backward fa-2x"></i>
             </div>
 
@@ -106,9 +118,16 @@ class GroupPlaybackComponent extends Component {
               museClientConfig={this.props.museClientConfig}
             />
 
-            {/* If current playback cannot skip to next, make skipToNext button appear disabled */}
-            <div className={this.props.playback.canSkip === false ? "group_next_disabled" : "group_next"} onClick={this.skipToNext}>
+            {/* If current playback cannot skip to next, skipToNext button appears disabled */}
+            <div className={!this.props.playback.canSkip ? "group_next_disabled" : "group_next"} onClick={this.skipToNext}>
               <i className="fa fa-step-forward fa-2x"></i>
+            </div>
+
+            {/* If shuffle is available, shuffle button is displayed. If shuffle is enabled, button has darker opacity */}
+            <div className={this.props.playback.shuffle ? "shuffled" : "not_shuffled"} onClick={this.toggleShuffle}>
+              {this.props.playback.canShuffle && (
+                <img className="pointer" src={require("../../images/shuffle.png")} width="50px" height="50px" alt="Shuffle"/>
+              )}
             </div>
           </div>
 
@@ -155,9 +174,8 @@ class GroupPlaybackComponent extends Component {
     );
   }
 
-
   /**
-   * Onclick handler for skipToPrevious button
+   * onClick handler for skipToPrevious button
    * If skip back button was last clicked more than 4 seconds ago, restart current track if possible. Otherwise, skip to previous song if possible
    */
   skipToPrevious = () => {
@@ -173,12 +191,44 @@ class GroupPlaybackComponent extends Component {
   }
 
   /**
-   * Onclick handler for skipToNext button
+   * onClick handler for skipToNext button
    * Skips to next track if possible
    */
   skipToNext = () => {
     if(this.props.playback.canSkip) {
       this.ControlOptions.helperControls("playback/skipToNextTrack", this.props.groupId, {});
+    }
+  }
+
+  /**
+   * onClick handler for shuffle button
+   * Toggles shuffle for current group if possible
+   */
+  toggleShuffle = () => {
+    if(this.props.playback.canShuffle) {
+      this.ControlOptions.helperControls("playback/playMode", this.props.groupId, {playModes: {shuffle: !this.props.playback.shuffle}});
+    }
+  }
+
+  /**
+   * onClick handler for repeat button
+   * If repeat and repeatOne are available, cycles through repeat enabled, repeatOne enabled, and both disabled, in this order
+   * If only repeat available, toggles repeat for the current group
+   * If only repeatOne available, toggles repeatOne for the current group
+   */
+  toggleRepeat = () => {
+    if(this.props.playback.canRepeat && this.props.playback.canRepeatOne) {
+      if(this.props.playback.repeatOne) {
+        this.ControlOptions.helperControls("playback/playMode", this.props.groupId, {playModes: {repeatOne: false, repeat: false}});
+      } else if(this.props.playback.repeat) {
+        this.ControlOptions.helperControls("playback/playMode", this.props.groupId, {playModes: {repeatOne: true, repeat: false}});
+      } else {
+        this.ControlOptions.helperControls("playback/playMode", this.props.groupId, {playModes: {repeatOne: false, repeat: true}});
+      }
+    } else if(this.props.playback.canRepeat) {
+      this.ControlOptions.helperControls("playback/playMode", this.props.groupId, {playModes: {repeat: !this.props.playback.repeat}});
+    } else if(this.props.playback.canRepeatOne) {
+      this.ControlOptions.helperControls("playback/playMode", this.props.groupId, {playModes: {repeatOne: !this.props.playback.repeatOne}});
     }
   }
 

@@ -16,7 +16,13 @@ export default function PlaybackStateHandler(requestData) {
       getStateFlag: false,
       canSkip: requestData.availablePlaybackActions.canSkip,
       canSkipBack: requestData.availablePlaybackActions.canSkipBack,
-      canSeek: requestData.availablePlaybackActions.canSeek
+      canSeek: requestData.availablePlaybackActions.canSeek,
+      repeat: requestData.playModes.repeat,
+      repeatOne: requestData.playModes.repeatOne,
+      shuffle: requestData.playModes.shuffle,
+      canRepeat: requestData.availablePlaybackActions.canRepeat,
+      canRepeatOne: requestData.availablePlaybackActions.canRepeatOne,
+      canShuffle: requestData.availablePlaybackActions.canShuffle
     };
   } catch (e) {
     console.error("Error in fetching the playback state from the event", e);
