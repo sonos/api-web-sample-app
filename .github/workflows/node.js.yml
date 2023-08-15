@@ -13,6 +13,7 @@ jobs:
   build:
 
     runs-on: self-hosted
+    timeout-minutes: 100
     defaults:
       run:
         working-directory: ./server/
