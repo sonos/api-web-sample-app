@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: [self-hosted, jammy]
+    runs-on: [self-hosted, bionic]
     timeout-minutes: 100
     defaults:
       run:
@@ -26,12 +26,31 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        # cache: 'npm'
-        # cache-dependency-path: '**/Client/package-lock.json'
+
+    # - name: Use Node.js ${{ matrix.node-version }}
+    #   uses: actions/setup-node@v3
+    #   with:
+    #     node-version: ${{ matrix.node-version }}
+    #     # cache: 'npm'
+    #     # cache-dependency-path: '**/Client/package-lock.json'
+
+    # TEMPORARY until we get a runner on ubuntu focal (20.4) or jammy (22.4)
+    - name: Install Sonos Node
+      run: |
+        wget https://packages.sonos.com/bootstrap-no-check.sh
+        chmod +x bootstrap-no-check.sh
+        sudo ./bootstrap-no-check.sh
+        sudo apt install -y sonos-nodejs-18.12.1
+        sudo rm /usr/bin/node
+        sudo ln -s /usr/local/nodejs-18.12.1/bin/node /usr/bin/node
+        sudo rm /usr/bin/npm
+        sudo ln -s /usr/local/nodejs-18.12.1/bin/npm /usr/bin/npm
+
+    # Proper way to setup node once we have a more updated ubuntu runner
+    # - name: Setup Node
+    #   uses: actions/setup-node@v3
+    #   with:
+
     - run: npm view
     - run: npm ci
     # - run: npm run build --if-present
