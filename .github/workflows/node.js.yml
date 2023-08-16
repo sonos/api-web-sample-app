@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 100
     defaults:
       run:
-        working-directory: 'sample-app'
+        working-directory: 'sample-app/Server'
 
     strategy:
       matrix:
