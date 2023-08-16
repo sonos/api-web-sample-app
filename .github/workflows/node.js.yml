@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: [self-hosted, 20.04]
+    runs-on: [self-hosted, focal]
     timeout-minutes: 100
     defaults:
       run:
