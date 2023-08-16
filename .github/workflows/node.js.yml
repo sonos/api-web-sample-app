@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: [self-hosted, focal]
+    runs-on: [self-hosted, jammy]
     timeout-minutes: 100
     defaults:
       run:
