@@ -11,9 +11,9 @@ jobs:
 
     runs-on: [self-hosted, bionic]
     timeout-minutes: 10
-    # defaults:
-    #   run:
-    #     working-directory: 'sample-app/Client'
+    defaults:
+      run:
+        working-directory: 'sample-app/Client'
 
     steps:
     - uses: actions/checkout@v3
@@ -29,7 +29,7 @@ jobs:
         sudo ln -s /usr/local/nodejs-18.12.1/bin/node /usr/bin/node
         sudo rm /usr/bin/npm
         sudo ln -s /usr/local/nodejs-18.12.1/bin/npm /usr/bin/npm
-      working-directory: 'sample-app/Client'
+      
 
     # Proper way to setup node once we have a more updated ubuntu runner
     # - name: Setup Node
