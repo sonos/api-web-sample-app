@@ -39,17 +39,11 @@ jobs:
     - name: Install dependencies
       run: npm ci
       working-directory: 'sample-app/Client'
-    # - run: npm ci
 
     - name: Run mock Server
       run: node mock-cors.js &
-      working-directory: 'sample-app/Test-cors'
+      working-directory: cd ./sample-app/Test-cors
 
     - name: Run tests
       run: npm test
       working-directory: 'sample-app/Client'
-    # - run: cd Test-cors/
-    # - run: node mock-cors.js
-    # - run: cd ..
-    # - run: cd Client/
-    # - run: npm test
