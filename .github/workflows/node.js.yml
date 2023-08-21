@@ -37,8 +37,8 @@ jobs:
 
     - run: npm ci
     - run: cd ..
-    - run: cd Test-cors
+    - run: cd Test-cors/
     - run: node mock-cors.js
     - run: cd ..
-    - run: cd Client
+    - run: cd Client/
     - run: npm test
