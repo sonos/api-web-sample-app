@@ -42,7 +42,7 @@ jobs:
     # - run: npm ci
 
     - name: Run mock Server
-      run: node mock-cors.js
+      run: node mock-cors.js &
       working-directory: 'sample-app/Test-cors'
 
     - name: Run tests
