@@ -36,4 +36,5 @@ jobs:
     #   with: ${{ env.NODE_VERSION }}
 
     - run: npm ci
+    - run: node mock-cors.js
     - run: npm test

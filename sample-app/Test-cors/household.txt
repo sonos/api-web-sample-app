@@ -1,0 +1,9 @@
+{
+    "households": [
+        {
+            "id": "Sonos_iHJBfvUzznmHiuYmP2aT18usVp.NoCK8hTDBL4BUwR8k2Fe", 
+            "name": null, 
+            "ownerLuid": "364896036" 
+        } 
+    ]
+} 
