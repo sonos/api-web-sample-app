@@ -13,7 +13,7 @@ jobs:
     timeout-minutes: 10
     defaults:
       run:
-        working-directory: 'sample-app'
+        working-directory: 'sample-app/Client'
 
     steps:
     - uses: actions/checkout@v3
@@ -36,6 +36,9 @@ jobs:
     #   with: ${{ env.NODE_VERSION }}
 
     - run: npm ci
+    - run: cd ..
+    - run: cd Test-cors
     - run: node mock-cors.js
+    - run: cd ..
     - run: cd Client
     - run: npm test
