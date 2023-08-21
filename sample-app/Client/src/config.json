@@ -1,7 +1,7 @@
 {
   "credentials": {
-    "clientId": "<Insert key from Developer Portal here>",
-    "secret": "<Insert secret from Developer Portal here>",
+    "clientId": "3db001c0-3853-438c-9b0a-5beb2b8b6c57",
+    "secret": "3d78c225-962b-4646-b1f7-bdbce4a2f04d",
     "redirectURL": "http://localhost:3000"
   },
   "apiEndPoints": {
