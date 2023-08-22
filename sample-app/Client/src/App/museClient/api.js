@@ -13,7 +13,7 @@
  */
 import * as url from "url";
 import isomorphicFetch from "isomorphic-fetch";
-const BASE_PATH = "http://localhost:8090/https://api.ws.sonos.com/control/api/v2".replace(/\/+$/, "");
+const BASE_PATH = "http://127.0.0.1:8090/https://api.ws.sonos.com/control/api/v2".replace(/\/+$/, "");
 /**
  *
  * @export
