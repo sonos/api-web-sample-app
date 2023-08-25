@@ -1,0 +1,49 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: [self-hosted, bionic]
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: 'sample-app/Client'
+
+    steps:
+    - uses: actions/checkout@v3
+
+    # TEMPORARY until we get a runner on ubuntu focal (20.4) or jammy (22.4)
+    - name: Install Sonos Node
+      run: |
+        wget https://packages.sonos.com/bootstrap-no-check.sh
+        chmod +x bootstrap-no-check.sh
+        sudo ./bootstrap-no-check.sh
+        sudo apt install -y sonos-nodejs-18.12.1
+        sudo rm /usr/bin/node
+        sudo ln -s /usr/local/nodejs-18.12.1/bin/node /usr/bin/node
+        sudo rm /usr/bin/npm
+        sudo ln -s /usr/local/nodejs-18.12.1/bin/npm /usr/bin/npm
+      
+
+    # Proper way to setup node once we have a more updated ubuntu runner
+    # - name: Setup Node
+    #   uses: actions/setup-node@v3
+    #   with: ${{ env.NODE_VERSION }}
+
+    - name: Install dependencies
+      run: npm ci
+      working-directory: 'sample-app/Client'
+
+    - name: Run mock Server
+      run: node mock-cors.js &
+      working-directory: 'sample-app/Test-cors'
+
+    - name: Run tests
+      run: npm test
+      working-directory: 'sample-app/Client'

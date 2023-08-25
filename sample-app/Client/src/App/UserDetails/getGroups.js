@@ -71,7 +71,7 @@ export default function GetGroups(props) {
   ) : props.showLoadingScreen && (
     <div className="main_page">
       <div className="render_page">
-      <CircularProgress color="inherit" />
+      <CircularProgress color="inherit" data-testid="custom-element"/>
       </div>
     </div>
   );

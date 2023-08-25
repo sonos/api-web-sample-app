@@ -1,0 +1,71 @@
+{
+    "_objectType": "groups",
+    "groups": [
+        {
+            "_objectType": "group",
+            "id": "RINCON_2439B3B3BDC4290:6783439021",
+            "name": "Sonos Roam",
+            "coordinatorId": "RINCON_2439B3B3BDC4290",
+            "playbackState": "PLAYBACK_STATE_IDLE",
+            "playerIds": [
+                "RINCON_2439B3B3BDC4290"
+            ]
+        },
+        {
+            "_objectType": "group",
+            "id": "RINCON_2439B3B3BDC4290:6783439021",
+            "name": "Bedroom",
+            "coordinatorId": "RINCON_2439B3B3BDC4290",
+            "playbackState": "PLAYBACK_STATE_PLAYING",
+            "playerIds": [
+                "RINCON_2439B3B3BDC4290"
+            ]
+        }
+    ],
+    "players": [
+        {
+            "_objectType": "player",
+            "id": "RINCON_2439B3B3BDC4290",
+            "name": "Sonos Roam",
+            "websocketUrl": "wss://192.168.1.45:1443/websocket/api",
+            "softwareVersion": "75.1-43188-main_release",
+            "apiVersion": "1.36.0-alpha.10",
+            "minApiVersion": "1.1.0",
+            "isUnregistered": false,
+            "capabilities": [
+                "CLOUD",
+                "PLAYBACK",
+                "AIRPLAY",
+                "VOICE",
+                "AUDIO_CLIP"
+            ],
+            "deviceIds": [
+                "RINCON_2439B3B3BDC4290"
+            ]
+        },
+        {
+            "_objectType": "player",
+            "id": "RINCON_2439B3B3BDC4290",
+            "name": "Bedroom",
+            "websocketUrl": "wss://192.168.1.81:1443/websocket/api",
+            "softwareVersion": "76.1-43310-main_release",
+            "apiVersion": "1.37.0-alpha.7",
+            "minApiVersion": "1.1.0",
+            "isUnregistered": false,
+            "capabilities": [
+                "CLOUD",
+                "HT_PLAYBACK",
+                "PLAYBACK",
+                "HT_POWER_STATE",
+                "AIRPLAY",
+                "VOICE",
+                "AUDIO_CLIP",
+                "HDMI"
+            ],
+            "deviceIds": [
+                "RINCON_2439B3B3BDC4290"
+            ]
+        }
+    ],
+    "partial": false
+}
