@@ -100,13 +100,13 @@ The steps for open API spec generation are available in the [README in sample-ap
 See [Sonos Developer Documentation](https://devdocs.sonos.com/reference/) for information on specific API commands.
 
 ## Client Flow
-<img alt="Client flow diagram" src=https://github.com/Sonos-Inc/pdsw-portal-sample-app/assets/107051324/3b44f43c-3b5c-4a83-9fd9-c008054feb5b width="60%"/>
+<img alt="Client flow diagram" src=https://github.com/sonos/api-web-sample-app/assets/67022827/b05d2aa5-a879-4b6a-8fd4-68265924ce18 width="60%"/>
 
 ## Server/ngrok/WebSocket Structure
 The sample application has two main parts: the client and the server. The client handles all user-facing components, while the server listens for Sonos
 API events and sends those events to the client via a WebSocket connection.
 
-![Client/Server/ngrok sequence diagram](https://github.com/Sonos-Inc/pdsw-portal-sample-app/assets/107051324/2aabf18c-c0ba-4307-b8e0-f5f10701d54e)
+![Client/Server/ngrok sequence diagram](https://github.com/sonos/api-web-sample-app/assets/67022827/4b27544d-7009-4e86-9ca0-eb28ae37cb29)
 
 In order for the server to receive Sonos API events, the in-use Sonos Control Integration API key must specify a URL for the events to be sent to. For the purpose of demonstrating this Sample App,
 ngrok exposes a port on your computer and creates a public URL that allows events to be sent directly to the specified port (8080 in this case).
@@ -128,7 +128,7 @@ Despite the severe performance limitations, ngrok is helpful for demonstrating s
 should not be used in a production-ready app.
 
 ## Eventing Structure
-<img alt="Eventing flow diagram" src=https://github.com/Sonos-Inc/pdsw-portal-sample-app/assets/107051324/a44924cc-cd2a-429e-a54a-46762132f501 width="50%"/>
+<img alt="Eventing flow diagram" src=https://github.com/sonos/api-web-sample-app/assets/67022827/bf38ae14-b26d-44ca-b7a4-8b4037e92b29 width="50%"/>
 
 #### Subscriptions
 Upon navigating to the groups page or the group player page, the information of various aspects of your Sonos system is fetched and stored. This information can quickly
@@ -186,7 +186,7 @@ this access token is saved in the window's local storage and accessed throughout
 Since the access token is saved, refreshing the page or navigating to other sites does not clear the token. The access token expires after 24 hours, but its
 corresponding refresh token does not expire. Clicking the sample app's logout button will clear the currently stored access token and initiate the login process from scratch.
 
-<img alt="Authentication flow diagram" src=https://github.com/Sonos-Inc/pdsw-portal-sample-app/assets/107051324/bfb23682-2419-44e9-817b-c85a6ceeda63 width="70%"/>
+<img alt="Authentication flow diagram" src=https://github.com/sonos/api-web-sample-app/assets/67022827/442c5d1c-855c-4a37-8132-5f91939d85a6 width="70%"/>
 
 
 #### There are three possible access token states a user can encounter when using the sample app:
