@@ -64,7 +64,7 @@ download it to use as a template for your own applications.
    2. Create an account and login.
    3. Navigate to Control Integrations
    4. Create a new Control Integration. 
-   5. In the "Redirect URI", enter your public forwarding URL from step 2 with the path `/oauth`. (Ex: https://test.trycloudflare.com/oauth). Note that if you don't use a custom domain, the forwarding URL will change every time you restart the tunneling service, the Redirect URI must be updated to the new URL.
+   5. In the "Redirect URI" field, enter your public forwarding URL from step 2 with the path `/oauth`. (Ex: https://test.trycloudflare.com/oauth). Note that if you don't use a custom domain, the forwarding URL will change every time you restart the tunneling service, the Redirect URI must be updated to the new URL.
    6. In the "Event Callback URL" field, enter your public forwarding URL from step 2. The Event Callback URL must also be updated everytime your forwarding URL changes.
 	
    > Note - for more guidance on creation of key/secrets and their uses, go to https://docs.sonos.com/docs/control-sonos-players
