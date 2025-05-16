@@ -26,7 +26,7 @@ download it to use as a template for your own applications.
 - Fetching household's Favorites/Playlists and initiating playback
 - Fetching music service provider logos
 
-***Note: There is a known issue where ngrok does not receive some events. This is a limitation of running the server locally and can be fixed by implementing your own remote server.**
+>**Note: There is a known issue where ngrok does not receive some events. This is a limitation of running the server locally and can be fixed by implementing your own remote server.**
 
 
 ## Table of Contents
@@ -45,26 +45,32 @@ download it to use as a template for your own applications.
 # Requirements
 
 - Nodejs: https://nodejs.org/en/download/
-- Ngrok: https://ngrok.com/download
-	- Note: You must have/create an Ngrok account and follow the directions to add your auth token
+- A tunneling service, some options include:
+  - [Cloudflare Tunneled](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) - Best if you have a custom domain and can change DNS to Cloudflare
+  - [Localtunnel](https://theboroer.github.io/localtunnel-www/) - Open source and allows you to request a sub-domain
+  - [ngrok](https://ngrok.com/) - Reliable but URL is temporary with the free version
 - typescript: https://www.typescriptlang.org/download
 - CORS Anywhere: Run `npm install cors-anywhere` in terminal/command prompt (must have installed Nodejs already)
 
 # Setup and Configuration
 1. Open terminal/command prompt and clone this repository.
-2. In terminal/command prompt, run `ngrok http 8080`
+2. In terminal/command prompt, start your tunneling service. It should provide a public URL. Example commands (you only need to run 1 of the following):
+   - `cloudflared tunnel --url http://localhost:8080` (temporary tunnel for quick testing)
+   - `cloudflared tunnel run --token <TOKEN from Cloudflare>` (after setting up domain, make sure to point it to http://localhost:8080)
+   - `localtunnel --port 8080 --subdomain my-custom-domain` (requesting a subdomain is recommended to avoid changing public URL)
+   - `ngrok http 8080`
 3. Create client credentials
    1. Navigate to https://developer.sonos.com/
    2. Create an account and login.
-   3. Navigate to My Accounts > Integrations.
+   3. Navigate to Control Integrations
    4. Create a new Control Integration. 
-   5. In the Control Integration, create a new API Key.
-   6. In the "Event Callback URL" field, enter your ngrok forwarding URL (Ends in `.ngrok-free.app`). Note that every time ngrok is restarted, the Event Callback URL must be updated to the new ngrok URL
+   5. In the "Redirect URI", enter your public forwarding URL from step 2 with the path `/oauth`. (Ex: https://test.trycloudflare.com/oauth). Note that if you don't use a custom domain, the forwarding URL will change every time you restart the tunneling service, the Redirect URI must be updated to the new URL.
+   6. In the "Event Callback URL" field, enter your public forwarding URL from step 2. The Event Callback URL must also be updated everytime your forwarding URL changes.
 	
-   Note - for more guidance on creation of key/secrets and their uses, go to https://developer.sonos.com/build/direct-control/authorize/
+   > Note - for more guidance on creation of key/secrets and their uses, go to https://docs.sonos.com/docs/control-sonos-players
 4. Configure authentication
    1. Open the file [config.json](sample-app/Client/src/config.json) in the location - `sample-app/Client/src/`
-   2. Replace `<Insert key from Developer Portal here>` and `<Insert secret from Developer Portal here>` with your Sonos control integration API key client ID and secret, respectively
+   2. Replace `<Insert key from Developer Portal here>` and `<Insert secret from Developer Portal here>` with your Sonos control integration API key client ID and secret, respectively. Replace `<URL of tunnel>/oauth (ex: https://test.trycloudflare.com/oauth)` with your public fowarding URL from step 2 with `/oauth` as path.
 5. Start the Application
 
    a) **With Docker**: Recommended for testing the Sample App's capabilities
@@ -97,12 +103,14 @@ download it to use as a template for your own applications.
 The steps for open API spec generation are available in the [README in sample-app/Client/src/App/museClient](sample-app/Client/src/App/museClient/README.md)
 
 # Reference
-See [Sonos Developer Documentation](https://devdocs.sonos.com/reference/) for information on specific API commands.
+See [Sonos Developer Documentation](https://docs.sonos.com/reference/about-control-api) for information on specific API commands.
 
 ## Client Flow
 <img alt="Client flow diagram" src=https://github.com/sonos/api-web-sample-app/assets/67022827/b05d2aa5-a879-4b6a-8fd4-68265924ce18 width="60%"/>
 
 ## Server/ngrok/WebSocket Structure
+>Note: for the following, we will assume you are using ngrok as your tunneling service.
+
 The sample application has two main parts: the client and the server. The client handles all user-facing components, while the server listens for Sonos
 API events and sends those events to the client via a WebSocket connection.
 
