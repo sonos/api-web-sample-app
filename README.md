@@ -26,7 +26,7 @@ download it to use as a template for your own applications.
 - Fetching household's Favorites/Playlists and initiating playback
 - Fetching music service provider logos
 
->**Note: There is a known issue where ngrok does not receive some events. This is a limitation of running the server locally and can be fixed by implementing your own remote server.**
+>**Note: This sample app if for demonstration purposes only. Some of the authorization logic happens client-side and that is not recommeded for production. Please see the [Sonos Developer Documentation](https://docs.sonos.com/docs/authorize) for best practices.**
 
 
 ## Table of Contents
@@ -49,6 +49,7 @@ download it to use as a template for your own applications.
   - [Cloudflare Tunneled](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) - Best if you have a custom domain and can change DNS to Cloudflare
   - [Localtunnel](https://theboroer.github.io/localtunnel-www/) - Open source and allows you to request a sub-domain
   - [ngrok](https://ngrok.com/) - Reliable but URL is temporary with the free version
+    -  >**Note: There is a known issue where ngrok does not receive some events. This is a limitation of running the server locally and can be fixed by implementing your own remote server.**
 - typescript: https://www.typescriptlang.org/download
 - CORS Anywhere: Run `npm install cors-anywhere` in terminal/command prompt (must have installed Nodejs already)
 
@@ -211,6 +212,8 @@ These authentication states are checked using `getAccessTokenState` in [authenti
 [routingController.jsx](sample-app/Client/src/App/Controllers/routingController.jsx) for the specific conditional rendering used to account for these three states.
 
 #### Obtaining a new access token
+>**Please avoid obtaining a new access token on the client-side in a production setting. See [Sonos Developer Documentation](https://docs.sonos.com/docs/authorize) for best practices.**
+
 1. The user clicks the "Log In" button and is redirected to the Sonos login page
 2. The user logs into their Sonos account and authorizes the control integration API key specified in [config.json](sample-app/Client/src/config.json)
 3. Once the login is completed, Sonos provides a response code within the URL parameters. The sample app retrieves this response code
