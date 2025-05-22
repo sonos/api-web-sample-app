@@ -70,6 +70,15 @@ app.post("/", (req, res) => {
   sendRequest({ headers: headers, data: data });
 });
 
+app.get("/oauth", (req, res) => {
+  const { state, code } = req.query;
+  const redirectTo = `http://localhost:3000?state=${state}&code=${code}`;
+
+  res.redirect(302, redirectTo);
+
+  console.log(`Redirecting /oauth to ${redirectTo}`);
+});
+
 // If localhost:8000 is navigated to, Hello World is displayed
 app.get("/", (req, res) => {
   console.log("GET request received...");

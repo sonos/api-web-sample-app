@@ -2,7 +2,7 @@
   "credentials": {
     "clientId": "<Insert key from Developer Portal here>",
     "secret": "<Insert secret from Developer Portal here>",
-    "redirectURL": "http://localhost:3000"
+    "redirectURL": "<URL of tunnel>/oauth (ex: https://test.trycloudflare.com/oauth)"
   },
   "apiEndPoints": {
     "oauthURL":"https://api.sonos.com/login/v3/oauth?",
